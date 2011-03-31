@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources querystringcontext="true">
+  <datasource>
+    <methodname>gsa.search</methodname>
+    <parameters>
+      <parameter name="q" type="string">${select(param.q,'')}</parameter>
+      <parameter name="site" type="string">default_collection</parameter>
+      <parameter name="client" type="string">default_frontend</parameter>
+      <parameter name="as_dt" type="string">${select(param.as_dt,'')}</parameter>
+      <parameter name="as_sitesearch" type="string"/>
+      <parameter name="as_epq" type="string">${select(param.as_epq,'')}</parameter>
+      <parameter name="as_ft" type="string"/>
+      <parameter name="as_filetype" type="string"/>
+      <parameter name="as_lq" type="string">${select(param.as_lq,'')}</parameter>
+      <parameter name="as_occt" type="string"/>
+      <parameter name="as_oq" type="string">${select(param.as_oq,'')}</parameter>
+      <parameter name="as_q" type="string">${select(param.as_q,'')}</parameter>
+      <parameter name="filter" type="int">${select(param.filter,0)}</parameter>
+      <parameter name="start" type="int">${select(param.index,0)}</parameter>
+      <parameter name="num" type="int">10</parameter>
+      <parameter name="numgm" type="int">3</parameter>
+      <parameter name="access" type="string"/>
+      <parameter name="sort" type="string"/>
+      <parameter name="lr" type="string"/>
+      <parameter name="cty" type="string[]"/>
+      <parameter name="childrenLevel" type="int">1</parameter>
+      <parameter name="parentLevel" type="int">0</parameter>
+    </parameters>
+  </datasource>
+</datasources>

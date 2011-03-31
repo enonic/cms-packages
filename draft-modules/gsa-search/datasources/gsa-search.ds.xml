@@ -1,0 +1,10 @@
+<datasources>
+  <datasource>
+    <methodname>gsa.search</methodname>
+    <parameters>
+      <parameter name="q">enonic</parameter>
+      <parameter name="site">default_collection</parameter>
+      <parameter name="client">default_frontend</parameter>
+    </parameters>
+  </datasource>
+</datasources>

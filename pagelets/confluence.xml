@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+  <datasource result-element="menu">
+    <methodname>getMenuBranch</methodname>
+    <parameters>
+      <parameter name="menuItemKey" type="int">${portal.pageKey}</parameter>
+      <parameter name="includeTopLevel" type="boolean">true</parameter>
+      <parameter name="startLevel" type="int">0</parameter>
+      <parameter name="levels" type="int">0</parameter>
+    </parameters>
+  </datasource>
+  <datasource result-element="custom-menu">
+    <methodname>confluence.getSpaceMenu</methodname>
+    <parameters>
+      <parameter name="space">${select(param.space, '')}</parameter>
+      <parameter name="pageKey" type="int">${portal.pageKey}</parameter>
+      <parameter name="page">${select(param.page, '')}</parameter>
+    </parameters>
+  </datasource>
+  <datasource>
+    <methodname>getPreferences</methodname>
+    <parameters>
+      <parameter name="scope" type="string">*</parameter>
+      <parameter name="wildCardkey" type="string">*</parameter>
+    </parameters>
+  </datasource>
+</datasources>

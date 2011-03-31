@@ -1,0 +1,25 @@
+<datasources>
+    <datasource>
+        <methodname>getCategories</methodname>
+        <parameters>
+            <parameter name="cat" type="int">${select(param.fileArchiveCategoryKey, -1)}</parameter>
+            <parameter name="levels" type="int">0</parameter>
+            <parameter name="contentCount" type="boolean">false</parameter>
+            <parameter name="includeCurrent" type="boolean">true</parameter>
+        </parameters>
+    </datasource>
+    <datasource>
+        <methodname>getContentByCategory</methodname>
+        <parameters>
+            <parameter name="cat" type="int[]">${select(param.fileArchiveCategoryKey, -1)}</parameter>
+            <parameter name="levels" type="int">0</parameter>
+            <parameter name="query" type="string"></parameter>
+            <parameter name="orderBy" type="string"></parameter>
+            <parameter name="index" type="int">0</parameter>
+            <parameter name="count" type="int">1000</parameter>
+            <parameter name="includeData" type="boolean">true</parameter>
+            <parameter name="childrenLevel" type="int">0</parameter>
+            <parameter name="parentLevel" type="int">0</parameter>
+        </parameters>
+    </datasource>
+</datasources>

@@ -1,0 +1,242 @@
+/**************
+ * CUSTOM CSS *
+ **************/
+
+/* Blueprint override */
+body {font-size:72%;color:#333;background:#fff url(images/bodybg.jpg) repeat-x center top;font-family:'Trebuchet MS',sans-serif;}
+a:focus, a:hover {text-decoration:none;color:#1B6393;}
+a {color:#1B6393;}
+
+/* From old blueprint grid */
+#header, #outer-container, #footer {margin:0 auto;}
+
+/* Framework */
+#header {height:119px;background:transparent url(images/headerbg.jpg) no-repeat;position:relative;margin-bottom:10px;}
+#logo-screen {width:148px;height:66px;position:absolute;top:25px;left:29px;}
+#breadcrumb-trail, #footer {background-color:#f3f3f3;border:1px solid #e0e0e0;color:#999;margin-bottom:10px;}
+#breadcrumb-trail {margin-top:10px;}
+#breadcrumb-trail, #footer p, #footer a.device-class {padding:5px 10px 6px;}
+#footer img {width:67px;height:30px;float:right;margin:5px 10px 5px 0;}
+#footer a img {float:right;margin:5px 10px;width:auto;height:auto;}
+#footer a img.icon {float:left;margin:0 5px 0 0;}
+#footer p {margin:0;}
+#footer a.device-class {float:left;}
+
+/* Frame */
+.frame {
+    border-style: solid;
+    border-color: #e0e0e0;
+}
+
+#west .frame, #center .frame, #east .frame {
+    margin-bottom: 10px;
+}
+
+/* Top menu */
+.header-content.bottom {position:absolute;right:0;top:32px;color:#fff;padding:4px 0;height:48px;}
+.header-content.bottom input, .header-content.bottom select {border:0;padding:3px 5px;margin:1px 0;width:150px;}
+.header-content.bottom * {float:left;}
+.header-content.bottom fieldset, .header-content.bottom ul {border:0;margin:0;padding:13px 0 0 10px;}
+.header-content.bottom.logged-in ul {padding-left:0;}
+.header-content.bottom fieldset {padding:13px 0 0 0;}
+.header-content.bottom select {width:auto!important;}
+
+.header-content.bottom ul a, .header-content.bottom div, .header-content.bottom label {
+    color: #fff;
+    padding: 2px 10px 3px;
+    width: auto;
+}
+
+.header-content.bottom img.user-image.clickable {
+    cursor: pointer;
+}
+
+.header-content.bottom img.user-image {
+    margin: 0 0 0 4px;
+}
+
+/* Main Menu */
+ul.menu.main.level1 {
+    border: none;
+    background: none;
+}
+
+ul.menu.main.level1 a, ul.menu.main.level1 div, ul.menu.sub div {
+    font-family:georgia,sans-serif;
+    text-align: center;
+    background: transparent url(images/menubg.gif) no-repeat left top;
+    padding: 4px 10px;
+    height: 20px;
+    color: #666;
+    overflow: hidden;
+    border: solid #e0e0e0;
+    border-width: 1px 1px 1px 0;
+}
+
+ul.menu.main.level1 a.first, ul.menu.main.level1 div.first, ul.menu.sub div.first {
+    border-width: 1px;
+    padding-left: 10px;
+}
+
+ul.menu.main.level1 a:hover, ul.menu.main.level1 a.active, ul.menu.main.level1 div.active, ul.menu.main.level1 a.path, ul.menu.main.level1 div.path {
+    background-image: url(images/menubg-active.gif);
+    color: #000;
+}
+
+ul.menu.main {
+    background-color:#f3f3f3;
+    border:1px solid #e0e0e0;
+    border-top: none;
+}
+
+ul.menu.main a, ul.menu.main div {
+    padding: 4px 10px;
+    color: #666;
+    border: solid #f3f3f3;
+    border-width: 0 1px;
+}
+
+ul.menu.main a.first, ul.menu.main div.first {
+    border-width: 0 1px 0 0;
+    padding-left: 11px;
+}
+
+ul.menu.main a:hover, ul.menu.main a.active, ul.menu.main div.active, ul.menu.main a.path, ul.menu.main div.path {
+    color: #000;
+}
+
+ul.menu.main a.active, ul.menu.main div.active, ul.menu.main a.path, ul.menu.main div.path {
+    background-color: #fff;
+    border-color: #e0e0e0;
+}
+
+/* Sub Menu */
+ul.menu.sub div.first {
+    padding-top: 5px;
+    padding-bottom: 3px;
+    text-align: left;
+    color: #000;
+}
+
+ul.menu.sub a, ul.menu.sub div {
+    color: #666;
+    padding: 3px;
+}
+
+ul.menu.sub a:hover, ul.menu.sub a.active, ul.menu.sub div.active {
+    color: #000;
+}
+
+ul.menu.sub ul ul a, ul.menu.sub ul ul div {
+    padding-left: 13px;
+}
+
+/* navigation menu */
+#navigation-header {
+    padding: 6px 10px;
+    background-color: #f3f3f3;
+    margin-bottom: 10px;
+}
+
+ul.menu.navigation {
+    background-color: #e2e2e2;
+    padding-right: 4px;
+}
+
+ul.menu.navigation a, ul.menu.navigation div {
+    padding: 2px 10px;
+    background: #f3f3f3;
+}
+
+ul.menu.navigation div.active {
+    font-weight: bold;
+    color: #333;
+    background-color: #fff;
+}
+
+/* Article */
+p.preface {
+    font-size: 135%;
+    line-height: 1.7;
+}
+
+/* events */
+#time-location {
+    background-color: #e2e2e2;
+    padding: 6px 10px;
+}
+
+.date {
+    border: 1px solid #1B6393;
+    float: left;
+    font-weight: bold;
+    margin: 0 15px 10px 0;
+    width: 50px;
+    text-decoration: none;
+    font-family:georgia,sans-serif;
+
+}
+
+.date span {
+    display: block;
+    text-align: center;
+}
+
+.day {
+    background-color: #dde8ef;
+    color: #1B6393;
+    padding: 0 2px 4px;
+    text-align: center;
+    font-size: 180%;
+}
+
+.month {
+    background: #1B6393;
+    color: #fff;
+    padding: 3px 2px 1px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.mini .date {
+    margin: 0 10px 10px 0;
+    width: 36px;
+}
+
+.mini .day {
+    padding: 0 0 2px;
+    font-size: 130%;
+}
+
+.mini .month {
+    padding: 1px 0 0;
+    font-size: 80%;
+}
+
+/* Video */
+.video.list .play-icon.dummy {
+    background-color: #dfdfdf;
+}
+
+/* File archive */
+#file-archive .column {
+    float: left;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+#file-archive a {
+    color: #000;
+}
+
+#file-archive .heading {
+    font-weight: bold;
+    background-color: #dfdfdf;
+}
+
+/* Print CSS */
+@media print {
+    #logo-print {
+        width: 148px;
+        height: 66pxpx;
+    }
+}

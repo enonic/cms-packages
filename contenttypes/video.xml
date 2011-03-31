@@ -1,0 +1,26 @@
+<contenttype>
+    <config>
+        <form>
+            <title name="title"/>
+            <block name="Video">
+                <input name="title" required="true" type="text">
+                    <display>Title</display>
+                    <xpath>contentdata/title</xpath>
+                </input>
+                <input name="description" type="textarea">
+                    <display>Description</display>
+                    <xpath>contentdata/description</xpath>
+                </input>
+                <input type="image" name="thumbnail">
+                    <display>Thumbnail</display>
+                    <xpath>contentdata/thumbnail</xpath>
+                </input>
+                <input name="video" type="file" required="true">
+                    <display>Video</display>
+                    <xpath>contentdata/video</xpath>
+                    <help>Supported formats: FLV, MP4, M4A, MOV, MP4V, 3GP and 3G2</help>
+                </input>
+            </block>
+        </form>
+    </config>
+</contenttype>

@@ -1,0 +1,24 @@
+<datasources querystringcontext="true" sitecontext="true" usercontext="true">
+  <datasource>
+    <methodname>getContent</methodname>
+    <parameters>
+      <parameter name="key" override="url" type="int[]">-1</parameter>
+      <parameter name="query" type="string"/>
+      <parameter name="orderby" type="string"/>
+      <parameter name="index" type="int">0</parameter>
+      <parameter name="count" type="int">10</parameter>
+      <parameter name="includeData" type="boolean">true</parameter>
+      <parameter name="childrenLevel" type="int">1</parameter>
+      <parameter name="parentLevel" type="int">0</parameter>
+    </parameters>
+  </datasource>
+  <datasource>
+    <methodname>getCategories</methodname>
+    <parameters>
+      <parameter name="cat" override="url" type="int">-1</parameter>
+      <parameter name="levels" type="int">0</parameter>
+      <parameter name="contentCount" type="boolean">false</parameter>
+      <parameter name="includeCurrent" type="boolean">true</parameter>
+    </parameters>
+  </datasource>
+</datasources>

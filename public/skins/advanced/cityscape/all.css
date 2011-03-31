@@ -1,0 +1,56 @@
+/* General */
+.related a[rel='external'], #ConfluenceContent a[rel='nofollow'] {
+    padding-right: 13px;
+    background: transparent url(images/external.png) no-repeat center right;
+}
+
+/* Events */
+.day {
+    background: url(images/datebg.png) repeat-x;
+}
+
+/* Frame */
+a.tool.refresh {
+    background: url(images/icon-refresh.png) no-repeat;
+}
+
+a.tool.expand {
+    background: url(images/icon-expand.png) no-repeat;
+}
+
+a.tool.collapse {
+    background: url(images/icon-collapse.png) no-repeat;
+}
+
+/* Share bar */
+.share-bar .tip {
+    background-image: url(images/icon-comment.png);
+}
+
+.share-bar .facebook, h3.facebook {
+    background-image: url(images/icon-facebook.png);
+}
+
+.share-bar .twitter, h3.twitter {
+    background-image: url(images/icon-twitter.png);
+}
+
+.share-bar .digg, h3.digg {
+    background-image: url(images/icon-digg.png);
+}
+
+.share-bar .delicious, h3.delicious {
+    background-image: url(images/icon-delicious.png);
+}
+
+h3.lastfm {
+    background-image: url(images/icon-lastfm.png);
+}
+
+h3.stumbleupon {
+    background-image: url(images/icon-stumbleupon.png);
+}
+
+h3.rss {
+    background-image: url(images/icon-rss.png);
+}

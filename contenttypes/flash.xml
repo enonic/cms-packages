@@ -1,0 +1,70 @@
+<contenttype>
+  <config name="Flash" version="1.0">
+    <form>
+      <title name="title"/>
+      <block name="Flash">
+        <input name="title" required="true" type="text">
+          <display>Title</display>
+          <xpath>contentdata/title</xpath>
+        </input>
+        <input name="file" required="true" type="file">
+          <display>Flash file (.swf)</display>
+          <xpath>contentdata/file</xpath>
+        </input>
+        <input name="version" required="true" type="text">
+          <display>Flash version</display>
+          <xpath>contentdata/version</xpath>
+          <default>9.0.0</default>
+        </input>
+        <input name="width" required="true" type="text">
+          <display>Width</display>
+          <xpath>contentdata/width</xpath>
+        </input>
+        <input name="height" required="true" type="text">
+          <display>Height</display>
+          <xpath>contentdata/height</xpath>
+        </input>
+        <input type="checkbox" name="scale">
+          <display>Automatic scaling</display>
+          <xpath>contentdata/scale</xpath>
+          <help>If this option is selected the flash will be scaled to fill the available width in the region it is placed. Width and height settings will be used to preserve the width-height ratio.</help>
+        </input>
+        <input type="image" name="image" required="true">
+          <display>Alternative image</display>
+          <xpath>contentdata/image</xpath>
+          <help>The alternative image will be displayed when falsh is not supported.</help>
+        </input>
+      </block>
+      <block group="contentdata/parameter" name="Flash parameters">
+        <input name="parameter-name" type="text">
+          <display>Parameter name</display>
+          <xpath>name</xpath>
+        </input>
+        <input name="parameter-value" type="text">
+          <display>Value</display>
+          <xpath>value</xpath>
+        </input>
+      </block>
+      <block group="contentdata/variable" name="Flash variables">
+        <input name="variable-name" type="text">
+          <display>Variable name</display>
+          <xpath>name</xpath>
+        </input>
+        <input name="variable-value" type="text">
+          <display>Value</display>
+          <xpath>value</xpath>
+        </input>
+      </block>
+      <block group="contentdata/attribute" name="Flash attributes">
+        <input name="attribute-name" type="text">
+          <display>Attribute name</display>
+          <xpath>name</xpath>
+        </input>
+        <input name="attribute-value" type="text">
+          <display>Value</display>
+          <xpath>value</xpath>
+        </input>
+      </block>
+    </form>
+  </config>
+</contenttype>
