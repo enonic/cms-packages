@@ -1,7 +1,7 @@
 # Getting Started
 To get started with Enonic Sample Site, make sure you have a working Enonic CMS installation.
 
-You can download a [free Open Source version here] (http://www.enonic.com/en/downloads)
+You can download a [free Open Source version here](http://www.enonic.com/en/downloads)
 
 ## Walkthrough
 * Connect to WebDAV and upload the source files.
