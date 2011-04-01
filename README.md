@@ -4,7 +4,7 @@ To get started with Enonic Sample Site, make sure you have a working Enonic CMS 
 You can download a [free Open Source version here](http://www.enonic.com/en/downloads)
 
 ## Walkthrough
-* Connect to WebDAV and upload the source files.
+* Connect to WebDAV and upload the resources.
 * Edit your site and set the Internal Resources to '/config/<your-config-folder>' where '<your-config-folder> contains a valid config.xml file
 * Set the Public Resources to '/_public/themes/<your-theme-folder>'
 * Set Device Classification Script to '/libraries/resolvers/device-classification.xsl'
