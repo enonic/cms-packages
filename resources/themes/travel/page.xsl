@@ -116,16 +116,6 @@
                 <xsl:value-of select="portal:localize('High-contrast')"/>
               </a>
             </li>
-            <li>
-              <a href="{portal:createPageUrl(@key, ())}" class="tooltip" title="{parameters/parameter[@name = 'display-name']}">
-                <xsl:variable name="flag">
-                  <xsl:value-of select="concat(concat($path-to-skin, '/images/flag-'), name)"/>
-                  <xsl:if test="@path = 'true'">-active</xsl:if>
-                  <xsl:text>.png</xsl:text>
-                </xsl:variable>
-                <img src="{portal:createResourceUrl($flag)}" alt="{parameters/parameter[@name = 'display-name']}"/>
-              </a>
-            </li>
           </ul>
         </div>
         <xsl:if test="$user or $login-page or $sitemap-page != '' or $search-result-page != '' or (count($config-site/skins/skin) &gt; 1 and $user)">
