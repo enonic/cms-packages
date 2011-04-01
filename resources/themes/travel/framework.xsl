@@ -296,16 +296,16 @@
                               </xsl:otherwise>
                            </xsl:choose>
                         </a>
-                     </li>
-                     <xsl:if test="current()/menuitems">
-                        <xsl:if test="$levels = 0 or $levels > $currentLevel">
-                           <xsl:call-template name="framework.menu">
-                              <xsl:with-param name="menuitems" select="current()/menuitems"/>
-                              <xsl:with-param name="currentLevel" select="$currentLevel + 1"/>
-                              <xsl:with-param name="levels" select="$levels"/>
-                           </xsl:call-template>
+                        <xsl:if test="current()/menuitems">
+                           <xsl:if test="$levels = 0 or $levels > $currentLevel">
+                              <xsl:call-template name="framework.menu">
+                                 <xsl:with-param name="menuitems" select="current()/menuitems"/>
+                                 <xsl:with-param name="currentLevel" select="$currentLevel + 1"/>
+                                 <xsl:with-param name="levels" select="$levels"/>
+                              </xsl:call-template>
+                           </xsl:if>
                         </xsl:if>
-                     </xsl:if>
+                     </li>
                   </xsl:for-each>
                </ul>
             </xsl:if>
