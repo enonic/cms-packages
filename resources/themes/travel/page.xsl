@@ -6,7 +6,11 @@
   <xsl:import href="mobile-page.xsl"/>
 
   <xsl:output doctype-public="-//W3C//DTD XHTML 1.1//EN" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="utf-8" indent="yes" method="xhtml" omit-xml-declaration="yes"/>
-
+  
+  <!-- page type -->
+  <!-- For multiple layouts on one site. Various layouts can be configured in config.xml, each with a different 'name' attribute on the 'layout' element. -->
+  <xsl:param name="layout-name" select="'default'" as="xs:string"/>
+  
   <!-- regions -->
   <xsl:param name="north">
     <type>region</type>
@@ -50,8 +54,9 @@
         <link rel="shortcut icon" type="image/x-icon" href="{portal:createResourceUrl(concat($site-public, '/images/favicon.ico'))}"/>
         <xsl:call-template name="framework.meta-common"/>
         <xsl:call-template name="framework.script-common"/>
-        <xsl:call-template name="framework.css-common"/>
-
+        <xsl:call-template name="framework.css-common">
+          <xsl:with-param name="layout-name" select="$layout-name"/>
+        </xsl:call-template>
       </head>
       <body>
         <div id="page">
@@ -74,7 +79,9 @@
               </xsl:call-template>
               
               <!-- Renders all regions defined in config.xml -->
-              <xsl:call-template name="framework.regions"/>
+              <xsl:call-template name="framework.regions">
+                <xsl:with-param name="layout-name" select="$layout-name" as="xs:string"/>
+              </xsl:call-template>
               
             </div>
           </div>

@@ -85,7 +85,8 @@
    <!-- Regions template -->
    <!-- Renders all regions defined in config.xml -->
    <xsl:template name="framework.regions">
-      <xsl:for-each select="$config-device-class/layout//region">
+      <xsl:param name="layout-name" as="xs:string" select="'default'"/>
+      <xsl:for-each select="$config-device-class/layout[@name = $layout-name]//region">
          <!-- Creates region if it contains portlets -->
          <xsl:if test="count($rendered-page/regions/region[name = concat($config-region-prefix, current()/@name)]/windows/window) gt 0 or (current()/system = 'true' and ($login-page/@key = portal:getPageKey() or $error-page/@key = portal:getPageKey()))">
             <div id="{concat($config-region-prefix, current()/@name)}" class="region">
@@ -222,8 +223,13 @@
    <!-- Css common template -->
    <!-- Renders all CSS files and creates CSS for the regions defined in config.xml  -->
    <xsl:template name="framework.css-common">
+      <xsl:param name="layout-name" as="xs:string" select="'default'"/>
       <xsl:for-each select="$config-style[not(@condition != '')]">
-         <link rel="stylesheet" href="{portal:createResourceUrl(.)}" type="text/css"/>
+         <link rel="stylesheet" href="{portal:createResourceUrl(.)}" type="text/css">
+            <xsl:if test="@media = 'print'">
+               <xsl:attribute name="media">print</xsl:attribute>
+            </xsl:if>
+         </link>
       </xsl:for-each>
 
       <xsl:if test="$config-style[@condition != '']">
@@ -242,8 +248,8 @@
 
       <!-- insert region size css for active regions -->
       <style type="text/css">
-         <xsl:apply-templates select="$config-device-class/layout//region[index-of($active-regions/name, concat($config-region-prefix, @name)) castable as xs:integer]" mode="css"/>
-        </style>
+         <xsl:apply-templates select="$config-device-class/layout[@name = $layout-name]//region[index-of($active-regions/name, concat($config-region-prefix, @name)) castable as xs:integer]" mode="css"/>
+      </style>
    </xsl:template>
    
    

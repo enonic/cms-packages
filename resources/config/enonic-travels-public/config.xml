@@ -33,7 +33,7 @@
     </accessibility>
     <device-classes>
         <device-class name="pc,unknown">
-            <layout>
+            <layout name="default">
                 <area width="950">
                     <region name="north">
                         <width>950</width>
@@ -69,6 +69,45 @@
                 <area width="950">
                     <region name="south">
                         <width>950</width>
+                    </region>
+                </area>
+            </layout>
+            <layout name="another-layout">
+                <area width="958">
+                    <region name="north">
+                        <width>958</width>
+                        <margin>
+                            <bottom>10</bottom>
+                        </margin>
+                    </region>
+                </area>
+                <area width="958">
+                    <region name="west">
+                        <width>182</width>
+                        <margin>
+                            <right>15</right>
+                        </margin>
+                    </region>
+                    <region name="center">
+                        <padding>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>30</bottom>
+                        </padding>
+                        <scalable>true</scalable>
+                        <system>true</system>
+                    </region>
+                    <region name="east">
+                        <width>182</width>
+                        <margin>
+                            <left>15</left>
+                        </margin>
+                    </region>
+                </area>
+                <area width="958">
+                    <region name="south">
+                        <width>958</width>
                     </region>
                 </area>
             </layout>
