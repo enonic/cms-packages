@@ -84,7 +84,7 @@
 	</xsl:template>
 	
     <!-- Matches img/@src, a/@href, object/@data and param/@src, sorts out native urls -->
-    <xsl:template match="@src[parent::img]|@href[parent::a]|@data[parent::object]|@src[parent::param]" mode="process-html-area">
+    <xsl:template match="@src[parent::img]|@href[parent::a]|@data[parent::object]|@src[parent::param]|@src[parent::video]|@src[parent::audio]|@src[parent::source]|@src[parent::track]" mode="process-html-area">
         <xsl:param name="region-width" tunnel="yes" as="xs:integer"/>
         <xsl:param name="filter" tunnel="yes" as="xs:string?"/>
         <xsl:param name="imagesize" tunnel="yes" as="element()*"/>
