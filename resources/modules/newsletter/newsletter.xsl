@@ -4,7 +4,7 @@
   <xsl:output encoding="utf-8" indent="yes" method="xhtml" omit-xml-declaration="yes"/>
 
   <xsl:include href="/libraries/utilities/utilities.xsl"/>
-  <xsl:include href="/libraries/utilities/process-html-area.xsl"/>
+  <xsl:include href="/libraries/utilities/xhtml.xsl"/>
 
   <xsl:param as="xs:integer" name="region-width" select="325"/>
   <xsl:param as="xs:integer" name="region-width-right" select="163"/>
@@ -178,8 +178,7 @@
                           </xsl:call-template>
                           <xsl:if test="$text/contentdata/text/*|$text/contentdata/text/text()">
                             <div>
-                              <xsl:call-template name="process-html-area.process-html-area">
-                                <xsl:with-param name="region-width" tunnel="yes" select="$region-width"/>
+                              <xsl:call-template name="xhtml.process">
                                 <xsl:with-param name="document" select="$text/contentdata/text"/>
                                 <xsl:with-param name="image" tunnel="yes" select="/result/contents/relatedcontents/content"/>
                               </xsl:call-template>
@@ -231,8 +230,7 @@
   <xsl:template match="content" mode="latest-articles">
     <xsl:if test="/result/contents/relatedcontents/content[@key = current()/contentdata/image[1]/image/@key]">
       <a href="{portal:createContentUrl(@key,())}" title="{title}">
-        <xsl:call-template name="utilities.display-image">
-          <xsl:with-param name="region-width" select="$region-width-right"/>
+        <xsl:call-template name="image.display-image">
           <xsl:with-param name="size" select="'wide'"/>
           <xsl:with-param name="image" select="/result/contents/relatedcontents/content[@key = current()/contentdata/image[1]/image/@key]"/>
         </xsl:call-template>
@@ -323,8 +321,7 @@
         <xsl:if test="/result/contents/relatedcontents/content[@key = current()/contentdata/image[1]/image/@key]">
           <xsl:for-each select="contentdata/image[1 and image/@key = /result/contents/relatedcontents/content/@key]">
             <div class="image">
-              <xsl:call-template name="utilities.display-image">
-                <xsl:with-param name="region-width" select="$region-width"/>
+              <xsl:call-template name="image.display-image">
                 <xsl:with-param name="image" select="/result/contents/relatedcontents/content[@key = current()/image/@key]"/>
                 <xsl:with-param name="size" select="$size"/>
               </xsl:call-template>

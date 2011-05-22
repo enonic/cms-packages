@@ -26,24 +26,7 @@ a {color:#335ab3;text-decoration:none;}
     width: auto;
 }
 
-#navigation a.plus {
-    background-image: url('../images-mobile/bullet-plus.png');
-}
 
-#navigation a.minus {
-    background-image: url('../images-mobile/bullet-minus.png');
-}
-
-#navigation, #menu {
-    font-family:georgia,sans-serif;
-}
-
-#navigation a {
-    display: block;
-    padding: 5px 12px 5px 41px;
-    color: #fff;
-    font-weight: bold;
-}
 
 #footer a {color:#fff;}
 #footer img {float:left;margin:0 5px 0 0;}
@@ -61,11 +44,6 @@ a {color:#335ab3;text-decoration:none;}
 #footer {color:#75726f;font-size:.6em;}
 #footer a {color:#335ab3;}
 
-#navigation {
-    background: #8c847d url('../images-mobile/menubg.png') repeat-x left;
-    border-top: 1px solid #d0cbc5;
-    border-bottom: 1px solid #524d49;
-}
 
 /* Frame */
 #west .frame, #center .frame, #east .frame {
@@ -79,11 +57,15 @@ a {color:#335ab3;text-decoration:none;}
     -webkit-border-radius:4px;
 }
 
+#center {
+    padding: 12px;
+}
+
 /* Menu */
 .bullet {
     background: transparent no-repeat 10px 4px;
 }
-
+/*
 #menu, #menu ul {
     list-style-type: none;
     float: left;
@@ -151,8 +133,8 @@ a {color:#335ab3;text-decoration:none;}
 }
 
 #menu {
-    border-bottom: 1px solid #524d49;
-    display: none;
+    border-bottom: 1px solid #524d49;/\*
+    display: none;*\/
 }
 
 #menu li {
@@ -185,7 +167,7 @@ a {color:#335ab3;text-decoration:none;}
     width: 25px;
     padding: 5px 10px;
     background-image: url('../images-mobile/bullet-arrow.png');
-}
+}*/
 
 /* Search */
 #page-search-form {
@@ -321,4 +303,125 @@ p.preface {
 
 div {
     overflow:hidden;
+}
+
+
+#navigation {
+    background: #8c847d url('../images-mobile/menubg.png') top left repeat-x;
+    border-top: 1px solid #d0cbc5;
+    border-bottom: 1px solid #524d49;
+}
+
+
+#navigation a.expand {
+    background-image: url('../images-mobile/bullet-plus.png');
+}
+
+#navigation a.contract {
+    background-image: url('../images-mobile/bullet-minus.png');
+}
+
+#navigation, #menu {
+    font-family:georgia,sans-serif;
+}
+
+#navigation a {
+    display: block;
+    padding: 5px 12px 5px 41px;
+    color: #fff;
+    font-weight: bold;
+}
+
+#navigation #menu a {
+    font-weight: normal;
+    display: block;
+}
+
+#navigation ul {
+    list-style: none;
+    margin: 0;
+}
+
+#navigation #menu {
+    display: none;
+    background-color: #332F2D;
+}
+
+#menu ul {
+    display: none;
+    overflow: hidden;
+    clear: both;
+}
+
+#menu li {
+    border-top: 1px solid #524D49;
+    overflow: hidden;
+    clear: both;
+}
+
+/*#menu li.parent > a {
+    background: url('../images-mobile/arrow-closed.png') left center no-repeat;
+}
+
+#menu li.parent.path > a {
+    background-image: url('../images-mobile/arrow-open.png');
+}*/
+
+#menu .branch-button {
+    width: 20px;
+    height: 30px;
+    display: block;
+    float: left;
+    margin: 0 10px 0 0;
+    padding: 0;
+    background: url('../images-mobile/arrow-closed.png') right center no-repeat;
+}
+
+#menu li .branch-button {
+    padding-left: 0;
+}
+
+#menu li li .branch-button {
+    padding-left: 20px;
+}
+
+#menu li li li .branch-button {
+    padding-left: 40px;
+}
+
+/*#menu li.parent > .branch-button,
+#menu li.contracted > .branch-button {
+    
+}*/
+
+#menu li.parent.path > .branch-button,
+#menu li.expanded > .branch-button {
+    background-image: url('../images-mobile/arrow-open.png');
+}
+
+#menu li.path > ul {
+    display: block;
+}
+
+#menu li.active > a {
+    color: #335AB3;
+}
+
+#menu li a {
+    padding-left: 0px;
+    margin-left: 30px;
+    margin-right: 5px;
+    background: url('../images-mobile/bullet-arrow.png') right center no-repeat;
+}
+
+#menu li li a {
+    margin-left: 50px;
+}
+
+#menu li li li a {
+    margin-left: 70px;
+}
+
+#menu li.parent > a {
+    margin-left: 0;
 }

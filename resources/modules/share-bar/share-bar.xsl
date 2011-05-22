@@ -31,7 +31,7 @@
                         bgiframe: true,
                         <xsl:choose>
                             <xsl:when test="$device-class = 'mobile'">
-                                <xsl:value-of select="concat('width: ', $region-width, ',')"/>
+                                <xsl:value-of select="concat('width: ', $config-region-width, ',')"/>
                                 position: [$('#share-bar-tip-dialog').position().left, $('#share-bar-tip-dialog').position().top], height: $('#tip-form').outerHeight() + 220,
                             </xsl:when>
                             <xsl:otherwise>width: 500, height: $('#tip-form').outerHeight() + 100,</xsl:otherwise>

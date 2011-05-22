@@ -2,7 +2,7 @@
 <xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:portal="http://www.enonic.com/cms/xslt/portal" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:import href="/libraries/utilities/standard-variables.xsl"/>
-  <xsl:include href="/libraries/utilities/process-html-area.xsl"/>
+  <xsl:include href="/libraries/utilities/xhtml.xsl"/>
 
   <xsl:output indent="yes" media-type="text/html" method="xhtml" omit-xml-declaration="yes"/>
   
@@ -16,10 +16,7 @@
       <xsl:choose>
         <!-- Display confirmation -->
         <xsl:when test="/result/context/querystring/parameter[@name = 'success'] = 'create'">
-          <xsl:call-template name="process-html-area.process-html-area">
-            <xsl:with-param name="region-width" tunnel="yes" select="$region-width"/>
-            <xsl:with-param name="filter" tunnel="yes" select="$config-filter"/>
-            <xsl:with-param name="imagesize" tunnel="yes" select="$config-imagesize"/>
+          <xsl:call-template name="xhtml.process">
             <xsl:with-param name="document" select="$current-menuitem/data/form/confirmation"/>
             <xsl:with-param name="image" tunnel="yes" select="/result/contents/relatedcontents/content"/>
           </xsl:call-template>
@@ -44,10 +41,7 @@
   <xsl:template name="display-form">
     <xsl:param name="form"/>
     <xsl:param name="error-handling" select="false()" tunnel="yes"/>
-    <xsl:call-template name="process-html-area.process-html-area">
-      <xsl:with-param name="region-width" tunnel="yes" select="$region-width"/>
-      <xsl:with-param name="filter" tunnel="yes" select="$config-filter"/>
-      <xsl:with-param name="imagesize" tunnel="yes" select="$config-imagesize"/>
+    <xsl:call-template name="xhtml.process">
       <xsl:with-param name="document" select="$current-menuitem/document"/>
       <xsl:with-param name="image" tunnel="yes" select="/result/contents/relatedcontents/content"/>
     </xsl:call-template>

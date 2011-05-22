@@ -69,7 +69,7 @@
       <script type="text/javascript">
         <xsl:comment>
           cms.util.addLoadEvent(function () {
-            <xsl:value-of select="concat('cms.confluence.resizeImages(', $region-width, ');')"/>
+            <xsl:value-of select="concat('cms.confluence.resizeImages(', $config-region-width, ');')"/>
           });
         //</xsl:comment>
       </script>

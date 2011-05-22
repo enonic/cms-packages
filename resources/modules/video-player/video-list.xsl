@@ -72,14 +72,14 @@
                     <xsl:value-of select="util:format-date(@publishfrom, /result/context/@languagecode, 'short', true())"/>
                 </span>
                 <xsl:if test="contentdata/description != ''">
-                    <xsl:value-of select="util:crop-text(contentdata/description, xs:integer(floor($region-width * 0.5)))"/>
+                    <xsl:value-of select="util:crop-text(contentdata/description, xs:integer(floor($config-region-width * 0.5)))"/>
                 </xsl:if>
             </p>
         </div>
     </xsl:template>
 
     <xsl:template name="image">
-        <xsl:variable name="image-size" select="floor($region-width * 0.25)"/>
+        <xsl:variable name="image-size" select="floor($config-region-width * 0.25)"/>
         <a href="{portal:createContentUrl(@key,())}" title="{title}">
             <span class="play-icon" style="width: {$image-size}px; height: {$image-size}px;">
                 <xsl:if test="not(/result/contents/relatedcontents/content[@key = current()/contentdata/thumbnail/@key])">
@@ -87,8 +87,7 @@
                 </xsl:if>
             </span>
             <xsl:if test="/result/contents/relatedcontents/content[@key = current()/contentdata/thumbnail/@key]">
-                <xsl:call-template name="utilities.display-image">
-                    <xsl:with-param name="region-width" select="$region-width"/>
+                <xsl:call-template name="image.display-image">
                     <xsl:with-param name="filter" select="concat('scalesquare(', $image-size, ');', $config-filter)"/>
                     <xsl:with-param name="imagesize" select="$config-imagesize"/>
                     <xsl:with-param name="image" select="/result/contents/relatedcontents/content[@key = current()/contentdata/thumbnail/@key]"/>

@@ -48,7 +48,7 @@
                     <xsl:attribute name="class">folder</xsl:attribute>
                     <div class="column name tooltip" title="{if (description != '') then description else @name}">
                         <span>
-                            <img class="icon text" alt="{concat(portal:localize('Folder'), ' ', portal:localize('icon'))}" src="{portal:createResourceUrl(concat($path-to-skin, '/images/icon-folder.png'))}"/>
+                            <img class="icon text" alt="{concat(portal:localize('Folder'), ' ', portal:localize('icon'))}" src="{portal:createResourceUrl(concat($theme-public, '/images/icon-folder.png'))}"/>
                             <xsl:value-of select="@name"/>
                         </span>
                     </div>
@@ -72,7 +72,7 @@
                         <span>
                             <xsl:call-template name="utilities.icon-image">
                                 <xsl:with-param name="file-name" select="title"/>
-                                <xsl:with-param name="icon-folder-path" select="concat($path-to-skin, '/images')"/>
+                                <xsl:with-param name="icon-folder-path" select="concat($theme-public, '/images')"/>
                             </xsl:call-template>
                             <a href="{portal:createAttachmentUrl(@key, ('download', 'true'))}">
                                 <xsl:value-of select="title"/>

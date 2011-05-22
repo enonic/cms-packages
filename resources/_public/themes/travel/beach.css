@@ -139,10 +139,24 @@ ul.menu.main.level1 a:hover, ul.menu.sub a:hover {
     background-color: #7b746e;
 }
 
- ul.menu.main.level1 a.active, ul.menu.main.level1 div.active, ul.menu.main.level1 a.path, ul.menu.main.level1 div.path, ul.menu.sub a.active, ul.menu.sub div.active, ul.menu.sub a.path, ul.menu.sub div.path {
+/* ul.menu.main.level1 a.active, ul.menu.main.level1 div.active, ul.menu.main.level1 a.path, ul.menu.main.level1 div.path, ul.menu.sub a.active, ul.menu.sub div.active, ul.menu.sub a.path, ul.menu.sub div.path {
+    background-color: #3a65c7;
+    border-color: #b4c2e2 #173884 #173884 #b4c2e2;
+}*/
+
+ ul.menu.main.level1 .active a,
+ ul.menu.main.level1 .active div,
+ ul.menu.main.level1 .path a,
+ ul.menu.main.level1 .path div {
     background-color: #3a65c7;
     border-color: #b4c2e2 #173884 #173884 #b4c2e2;
 }
+
+ul.menu.sub .active > a,
+ul.menu.sub .active > div {
+    color: #3A65C7;
+}
+
 
 ul.menu.main.level2 {
     background-color:#4b4743;
@@ -188,6 +202,15 @@ ul.menu.sub li {
 
 ul.menu.sub li li, ul.menu.sub ul ul {
     margin: 0;
+}
+
+ul.menu.sub > li > ul > li ul {
+    display: none;
+}
+
+ul.menu.sub li.path > ul,
+ul.menu.sub li.active > ul {
+    display: block;
 }
 
 ul.menu.sub a, ul.menu.sub div {

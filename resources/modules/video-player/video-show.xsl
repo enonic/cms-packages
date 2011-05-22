@@ -4,7 +4,7 @@
     <xsl:output indent="yes" media-type="text/html" method="xhtml" omit-xml-declaration="yes"/>
     
     <xsl:variable name="region-width" select="/result/context/querystring/parameter[@name = '_config-region-width']"/>
-    <xsl:variable name="height" select="floor($region-width * 9 div 16)"/>
+    <xsl:variable name="height" select="floor($config-region-width * 9 div 16)"/>
 
     <xsl:template match="/">
         <h1>
@@ -51,10 +51,10 @@
                                    <xsl:value-of select="concat('var width = Math.round(', $height, '*this.width/this.height);')"/> 
                                    $('#sm2-container').width(width);
                                    <xsl:value-of select="concat('$(&quot;#sm2-container&quot;).height(', $height, ');')"/>
-                                   <xsl:value-of select="concat('$(&quot;#sm2-container&quot;).css(&quot;left&quot;,Math.round((', $region-width, '-width)/2)).css(&quot;top&quot;,0);')"/>
+                                   <xsl:value-of select="concat('$(&quot;#sm2-container&quot;).css(&quot;left&quot;,Math.round((', $config-region-width, '-width)/2)).css(&quot;top&quot;,0);')"/>
                                } else {
-                                   <xsl:value-of select="concat('var height = Math.round(', $region-width, '*this.height/this.width);')"/> 
-                                   <xsl:value-of select="concat('$(&quot;#sm2-container&quot;).width(', $region-width, ');')"/>
+                                   <xsl:value-of select="concat('var height = Math.round(', $config-region-width, '*this.height/this.width);')"/> 
+                                   <xsl:value-of select="concat('$(&quot;#sm2-container&quot;).width(', $config-region-width, ');')"/>
                                    $('#sm2-container').height(height);
                                    <xsl:value-of select="concat('$(&quot;#sm2-container&quot;).css(&quot;top&quot;,Math.round((', $height, '-height)/2)).css(&quot;left&quot;,0);')"/>
                                }
@@ -194,7 +194,7 @@
 
             //</xsl:comment>
         </script>
-        <div class="video-player" style="width: {$region-width}px; height: {$height}px;">
+        <div class="video-player" style="width: {$config-region-width}px; height: {$height}px;">
             <div class="video-player-volume-slider" style="top: {$height + 10}px;">
                 <div id="video-player-volume-slider"/>
             </div>

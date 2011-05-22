@@ -2,6 +2,7 @@
 <xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:util="enonic:utilities" xmlns:portal="http://www.enonic.com/cms/xslt/portal" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <xsl:import href="/libraries/utilities/standard-variables.xsl"/>
+  <xsl:include href="/libraries/utilities/image.xsl"/>
   <xsl:include href="/libraries/utilities/utilities.xsl"/>
   <xsl:include href="/libraries/utilities/navigation-menu.xsl"/>
 
@@ -12,8 +13,7 @@
   <xsl:variable name="content-count" select="xs:integer(/result/contents/@resultcount)"/>
   <xsl:variable name="total-count" select="xs:integer(/result/contents/@totalcount)"/>
   <xsl:variable name="contents-per-page" select="xs:integer(/result/contents/@count)"/>
-  <xsl:variable name="rss-page" select="util:get-scoped-parameter('rss', concat('/', string-join(/result/context/resource/path/resource/name, '/')), $config-site/parameters/parameter)" as="element()?"/>
-
+  
   <xsl:template match="/">
     <xsl:choose>
       <xsl:when test="/result/contents/content">
@@ -34,7 +34,7 @@
           <xsl:apply-templates select="/result/contents/content"/>
           <xsl:if test="$rss-page">
             <a href="{portal:createUrl($rss-page, ('articleSectionId', portal:getPageKey()))}" class="rss">
-              <img src="{portal:createResourceUrl(concat($path-to-skin, '/images/icon-rss.png'))}" class="icon text" alt="RSS {portal:localize('icon')}"/>
+              <img src="{portal:createResourceUrl(concat($theme-public, '/images/icon-rss.png'))}" class="icon text" alt="RSS {portal:localize('icon')}"/>
               <xsl:value-of select="portal:localize('Articles-as-rss-feed')"/>
             </a>
           </xsl:if>
@@ -82,7 +82,7 @@
         <span class="byline">
           <xsl:value-of select="util:format-date(@publishfrom, /result/context/@languagecode, 'short', true())"/>
         </span>
-        <xsl:value-of select="util:crop-text(contentdata/preface, xs:integer(floor($region-width * 0.5)))"/>
+        <xsl:value-of select="util:crop-text(contentdata/preface, xs:integer(floor($config-region-width * 0.5)))"/>
       </p>
       <a href="{portal:createContentUrl(@key,())}" title="{title}">
         <xsl:value-of select="concat(portal:localize('Read-more'), ' »')"/>
@@ -94,10 +94,7 @@
     <xsl:param name="size"/>
     <xsl:if test="/result/contents/relatedcontents/content[@key = current()/contentdata/image[1]/image/@key]">
       <a href="{portal:createContentUrl(@key,())}" title="{title}">
-        <xsl:call-template name="utilities.display-image">
-          <xsl:with-param name="region-width" select="$region-width"/>
-          <xsl:with-param name="filter" select="$config-filter"/>
-          <xsl:with-param name="imagesize" select="$config-imagesize"/>
+        <xsl:call-template name="image.display-image">
           <xsl:with-param name="image" select="/result/contents/relatedcontents/content[@key = current()/contentdata/image[1]/image/@key]"/>
           <xsl:with-param name="size" select="$size"/>
         </xsl:call-template>

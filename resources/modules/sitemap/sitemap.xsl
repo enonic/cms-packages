@@ -6,10 +6,10 @@
 
     <xsl:output indent="yes" media-type="text/html" method="xhtml" omit-xml-declaration="yes"/>
 
-    <xsl:variable name="menu" as="element()*" select="if ($config-site/multilingual = 'true') then /result/menus/menu/menuitems/menuitem[@path = 'true']/menuitems/menuitem else /result/menus/menu/menuitems/menuitem"/>
-    <xsl:variable name="number-of-columns" select="floor($region-width div 200)"/>
+    <xsl:variable name="menu" as="element()*" select="/result/menus/menu/menuitems/menuitem"/>
+    <xsl:variable name="number-of-columns" select="floor($config-region-width div 200)"/>
     <xsl:variable name="margin" select="20"/>
-    <xsl:variable name="column-width" select="floor(($region-width - ($margin * ($number-of-columns - 1))) div $number-of-columns)"/>
+    <xsl:variable name="column-width" select="floor(($config-region-width - ($margin * ($number-of-columns - 1))) div $number-of-columns)"/>
 
     <xsl:template match="/">
         <xsl:if test="$menu">
@@ -21,7 +21,7 @@
 
     <xsl:template match="menuitem">
         <li>
-            <xsl:if test="($config-site/multilingual = 'true' and count(ancestor::menuitem) = 1) or (not($config-site/multilingual = 'true') and count(ancestor::menuitem) = 0)">
+            <!--xsl:if test="($config-site/multilingual = 'true' and count(ancestor::menuitem) = 1) or (not($config-site/multilingual = 'true') and count(ancestor::menuitem) = 0)"-->
                 <xsl:attribute name="class">
                     <xsl:text>append-bottom</xsl:text>
                     <xsl:if test="position() mod $number-of-columns = 1">
@@ -36,7 +36,7 @@
                         </xsl:if>
                     </xsl:attribute>
                 </xsl:if>
-            </xsl:if>
+            <!--/xsl:if-->
             <xsl:choose>
                 <xsl:when test="@type = 'label' or @type = 'section'">
                     <div>

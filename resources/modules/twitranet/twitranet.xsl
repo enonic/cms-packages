@@ -13,7 +13,7 @@
         <type>category</type>
     </xsl:param>
 
-    <xsl:variable name="available-region-width" select="if ($include-frame) then xs:integer($region-width - $config-frame-padding * 2 - $config-frame-border * 2) else $region-width"/>
+    <xsl:variable name="available-region-width" select="if ($include-frame) then xs:integer($config-region-width - $config-frame-padding * 2 - $config-frame-border * 2) else $config-region-width"/>
 
     <xsl:template match="/">
         <xsl:variable name="id" select="concat('twitranet-', /result/context/resource/@key, /result/context/window/portlet/@key)"/>
@@ -39,7 +39,7 @@
                      </xsl:if>
                      
                      function reloadTwits(fadeIn) {
-                         <xsl:value-of select="concat('$.get(&quot;', portal:createWindowUrl(('_config-skin', $skin, '_config-site', $site, '_config-region-width', $region-width)), '&amp;count=&quot; + count, function(data){')"/>
+                         <xsl:value-of select="concat('$.get(&quot;', portal:createWindowUrl(('_config-region-width', $config-region-width)), '&amp;count=&quot; + count, function(data){')"/>
                              <xsl:value-of select="concat('$(&quot;#', $id, ' .twitranet-messages&quot;).html($(data).find(&quot;.twitranet-messages&quot;).html());')"/>
                              <xsl:value-of select="concat('if (fadeIn) $(&quot;#', $id, ' .twitranet-messages&quot;).hide().fadeIn(1500);')"/>
                          });
@@ -113,7 +113,7 @@
             <xsl:if test="position() = 1">
                 <xsl:attribute name="class">item first</xsl:attribute>
             </xsl:if>
-            <img src="{portal:createResourceUrl(concat($path-to-skin, '/images/dummy-user-smallest.png'))}" width="28" height="28" title="{owner/display-name}" alt="{concat(portal:localize('Image-of'), ' ', owner/display-name)}">
+            <img src="{portal:createResourceUrl(concat($theme-public, '/images/dummy-user-smallest.png'))}" width="28" height="28" title="{owner/display-name}" alt="{concat(portal:localize('Image-of'), ' ', owner/display-name)}">
                 <xsl:if test="owner/photo/@exists = 'true'">
                     <xsl:attribute name="src">
                         <xsl:value-of select="portal:createImageUrl(concat('user/', owner/@key), concat('scalesquare(28);', $config-filter))"/>

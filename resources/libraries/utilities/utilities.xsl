@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:util="enonic:utilities" xmlns:portal="http://www.enonic.com/cms/xslt/portal" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <xsl:import href="image-functions.xsl"/>
-
     <!-- Returns scoped parameter from config as element()?  -->
     <xsl:function name="util:get-scoped-parameter" as="element()?">
         <xsl:param name="name" as="xs:string"/>
@@ -32,66 +30,6 @@
                 <xsl:sequence select="$parameter[@name = $name and @path = '/'][1]"/>
             </xsl:when>
         </xsl:choose>
-    </xsl:template>
-
-    <!-- Displays image -->
-    <xsl:template name="utilities.display-image">
-        <xsl:param name="region-width" select="550" as="xs:integer"/>
-        <xsl:param name="filter" as="xs:string?"/>
-        <xsl:param name="imagesize" as="element()*"/>
-        <xsl:param name="image" as="element()"/>
-        <xsl:param name="size" as="xs:string?"/>
-        <xsl:param name="background" as="xs:string?"/>
-        <xsl:param name="format" as="xs:string?"/>
-        <xsl:param name="quality" as="xs:string?"/>
-        <xsl:param name="title" select="$image/title" as="xs:string?"/>
-        <xsl:param name="alt" as="xs:string">
-            <xsl:choose>
-                <xsl:when test="$image/contentdata/description != ''">
-                    <xsl:value-of select="$image/contentdata/description"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="$image/title"/>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:param>
-        <xsl:param name="class" as="xs:string?"/>
-        <xsl:param name="style" as="xs:string?"/>
-        <xsl:param name="id" as="xs:string?"/>
-        <xsl:variable name="width" select="util:image-size($region-width, $imagesize, $size, (), $filter, $image, ())"/>
-        <xsl:variable name="height" select="util:image-size($region-width, $imagesize, $size, (), $filter, $image, 'height')"/>
-        <img src="{portal:createImageUrl(util:image-attachment-key($image/@key, $region-width, $imagesize, $size, (), $filter, $image), util:image-filter($region-width, $imagesize, $size, (), $filter), $background, $format, $quality)}" alt="{$alt}">
-            <xsl:if test="$title">
-                <xsl:attribute name="title">
-                    <xsl:value-of select="$title"/>
-                </xsl:attribute>
-            </xsl:if>
-            <xsl:if test="$width">
-                <xsl:attribute name="width">
-                    <xsl:value-of select="$width"/>
-                </xsl:attribute>
-            </xsl:if>
-            <xsl:if test="$height">
-                <xsl:attribute name="height">
-                    <xsl:value-of select="$height"/>
-                </xsl:attribute>
-            </xsl:if>
-            <xsl:if test="$class != ''">
-                <xsl:attribute name="class">
-                    <xsl:value-of select="$class"/>
-                </xsl:attribute>
-            </xsl:if>
-            <xsl:if test="$style != ''">
-                <xsl:attribute name="style">
-                    <xsl:value-of select="$style"/>
-                </xsl:attribute>
-            </xsl:if>
-            <xsl:if test="$id != ''">
-                <xsl:attribute name="id">
-                    <xsl:value-of select="$id"/>
-                </xsl:attribute>
-            </xsl:if>
-        </img>
     </xsl:template>
     
     <!-- Returns timezone as xs:string -->

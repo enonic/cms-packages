@@ -131,10 +131,10 @@
 							<xsl:value-of select="portal:createImageUrl(concat('user/', owner/@key), $user-image-filters)"/>
 						</xsl:when>
 						<xsl:when test="$device-class = 'mobile'">
-							<xsl:value-of select="portal:createResourceUrl(concat($path-to-skin, '/images/dummy-user-smallest.png'))"/>
+							<xsl:value-of select="portal:createResourceUrl(concat($theme-public, '/images/dummy-user-smallest.png'))"/>
 						</xsl:when>
 						<xsl:otherwise>
-							<xsl:value-of select="portal:createResourceUrl(concat($path-to-skin, '/images/dummy-user-small.png'))"/>
+							<xsl:value-of select="portal:createResourceUrl(concat($theme-public, '/images/dummy-user-small.png'))"/>
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:attribute>

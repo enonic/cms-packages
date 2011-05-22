@@ -10,8 +10,7 @@
   <xsl:param name="include-frame" select="false()"/>
   <xsl:param name="frame-heading"/>
   
-  <!--<xsl:variable name="available-region-width" select="if ($include-frame) then xs:integer($region-width - $config-frame-padding * 2 - $config-frame-border * 2) else $region-width"/>-->
-  <xsl:variable name="available-region-width" select="$region-width"/>
+  <xsl:variable name="available-region-width" select="$config-region-width"/>
 
   <xsl:template match="/">
     <xsl:if test="/result/contents/relatedcontents/content[@key = /result/contents/content/contentdata/file/file/@key]">
@@ -79,7 +78,7 @@
       </script>
       <noscript>
         <p>
-          <xsl:call-template name="utilities.display-image">
+          <xsl:call-template name="image.display-image">
             <xsl:with-param name="region-width" select="$available-region-width"/>
             <xsl:with-param name="filter">
               <xsl:if test="not(contentdata/scale = 'true' or $device-class = 'mobile')">

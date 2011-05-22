@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources sessioncontext="true">
+    <datasource>
+        <methodname>getUserstore</methodname>
+        <parameters>
+            <parameter name="userstore" type="string"/>
+        </parameters>
+    </datasource>
+    <datasource>
+        <methodname>getTimeZones</methodname>
+        <parameters/>
+    </datasource>
+    <datasource>
+        <methodname>getLocales</methodname>
+        <parameters/>
+    </datasource>
+    <datasource>
+        <methodname>getCountries</methodname>
+        <parameters>
+            <parameter name="countryCodes" type="string[]"/>
+            <parameter name="includeRegions" type="boolean">true</parameter>
+        </parameters>
+    </datasource>
+</datasources>

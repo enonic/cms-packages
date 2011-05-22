@@ -10,7 +10,7 @@
   <xsl:param name="include-frame" select="false()"/>
   <xsl:param name="frame-heading"/>
 
-  <xsl:variable name="available-region-width" select="if ($include-frame) then xs:integer($region-width - $config-frame-padding * 2 - $config-frame-border * 2) else $region-width"/>
+  <xsl:variable name="available-region-width" select="if ($include-frame) then xs:integer($config-region-width - $config-frame-padding * 2 - $config-frame-border * 2) else $config-region-width"/>
 
   <xsl:template match="/">
     <xsl:variable name="content">
