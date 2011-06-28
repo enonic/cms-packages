@@ -125,10 +125,10 @@
             <xsl:value-of select="concat($input-id, '_1')"/>
           </xsl:attribute>
         </xsl:if>
-        <xsl:if test="@type = 'checkbox'">
+<!--        <xsl:if test="@type = 'checkbox'">
           <xsl:attribute name="class">checkbox</xsl:attribute>
           <xsl:text disable-output-escaping="yes">&lt;span&gt;</xsl:text>
-        </xsl:if>
+        </xsl:if>-->
         <xsl:choose>
           <xsl:when test="help">
             <span class="tooltip" title="{help}">
@@ -139,23 +139,9 @@
             <xsl:value-of select="@label"/>
           </xsl:otherwise>
         </xsl:choose>
-        <xsl:if test="@type = 'checkbox'">
+        <!--<xsl:if test="@type = 'checkbox'">
           <xsl:text disable-output-escaping="yes">&lt;/span&gt;</xsl:text>
-        </xsl:if>
-        <!-- Checkbox -->
-        <xsl:if test="@type = 'checkbox'">
-          <input id="{$input-id}" name="{$input-name}" type="checkbox" class="checkbox">
-            <xsl:if test="help">
-              <xsl:attribute name="class">checkbox tooltip</xsl:attribute>
-              <xsl:attribute name="title">
-                <xsl:value-of select="help"/>
-              </xsl:attribute>
-            </xsl:if>
-            <xsl:if test="data = 1 or (not(data) and @default = 'checked')">
-              <xsl:attribute name="checked">checked</xsl:attribute>
-            </xsl:if>
-          </input>
-        </xsl:if>
+        </xsl:if>-->
       </label>
     </xsl:if>
     <xsl:choose>
@@ -170,6 +156,22 @@
           <xsl:value-of select="@label"/>
         </div>
       </xsl:when>
+        <!-- Checkbox -->
+        <xsl:when test="@type = 'checkbox'">
+          <label for="{$input-id}" class="radio">
+              <input id="{$input-id}" name="{$input-name}" type="checkbox" class="checkbox{if (help) then ' tooltip' else ''}{if (error) then ' error' else ''}{if (@required = 'true') then ' required' else ''}">
+                <xsl:if test="help">
+                  <xsl:attribute name="title">
+                    <xsl:value-of select="help"/>
+                  </xsl:attribute>
+                </xsl:if>
+                <xsl:if test="data = 1 or (not(data) and @default = 'checked')">
+                  <xsl:attribute name="checked">checked</xsl:attribute>
+                </xsl:if>
+              </input>
+          </label>
+        </xsl:when>
+
       <!-- Text box -->
       <xsl:when test="@type = 'text'">
         <input class="{if (help) then 'text tooltip' else 'text'}{if (error) then ' error' else ''}{if (@required = 'true') then ' required' else ''}{if (@validationtype = 'integer') then ' digits' else ''}{if (@validationtype = 'email') then ' email' else ''}" id="{$input-id}" name="{$input-name}" type="text">
