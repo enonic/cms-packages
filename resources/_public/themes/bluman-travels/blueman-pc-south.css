@@ -1,0 +1,41 @@
+#south {
+  position:absolute;
+  bottom:27px;
+  left:360px;
+  height: 75px;
+  z-index:10;
+  color: #000;
+  vertical-align: middle;
+  width:100%!important;
+  float: left;
+}
+#south{
+    width: 100%;
+}
+
+div.thumbnails-in-mini-list>div{
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: alpha(opacity=80);
+    -moz-opacity:0.80;
+    -khtml-opacity: 0.80;
+    opacity: 0.80;
+    display:block;
+    height:85px;
+    overflow: visible;
+    width: 100%;
+    background-color: #000;
+}
+
+div.thumbnails-in-mini-list {
+    height: 100%;
+}
+div.thumbnail-in-mini-list{
+    height: 100%;
+    width:100%;
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+    color: #fff;
+}
+
+ul.sdt_menu li

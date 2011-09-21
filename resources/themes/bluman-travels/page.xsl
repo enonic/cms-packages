@@ -3,31 +3,25 @@
   <xsl:import href="/libraries/utilities/standard-variables.xsl"/>
   <xsl:import href="/libraries/utilities/region.xsl"/>
   <xsl:import href="/libraries/utilities/head.xsl"/>
-  <xsl:import href="/libraries/utilities/error-handler.xsl"/> 
+  <xsl:import href="/libraries/utilities/error-handler.xsl"/>
   <xsl:import href="/libraries/utilities/accessibility.xsl"/>
   <xsl:import href="/libraries/utilities/google.xsl"/>
   <xsl:import href="/libraries/widgets/breadcrumbs.xsl"/>
   <xsl:import href="/libraries/widgets/menu.xsl"/>
-  <xsl:import href="../bluman-travels/mobile.xsl"/>
+  <xsl:import href="mobile.xsl"/>
   <xsl:import href="pc.xsl"/>
   
   <xsl:output doctype-public="-//W3C//DTD XHTML 1.1//EN" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="utf-8" indent="yes" method="xhtml" omit-xml-declaration="yes"/>
   
   <!-- page type -->
   <!-- For multiple layouts on one site. Various layouts can be configured in theme.xml, each with a different 'name' attribute on the 'layout' element. -->
-  <xsl:param name="layout" select="'default'" as="xs:string"/>
+  <xsl:param name="layout" select="'welcome-page'" as="xs:string"/>
   
   <!-- regions -->
   <xsl:param name="north">
     <type>region</type>
   </xsl:param>
   <xsl:param name="west">
-    <type>region</type>
-  </xsl:param>
-  <xsl:param name="center">
-    <type>region</type>
-  </xsl:param>
-  <xsl:param name="east">
     <type>region</type>
   </xsl:param>
   <xsl:param name="south">
@@ -46,7 +40,6 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-  
 
   <!-- PC template -->
   <!-- Basic template for a page, outputs standard HTML-tags, metadata and all scripts, css and regions defined in the config.xml -->
@@ -64,27 +57,29 @@
         <xsl:call-template name="region.css">
           <xsl:with-param name="layout" select="$layout"/>
         </xsl:call-template>
+        <script type="text/javascript" src="{portal:createResourceUrl(concat($theme-public, '/scripts/background.slideshow.js'))}" />
       </head>
       <body>
+        <xsl:for-each select="/result/background-images/contents/relatedcontents/content[@contenttype='Image'] | /result/background-images/contents/content[@contenttype='Image']">
+            <xsl:choose>
+                <xsl:when test="position()=last()"><img id="bg{position()}" class="bg bg-wide" src="{portal:createImageUrl(@key,('scalewidth(1200)'))}" alt="{display-name}" /></xsl:when>
+                <xsl:otherwise><img id="bg{position()}" style="visibility: hidden;" class="bg bg-wide" src="{portal:createImageUrl(@key,('scalewidth(1200)'))}" alt="{display-name}" /></xsl:otherwise>
+            </xsl:choose>
+        </xsl:for-each>
         <div id="page">
           <noscript>
             <p>
               <xsl:value-of select="portal:localize('javascript-required')"/>
             </p>
           </noscript>
-          
+
           <xsl:call-template name="accessibility.links"/>
           <xsl:call-template name="pc.header"/>
 
           <div id="outer-container">
             <xsl:call-template name="pc.menu"/>
+              <div id="log" style="position:absolute;font-size:20px!important;right:10px;top:50px;color:red; font-size:50px;"></div>
             <div id="middle-container">
-
-              <!-- Calls the breadcrumb widgets print-crumbs -->
-              <xsl:call-template name="breadcrumbs.print-crumbs">
-                <xsl:with-param name="path" select="$current-resource/path/resource[position() &gt; 1]" />
-              </xsl:call-template>
-              
               <!-- Renders all regions defined in config.xml -->
               <xsl:call-template name="region.renderall">
                 <xsl:with-param name="layout" select="$layout" as="xs:string"/>
@@ -103,8 +98,8 @@
       </body>
     </html>
   </xsl:template>
-  
-  
+
+
   <!-- MOBILE template -->
   <!-- Basic template for a page, outputs standard HTML-tags, metadata and all scripts, css and regions defined in the theme.xml -->
   <xsl:template name="mobile">
@@ -126,25 +121,6 @@
         <!-- Header with logo and search box -->
         <xsl:call-template name="mobile.header" />
         <div id="outer-container" class="clear clearfix">
- 
-          <!-- Menu -->
-          <div id="navigation" class="clearfix">
-            <ul>
-              <li>
-                <a href="#" class="show-menu bullet expand">
-                  <xsl:value-of select="portal:localize('Show-menu')"/>
-                </a>
-                <xsl:call-template name="menu.render">
-                  <xsl:with-param name="menuitems" select="/result/menus/menu/menuitems"/>
-                  <xsl:with-param name="levels" select="3"/>
-                  <xsl:with-param name="list-id" select="'menu'" />
-                  <xsl:with-param name="list-class" select="'clear'" />
-                </xsl:call-template>  
-              </li>
-            </ul>
-            
-          </div>
-
           <!-- Search box -->
           <xsl:if test="$search-result-page != ''">
             <form action="{portal:createUrl($search-result-page)}" method="get" id="page-search-form">
@@ -170,8 +146,4 @@
       </body>
     </html>
   </xsl:template>
-  
-  
-  
-
 </xsl:stylesheet>

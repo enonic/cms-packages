@@ -1,0 +1,21 @@
+ul.travel-destination-preview-box-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    border:  1px solid #fff;
+    list-style-type: none;
+}
+
+li.travel-destination-preview-box {
+    display: inline;
+    background-color: #000;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    border: 2px solid black;
+    height: 75px;
+    min-width:150px;
+    width: auto;
+    padding: 5px;
+    color: #fff;
+}

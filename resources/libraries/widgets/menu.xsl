@@ -9,7 +9,8 @@
       <xsl:param name="currentLevel" select="1" as="xs:integer"/>
       <xsl:param name="list-class" />
       <xsl:param name="list-id" />
-      
+      <xsl:variable name="activeMenuKey" select="/result/context/resource[@type='menuitem']/@key" />
+      <xsl:variable name="activeMenuName" select="/result/context/resource[@type='menuitem']/name" />
       <xsl:choose>
          <xsl:when test="exists($menuitems)">
             <xsl:if test="$menuitems/menuitem">
@@ -38,7 +39,13 @@
                               <xsl:text> parent</xsl:text>   
                            </xsl:if>
                         </xsl:attribute>
-                        <a href="{portal:createPageUrl(@key, ())}" class="{if (position() = 1) then 'first' else if (position() = last()) then 'last' else ''}">
+                        <a href="{portal:createPageUrl(@key, ())}">
+                        <xsl:attribute name="class">
+                            <xsl:if test="@key = $activeMenuKey"><xsl:text> active</xsl:text></xsl:if>
+                            <xsl:if test="name = $activeMenuName"><xsl:text> active</xsl:text></xsl:if>
+                            <xsl:if test="position()=1"><xsl:text> first</xsl:text></xsl:if>
+                            <xsl:if test="position()=last()"><xsl:text> last</xsl:text></xsl:if>
+                        </xsl:attribute>
                            <xsl:choose>
                               <xsl:when test="menu-name != ''">
                                  <xsl:value-of select="menu-name"/>

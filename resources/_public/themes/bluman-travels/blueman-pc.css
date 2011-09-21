@@ -1,0 +1,67 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    color: #fff;
+}
+
+.slideshow img {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.bg-wide {
+    width: 100%;
+    height : auto;
+}
+.bg-tall {
+    height:100%;
+    width: auto;
+
+}
+
+#page {
+    height: 100%;
+}
+
+div#outer-container{
+    padding:0;
+    width:100%;
+    height: 100%;
+    overflow: auto;
+}
+div#middle-container{
+    height: 100%;
+}
+
+div#welcome-page{
+    position: relative;
+    color: #fff;
+    z-index: inherit;
+    height: 100%;
+}
+
+div#travel-destination-show {
+    position: relative;
+    color: #fff;
+    margin-top: 75px;
+    z-index: inherit;
+}
+
+div#spot-show{
+    color: #fff;
+}
+
+div#spot h1{
+    color: #fff;
+    font-size: 20pt;
+}
