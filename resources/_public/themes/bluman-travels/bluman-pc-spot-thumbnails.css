@@ -1,0 +1,14 @@
+.spot-thumbnails {
+    height: 85px;
+}
+.spot-thumbnail{
+    height: 100%;
+    width:100%;
+    display: inline;
+    list-style-type: none;
+    padding-right: 15px;
+    color: #fff;
+}
+.spot-thumbnail img {
+    border: 1px solid #000;
+}

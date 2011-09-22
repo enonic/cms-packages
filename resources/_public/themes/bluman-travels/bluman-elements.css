@@ -33,18 +33,10 @@ padding: 8px 14px 9px;
 .blue.awesome {
 background-color: #4682B4;
 }
-.red.awesome {
-background-color: #e33100;
-}
-.magenta.awesome {
-background-color: #a9014b;
-}
 .orange.awesome {
 background-color: #ff5c00;
 }
-.yellow.awesome {
-background-color: #ffb515;
-}
+
 
 .bluman{
     font-size: larger;
@@ -60,7 +52,11 @@ background-color: #ffb515;
     margin-top:50px;
 }
 
-#bluman-form fieldset{
+#bluman-form-container fieldset{
     margin-bottom: 5px;
     border: none;
+}
+
+.blumancolor {
+    color:#4682B4
 }

@@ -1,15 +1,11 @@
 #west {
-    position:absolute;
-    left:0;
-    /*top:50px;*/
-    /*width:175px;*/
-    /*height:100%;*/ /* works only if parent container is assigned a height value */
+    position:relative;
     background-color:#000;
     height: 100%;
 }
-#west>div {
+/*#west>div {
  padding-top:85px;
-}
+} */
 
 #west {
         /* Required for IE 5, 6, 7 */

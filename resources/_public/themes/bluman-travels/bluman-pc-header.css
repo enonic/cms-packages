@@ -1,19 +1,21 @@
 div#header ul {
-    position: absolute;
-    top:10px;
-    right:50px;
-
+    position: relative;
+    float: right;
+    padding-right: 20px;
 }
 
 div#header{
-  position:absolute;
-  top:0;
-  left:0;
+  position:relative;
   width:100%;
-  height:30px;
+  height:50px;
   color:#000;
   background-color: #fff;
   z-index:1;
+  line-height: 50px;
+}
+
+div#header img{
+    vertical-align: middle;
 }
 
 
@@ -25,7 +27,7 @@ div#header{
 /*Copied from old theme*/
 #header, #outer-container, #footer {margin:0 auto;padding:0 10px;position:relative;}
 #header {width:960px;height:50px;margin:0 auto;}
-#header {margin-bottom:10px;padding:10px;}
+/*#header {margin-bottom:10px;padding:10px;}*/
 .header-content { position: absolute; top:0;right: 250px; width:auto; z-index: 2;}
 .header-content * {z-index:2;}
 

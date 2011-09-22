@@ -23,12 +23,12 @@
   </xsl:template>
 
   <xsl:template match="content">
-    <xsl:for-each select="/result/spot-images/contents/content/contentdata/image">
+    <!--<xsl:for-each select="/result/spot-images/contents/content/contentdata/image">
         <xsl:choose>
             <xsl:when test="position()=last()"><img id="bg{position()}" class="bg bg-wide" src="{portal:createImageUrl(image/@key,('scalewidth(1200)'))}" alt="{image/image_text}" /></xsl:when>
             <xsl:otherwise><img id="bg{position()}" style="visibility: hidden;" class="bg bg-wide" src="{portal:createImageUrl(image/@key,('scalewidth(1200)'))}" alt="{image/image_text}" /></xsl:otherwise>
         </xsl:choose>
-    </xsl:for-each>
+    </xsl:for-each>-->
     <h3>
       <xsl:value-of select="contentdata/spot"/>,
       <span class="capitalize"><xsl:value-of select="location/site/contentlocation/@menuitemname" /> </span>
@@ -37,7 +37,8 @@
     <xsl:choose>
       <xsl:when test="$device-class = 'mobile'">
       -->
-        <xsl:if test="/result/contents/relatedcontents/content[@key = current()/contentdata/image[1]/image/@key]">
+      <!--
+      <xsl:if test="/result/contents/relatedcontents/content[@key = current()/contentdata/image[1]/image/@key]">
           <div class="related">
             <div class="image">
               <xsl:call-template name="image.display-image">
@@ -48,7 +49,7 @@
               <xsl:value-of select="contentdata/image[position() = 1 and image/@key = /result/contents/relatedcontents/content/@key]/image_text"/>
             </div>
           </div>
-        </xsl:if>
+        </xsl:if>-->
       <!--
       </xsl:when>
 

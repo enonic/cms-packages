@@ -1,0 +1,13 @@
+#south {
+  position:absolute;
+  bottom:35px;
+  height: 85px;
+  z-index:10;
+  color: #000;
+  vertical-align: middle;
+  width:100%!important;
+  float: left;
+}
+#south{
+    width: 100%;
+}

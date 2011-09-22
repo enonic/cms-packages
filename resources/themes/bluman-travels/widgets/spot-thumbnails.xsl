@@ -15,26 +15,21 @@
     <xsl:template match="/">
         <xsl:call-template name="jquery-scripts" />
         <xsl:if test="/result/spot-images/contents/content[@contenttype='Image']">
-            <div class="thumbnails-in-mini-list">
-                <div>
-                    <ul id="sdt_menu" class="sdt_menu">
-                        <xsl:apply-templates select="/result/spot-images/contents/content[@contenttype='Image']" mode="thumbnails-in-mini-list"/>
-                    </ul>
-                </div>
+            <div class="spot-thumbnails">
+                <ul id="sdt_menu" class="sdt_menu">
+                    <xsl:apply-templates select="/result/spot-images/contents/content[@contenttype='Image']" mode="spot-thumbnails"/>
+                </ul>
             </div>
         </xsl:if>
     </xsl:template>
-    <xsl:template match="content" mode="thumbnails-in-mini-list">
-           <li class="thumbnail-in-mini-list">
-                <a href="#">
-                    <span class="sdt_active"></span>
-                    <span class="sdt_wrap">
+    <xsl:template match="content" mode="spot-thumbnails">
+           <li class="spot-thumbnail">
+                    <span>
                         <span>
-                            <img id="{@key}" onclick="changeBkg('{portal:createImageUrl(@key, '')}')" class="image-thumbnail-in-mini-list" alt="{title}" src="{portal:createImageUrl(@key, 'scalesquare(75);rounded(2)')}" />
+                            <img id="{@key}" onclick="changeBkg('{portal:createImageUrl(@key, '')}')" class="image-spot-thumbnail" alt="{title}" src="{portal:createImageUrl(@key, 'scalesquare(85)')}" />
                             <img id="{@key}big" style="visibility:hidden" alt="" src="{portal:createImageUrl(@key,'')}" />
                         </span>
                     </span>
-                </a>
             </li>
     </xsl:template>
 

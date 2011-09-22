@@ -4,9 +4,9 @@ ul.sdt_menu{
 	margin:0;
 	padding:0;
 	list-style: none;
-	font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
+	font-family:"Verdana", "Myriad Pro", "Trebuchet MS", sans-serif;
 	font-size:12px;
-	width:1020px;
+	/*width:1020px;*/
 }
 ul.sdt_menu a{
 	text-decoration:none;
@@ -27,19 +27,19 @@ ul.sdt_menu li > a{
 	-webkit-box-shadow:0px 0px 2px #000 inset;
 	box-shadow:0px 0px 2px #000 inset;
 }
-.spots-in-mini-list ul.sdt_menu li{
+.spots-nearby ul.sdt_menu li{
 	width:170px;
 	height:85px;
 }
-.spots-in-mini-list ul.sdt_menu li > a{
+.spots-nearby ul.sdt_menu li > a{
 	width:170px;
 	height:85px;
 }
-.thumbnails-in-mini-list ul.sdt_menu li{
+.spot-thumbnails ul.sdt_menu li{
 	width:100px;
 	height:85px;
 }
-.thumbnails-in-mini-list ul.sdt_menu li > a{
+.spot-thumbnails ul.sdt_menu li > a{
 	width:100px;
 	height:85px;
 }
@@ -52,13 +52,13 @@ ul.sdt_menu li a img{
 	-webkit-box-shadow:0px 0px 4px #000;
 	box-shadow:0px 0px 4px #000;
 }
-.spots-in-mini-list ul.sdt_menu li a img{
+.spots-nearby ul.sdt_menu li a img{
 	width:0px;
 	height:0px;
 	bottom:0px;
 	left:85px;
 }
-.thumbnails-in-mini-list ul.sdt_menu li a img{
+.spot-thumbnails ul.sdt_menu li a img{
 	bottom:5px;
 	left:10px;
 }

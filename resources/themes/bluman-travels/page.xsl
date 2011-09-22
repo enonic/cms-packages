@@ -77,14 +77,12 @@
           <xsl:call-template name="pc.header"/>
 
           <div id="outer-container">
-            <xsl:call-template name="pc.menu"/>
-              <div id="log" style="position:absolute;font-size:20px!important;right:10px;top:50px;color:red; font-size:50px;"></div>
+            <!--<xsl:call-template name="pc.menu"/>-->
             <div id="middle-container">
               <!-- Renders all regions defined in config.xml -->
               <xsl:call-template name="region.renderall">
                 <xsl:with-param name="layout" select="$layout" as="xs:string"/>
               </xsl:call-template>
-              
             </div>
           </div>
           <xsl:call-template name="pc.footer" />
