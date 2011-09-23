@@ -10,7 +10,7 @@
             <layout name="default">
                 <area width="960">
                     <region name="west">
-                        <width>350</width>
+                        <width>344</width>
                         <margin>
                             <right>0</right>
                             <left>0</left>
@@ -31,7 +31,7 @@
                         <width>960</width>
                         <padding>
                             <right>0</right>
-                            <left>10</left>
+                            <left>0</left>
                             <top>0</top>
                             <bottom>0</bottom>
                         </padding>
@@ -45,7 +45,7 @@
                 </area>
                 <area width="960">
                     <region name="west">
-                        <width>350</width>
+                        <width>344</width>
                         <margin>
                             <right>0</right>
                             <left>0</left>
@@ -54,7 +54,7 @@
                         </margin>
                         <padding>
                             <top>0</top>
-                            <left>10</left>
+                            <left>0</left>
                             <bottom>0</bottom>
                         </padding>
                     </region>
@@ -66,7 +66,7 @@
                         <width>960</width>
                         <padding>
                             <right>0</right>
-                            <left>10</left>
+                            <left>0</left>
                             <top>0</top>
                             <bottom>0</bottom>
                         </padding>
@@ -80,7 +80,7 @@
                 </area>
                 <area width="960">
                     <region name="west">
-                        <width>350</width>
+                        <width>344</width>
                         <margin>
                             <right>0</right>
                             <left>0</left>
@@ -89,7 +89,7 @@
                         </margin>
                         <padding>
                             <top>0</top>
-                            <left>10</left>
+                            <left>0</left>
                             <bottom>0</bottom>
                         </padding>
                     </region>
@@ -105,7 +105,7 @@
                         </padding>
                         <margin>
                             <right>0</right>
-                            <left>360</left>
+                            <left>0</left>
                             <top>0</top>
                             <bottom>30</bottom>
                         </margin>
@@ -185,7 +185,7 @@
             </scripts>
         </device-class>
         <device-class name="mobile">
-            <layout name="welcome-page">
+            <layout name="default">
                 <area width="320">
                     <regions>
                         <region name="north">

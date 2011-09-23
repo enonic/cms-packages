@@ -1,25 +1,13 @@
 #spot{
     padding: 30px 30px 0px 10px;
-}
-
-ul.travel-destination-preview-box-container {
-    margin: 0;
-    padding: 0;
-    width: 100%;
     height: auto;
-    border:  1px solid #fff;
-    list-style-type: none;
+    max-height: 400px;
+}
+div#spot-show{
+    color: #fff;
 }
 
-li.travel-destination-preview-box {
-    display: inline;
-    background-color: #000;
-    margin-left: 5px;
-    margin-bottom: 5px;
-    border: 2px solid black;
-    height: 75px;
-    min-width:150px;
-    width: auto;
-    padding: 5px;
+div#spot h1{
     color: #fff;
+    font-size: 20pt;
 }

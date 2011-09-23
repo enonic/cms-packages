@@ -1,10 +1,10 @@
 $(document).ready(function() {
+    var imageCounter = 0;
+    var intID = setInterval(changeImg, 5000);
+
     $(window).resize(function() {
         calculateImageSize();
     });
-
-    var imageCounter = 0;
-    var intID = setInterval(changeImg, 5000);
 
     function changeImg(){
         if ($('.bg').length>1){

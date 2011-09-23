@@ -1,13 +1,14 @@
 #west {
     position:relative;
-    background-color:#000;
     height: 100%;
+    clear: left;
 }
 /*#west>div {
  padding-top:85px;
 } */
 
 #west {
+        background-color:#000;
         /* Required for IE 5, 6, 7 */
         /* ...or something to trigger hasLayout, like zoom: 1; */
         width: 100%;

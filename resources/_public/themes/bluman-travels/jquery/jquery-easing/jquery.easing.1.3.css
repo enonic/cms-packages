@@ -6,7 +6,6 @@ ul.sdt_menu{
 	list-style: none;
 	font-family:"Verdana", "Myriad Pro", "Trebuchet MS", sans-serif;
 	font-size:12px;
-	/*width:1020px;*/
 }
 ul.sdt_menu a{
 	text-decoration:none;
@@ -36,12 +35,12 @@ ul.sdt_menu li > a{
 	height:85px;
 }
 .spot-thumbnails ul.sdt_menu li{
-	width:100px;
-	height:85px;
+	width:40px;
+	height:40px;
 }
 .spot-thumbnails ul.sdt_menu li > a{
-	width:100px;
-	height:85px;
+	width:40px;
+	height:40px;
 }
 
 ul.sdt_menu li a img{
@@ -64,7 +63,7 @@ ul.sdt_menu li a img{
 }
 ul.sdt_menu li span.sdt_wrap{
 	position:absolute;
-	top:25px;
+	top:50px;
 	left:0px;
 	width:170px;
 	height:60px;
@@ -85,22 +84,22 @@ ul.sdt_menu li span.sdt_active{
 ul.sdt_menu li span span.sdt_link,
 ul.sdt_menu li span span.sdt_descr,
 ul.sdt_menu li div.sdt_box a{
-	margin-left:15px;
+	/*margin-left:15px;*/
 	text-transform:uppercase;
 	text-shadow:1px 1px 1px #000;
 }
 ul.sdt_menu li span span.sdt_link{
 	color:#fff;
-	font-size:14px;
+	font-size:12px;
 	float:left;
 	clear:both;
 }
 ul.sdt_menu li span span.sdt_descr{
-	color:#0B75AF;
+	color:#fff;
 	float:left;
 	clear:both;
-	width:155px; /*For dumbass IE7*/
-	font-size:10px;
+	width:100%; /*For dumbass IE7*/
+	font-size:8px;
 	letter-spacing:1px;
 }
 ul.sdt_menu li div.sdt_box{

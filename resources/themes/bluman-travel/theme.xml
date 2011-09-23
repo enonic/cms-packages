@@ -1,0 +1,228 @@
+<theme>
+    <region-prefix/>
+    <accessibility>
+        <access-key key="m" text="accessibility-text-main-menu" anchor="menu-main" />
+        <access-key key="s" text="accessibility-text-sub-menu" anchor="menu-sub" />
+        <access-key key="c" text="accessibility-text-center" anchor="center" />
+    </accessibility>
+    <device-classes>
+        <device-class name="pc,unknown">
+            <layout name="default">
+                <area width="960">
+                    <region name="west">
+                        <width>344</width>
+                        <margin>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </margin>
+                        <padding>
+                            <top>0</top>
+                            <left>10</left>
+                            <bottom>0</bottom>
+                        </padding>
+                    </region>
+                </area>
+            </layout>
+            <layout name="section-layout">
+                <area width="960">
+                    <region name="north">
+                        <width>960</width>
+                        <padding>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </padding>
+                        <margin>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </margin>
+                    </region>
+                </area>
+                <area width="960">
+                    <region name="west">
+                        <width>344</width>
+                        <margin>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </margin>
+                        <padding>
+                            <top>0</top>
+                            <left>0</left>
+                            <bottom>0</bottom>
+                        </padding>
+                    </region>
+                </area>
+            </layout>
+            <layout name="spot-layout">
+                <area width="960">
+                    <region name="north">
+                        <width>960</width>
+                        <padding>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </padding>
+                        <margin>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </margin>
+                    </region>
+                </area>
+                <area width="960">
+                    <region name="west">
+                        <width>344</width>
+                        <margin>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </margin>
+                        <padding>
+                            <top>0</top>
+                            <left>0</left>
+                            <bottom>0</bottom>
+                        </padding>
+                    </region>
+                </area>
+                <area width="960">
+                    <region name="south">
+                        <width>960</width>
+                        <padding>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </padding>
+                        <margin>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>30</bottom>
+                        </margin>
+                    </region>
+                </area>
+            </layout>
+            <image>
+                <filters>
+                    <filter>rounded(4)</filter>
+                </filters>
+                <sizes>
+                    <size name="full">
+                        <filter>scalewidth</filter>
+                        <width>1</width>
+                    </size>
+                    <size name="wide">
+                        <filter>scalewide</filter>
+                        <width>1</width>
+                        <height>0.4</height>
+                    </size>
+                    <size name="regular">
+                        <filter>scalewidth</filter>
+                        <width>0.4</width>
+                    </size>
+                    <size name="list">
+                        <filter>scalewidth</filter>
+                        <width>0.3</width>
+                    </size>
+                    <size name="square">
+                        <filter>scalesquare</filter>
+                        <size>0.4</size>
+                    </size>
+                    <size name="thumbnail">
+                        <filter>scalesquare</filter>
+                        <size>0.1</size>
+                    </size>
+                </sizes>
+            </image>                                     +
+            <styles>
+                <style>/_public/themes/html5-boilerplate/css/style.css</style>
+            </styles>
+            <scripts>
+                <script>/_public/themes/html5-boilerplate/js/libs/jquery-1.6.2.min.js</script>
+                <script>/_public/themes/html5-boilerplate/js/libs/modernizr-2.0.6.js</script>
+                <script>/_public/themes/html5-boilerplate/js/plugins.js</script>
+                <script>/_public/themes/html5-boilerplate/js/script.js</script>
+            </scripts>
+        </device-class>
+        <device-class name="mobile">
+            <layout name="default">
+                <area width="320">
+                    <regions>
+                        <region name="north">
+                            <width>296</width>
+                            <padding>
+                                <left>12</left>
+                                <right>12</right>
+                                <top>12</top>
+                                <bottom>12</bottom>
+                            </padding>
+                        </region>
+                        <region name="center">
+                            <width>320</width>
+                        </region>
+                        <region name="south">
+                            <width>296</width>
+                            <padding>
+                                <left>12</left>
+                                <right>12</right>
+                                <top>12</top>
+                                <bottom>12</bottom>
+                            </padding>
+                        </region>
+                    </regions>
+                </area>
+            </layout>
+            <image>
+                <filters>
+                    <filter>rounded(4)</filter>
+                </filters>
+                <sizes>
+                    <size name="full">
+                        <filter>scalewidth</filter>
+                        <width>1</width>
+                    </size>
+                    <size name="wide">
+                        <filter>scalewide</filter>
+                        <width>1</width>
+                        <height>0.4</height>
+                    </size>
+                    <size name="regular">
+                        <filter>scalewidth</filter>
+                        <width>0.4</width>
+                    </size>
+                    <size name="list">
+                        <filter>scalewidth</filter>
+                        <width>0.3</width>
+                    </size>
+                    <size name="square">
+                        <filter>scalesquare</filter>
+                        <size>0.4</size>
+                    </size>
+                    <size name="thumbnail">
+                        <filter>scalesquare</filter>
+                        <size>0.1</size>
+                    </size>
+                </sizes>
+            </image>
+            <styles>
+                <style>/_public/themes/html5-boilerplate/css/style.css</style>
+            </styles>
+            <scripts>
+                <script>/_public/themes/html5-boilerplate/js/libs/jquery-1.6.2.min.js</script>
+                <script>/_public/themes/html5-boilerplate/js/libs/modernizr-2.0.6.js</script>
+                <script>/_public/themes/html5-boilerplate/js/plugins.js</script>
+                <script>/_public/themes/html5-boilerplate/js/script.js</script>
+            </scripts>
+        </device-class>
+    </device-classes>
+</theme>

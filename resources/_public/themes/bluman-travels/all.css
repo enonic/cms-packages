@@ -20,7 +20,6 @@ table, td, th {vertical-align:middle;}
 blockquote:before, blockquote:after, q:before, q:after {content:"";}
 blockquote, q {quotes:"" "";}
 a img {border:none;}
-
 /* typography.css */
 html {font-size:100.01%;}
 body {font-size:75%;color:#222;background:#000;font-family:"Verdana", Arial, Helvetica, sans-serif;}
