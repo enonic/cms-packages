@@ -145,13 +145,13 @@
                 </sizes>
             </image>                                     +
             <styles>
-                <style>/_public/themes/html5-boilerplate/css/style.css</style>
+                <style>/_public/themes/bluman-travel/css/boilerplate-html5.css</style>
             </styles>
             <scripts>
-                <script>/_public/themes/html5-boilerplate/js/libs/jquery-1.6.2.min.js</script>
-                <script>/_public/themes/html5-boilerplate/js/libs/modernizr-2.0.6.js</script>
-                <script>/_public/themes/html5-boilerplate/js/plugins.js</script>
-                <script>/_public/themes/html5-boilerplate/js/script.js</script>
+                <script>/_public/themes/bluman-travel/js/libs/modernizr-2.0.6.js</script>
+                <script>/_public/themes/bluman-travel/js/libs/jquery-1.6.2.min.js</script>
+                <script>/_public/themes/bluman-travel/js/plugins.js</script>
+                <script>/_public/themes/bluman-travel/js/script.js</script>
             </scripts>
         </device-class>
         <device-class name="mobile">
@@ -215,13 +215,13 @@
                 </sizes>
             </image>
             <styles>
-                <style>/_public/themes/html5-boilerplate/css/style.css</style>
+                <style>/_public/themes/bluman-travel/css/boilerplate-html5.css</style>
             </styles>
             <scripts>
-                <script>/_public/themes/html5-boilerplate/js/libs/jquery-1.6.2.min.js</script>
-                <script>/_public/themes/html5-boilerplate/js/libs/modernizr-2.0.6.js</script>
-                <script>/_public/themes/html5-boilerplate/js/plugins.js</script>
-                <script>/_public/themes/html5-boilerplate/js/script.js</script>
+                <script>/_public/themes/bluman-travel/js/libs/modernizr-2.0.6.js</script>
+                <script>/_public/themes/bluman-travel/js/libs/jquery-1.6.2.min.js</script>
+                <script>/_public/themes/bluman-travel/js/plugins.js</script>
+                <script>/_public/themes/bluman-travel/js/script.js</script>
             </scripts>
         </device-class>
     </device-classes>
