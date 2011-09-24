@@ -108,110 +108,13 @@ select {
 }
 
 /* file archive */
-#file-archive ul ul {
-    display: none;
-}
 
-#file-archive ul {
-    float: left;
-    width: 100%;
-}
 
-#file-archive li {
-    cursor: pointer;
-    float: left;
-    width: 100%;
-}
 
-#file-archive span {
-    white-space: nowrap;
-    overflow: hidden;
-    padding: 1px 5px;
-    display: block;
-}
-
-#file-archive ul ul .name span {
-    padding-left: 26px;
-}
-
-#file-archive ul ul ul .name span {
-    padding-left: 47px;
-}
-
-#file-archive .kind span {
-    border: 0;
-}
-
-#file-archive .name {
-    width: 58%;
-}
-
-#file-archive .date-modified {
-    width: 20%;
-}
-
-#file-archive .size {
-    width: 10%;
-    text-align: right;
-}
-
-#file-archive .kind {
-    width: 12%;
-}
-
-/* Article */
-span.byline {
-    font-weight: bold;
-    padding-right: .5em;
-}
-
-#article .related, #event .related {
-    float: right;
-    margin-left: 15px;
-}
-
-#article .related img, #event .related img {
-    display: block;
-}
 
 /* Comments */
-#comments h4 {
-    padding-top: 15px;
-    margin: 0;
-}
 
-/* Print CSS */
-@media print {
-    .print {
-        display: inline;
-    }
-    
-    .screen {
-        display: none;
-    }
-    
-    body {
-        background: #fff!important;
-    }
-    
-    #header, #outer-container, #footer, #footer p, #center {
-        background: transparent!important;
-        padding: 0!important;
-        width: auto!important;
-        margin: 0!important;
-    }
-    
-    #header, #center, #footer {
-        height: auto!important;
-        margin-bottom: 20px!important;
-    }
-    
-    #footer {
-        padding-top: 10px!important;
-        border-top: 1px solid #333!important;
-        color: #333!important;
-    }
-}
+
 
 /*********************
  * ACCESSIBILITY CSS *

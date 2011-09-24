@@ -26,86 +26,10 @@ img.icon.text {float:left;margin-right:5px;}
 #tooltip h3, #tooltip div {margin:0;}
 span.tooltip {border-bottom:1px dashed #999;}
 
-/* navigation menu */
-ul.menu.navigation li {
-    padding: 4px 0 4px 4px;
-}
 
-ul.menu.navigation div {
-    color: #666;
-}
 
-ul.menu.navigation a:hover {
-    background-color: #fff;
-}
 
-/* forms */
-label.error {
-    clear: both;
-    color:#8a1f11;
-    margin: 0 0 0 32%;
-    width: auto;
-    padding: 4px 0;
-    border: none;
-    background: none;
-}
 
-label.radio {
-    width: 62%;
-    clear: none;
-    margin: 0 0 0 2%;
-}
-
-label.checkbox {
-    width: 100%;
-}
-
-label.checkbox span {
-    width: 30%;
-    float: left;
-}
-
-label.checkbox span.tooltip {
-    width: auto;
-    float: none;
-}
-
-label.checkbox input[type=checkbox], label.checkbox input.checkbox {
-    float: none;
-    margin: 0 0 10px 2%;
-}
-
-form img.clear, #passport img.clear, form a.clear, label.radio.clear {
-    display: block;
-    margin: 0 0 10px 32%;
-}
-
-label.radio.clear {
-    margin: 0 0 0 32%;
-}
-
-fieldset .button.clear {
-    margin-left: 32%;
-}
-
-label.radio.clear.last {
-    margin-bottom: 10px;
-}
-
-select {
-    padding: 5px;
-}
-
-/* Sitemap */
-#sitemap li {
-    float: left;
-    border-top: 1px solid #cdc4c0;
-}
-
-#sitemap ul li {
-    float: none;
-    border: 0;
-}
 
 /* file archive */
 #file-archive ul ul {
