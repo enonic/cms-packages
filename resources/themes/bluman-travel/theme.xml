@@ -4,12 +4,13 @@
         <access-key key="m" text="accessibility-text-main-menu" anchor="menu-main" />
         <access-key key="s" text="accessibility-text-sub-menu" anchor="menu-sub" />
         <access-key key="c" text="accessibility-text-center" anchor="center" />
+        <access-key key="a" text="accessibility-menu" anchor="accessibility-menu" />
     </accessibility>
     <device-classes>
         <device-class name="pc,unknown">
             <layout name="default">
                 <area width="960">
-                    <region name="west">
+                    <region name="west" type="section">
                         <width>344</width>
                         <margin>
                             <right>0</right>
@@ -27,7 +28,7 @@
             </layout>
             <layout name="section-layout">
                 <area width="960">
-                    <region name="north">
+                    <region name="north" type="nav">
                         <width>960</width>
                         <padding>
                             <right>0</right>
@@ -44,7 +45,7 @@
                     </region>
                 </area>
                 <area width="960">
-                    <region name="west">
+                    <region name="west" type="section">
                         <width>344</width>
                         <margin>
                             <right>0</right>
@@ -62,7 +63,7 @@
             </layout>
             <layout name="spot-layout">
                 <area width="960">
-                    <region name="north">
+                    <region name="north" type="nav">
                         <width>960</width>
                         <padding>
                             <right>0</right>
@@ -79,7 +80,7 @@
                     </region>
                 </area>
                 <area width="960">
-                    <region name="west">
+                    <region name="west" type="article">
                         <width>344</width>
                         <margin>
                             <right>0</right>
@@ -92,23 +93,6 @@
                             <left>0</left>
                             <bottom>0</bottom>
                         </padding>
-                    </region>
-                </area>
-                <area width="960">
-                    <region name="south">
-                        <width>960</width>
-                        <padding>
-                            <right>0</right>
-                            <left>0</left>
-                            <top>0</top>
-                            <bottom>0</bottom>
-                        </padding>
-                        <margin>
-                            <right>0</right>
-                            <left>0</left>
-                            <top>0</top>
-                            <bottom>30</bottom>
-                        </margin>
                     </region>
                 </area>
             </layout>
@@ -145,12 +129,13 @@
                 </sizes>
             </image>
             <styles>
-                <style>/_public/themes/bluman-travel/css/all-framework-modules.css</style>
+                <!--<style>/_public/themes/bluman-travel/css/all-framework-modules.css</style>-->
                 <style>/_public/themes/bluman-travel/css/pc/pc-framework-modules.css</style>
                 <style>/_public/themes/bluman-travel/css/html5-boilerplate.css</style>
                 <style>/_public/themes/bluman-travel/css/libs/jquery-easing-1.3/jquery.easing.1.3.css</style>
                 <style>/_public/themes/bluman-travel/css/libs/jquery-tooltip-1.3.0/jquery.tooltip-1.3.0.css</style>
                 <style>/_public/themes/bluman-travel/css/libs/jquery-ui-1.8.16-custom/jquery-ui-1.8.16.custom.css</style>
+                <style>/_public/themes/bluman-travel/css/development-test-styles.css</style>
             </styles>
             <scripts>
             <scripts>
@@ -237,6 +222,7 @@
                 <style>/_public/themes/bluman-travel/css/libs/jquery-tooltip-1.3.0/jquery.tooltip-1.3.0.css</style>
                 <style>/_public/themes/bluman-travel/css/libs/jquery-ui-1.8.16-custom/jquery-ui-1.8.16.custom.css</style>
                 <style>/_public/themes/bluman-travel/css/libs/mobile-jstree/jstree.css</style>
+                <style>/_public/themes/bluman-travel/css/development-test-styles.css</style>
             </styles>
             <scripts>
                 <script>/_public/themes/bluman-travel/js/libs/jquery-1.6.2.min.js</script>

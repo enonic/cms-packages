@@ -26,7 +26,6 @@
     <!-- regions -->
     <xsl:param name="north"><type>region</type></xsl:param>
     <xsl:param name="west"><type>region</type></xsl:param>
-    <xsl:param name="south"><type>region</type></xsl:param>
 
     <xsl:template match="/">
         <xsl:choose>

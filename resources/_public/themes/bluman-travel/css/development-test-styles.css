@@ -1,0 +1,82 @@
+html, body, #page {
+    width:100%;
+}
+
+#page-navigation {
+    width: 100%;
+    height: 25px;
+}
+#page-navigation ul {
+    float: right;
+    clear: both;
+}
+#spot-navigation{
+    width: 100%;
+    height:25px;
+    clear: both;
+}
+#device-navigation{
+    width: auto;
+}
+#accessibility-navigation{
+    width: auto;
+}
+
+nav ul li {
+    float: left;
+    margin-right: 5px;
+}
+
+menu ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+menu ul li a {
+    padding-left: 5px;
+}
+
+menu ul li{
+    float: left;
+    margin-right: 5px;
+}
+
+footer {
+    position: relative;
+    width: 100%;
+    height:50px;
+    clear: both;
+}
+footer section {
+    height: 100%;
+}
+footer section {
+    width: auto;
+    float: right;
+}
+footer>section menu {
+    float: right;
+    height: 100%;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    clear: both;
+}
+
+div#outer-container{
+    padding:0;
+    width:100%;
+    height: 100%;
+    overflow: auto;
+}
+div#middle-container{
+    clear: both;
+    height:100%;
+}
+
+#west {
+    height: auto;
+}

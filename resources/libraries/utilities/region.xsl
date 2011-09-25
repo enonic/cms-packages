@@ -23,40 +23,69 @@
          <!-- Creates region if it contains portlets or this is system region and error page-->
          <xsl:if
             test="count($rendered-page/regions/region[name = concat($config-region-prefix, current()/@name)]/windows/window) gt 0 or (current()/system = 'true' and $error-page/@key = portal:getPageKey())">
-            <div id="{concat($config-region-prefix, current()/@name)}" class="region">
-               <xsl:variable name="width">
-                  <xsl:choose>
-                     <xsl:when test="scalable = 'true'">
-                        <xsl:variable name="active-siblings" as="element()*"
-                           select="../region[not(scalable = 'true')][index-of($active-regions/name, concat($config-region-prefix, @name)) castable as xs:integer]"/>
-                        <xsl:variable name="width-of-siblings" as="xs:integer">
-                           <xsl:value-of
-                              select="sum($active-siblings/width) + sum($active-siblings/margin/*) + sum($active-siblings/padding/*)"
-                           />
-                        </xsl:variable>
-                        <xsl:variable name="padding-width" as="xs:integer">
-                           <xsl:value-of
-                              select="if (padding/node()) then sum(padding/node()[name() = 'left' or name() = 'right']) else 0"
-                           />
-                        </xsl:variable>
-                        <xsl:value-of
-                           select="xs:integer(../@width) - $width-of-siblings - $padding-width"/>
-                     </xsl:when>
-                     <xsl:otherwise>
-                        <xsl:value-of select="width"/>
-                     </xsl:otherwise>
-                  </xsl:choose>
-               </xsl:variable>
-               <xsl:call-template name="region.render">
-                  <xsl:with-param name="region"
-                     select="concat($config-region-prefix, current()/@name)"/>
-                  <xsl:with-param name="parameters" as="xs:anyAtomicType*">
-                     <xsl:sequence select="'_config-region-width', xs:integer($width)"/>
-                  </xsl:with-param>
-               </xsl:call-template>
-            </div>
+             <xsl:choose>
+                 <xsl:when test="@type and @type='section'">
+                    <section id="{concat($config-region-prefix, current()/@name)}" class="region">
+                        <xsl:call-template name="regiontype.render" />
+                    </section>
+                 </xsl:when>
+                 <xsl:when test="@type and @type='article'">
+                    <article id="{concat($config-region-prefix, current()/@name)}" class="region">
+                        <xsl:call-template name="regiontype.render" />
+                    </article>
+                 </xsl:when>
+                 <xsl:when test="@type and @type='aside'">
+                    <aside id="{concat($config-region-prefix, current()/@name)}" class="region">
+                        <xsl:call-template name="regiontype.render" />
+                    </aside>
+                 </xsl:when>
+                 <xsl:when test="@type and @type='nav'">
+                    <nav id="{concat($config-region-prefix, current()/@name)}" class="region">
+                        <xsl:call-template name="regiontype.render" />
+                    </nav>
+                 </xsl:when>
+                 <xsl:otherwise>
+                     <div id="{concat($config-region-prefix, current()/@name)}" class="region">
+                         <xsl:call-template name="regiontype.render" />
+                     </div>
+                 </xsl:otherwise>
+             </xsl:choose>
          </xsl:if>
       </xsl:for-each>
+   </xsl:template>
+
+   <xsl:template name="regiontype.render">
+       <xsl:variable name="width">
+          <xsl:choose>
+             <xsl:when test="scalable = 'true'">
+                <xsl:variable name="active-siblings" as="element()*"
+                   select="../region[not(scalable = 'true')][index-of($active-regions/name, concat($config-region-prefix, @name)) castable as xs:integer]"/>
+                <xsl:variable name="width-of-siblings" as="xs:integer">
+                   <xsl:value-of
+                      select="sum($active-siblings/width) + sum($active-siblings/margin/*) + sum($active-siblings/padding/*)"
+                   />
+                </xsl:variable>
+                <xsl:variable name="padding-width" as="xs:integer">
+                   <xsl:value-of
+                      select="if (padding/node()) then sum(padding/node()[name() = 'left' or name() = 'right']) else 0"
+                   />
+                </xsl:variable>
+                <xsl:value-of
+                   select="xs:integer(../@width) - $width-of-siblings - $padding-width"/>
+             </xsl:when>
+             <xsl:otherwise>
+                <xsl:value-of select="width"/>
+             </xsl:otherwise>
+          </xsl:choose>
+       </xsl:variable>
+       <xsl:call-template name="region.render">
+          <xsl:with-param name="region"
+             select="concat($config-region-prefix, current()/@name)"/>
+          <xsl:with-param name="parameters" as="xs:anyAtomicType*">
+             <xsl:sequence select="'_config-region-width', xs:integer($width)"/>
+          </xsl:with-param>
+       </xsl:call-template>
+
    </xsl:template>
 
    <xsl:template name="region.css">

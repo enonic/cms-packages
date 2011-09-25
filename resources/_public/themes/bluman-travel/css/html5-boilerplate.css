@@ -34,7 +34,7 @@ html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-
 
 body { margin: 0; font-size: 13px; line-height: 1.231; }
 
-body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+body, button, input, select, textarea { font-family: Verdana; color: #000; }
 
 /* 
  * Remove text-shadow in selection highlight: h5bp.com/i
@@ -290,3 +290,6 @@ td { vertical-align: top; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
 }
+
+/*Misc proposed additions*/
+menu { margin: 0; padding: 0;}
