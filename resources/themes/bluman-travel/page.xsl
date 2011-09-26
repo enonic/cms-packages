@@ -26,6 +26,9 @@
     <!-- regions -->
     <xsl:param name="north"><type>region</type></xsl:param>
     <xsl:param name="west"><type>region</type></xsl:param>
+    <xsl:param name="center"><type>region</type></xsl:param>
+    <xsl:param name="south"><type>region</type></xsl:param>
+    <xsl:param name="background"><type>region</type></xsl:param>
 
     <xsl:template match="/">
         <xsl:choose>
@@ -55,11 +58,9 @@
             <xsl:call-template name="region.css">
                 <xsl:with-param name="layout" select="$layout"/>
             </xsl:call-template>
-            <!-- All JavaScript at the bottom, except for Modernizr / Respond.
-                Modernizr enables HTML5 elements & feature detects;
-                Respond is a polyfill for min/max-width CSS3 Media Queries.
-            -->
-            <script src="{portal:createResourceUrl(concat($theme-public, 'js/libs/modernizr-2.0.6.min.js'))}"></script>
+            <xsl:call-template name="head.script-common"/>
+            <!--<script type="text/javascript" src="{portal:createResourceUrl(concat($theme-public, '/js/mylibs/background-slideshow.js'))}" />-->
+
         </head>
         <body>
             <xsl:call-template name="pc.body" />

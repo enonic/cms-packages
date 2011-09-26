@@ -15,7 +15,7 @@
   
   <!-- page type -->
   <!-- For multiple layouts on one site. Various layouts can be configured in theme.xml, each with a different 'name' attribute on the 'layout' element. -->
-  <xsl:param name="layout" select="'default'" as="xs:string"/>
+  <xsl:param name="layout" select="'spot-search'" as="xs:string"/>
   
   <!-- regions -->
   <xsl:param name="north">

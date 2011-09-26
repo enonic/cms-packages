@@ -5,36 +5,23 @@
             <menu id="accessibility-links">
                 <xsl:call-template name="accessibility.links"/>
             </menu>
+            <noscript><p><xsl:value-of select="portal:localize('javascript-required')"/></p></noscript>
             <xsl:call-template name="pc.header"/>
-            <noscript>
-                <p>
-                    <xsl:value-of select="portal:localize('javascript-required')"/>
-                </p>
-            </noscript>
-            <div id="outer-container">
-                <nav accesskey="m" id="page-navigation">
-                    <xsl:call-template name="menu.render">
-                        <xsl:with-param name="menuitems" select="/result/menu/menuitems"/>
-                        <xsl:with-param name="levels" select="1"/>
-                    </xsl:call-template>
-                </nav>
-                <div id="middle-container">
-                    <!-- Renders all regions defined in theme.xml -->
-                    <xsl:call-template name="region.renderall">
-                        <xsl:with-param name="layout" select="$layout" as="xs:string"/>
-                    </xsl:call-template>
-                </div>
-                <nav accesskey="s" id="spot-navigation">
-                    <xsl:call-template name="menu.render">
-                        <xsl:with-param name="menuitems" select="/result/spotmenu/menuitems/menuitem/menuitems"/>
-                        <xsl:with-param name="levels" select="1"/>
-                    </xsl:call-template>
-                </nav>
+            <nav accesskey="m" id="page-navigation">
+                <xsl:call-template name="menu.render">
+                    <xsl:with-param name="menuitems" select="/result/menu/menuitems"/>
+                    <xsl:with-param name="levels" select="1"/>
+                </xsl:call-template>
+            </nav>
+            <div id="container">
+                <!-- Renders all regions defined in theme.xml -->
+                <xsl:call-template name="region.renderall">
+                    <xsl:with-param name="layout" select="$layout" as="xs:string"/>
+                </xsl:call-template>
             </div>
             <xsl:call-template name="pc.footer"/>
         </div>
-        <!-- JavaScript at the bottom for fast page loading -->
-        <xsl:call-template name="head.script-common"/>
+
 
         <!-- If google tracker is set in config.xml, renders analytics code -->
         <xsl:if test="$google-tracker/text()">
@@ -59,11 +46,19 @@
     <!-- Footer template -->
     <!-- Put your static footer XSL/HTML here -->
     <xsl:template name="pc.footer">
-        <footer id="footer">
-            <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'mobile', 'lifetime', 'session'))}" class="device-class screen" rel="nofollow">
-                <img src="{portal:createResourceUrl(concat($theme-public, '/images/icon-mobile.png'))}" alt="{portal:localize('Mobile-version')}" class="icon text"/>
-                <xsl:value-of select="portal:localize('Change-to-mobile-version')"/>
-            </a>
+        <footer id="footer" class="default-transparency">
+            <nav accesskey="s" id="spot-navigation">
+                <xsl:call-template name="menu.render">
+                    <xsl:with-param name="menuitems" select="/result/spotmenu/menuitems/menuitem/menuitems"/>
+                    <xsl:with-param name="levels" select="1"/>
+                </xsl:call-template>
+            </nav>
+            <section id="device-navigation">
+                <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'mobile', 'lifetime', 'session'))}" class="device-class screen" rel="nofollow">
+                    <img src="{portal:createResourceUrl(concat($theme-public, '/images/icon-mobile.png'))}" alt="{portal:localize('Mobile-version')}" class="icon text"/>
+                    <xsl:value-of select="portal:localize('Change-to-mobile-version')"/>
+                </a>
+            </section>
             <section>
                 <menu accesskey="a" id="accessibility-navigation">
                     <ul>
