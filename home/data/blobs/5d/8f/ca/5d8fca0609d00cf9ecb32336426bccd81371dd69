@@ -1,0 +1,6 @@
+aside#south {
+    float: left;
+    position: relative;
+    width: auto;
+    height:auto;
+}

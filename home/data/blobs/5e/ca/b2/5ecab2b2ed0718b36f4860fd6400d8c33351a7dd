@@ -1,0 +1,82 @@
+
+nav#page-navigation {
+    position: relative;
+    width: 100%;
+    height: 25px;
+    border-bottom: 1px solid black;
+    background-color: #fff;
+}
+nav#page-navigation ul {
+    float: right;
+}
+nav#page-navigation>ul>li a.active{
+    color: #000;
+}
+footer nav,menu {
+    padding-right: 20px;
+    padding-left: 20px;
+    height: 25px;
+    display:inline-block;
+
+}
+footer nav#device-navigation {
+    float: right;
+    width:auto;
+}
+footer menu#accessibility-navigation{
+    float: right;
+    width: auto;
+}
+footer nav#spot-navigation{
+    width: auto;
+    clear: both;
+}
+footer>nav a:hover {
+    color: #4682B4;
+    text-decoration: underline
+}
+footer>nav a:visited {
+    color: #4682B4;
+    text-decoration: none;
+}
+footer>nav a.active {
+    color: #fff;
+}
+footer>nav a {
+    color: #4682B4;
+    float: right;
+}
+nav ul li {
+    float: left;
+    margin-right: 10px;
+}
+menu ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+menu ul li a {
+    padding-left: 5px;
+}
+
+menu ul li{
+    float: left;
+    margin-right: 5px;
+}
+ul>li a{
+    color: #4682B4;
+    text-decoration: none;
+}
+ul>li a:hover{
+    color: #4682B4;
+    text-decoration: underline;
+}
+ul>li a:visited{
+    color: #4682B4;
+    text-decoration: none;
+}
+ul>li a.active{
+    color: #fff;
+    text-decoration: none;
+}

@@ -1,0 +1,20 @@
+<datasources>
+  <datasource result-element="menu">
+    <methodname>getMenuBranch</methodname>
+    <parameters>
+      <parameter name="menuItemKey" type="int">${pageKey("/pages")}</parameter>
+      <parameter name="includeTopLevel" type="boolean">false</parameter>
+      <parameter name="startLevel" type="int">1</parameter>
+      <parameter name="levels" type="int">0</parameter>
+    </parameters>
+  </datasource>
+  <datasource result-element="spotmenu">
+    <methodname>getMenuBranch</methodname>
+    <parameters>
+      <parameter name="menuItemKey" type="int">${pageKey("/spots")}</parameter>
+      <parameter name="includeTopLevel" type="boolean">false</parameter>
+      <parameter name="startLevel" type="int">1</parameter>
+      <parameter name="levels" type="int">3</parameter>
+    </parameters>
+  </datasource>
+</datasources>

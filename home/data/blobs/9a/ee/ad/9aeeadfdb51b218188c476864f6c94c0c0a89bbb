@@ -1,0 +1,32 @@
+/* caption styling */
+
+.caption-top, .caption-bottom {
+	color: #ffffff;
+	padding: 1.2em;
+	/*font-weight: bold;
+	font-size: 13px;
+	font-family: arial;*/
+	cursor: default;
+	border: 0px solid #334143;
+	background: #000000;
+	text-shadow: 1px 1px 0 #202020;
+}
+.caption-top {
+   border-width: 0px 0px 8px 0px;
+}
+.caption-bottom {
+   border-width: 8px 0px 0px 0px;
+}
+.caption a, .caption a {
+	border: 0 none;
+	text-decoration: none;
+	background: #000000;
+	padding: 0.3em;
+}
+.caption a:hover, .caption a:hover {
+	background: #202020;
+}
+.caption-wrapper {
+	float: left;
+}
+br.c { clear: both; }

@@ -1,0 +1,21 @@
+#spot-thumbnails{
+    padding: 15px 30px 30px 10px;
+}
+div#spot-thumbnails div{
+    float: left;
+    font-size: 1.2em;
+    font-style: italic;
+}
+div.spot-thumbnails {
+    height: auto;
+    overflow: visible;
+    /*background-color: #4682B4;*/
+}
+.spot-thumbnail{
+    display: inline;
+    list-style-type: none;
+    overflow: visible;
+}
+.spot-thumbnail img {
+    border: 1px solid #000;
+}

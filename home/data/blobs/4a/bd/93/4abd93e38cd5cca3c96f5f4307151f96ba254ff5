@@ -1,0 +1,7 @@
+#west {
+    position:relative;
+    height: 100%;
+    clear: left;
+    background-color:#000;
+    width: 100%;
+}

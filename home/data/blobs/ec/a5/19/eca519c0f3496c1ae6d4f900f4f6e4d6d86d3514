@@ -1,0 +1,21 @@
+#spot-thumbnails{
+    position: fixed;
+    bottom: 50px;
+    left: 344px;
+    display:inline-block;
+    width: auto;
+    height: auto;
+    overflow-x: visible;
+}
+div.spot-thumbnails {
+    height: auto;
+    display: block;
+}
+.spot-thumbnail{
+    display: inline;
+    list-style-type: none;
+    overflow: visible;
+}
+.spot-thumbnail img {
+    border: 1px solid #000;
+}
