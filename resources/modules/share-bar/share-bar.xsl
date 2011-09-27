@@ -70,7 +70,7 @@
 
             //</xsl:comment>
         </script>
-        <div id="share-bar-tip-dialog" title="{portal:localize('Tip-a-friend')}">
+        <div id="share-bar-tip-dialog" style="display:none" title="{portal:localize('Tip-a-friend')}">
             <form action="{portal:createServicesUrl('sendmail', 'send')}" method="post" id="tip-form" class="dont-validate">
                 <fieldset>
                     <xsl:if test="$error-sendmail-send != ''">

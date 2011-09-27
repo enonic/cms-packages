@@ -7,12 +7,6 @@
             </menu>
             <noscript><p><xsl:value-of select="portal:localize('javascript-required')"/></p></noscript>
             <xsl:call-template name="pc.header"/>
-            <nav accesskey="m" id="page-navigation">
-                <xsl:call-template name="menu.render">
-                    <xsl:with-param name="menuitems" select="/result/menu/menuitems"/>
-                    <xsl:with-param name="levels" select="1"/>
-                </xsl:call-template>
-            </nav>
             <div id="container">
                 <!-- Renders all regions defined in theme.xml -->
                 <xsl:call-template name="region.renderall">
@@ -38,6 +32,12 @@
             <a class="screen" href="{portal:createUrl($front-page)}">
                 <img alt="{$site-name}-{portal:localize('logo')}" id="logo-screen" src="{portal:createResourceUrl(concat($theme-public, '/images/logo-screen.png'))}" title="{$site-name}"/>
             </a>
+            <nav accesskey="m" id="page-navigation">
+                <xsl:call-template name="menu.render">
+                    <xsl:with-param name="menuitems" select="/result/menu/menuitems"/>
+                    <xsl:with-param name="levels" select="1"/>
+                </xsl:call-template>
+            </nav>
         </header>
     </xsl:template>
 
@@ -53,31 +53,29 @@
                     <xsl:with-param name="levels" select="1"/>
                 </xsl:call-template>
             </nav>
-            <section id="device-navigation">
+            <nav id="device-navigation">
                 <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'mobile', 'lifetime', 'session'))}" class="device-class screen" rel="nofollow">
                     <img src="{portal:createResourceUrl(concat($theme-public, '/images/icon-mobile.png'))}" alt="{portal:localize('Mobile-version')}" class="icon text"/>
                     <xsl:value-of select="portal:localize('Change-to-mobile-version')"/>
                 </a>
-            </section>
-            <section>
-                <menu accesskey="a" id="accessibility-navigation">
-                    <ul>
-                        <li id="text-size">
-                            <a href="#" class="change-text-size">
-                                <xsl:value-of select="portal:localize('Text-size')"/>
-                            </a>
-                            <a href="#">A</a>
-                            <a href="#" class="large-text">A</a>
-                            <a href="#" class="largest-text">A</a>
-                        </li>
-                        <li>
-                            <a href="#" id="contrast">
-                                <xsl:value-of select="portal:localize('High-contrast')"/>
-                            </a>
-                        </li>
-                    </ul>
-                </menu>
-            </section>
+            </nav>
+            <menu accesskey="a" id="accessibility-navigation">
+                <ul>
+                    <li id="text-size">
+                        <a href="#" class="change-text-size">
+                            <xsl:value-of select="portal:localize('Text-size')"/>
+                        </a>
+                        <!--<a href="#">A</a>
+                        <a href="#" class="large-text">A</a>
+                        <a href="#" class="largest-text">A</a>  -->
+                    </li>
+                    <li>
+                        <a href="#" id="contrast">
+                            <xsl:value-of select="portal:localize('High-contrast')"/>
+                        </a>
+                    </li>
+                </ul>
+            </menu>
         </footer>
     </xsl:template>
 

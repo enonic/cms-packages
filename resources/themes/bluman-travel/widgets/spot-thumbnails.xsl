@@ -14,9 +14,7 @@
 
     <xsl:template match="/">
         <div id="spot-thumbnails">
-            <xsl:call-template name="jquery-scripts" />
             <xsl:if test="/result/spot-images/contents/content[@contenttype='Image']">
-                <p>Other photos from <xsl:value-of select="/result/context/resource/display-name" /> </p>
                 <div class="spot-thumbnails">
                     <ul id="sdt_menu" class="sdt_menu">
                         <xsl:apply-templates select="/result/spot-images/contents/content[@contenttype='Image']" mode="spot-thumbnails"/>
@@ -24,19 +22,17 @@
                 </div>
             </xsl:if>
         </div>
+        <xsl:call-template name="jquery-scripts" />
     </xsl:template>
     <xsl:template match="content" mode="spot-thumbnails">
-
            <li class="spot-thumbnail">
-                    <span>
-                        <span>
-                            <img id="{@key}" onclick="changeBkg('{portal:createImageUrl(@key, '')}')" class="image-spot-thumbnail" alt="{title}" src="{portal:createImageUrl(@key, 'scalesquare(36)')}" />
-                            <xsl:if test="position()=1">
-                                <input type="hidden" id="backgroundImage" value="{portal:createImageUrl(@key, '')}" />
-                            </xsl:if>
-                        </span>
-                    </span>
+                <figure>
+                    <img id="{@key}" onclick="changeBkg('{portal:createImageUrl(@key, '')}')" class="image-spot-thumbnail" alt="{title}" src="{portal:createImageUrl(@key, 'scalesquare(36)')}" />
+                </figure>
             </li>
+            <xsl:if test="position()=1">
+                <input type="hidden" id="backgroundImage" value="{portal:createImageUrl(@key, '')}" />
+            </xsl:if>
     </xsl:template>
 
     <xsl:template name="jquery-scripts">

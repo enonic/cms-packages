@@ -24,25 +24,30 @@
          <xsl:if
             test="count($rendered-page/regions/region[name = concat($config-region-prefix, current()/@name)]/windows/window) gt 0 or (current()/system = 'true' and $error-page/@key = portal:getPageKey())">
              <xsl:choose>
-                 <xsl:when test="@type and @type='section'">
+                 <xsl:when test="@element and @element='section'">
                     <section id="{concat($config-region-prefix, current()/@name)}" class="region">
                         <xsl:call-template name="regiontype.render" />
                     </section>
                  </xsl:when>
-                 <xsl:when test="@type and @type='article'">
+                 <xsl:when test="@element and @element='article'">
                     <article id="{concat($config-region-prefix, current()/@name)}" class="region">
                         <xsl:call-template name="regiontype.render" />
                     </article>
                  </xsl:when>
-                 <xsl:when test="@type and @type='aside'">
+                 <xsl:when test="@element and @element='aside'">
                     <aside id="{concat($config-region-prefix, current()/@name)}" class="region">
                         <xsl:call-template name="regiontype.render" />
                     </aside>
                  </xsl:when>
-                 <xsl:when test="@type and @type='nav'">
+                 <xsl:when test="@element and @element='nav'">
                     <nav id="{concat($config-region-prefix, current()/@name)}" class="region">
                         <xsl:call-template name="regiontype.render" />
                     </nav>
+                 </xsl:when>
+                 <xsl:when test="@element and @element='menu'">
+                    <menu id="{concat($config-region-prefix, current()/@name)}" class="region">
+                        <xsl:call-template name="regiontype.render" />
+                    </menu>
                  </xsl:when>
                  <xsl:otherwise>
                      <div id="{concat($config-region-prefix, current()/@name)}" class="region">

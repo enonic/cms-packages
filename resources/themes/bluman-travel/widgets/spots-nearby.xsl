@@ -15,7 +15,7 @@
     <xsl:template match="/">
         <xsl:if test="/result/spots-nearby/contents/content">
             <div class="spots-nearby-container">
-                <div id="spots-info" class="spots-info default-transparency">
+                <div id="spots-info" class="spots-info">
                     <p class="infoText">
                         You<xsl:choose><xsl:when test="/result/context/querystring/parameter[@name='spot']"> searched for spots in </xsl:when><xsl:otherwise> browsed to </xsl:otherwise></xsl:choose>
                         <xsl:choose>
@@ -50,22 +50,23 @@
                         </xsl:if>
                     </p>
                 </div>
-                <div class="spots-nearby">
+                <nav class="spots-nearby">
                     <ul id="sdt_menu" class="sdt_menu">
                         <xsl:apply-templates select="/result/spots-nearby/contents/content" mode="spots-nearby"/>
                     </ul>
-                </div>
+                </nav>
             </div>
         </xsl:if>
     </xsl:template>
     <xsl:template match="content" mode="spots-nearby">
+            <xsl:variable name="key" select="@key" />
+            <xsl:variable name="activeClass"><xsl:if test="/result/context/resource/@key=$key"><xsl:text>spot-nearby-active</xsl:text></xsl:if></xsl:variable>
             <li class="spot-nearby default-transparency" style="background: url({portal:createImageUrl(contentdata/image[1]/image/@key, 'scalewidth(170)')})">
                 <a href="{portal:createContentUrl(@key,(''))}">
-                    <img class="animated-image" alt="{title}" src="{portal:createImageUrl(contentdata/image[1]/image/@key, 'scalesquare(170);rounded(2)')}" />
                     <span class="sdt_active"></span>
                     <span class="sdt_wrap">
-                        <span class="sdt_link low-transparency"><xsl:value-of select="display-name" /></span>
-                        <span class="sdt_descr low-transparency"><xsl:value-of select="location/site/contentlocation/@menuitemname" /> </span>
+                        <span class="sdt_link low-transparency {$activeClass}"><xsl:value-of select="display-name" /></span>
+                        <span class="sdt_descr low-transparency {$activeClass}"><xsl:value-of select="location/site/contentlocation/@menuitemname" /> </span>
                     </span>
                 </a>
             </li>

@@ -10,7 +10,7 @@
         <device-class name="pc,unknown">
             <layout name="spot-search">
                 <area width="960">
-                    <region name="west" type="section">
+                    <region name="west" element="section">
                         <width>344</width>
                         <margin>
                             <right>0</right>
@@ -30,7 +30,7 @@
                             <right>0</right>
                             <left>0</left>
                             <top>0</top>
-                            <bottom>50</bottom>
+                            <bottom>0</bottom>
                         </margin>
                         <padding>
                             <top>0</top>
@@ -42,7 +42,7 @@
             </layout>
             <layout name="spot-browse">
                 <area width="960">
-                    <region name="north" type="nav">
+                    <region name="north" element="aside">
                         <width>960</width>
                         <padding>
                             <right>0</right>
@@ -59,7 +59,7 @@
                     </region>
                 </area>
                 <area width="960">
-                    <region name="west" type="section">
+                    <region name="west" element="section">
                         <width>344</width>
                         <margin>
                             <right>0</right>
@@ -78,8 +78,8 @@
                         <margin>
                             <right>0</right>
                             <left>0</left>
-                            <top>0</top>
-                            <bottom>50</bottom>
+                            <top>85</top>
+                            <bottom>0</bottom>
                         </margin>
                         <padding>
                             <top>0</top>
@@ -91,7 +91,7 @@
             </layout>
             <layout name="spot-show">
                 <area width="960">
-                    <region name="north" type="aside">
+                    <region name="north" element="aside">
                         <width>960</width>
                         <padding>
                             <right>0</right>
@@ -108,7 +108,7 @@
                     </region>
                 </area>
                 <area width="960">
-                    <region name="west" type="article">
+                    <region name="west" element="article">
                         <width>344</width>
                         <margin>
                             <right>0</right>
@@ -122,11 +122,11 @@
                             <bottom>0</bottom>
                         </padding>
                     </region>
-                    <region name="south" type="aside">
-                        <width>344</width>
+                    <region name="south" element="aside">
+                        <width>960</width>
                         <margin>
                             <right>0</right>
-                            <left>0</left>
+                            <left>350</left>
                             <top>0</top>
                             <bottom>0</bottom>
                         </margin>
@@ -141,8 +141,8 @@
                         <margin>
                             <right>0</right>
                             <left>0</left>
-                            <top>0</top>
-                            <bottom>50</bottom>
+                            <top>85</top>
+                            <bottom>0</bottom>
                         </margin>
                         <padding>
                             <top>0</top>
@@ -154,7 +154,7 @@
             </layout>
             <layout name="page-show">
                 <area width="960">
-                    <region name="west" type="aside">
+                    <region name="west" element="aside">
                         <width>200</width>
                         <margin>
                             <right>0</right>
@@ -168,7 +168,7 @@
                             <bottom>0</bottom>
                         </padding>
                     </region>
-                    <region name="center" type="article">
+                    <region name="center" element="article">
                         <width>800</width>
                         <margin>
                             <right>50</right>
@@ -232,8 +232,8 @@
                 </sizes>
             </image>
             <styles>
-                <!--<style>/_public/themes/bluman-travel/css/all-framework-modules.css</style>
-                <style>/_public/themes/bluman-travel/css/pc/pc-framework-modules.css</style>-->
+                <style>/_public/themes/bluman-travel/css/all-framework-modules.css</style>
+                <style>/_public/themes/bluman-travel/css/pc/pc-framework-modules.css</style>
                 <style>/_public/themes/bluman-travel/css/pc/bluman-pc-buttons.css</style>
                 <style>/_public/themes/bluman-travel/css/pc/bluman-pc-navigation.css</style>
                 <style>/_public/themes/bluman-travel/css/pc/bluman-pc-spot-search.css</style>
@@ -241,6 +241,7 @@
                 <style>/_public/themes/bluman-travel/css/pc/bluman-pc-spot-thumbnails.css</style>
                 <style>/_public/themes/bluman-travel/css/pc/bluman-pc-spots-nearby.css</style>
                 <style>/_public/themes/bluman-travel/css/pc/bluman-pc-west.css</style>
+                <style>/_public/themes/bluman-travel/css/pc/bluman-pc-north.css</style>
                 <style>/_public/themes/bluman-travel/css/pc/bluman-pc-south.css</style>
                 <style>/_public/themes/bluman-travel/css/pc/bluman-pc-center.css</style>
                 <style>/_public/themes/bluman-travel/css/pc/bluman-pc-background.css</style>

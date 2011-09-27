@@ -1,3 +1,43 @@
+
+nav#page-navigation {
+    position: relative;
+    width: 200px;
+    overflow-x: visible;
+    height: 100%;
+    background-color: #fff;
+    float: right;
+    line-height: 25px;
+}
+nav#page-navigation ul {
+}
+
+footer nav,menu {
+    padding-right: 20px;
+    padding-left: 20px;
+    height: 25px;
+    display:inline-block;
+
+}
+footer nav#device-navigation {
+    float: right;
+    width:auto;
+}
+footer menu#accessibility-navigation{
+    float: right;
+    width: auto;
+}
+footer nav#spot-navigation{
+    width: auto;
+    clear: both;
+}
+
+footer>nav a {
+    float: right;
+}
+nav ul li {
+    float: left;
+    margin-right: 10px;
+}
 menu ul, ol {
     list-style: none;
     margin: 0;
@@ -12,36 +52,8 @@ menu ul li{
     float: left;
     margin-right: 5px;
 }
-nav#page-navigation {
-    position: relative;
-    width: 100%;
-    height: 25px;
-}
-nav#page-navigation ul {
-    float: right;
-    clear: both;
-}
-footer>section menu {
-    float: right;
-    height: 100%;
-}
-#device-navigation {
-    width:auto;
-    clear: right;
-}
-#accessibility-navigation{
-    width: auto;
-}
-nav#spot-navigation{
-    width: auto;
-    height:25px;
-    clear: both;
-    float: right;
-}
-nav ul li {
-    float: left;
-    margin-right: 5px;
-}
+
+/*LINKS  */
 ul>li a{
     color: #4682B4;
     text-decoration: none;
@@ -54,28 +66,70 @@ ul>li a:visited{
     color: #4682B4;
     text-decoration: none;
 }
-ul>li a.active{
-    color: #fff;
+header ul>li a:visited{
+    color: #4682B4;
     text-decoration: none;
 }
-nav#page-navigation>ul>li a.active{
+header ul>li a.active{
     color: #000;
+    text-decoration: underline;
 }
-footer>section a:hover {
+
+footer ul>li a:visited{
+    color: #4682B4;
+    text-decoration: none;
+}
+footer ul>li a.active{
+    color: #fff;
+    text-decoration: underline;
+}
+
+footer>nav a {
+    color: #4682B4;
+    text-decoration: none;
+}
+
+footer>nav a:hover {
     color: #4682B4;
     text-decoration: underline
 }
-footer>section a:visited {
+footer>nav a:visited {
     color: #4682B4;
     text-decoration: none;
 }
-footer a.active {
+footer>nav a.active {
     color: #fff;
+    text-decoration: underline
 }
-footer>section a {
-    color: #4682B4;
-    float: right;
+footer>nav a:active {
+    color: #fff;
+    text-decoration: underline
 }
-footer nav,section {
-    padding-right: 5px;
+nav#page-navigation>ul>li a.active{
+    color: #000;
+    text-decoration: underline
 }
+
+#text-size a {
+    margin: 0 0 0 5px;
+    font-size: 1em;
+    display: inline;
+}
+
+#text-size a.change-text-size {
+    font-size: 100%;
+    margin: 0;
+}
+
+#text-size a.large-text {
+    font-size: 120%;
+}
+
+#text-size a.largest-text {
+    font-size: 140%;
+}
+
+body.contrast a {
+   color: red !important;
+}
+
