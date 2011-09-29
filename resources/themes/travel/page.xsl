@@ -8,7 +8,7 @@
   <xsl:import href="/libraries/utilities/google.xsl"/>
   <xsl:import href="/libraries/widgets/breadcrumbs.xsl"/>
   <xsl:import href="/libraries/widgets/menu.xsl"/>
-  <xsl:import href="../bluman-travels/mobile.xsl"/>
+  <xsl:import href="mobile.xsl"/>
   <xsl:import href="pc.xsl"/>
   
   <xsl:output doctype-public="-//W3C//DTD XHTML 1.1//EN" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="utf-8" indent="yes" method="xhtml" omit-xml-declaration="yes"/>

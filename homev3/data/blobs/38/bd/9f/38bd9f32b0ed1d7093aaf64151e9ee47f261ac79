@@ -1,0 +1,9 @@
+article#center{
+    position:relative;
+    min-height:300px;
+    background-color: #fff;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #b5b1ad;
+}

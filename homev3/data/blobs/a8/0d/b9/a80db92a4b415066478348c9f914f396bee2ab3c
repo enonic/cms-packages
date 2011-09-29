@@ -1,0 +1,83 @@
+aside#north {
+    width: 100%;
+    height: 85px;
+}
+aside#north > ul {
+    width: 100%;
+    background-color: #4682B4;
+    list-style: none;
+    color: #fff;
+    height:20px;
+}
+aside#north > ul li {
+    float: left;
+    margin-right:10px;
+    line-height:20px;
+}
+aside#north ul>li a{
+    color: #fff;
+    text-decoration: none;
+}
+aside#north ul>li a:hover{
+    color: #000;
+    text-decoration: underline;
+}
+aside#north ul>li a:visited{
+    color: #fff;
+    text-decoration: none;
+}
+aside#north ul>li a.active{
+    color: #000;
+    text-decoration: none;
+}
+aside#north ul.share-bar{
+    margin: 0;
+    padding: 0 0 0 344px;;
+    border-radius: 0;
+}
+
+nav#north{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 50%;
+    height:50px;
+    background-color: #fff;
+
+}
+
+/*BLUMAN SEARCH CONTAINER NORTH*/
+nav#north #bluman-form-container{
+    padding: 0px 10px 0px 10px;
+}
+nav#north #no-such-spots-message {
+    visibility: hidden;
+    color: #4682B4;
+}
+
+nav#north #bluman-form input[type="checkbox"]{
+    margin-right: 5px;
+    float: left;
+}
+
+nav#north #find_bluman_button{
+    float: right;
+    margin-right: 20px;
+}
+
+nav#north #bluman-form-container fieldset{
+    border: none;
+}
+nav#north #bluman-form-container fieldset legend{
+    margin-bottom: 5px;
+}
+
+nav#north .bluman{
+    font-size: 1.1em;
+    color: #4682B4;
+    text-transform: uppercase;
+}
+
+nav#north .blumancolor {
+    color:#4682B4
+}

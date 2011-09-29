@@ -1,0 +1,17 @@
+article#center{
+    position: relative;
+    width: 50%;
+    min-width:450px;
+    background-color: #fff;
+    color:black;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+article#center form input, textarea {
+    width: 200px;
+    float: left;
+    clear: both;
+}

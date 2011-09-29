@@ -35,3 +35,4 @@
     <index name="tags" xpath="contentdata/tags/content/@key" />
   </indexparameters>
 </contenttype>
+
