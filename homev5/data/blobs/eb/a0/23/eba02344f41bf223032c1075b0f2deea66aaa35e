@@ -1,0 +1,5 @@
+article#west div#spot{
+    height: 70%;
+    overflow-y: auto;
+}
+

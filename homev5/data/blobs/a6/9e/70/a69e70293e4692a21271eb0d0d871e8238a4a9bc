@@ -1,0 +1,18 @@
+article#west div#spot{
+    height: 75%;
+    overflow-y: scroll;
+    border: 2px solid pink;
+    display: block;
+    padding-bottom: 100px;
+}
+article#west{
+}
+
+div#spot-show{
+    color: #fff;
+}
+
+div#spot h1{
+    color: #fff;
+    font-size: 1.1em;
+}

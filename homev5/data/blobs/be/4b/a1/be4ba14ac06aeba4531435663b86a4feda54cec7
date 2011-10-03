@@ -1,0 +1,17 @@
+aside#east{
+    position: relative;
+    height: auto;
+    width: 200px;
+    background-color: #fff;
+    color:black;
+    float: left;
+    font-size:0.8em;
+}
+
+aside#east p{
+    padding:  15px;
+}
+
+aside#east h3 {
+    font-size: 1.2em;
+}
