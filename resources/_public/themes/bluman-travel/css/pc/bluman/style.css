@@ -58,7 +58,32 @@ div#background2{
 .transparent{
     opacity: 0;
 }
+.photoInfo{
+    position: absolute;
+    top:0;
+    right: 20px;
+    color: white;
+    font-size: 1.2em;
+    line-height: 25px;
+    font-style: italic;
+    display: block;
+    margin-top:2px;
+    margin-right:10px;
+    background-color: black;
+    -webkit-transition: opacity 2s ease-in;
+	-moz-transition: opacity 2s ease-in;
+	-o-transition: opacity 2s ease-in;
+	-ms-transition: opacity 2s ease-in;
+	transition: opacity 2s ease-in;
 
+    /*-webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    writing-mode: tb-rl;
+    filter: flipV flipH;*/
+}
 /*NORTH-REGION*/
 aside#north {
     width: 100%;
@@ -175,9 +200,14 @@ aside#center form textarea {
 }
 aside#center img#formbuilder-captcha-image,
 aside#center img#passport-create-captcha-image{
+    float:left;
     clear: both;
     margin: 0!important;
     padding:  0;
+}
+aside#center img#formbuilder-captcha-image+a,
+aside#center img#passport-create-captcha-image+a{
+    float:left;
 }
 aside#center>div>div>a>img{
     float: right;
@@ -210,6 +240,7 @@ aside#east h3 {
 /*for text only portlet*/
 aside#east>p {
     padding: 10px;
+    margin: 0;
 }
 /*Style for top element in portlets in east region*/
 aside#east>* {
@@ -532,7 +563,7 @@ nav#west {
 
 }
 nav#west ul#sub-menu li a {
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: black;
 }
 nav#west ul#sub-menu li ul li {
@@ -554,6 +585,7 @@ footer menu {
 footer nav#device-navigation {
     float: right;
     width:auto;
+    margin-right: 300px;
 }
 footer menu#accessibility-navigation{
     float: right;
@@ -712,7 +744,7 @@ header {
     background-color: #fff;
     position: relative;
     width: 100%;
-    min-width: 1050px;
+    min-width: 950px;
     height: 5%;
     min-height: 35px;
     clear: both;
@@ -745,6 +777,10 @@ footer {
 }
 footer section {
     width: auto;
+}
+
+footer{
+    min-width:950px;
 }
 
 

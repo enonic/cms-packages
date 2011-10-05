@@ -6,49 +6,61 @@
     <xsl:import href="../../../libraries/utilities/standard-variables.xsl"/>
 
     <xsl:template match="/">
-        <div id="background1" class="transparent">'</div>
-        <div id="background2" class="transparent">'</div>
+        <div id="background1" class="transparent"><p/></div>
+        <div id="background2" class="transparent"><p/></div>
         <script  type="text/javascript">
-            Array.prototype.shuffle = function() {
-                var s = [];
-                while (this.length) s.push(this.splice(Math.random() * this.length, 1)[0]);
-                while (s.length) this.push(s.pop());
-                return this;
-            }
-        </script>
-        <xsl:if test="/result/travelinfo-background-images/contents/relatedcontents/content[@contenttype='Image']">
-            <script  type="text/javascript">
-                $(document).ready(function(){
-                    var images=new Array();
+            $(document).ready(function(){
+                var images=new Array();
+                var imageId;
+                var imageUrl;
+                <!--Shuffle function for array that holds slideshow images-->
+                Array.prototype.shuffle = function() {
+                    var s = [];
+                    while (this.length) s.push(this.splice(Math.random() * this.length, 1)[0]);
+                    while (s.length) this.push(s.pop());
+                    return this;
+                }
+                <xsl:if test="/result/travelinfo-background-images/contents/relatedcontents/content[@contenttype='Image']">
                     <xsl:for-each select="/result/travelinfo-background-images/contents/relatedcontents/content[@contenttype='Image'] ">
-                        images[<xsl:value-of select="position()-1"/>] ="<xsl:value-of select="portal:createImageUrl(current()/@key, 'scalewidth(1200)','','jpg','50')" />";
+                        imageUrl = "<xsl:value-of select="portal:createImageUrl(current()/@key, 'scalewidth(1200)','','jpg','50')" />";
+                        imageId = imageUrl.substring(imageUrl.lastIndexOf('=')+1);
+                        $('#footer').append('<figcaption class="photoInfo transparent" id="tempId">"<xsl:value-of select="display-name" />"<xsl:if test="not(contentdata/photographer/@name='')"> by <xsl:value-of select="contentdata/photographer/@name" /></xsl:if></figcaption>');
+                        $('#tempId').attr("id",imageId);
+                        images[<xsl:value-of select="position()-1"/>] = imageUrl;
                     </xsl:for-each>
                     runSlideshow(images.shuffle());
-                });
-            </script>
-        </xsl:if>
-        <xsl:if test="/result/slideshow-images-spot/contents/relatedcontents/content[@contenttype='Image']">
-            <script  type="text/javascript">
-                $(document).ready(function(){
-                    var images=new Array();
+
+                </xsl:if>
+                <xsl:if test="/result/slideshow-images-spot/contents/relatedcontents/content[@contenttype='Image']">
                     <xsl:choose>
                         <xsl:when test="/result/context/resource/type='Spot'">
                             <xsl:variable name="resourceKey" select="/result/context/resource/@key" />
                             <xsl:for-each select="/result/slideshow-images-spot/contents/content[@contenttype='Spot' and @key = $resourceKey]" >
                                 <xsl:for-each select="relatedcontentkeys/relatedcontentkey[@contenttype='Image']">
-                                    images[<xsl:value-of select="position()-1"/>] ="<xsl:value-of select="portal:createImageUrl(current()/@key, 'scalewidth(1200)','','jpg','50')" />";
+                                    imageUrl = "<xsl:value-of select="portal:createImageUrl(current()/@key, 'scalewidth(1200)','','jpg','50')" />";
+                                    imageId = imageUrl.substring(imageUrl.lastIndexOf('=')+1);
+                                       <xsl:for-each select="/result/slideshow-images-spot/contents/relatedcontents/content[@contenttype='Image' and @key = current()/@key]">
+                                        $('#footer').append('<figcaption class="photoInfo transparent" id="tempId">"<xsl:value-of select="display-name" />"<xsl:if test="not(contentdata/photographer/@name='')"> by <xsl:value-of select="contentdata/photographer/@name" /></xsl:if></figcaption>');
+                                        $('#tempId').attr("id",imageId);
+                                    </xsl:for-each>
+                                    images[<xsl:value-of select="position()-1"/>] = imageUrl;
                                 </xsl:for-each>
                             </xsl:for-each>
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:for-each select="/result/slideshow-images-spot/contents/relatedcontents/content[@contenttype='Image'] ">
-                                images[<xsl:value-of select="position()-1"/>] ="<xsl:value-of select="portal:createImageUrl(current()/@key, 'scalewidth(1200)','','jpg','50')" />";
+                                imageUrl = "<xsl:value-of select="portal:createImageUrl(current()/@key, 'scalewidth(1200)','','jpg','50')" />";
+                                imageId = imageUrl.substring(imageUrl.lastIndexOf('=')+1);
+                                $('#footer').append('<figcaption class="photoInfo transparent" id="tempId">"<xsl:value-of select="display-name" />" <xsl:if test="not(contentdata/photographer/@name='')"> by <xsl:value-of select="contentdata/photographer/@name" /></xsl:if></figcaption>');
+                                $('#tempId').attr("id",imageId);
+                                images[<xsl:value-of select="position()-1"/>] = imageUrl;
                             </xsl:for-each>
                         </xsl:otherwise>
                     </xsl:choose>
                     runSlideshow(images.shuffle());
-                });
-            </script>
-        </xsl:if>
+                </xsl:if>
+            });
+        </script>
+
     </xsl:template>
 </xsl:stylesheet>

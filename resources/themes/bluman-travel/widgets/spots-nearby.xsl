@@ -47,9 +47,8 @@
             </div>
     </xsl:template>
     <xsl:template match="content" mode="spots-nearby">
-            <xsl:variable name="key" select="@key" />
-            <xsl:if test="not($key = /result/context/resource/@key)">
-                <xsl:variable name="activeClass"><xsl:if test="/result/context/resource/@key=$key"><xsl:text>spot-nearby-active</xsl:text></xsl:if></xsl:variable>
+            <xsl:if test="not(current()/@key = /result/context/resource/@key)">
+                <xsl:variable name="activeClass"><xsl:if test="/result/context/resource/@key=current()/@key"><xsl:text>spot-nearby-active</xsl:text></xsl:if></xsl:variable>
                 <li class="spot-nearby" style="background: url({portal:createImageUrl(contentdata/image[1]/image/@key, 'scalewidth(170)')})">
                     <xsl:variable name="spottags" select="/result/context/querystring/parameter[@name='spottags']" />
                     <xsl:variable name="spot" select="/result/context/querystring/parameter[@name='spot']" />
