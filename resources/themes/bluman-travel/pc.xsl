@@ -65,7 +65,7 @@
                     <xsl:value-of select="portal:localize('Change-to-mobile-version')"/>
                 </a>
             </nav>
-            <menu accesskey="a" id="accessibility-navigation">
+            <!--<menu accesskey="a" id="accessibility-navigation">
                 <ul>
                     <li id="text-size">
                         <a href="#" class="change-text-size">
@@ -73,7 +73,7 @@
                         </a>
                     </li>
                 </ul>
-            </menu>
+            </menu>-->
         </footer>
     </xsl:template>
 

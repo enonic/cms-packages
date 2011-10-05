@@ -36,19 +36,20 @@ div#background{
     left:0;
     width: 100%;
     height:100%;
-    z-index: -1;
     background-color: #000;
     background-size: cover;
+    z-index: -1;
 }
 /*div's which contains background images for slideshow*/
 div#background1,
 div#background2{
     position: absolute;
+    top:0;
+    left:0;
     width: 100%;
     height:100%;
     background-size: cover;
-    font-size: 0.01em;
-    background-attachment: fixed;
+    /*background-attachment: fixed;*/
     -webkit-transition: opacity 2s ease-in;
 	-moz-transition: opacity 2s ease-in;
 	-o-transition: opacity 2s ease-in;
@@ -673,29 +674,6 @@ footer>nav a:active {
 nav#page-navigation>ul>li a.active{
     color: #000;
     text-decoration: underline
-}
-
-#text-size a {
-    margin: 0 0 0 5px;
-    font-size: 1em;
-    display: inline;
-}
-
-#text-size a.change-text-size {
-    font-size: 100%;
-    margin: 0;
-}
-
-#text-size a.large-text {
-    font-size: 130%;
-}
-
-#text-size a.largest-text {
-    font-size: 160%;
-}
-
-body.contrast a {
-   color: red !important;
 }
 /*GENERAL NAVIGATION*/
 ul, ol {
