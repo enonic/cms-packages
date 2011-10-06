@@ -1,0 +1,263 @@
+/* Articles */
+ #article-show, .presenters-wraper, .article {
+     color: #543019;
+     font-family: 'Helvetica Neue',Helvetica, Arial, sans-serif;
+}
+.article {
+    background-color: #F4EFEB;
+}
+.frontpage-article {
+    background-color: #BDE7F1;
+}
+
+.title-bar {
+    background-color: #5A361E;
+    color: #FFFFFF;
+    font-family: 'Helvetica Neue',Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    padding: 9px 0 9px 16px;
+}
+h1 {
+    margin: 0 0 19px;
+}
+#article-show .article-content {
+    clear: both;
+    padding: 22px 16px 15px;
+}
+p.preface {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 17px;
+}
+p {
+    font-size: 12px;
+    line-height: 18px;
+    font-family: 'Helvetica Neue',Helvetica, Arial, sans-serif;
+}
+.editor-image-right {
+    float:right;
+    margin-left:10px;
+}
+.editor-image-left {
+    float:left;
+    margin-right:15px;;
+}
+.editor-p-center {
+    text-align:center;
+}
+
+/* Article list */
+#article-list {
+    background-color: #F4EFEB;
+    margin: 0;
+    list-style-type: none;
+}
+#article-list .preface {
+    display: inline-block;
+    font-size: 14px;
+    width: 445px;
+}
+#article-list p.no-image {
+    width: auto;
+}
+#article-list li {
+    border-bottom: 1px solid #5A361E;
+    padding: 0 50px 0 16px;
+    margin-bottom: 22px;
+}
+#article-list li.list-first {
+    padding-top: 22px;
+}
+#article-list li img {
+    float: left;
+    margin-right: 30px;
+}
+/* Twitter */
+ #twitterfeed {
+     margin-bottom: 30px;
+ }
+ #twitterfeed div.twit {
+    background-color: #F4EFEB;
+    color: #5A361E;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding: 5px 15px;
+ }
+
+ #twitterfeed td {
+     font-size: 12px;
+     font-family: 'Helvetica Neue',Helvetica, Arial, sans-serif;
+     line-height: 16px;
+ }
+ #twitterfeed img {
+    height: 48px;
+    width: 48px;
+ }
+
+/*  buttons */
+#buttons {
+    margin: 0 0 30px;
+    list-style-type: none;
+}
+#buttons li {
+    border-style: solid;
+    border-width: 1px;
+    display: inline;
+    font-weight: bold;
+    margin: 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    /*text-align: center;
+    width: 156px;*/
+}
+
+#buttons a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    padding-left: 17px;
+    padding-right: 17px;
+}
+#buttons .left-button {
+    background-color: #5A361E;
+    border-color: #7C583F #38140C #38140C #7C583F;
+}
+#buttons .right-button {
+    background-color: #872175;
+    border-color: #A94397 #650053 #650053 #A94397;
+}
+
+/* Presenter list */
+.presenters-wraper {
+    padding: 23px 20px 20px 15px;
+}
+#presenter-list {
+    background-color: #F3EFEB;
+}
+.presenters-wraper h1 {
+    margin: 0 0 6px 0;
+}
+.presenters-wraper h2 {
+    margin: 0 0 16px 0;
+}
+.presenters-wraper p {
+    line-height: 16px;
+}
+.presenter-img {
+    float: right;
+    margin: 10px 0 0 15px;
+}
+.presenter {
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.presenter-img p {
+    margin: 5px 0 0 0;
+    font-size: 11px;
+    width: 150px;
+}
+.presenter a.twitter {
+    font-size: 12px;
+    font-weight: bold;
+}
+.presenter a, .article-content a {
+    display: inline-block; /*So empty anchors will work in IE8*/
+}
+/* Sponsors */
+#sponsors {
+    list-style-type: none;
+    margin: 15px 0 0;
+}
+ul#sponsors li {
+    display: inline;
+    margin: 0 20px 0 0;
+}
+
+
+/* Presenters front page */
+#presenter-wraper {
+    overflow: hidden;
+}
+#presenter-wraper .yellow-box {
+    width: 434px;
+    background-color: #FFE152;
+    float: left;
+}
+.yellow-box .presenters-text {
+    float: right;
+}
+.yellow-box a { /*IE7 hack*/
+    /*float:left;*/
+}
+.presenters-text {
+    width: 187px; /* 217 */
+    padding: 15px 15px 0 15px;
+    height: 202px;
+}
+
+.grey-box {
+    background-color: #DBD6C6;
+    float: left;
+    width: 434px;
+}
+.grey-box img {
+    float:right;
+}
+.grey-box .presenters-text {
+    display: inline-block;
+}
+.green-box {
+    background-color: #AFBD21;
+    float: right;
+    width: 217px;
+}
+.presenters-text, .presenters-text a {
+    color: #5A361E;
+}
+.replace-img {
+    height: 217px;
+    width: 217px;
+    margin: 0;
+}
+
+/* Banner link button */
+#verv-her {
+    display: block;
+    height: 75px;
+    left: 402px;
+    position: relative;
+    top: 535px;
+    width: 225px;
+    text-decoration: none;
+}
+a:hover#verv-her {
+    background-image: url('images/verv_mouseover.gif');
+}
+
+.form-builder {
+    background-color: #89156A;
+    overflow: hidden;
+}
+.white-form {
+    background-color: #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    margin: auto;
+    padding: 15px;
+    width: 90%;
+}
+
+/*form*/
+input.verv {
+    background-image: url("images/submit_button.gif");
+    border: medium none;
+    float: right;
+    height: 30px;
+    margin: 30px 20px;
+    width: 110px;
+}
+.form-builder p {
+    margin: 0;
+}
