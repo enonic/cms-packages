@@ -6,6 +6,7 @@ body {
     background: no-repeat fixed center center #828389;
     font-size: 0.8em;
     width: 320px;
+    height: 480px;
     background-color: #000;
 }
 div#logos {
@@ -25,7 +26,11 @@ div#mainColumn {
 footer#footer {
     background-color: #FFFFFF;
     margin: 0;
-    padding: 5px 10px;
+}
+footer#footer p {
+    width: auto;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 #footer a.footer-fb {
     background-image: none;
@@ -121,19 +126,19 @@ div.item td img {
     float: right;
 }
 
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-family:inherit;vertical-align:baseline;}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;vertical-align:baseline;}
 body {line-height:1.5;}
 caption, th, td {text-align:left;font-weight:normal;}
 table, td, th {vertical-align:middle;}
 a img {border:none;}
-p {margin:0 0 1.3em;}
-h1, h2, h3, h4, h5, h6 {font-weight:bold;color:#4682B4;font-family:'Verdana';}
+p {margin:0 0 0 0;}
+h1, h2, h3, h4, h5, h6 {font-weight:bold;color:#4682B4;}
 h1 {font-size:1.3em;line-height:normal;margin-bottom:0.5em;}
 h2 {font-size:1.1em;line-height:normal;margin-bottom:10px;}
 h3 {font-size:1.05em;line-height:normal;margin-bottom:10px;}
 h4 {font-size:1.025em;line-height:normal;margin-bottom:10px;}
-h5 {font-size:1.01em;font-weight:bold;margin-bottom:0;font-family:times,serif;}
-h6 {font-size:1.005em;font-weight:bold;margin-bottom:0;font-family:times,serif;}
+h5 {font-size:1.01em;font-weight:bold;margin-bottom:0;}
+h6 {font-size:1.005em;font-weight:bold;margin-bottom:0;}
 li ul,
 li ol       { margin: 0; }
 ul, ol      { margin: 0 1.5em 1.2em 0; padding-left: 1.5em; }
@@ -184,8 +189,8 @@ ul.menu.navigation div, ul.menu.navigation a {
 }
 
 #top-menu a {
-    color: #fff;
-    margin: 5px 0 6px 10px;
+    margin: 10px 5px 10px 10px;
+    font-size: 1.2em;
 }
 
 #top-menu img {
@@ -345,7 +350,7 @@ label {padding:4px 0;display:block;clear:both;}
 input[type=text], input[type=password], input.text, input.title, textarea, select {margin:0 0 10px;}
 input.text, input.title {display:block;clear:both;width:94%;}
 select {width:100%;}
-textarea {height:200px;font-family:'Trebuchet MS',sans-serif;font-size:72%;width:94%;}
+textarea {height:200px;font-size:72%;width:94%;}
 input[type=checkbox], input[type=radio], input.checkbox, input.radio {margin:0 10px 10px 0;float:left;}
 /* UI override */
 .ui-tabs .ui-tabs-nav li {
@@ -358,9 +363,14 @@ input[type=checkbox], input[type=radio], input.checkbox, input.radio {margin:0 1
 img.icon.text {float:left;margin:3px 5px 0 0;}
 /* framework */
 #logo {width:57px; position:absolute;left:11px;top:7px}
+
 #outer-container {
-    background:#fff;
-    opacity: 0.90;
+    /*opacity: 0.90;*/
+}
+
+header {
+    background-color: #fff;
+    color: #000;
 }
 
 

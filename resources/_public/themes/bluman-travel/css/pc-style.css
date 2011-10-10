@@ -18,7 +18,6 @@ span.byline {
 p.preface {
     font-size: 135%;
     line-height: 1.7;
-    font-family: georgia, sans-serif;
 }
 div#article div.image {
     margin-bottom: 5px;
@@ -58,9 +57,7 @@ div#background2{
 	-ms-transition: opacity 2s ease-in;
 	transition: opacity 2s ease-in;
 }
-.transparent{
-    opacity: 0;
-}
+
 .photoInfo{
     position: absolute;
     top:0;
@@ -298,18 +295,7 @@ aside#east #bluman-form-container .selectBox {
     float: left;
     margin-bottom: 5px;
 }
-#find_bluman_button{
-    float: right;
-    clear: left;
-    margin-right: 20px;
-    margin-bottom:5px;
-}
-#bluman-form-container input,
-#bluman-form-container select,
-#bluman-form-container a {
-    float: left;
-    clear: left;
-}
+
 #bluman-form-container fieldset{
     margin-bottom: 5px;
     border: none;
@@ -341,46 +327,7 @@ article#west div#spot{
     overflow-y: auto;
     padding:  10px;
 }
-/*Find bluman button*/
-.awesome{
-background: #222 url(../images/alert-overlay.png) repeat-x;
-display: inline-block;
-padding: 5px 10px 6px;
-color: #fff;
-text-decoration: none;
-font-weight: bold;
-line-height: 1;
--moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
--webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
-border-bottom: 1px solid rgba(0,0,0,0.25);
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
-position: relative;
-cursor: pointer;
-}
-a#find_bluman_button:hover {
-    color: #000;
-    text-decoration: none;
-}
-/* Button Sizes ---------- */
-.small.awesome {
-font-size: 11px;
-}
-.medium.awesome {
-font-size: 13px;
-}
-.large.awesome {
-font-size: 14px;
-padding: 8px 14px 9px;
-}
-/* Button Colors ---------- */
-.blue.awesome {
-background-color: #4682B4;
-}
-.orange.awesome {
-background-color: #ff5c00;
-}
+
 /*SPOT-THUMBNAILS WIDGET*/
 #spot-thumbnails{
     position: fixed;
@@ -622,61 +569,7 @@ menu ul li{
 ul.horizontal li {
     float: left;
 }
-/*LINKS  */
-ul>li a{
-    color: #4682B4;
-    text-decoration: none;
-}
-ul>li a:hover{
-    color: #4682B4;
-    text-decoration: underline;
-}
-ul>li a:visited{
-    color: #4682B4;
-    text-decoration: none;
-}
-header ul>li a:visited{
-    color: #4682B4;
-    text-decoration: none;
-}
-header ul>li a.active{
-    color: #000;
-    text-decoration: underline;
-}
 
-footer ul>li a:visited{
-    color: #4682B4;
-    text-decoration: none;
-}
-footer ul>li a.active{
-    color: #fff;
-    text-decoration: underline;
-}
-footer>nav a {
-    color: #4682B4;
-    text-decoration: none;
-}
-
-footer>nav a:hover {
-    color: #4682B4;
-    text-decoration: underline
-}
-footer>nav a:visited {
-    color: #4682B4;
-    text-decoration: none;
-}
-footer>nav a.active {
-    color: #fff;
-    text-decoration: underline
-}
-footer>nav a:active {
-    color: #fff;
-    text-decoration: underline
-}
-nav#page-navigation>ul>li a.active{
-    color: #000;
-    text-decoration: underline
-}
 /*GENERAL NAVIGATION*/
 ul, ol {
     list-style: none;

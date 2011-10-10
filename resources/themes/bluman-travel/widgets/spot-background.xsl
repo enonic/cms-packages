@@ -35,11 +35,18 @@
                             <xsl:variable name="resourceKey" select="/result/context/resource/@key" />
                             <xsl:for-each select="/result/slideshow-images-spot/contents/content[@contenttype='Spot' and @key = $resourceKey]" >
                                 <xsl:for-each select="relatedcontentkeys/relatedcontentkey[@contenttype='Image']">
-                                    imageUrl = "<xsl:value-of select="portal:createImageUrl(current()/@key, 'scalewidth(1200)','','jpg','50')" />";
+                                     <xsl:choose>
+                                        <xsl:when test="$device-class = 'mobile'">
+                                            imageUrl = "<xsl:value-of select="portal:createImageUrl(current()/@key, 'scaleblock(320, 480)','','jpg','50')" />";
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            imageUrl = "<xsl:value-of select="portal:createImageUrl(current()/@key, 'scalewidth(1200)','','jpg','50')" />";
+                                        </xsl:otherwise>
+                                    </xsl:choose>
                                     imageId = imageUrl.substring(imageUrl.lastIndexOf('=')+1);
-                                       <xsl:for-each select="/result/slideshow-images-spot/contents/relatedcontents/content[@contenttype='Image' and @key = current()/@key]">
-                                        $('#footer').append('<figcaption class="photoInfo transparent" id="tempId">"<xsl:value-of select="display-name" />"<xsl:if test="not(contentdata/photographer/@name='')"> by <xsl:value-of select="contentdata/photographer/@name" /></xsl:if></figcaption>');
-                                        $('#tempId').attr("id",imageId);
+                                   <xsl:for-each select="/result/slideshow-images-spot/contents/relatedcontents/content[@contenttype='Image' and @key = current()/@key]">
+                                        $('#footer').append('<figcaption class="photoInfo transparent" rel="tempId">"<xsl:value-of select="display-name" />"<xsl:if test="not(contentdata/photographer/@name='')"> by <xsl:value-of select="contentdata/photographer/@name" /></xsl:if></figcaption>');
+                                        $('figcaption[rel="tempId"]').attr("id",imageId);
                                     </xsl:for-each>
                                     images[<xsl:value-of select="position()-1"/>] = imageUrl;
                                 </xsl:for-each>
@@ -47,10 +54,17 @@
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:for-each select="/result/slideshow-images-spot/contents/relatedcontents/content[@contenttype='Image'] ">
-                                imageUrl = "<xsl:value-of select="portal:createImageUrl(current()/@key, 'scalewidth(1200)','','jpg','50')" />";
+                                 <xsl:choose>
+                                    <xsl:when test="$device-class = 'mobile'">
+                                        imageUrl = "<xsl:value-of select="portal:createImageUrl(current()/@key, 'scaleblock(320, 800)','','jpg','50')" />";
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        imageUrl = "<xsl:value-of select="portal:createImageUrl(current()/@key, 'scalewidth(1200)','','jpg','50')" />";
+                                    </xsl:otherwise>
+                                </xsl:choose>
                                 imageId = imageUrl.substring(imageUrl.lastIndexOf('=')+1);
-                                $('#footer').append('<figcaption class="photoInfo transparent" id="tempId">"<xsl:value-of select="display-name" />" <xsl:if test="not(contentdata/photographer/@name='')"> by <xsl:value-of select="contentdata/photographer/@name" /></xsl:if></figcaption>');
-                                $('#tempId').attr("id",imageId);
+                                $('#footer').append('<figcaption class="photoInfo transparent" rel="tempId">"<xsl:value-of select="display-name" />" <xsl:if test="not(contentdata/photographer/@name='')"> by <xsl:value-of select="contentdata/photographer/@name" /></xsl:if></figcaption>');
+                                $('figcaption[rel="tempId"]').attr("id",imageId);
                                 images[<xsl:value-of select="position()-1"/>] = imageUrl;
                             </xsl:for-each>
                         </xsl:otherwise>

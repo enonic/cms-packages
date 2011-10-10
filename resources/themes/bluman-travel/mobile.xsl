@@ -164,14 +164,7 @@
 
     <xsl:template name="mobile.footer">
         <footer id="footer">
-            <p>
-                <xsl:if test="$rss-page">
-                    <a href="{portal:createUrl($rss-page)}">
-                        <img src="{portal:createResourceUrl(concat($theme-public, '/images/icon-rss-large.png'))}" alt="RSS {portal:localize('icon')}"/>
-                    </a>
-                </xsl:if>
-                <xsl:value-of select="portal:localize('footer-text', (year-from-date(current-date())))"/>
-            </p>
+            <p id="photoInfo"></p>
             <p>
                 <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'pc', 'lifetime', 'session'))}">
                     <img src="{portal:createResourceUrl(concat($theme-public, '/images-mobile/icon-pc.png'))}" alt="{portal:localize('PC-version')}" class="icon text"/>

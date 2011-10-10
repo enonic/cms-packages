@@ -23,7 +23,7 @@
                 <h1 class="visuallyhidden">Search for spots</h1>
                 <form id="bluman-form" method="post" action="">
                     <fieldset>
-                        <legend>Find <span class="bluman">Blumans</span> favourite spots in:</legend>
+                        <legend id="tagline">Find <span class="bluman">Blumans</span> favourite spots in:</legend>
                         <label for="spot" class="visuallyhidden">Select city</label>
                         <select id="spot" name="spot" class="selectBox selectBox-dropdown">
                             <option value="">Please select</option>
@@ -43,8 +43,8 @@
                             </xsl:for-each>
                         </select>
                     </fieldset>
-                    <fieldset>
-                        <legend>when he is looking for:</legend>
+                    <fieldset id="select-tags">
+                        <legend>when he wants:</legend>
                         <xsl:for-each select="/result/tags/contents/content">
                            <input id="{@key}" type="checkbox" value="{@key}" />
                            <label for="{@key}"><xsl:value-of select="name" /></label>

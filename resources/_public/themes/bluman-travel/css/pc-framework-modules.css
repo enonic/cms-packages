@@ -209,5 +209,4 @@ img.icon.text {float:left;margin-right:5px;}
 
 /* Blueprint override */
 input[type=text], input[type=password], input.text, input.title, textarea, select, #passport img {float:left;margin:0 0 10px 2%;}
-textarea {font-family:'Trebuchet MS',sans-serif;font-size:100%;}
 input[type=checkbox], input[type=radio], input.checkbox, input.radio {float:left;margin:0 0 10px 2%;}

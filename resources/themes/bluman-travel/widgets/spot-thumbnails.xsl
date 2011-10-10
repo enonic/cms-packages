@@ -36,9 +36,8 @@
         <script  type="text/javascript">
             function changeBkgPermanently(url){
                 clearTimeout(backgroundSlideshow);
-                $('#background').css("background-image",'url('+url+')');
-                $('#background1').css("background-image",'none');
-                $('#background2').css("background-image",'none');
+                $('#background1').css("background-image",'url('+url+')');
+                $('#background2').css("background-image",'url('+url+')');
             }
         </script>
     </xsl:template>

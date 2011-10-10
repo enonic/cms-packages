@@ -418,6 +418,7 @@
             <styles>
                 <style>/_public/themes/bluman-travel/css/all-html5-boilerplate.css</style>
                 <style>/_public/themes/bluman-travel/css/pc-style.css</style>
+                <style>/_public/themes/bluman-travel/css/all-style.css</style>
                 <style>/_public/themes/bluman-travel/css/libs/jquery-easing-1.3/jquery.easing.1.3.css</style>
                 <style>/_public/themes/bluman-travel/css/libs/jquery-selectBox/jquery.selectBox.css</style>
                 <style>/_public/themes/bluman-travel/css/libs/jquery-tooltip-1.3.0/jquery.tooltip-1.3.0.css</style>
@@ -507,8 +508,10 @@
                 </sizes>
             </image>
             <styles>
+                <style>/_public/themes/bluman-travel/css/all-html5-boilerplate.css</style>
                 <style>/_public/themes/bluman-travel/css/mobile-framework-modules.css</style>
                 <style>/_public/themes/bluman-travel/css/mobile-style.css</style>
+                <style>/_public/themes/bluman-travel/css/all-style.css</style>
             </styles>
             <scripts>
                 <script>/_public/themes/bluman-travel/js/libs/jquery-1.6.2.min.js</script>
