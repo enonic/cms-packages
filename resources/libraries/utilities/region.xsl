@@ -23,38 +23,21 @@
          <!-- Creates region if it contains portlets or this is system region and error page-->
          <xsl:if
             test="count($rendered-page/regions/region[name = concat($config-region-prefix, current()/@name)]/windows/window) gt 0 or (current()/system = 'true' and $error-page/@key = portal:getPageKey())">
-             <xsl:choose>
-                 <xsl:when test="@element and @element='section'">
-                    <section id="{concat($config-region-prefix, current()/@name)}" class="region">
-                        <xsl:call-template name="regiontype.render" />
-                    </section>
-                 </xsl:when>
-                 <xsl:when test="@element and @element='article'">
-                    <article id="{concat($config-region-prefix, current()/@name)}" class="region">
-                        <xsl:call-template name="regiontype.render" />
-                    </article>
-                 </xsl:when>
-                 <xsl:when test="@element and @element='aside'">
-                    <aside id="{concat($config-region-prefix, current()/@name)}" class="region">
-                        <xsl:call-template name="regiontype.render" />
-                    </aside>
-                 </xsl:when>
-                 <xsl:when test="@element and @element='nav'">
-                    <nav id="{concat($config-region-prefix, current()/@name)}" class="region">
-                        <xsl:call-template name="regiontype.render" />
-                    </nav>
-                 </xsl:when>
-                 <xsl:when test="@element and @element='menu'">
-                    <menu id="{concat($config-region-prefix, current()/@name)}" class="region">
-                        <xsl:call-template name="regiontype.render" />
-                    </menu>
-                 </xsl:when>
-                 <xsl:otherwise>
-                     <div id="{concat($config-region-prefix, current()/@name)}" class="region">
-                         <xsl:call-template name="regiontype.render" />
-                     </div>
-                 </xsl:otherwise>
-             </xsl:choose>
+             <xsl:variable name="element">
+                 <xsl:choose>
+                     <xsl:when test="@element"><xsl:value-of select="@element"/></xsl:when>
+                     <xsl:otherwise><xsl:text>div</xsl:text></xsl:otherwise>
+                </xsl:choose>
+             </xsl:variable>
+            <xsl:element name="{$element}">
+                <xsl:attribute name="id"><xsl:value-of select="concat($config-region-prefix, current()/@name)"/></xsl:attribute>
+                <xsl:for-each select="@*">
+                    <xsl:if test="not(name()='element') and not(name()='name')">
+                        <xsl:attribute name="{name()}"><xsl:value-of select="."/></xsl:attribute>
+                    </xsl:if>
+                </xsl:for-each>
+                <xsl:call-template name="regiontype.render" />
+            </xsl:element>
          </xsl:if>
       </xsl:for-each>
    </xsl:template>

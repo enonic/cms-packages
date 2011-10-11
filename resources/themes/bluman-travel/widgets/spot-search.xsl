@@ -1,4 +1,5 @@
-<xsl:stylesheet version="1.0"
+<xsl:stylesheet version="2.0"
+                exclude-result-prefixes="#all"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:portal="http://www.enonic.com/cms/xslt/portal"
                 xmlns:util="enonic:utilities"
@@ -19,7 +20,7 @@
     </xsl:template>
 
     <xsl:template name="spot-search">
-            <div id="bluman-form-container">
+            <div id="bluman-form-container" role="search">
                 <h1 class="visuallyhidden">Search for spots</h1>
                 <form id="bluman-form" method="post" action="">
                     <fieldset>
@@ -59,7 +60,7 @@
                 <div id="no-such-spots-message">Message goes here</div>
                 <div id="appendRandomSpotHere" />
             </div>
-        <xsl:call-template name="spot-search-scripts" />
+            <xsl:call-template name="spot-search-scripts" />
     </xsl:template>
 
     <xsl:template name="spot-search-scripts">

@@ -13,7 +13,7 @@
     <xsl:output indent="yes" media-type="text/html" method="xhtml" omit-xml-declaration="yes"/>
 
     <xsl:template match="/">
-            <div class="spots-nearby-container">
+            <div id="spots-nearby" class="spots-nearby-container" role="navigation">
                 <div id="spots-info" class="spots-info">
                     <p>
                         You<xsl:choose><xsl:when test="/result/context/querystring/parameter[@name='spot'] and /result/context/querystring/parameter[@name='spottags']"> searched for spots in </xsl:when><xsl:otherwise> browsed to </xsl:otherwise></xsl:choose>

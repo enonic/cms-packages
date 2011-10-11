@@ -1,58 +1,5 @@
-/*LINKS  */
-ul>li a{
-    color: #4682B4;
-    text-decoration: none;
-}
-ul>li a:hover{
-    color: #4682B4;
-    text-decoration: underline;
-}
-ul>li a:visited{
-    color: #4682B4;
-    text-decoration: none;
-}
-
-footer ul>li a:visited{
-    color: #4682B4;
-    text-decoration: none;
-}
-footer ul>li a.active{
-    color: #fff;
-    text-decoration: underline;
-}
-footer>nav a {
-    color: #4682B4;
-    text-decoration: none;
-}
-
-footer>nav a:hover {
-    color: #4682B4;
-    text-decoration: underline
-}
-footer>nav a:visited {
-    color: #4682B4;
-    text-decoration: none;
-}
-footer>nav a.active {
-    color: #fff;
-    text-decoration: underline
-}
-footer>nav a:active {
-    color: #fff;
-    text-decoration: underline
-}
-nav#page-navigation>ul>li a.active{
+body {
     color: #000;
-    text-decoration: underline
-}
-
-header ul>li a:visited{
-    color: #4682B4;
-    text-decoration: none;
-}
-header ul>li a.active{
-    color: #000;
-    text-decoration: underline;
 }
 
 /*Find bluman button*/

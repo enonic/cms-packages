@@ -53,21 +53,6 @@
 
                 $(function() {
                 $('#navigation').enonicTree();
-                <!--$('#navigation a').click(function (event) {
-                    event.preventDefault();
-                    var navBar = $(this);
-                    $('#menu').slideToggle('fast', function() {
-                    navBar.toggleClass('plus');
-                    navBar.toggleClass('minus');
-                    <xsl:value-of select="concat('if (navBar.text() == &quot;', portal:localize('Show-menu'), '&quot;) {')"/>
-                    <xsl:text>
-                    </xsl:text>
-                    <xsl:value-of select="concat('navBar.text(&quot;', portal:localize('Hide-menu'), '&quot;);')"/>
-                    } else {
-                    <xsl:value-of select="concat('navBar.text(&quot;', portal:localize('Show-menu'), '&quot;);')"/>
-                    }
-                    });
-                });-->
 
                 <!-- Validates all forms -->
                 $('form:not(.dont-validate)').each(function() {
@@ -121,6 +106,11 @@
 
                 //</xsl:comment>
         </script>
+        <script  type="text/javascript">
+            $(document).ready(function(){
+                $('#passport').tabs();
+            });
+        </script>
     </xsl:template>
 
 
@@ -164,7 +154,7 @@
 
     <xsl:template name="mobile.footer">
         <footer id="footer">
-            <p id="photoInfo"></p>
+            <p id="photo-info"></p>
             <p>
                 <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'pc', 'lifetime', 'session'))}">
                     <img src="{portal:createResourceUrl(concat($theme-public, '/images-mobile/icon-pc.png'))}" alt="{portal:localize('PC-version')}" class="icon text"/>

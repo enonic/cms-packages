@@ -2,9 +2,9 @@
 
     <xsl:template name="pc.body">
         <div id="page">
-            <menu id="accessibility-links">
+            <nav id="accessibility-links">
                 <xsl:call-template name="accessibility.links"/>
-            </menu>
+            </nav>
             <noscript><p><xsl:value-of select="portal:localize('javascript-required')"/></p></noscript>
             <xsl:call-template name="pc.header" />
             <div id="container">
@@ -30,17 +30,17 @@
     <!-- Header template -->
     <!-- Put your static header XSL/HTML here -->
     <xsl:template name="pc.header">
-        <header id="header">
+        <header id="header" role="banner">
             <a class="screen" href="{portal:createUrl($front-page)}">
                 <img alt="{$site-name}-{portal:localize('logo')}" id="logo-screen" src="{portal:createResourceUrl(concat($theme-public, '/images/logo-screen.png'))}" title="{$site-name}"/>
             </a>
             <xsl:if test="$user or $login-page or $user">
-                <nav accesskey="l" id="login-navigation">
+                <nav accesskey="l" id="login-navigation" role="navigation">
                     <xsl:call-template name="pc.userinfo" />
                     <xsl:call-template name="pc.userimage" />
                 </nav>
             </xsl:if>
-            <nav accesskey="m" id="page-navigation">
+            <nav accesskey="m" id="page-navigation" role="navigation">
                 <xsl:call-template name="menu.render">
                     <xsl:with-param name="menuitems" select="/result/menu/menuitems"/>
                     <xsl:with-param name="levels" select="1"/>
@@ -54,35 +54,26 @@
     <!-- Footer template -->
     <!-- Put your static footer XSL/HTML here -->
     <xsl:template name="pc.footer">
-        <footer id="footer">
-            <nav accesskey="s" id="spot-navigation">
+        <footer id="footer" role="contentinfo">
+            <nav accesskey="s" id="spot-navigation" role="navigation">
                 <xsl:call-template name="menu.render">
                     <xsl:with-param name="menuitems" select="/result/spotmenu/menuitems/menuitem/menuitems"/>
                     <xsl:with-param name="levels" select="1"/>
                 </xsl:call-template>
             </nav>
-            <nav id="device-navigation">
+            <nav id="device-navigation" role="navigation">
                 <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'mobile', 'lifetime', 'session'))}" class="device-class screen" rel="nofollow">
                     <img src="{portal:createResourceUrl(concat($theme-public, '/images/icon-mobile.png'))}" alt="{portal:localize('Mobile-version')}" class="icon text"/>
                     <xsl:value-of select="portal:localize('Change-to-mobile-version')"/>
                 </a>
             </nav>
-            <!--<menu accesskey="a" id="accessibility-navigation">
-                <ul>
-                    <li id="text-size">
-                        <a href="#" class="change-text-size">
-                            <xsl:value-of select="portal:localize('Text-size')"/>
-                        </a>
-                    </li>
-                </ul>
-            </menu>-->
         </footer>
     </xsl:template>
 
 
     <xsl:template name="pc.userinfo">
         <xsl:if test="$user or $login-page or $sitemap-page != ''">
-            <ul class="menu horizontal">
+            <ul class="menu horizontal" role="navigation">
                 <xsl:choose>
                     <!-- User logged in -->
                     <xsl:when test="$user">

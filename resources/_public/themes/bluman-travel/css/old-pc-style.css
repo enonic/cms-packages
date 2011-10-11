@@ -58,7 +58,7 @@ div#background2{
 	transition: opacity 2s ease-in;
 }
 
-.photoInfo{
+.photo-info{
     position: absolute;
     top:0;
     right: 20px;
@@ -121,6 +121,13 @@ aside#north ul.share-bar{
     margin: 0;
     padding: 0 0 0 344px;;
     border-radius: 0;
+}
+aside#north a,
+aside#north a:hover,
+aside#north a:visited,
+aside#north a:active,
+{
+    color: #fff;
 }
 
 aside#north ul.share-bar li a.tip{
@@ -253,13 +260,6 @@ menu#south {
     float: left;
     clear: left;
     position: relative;
-}
-nav#south{
-    position: relative;
-    height: auto;
-    background-color: #fff;
-    color:black;
-    font-size:0.8em;
 }
 
 /*********
@@ -552,17 +552,17 @@ nav ul li {
     float: left;
     margin-right: 10px;
 }
-menu ul,
-menu ol {
+nav ul,
+nav ol {
     list-style: none;
     margin: 0;
     padding: 0;
 }
-menu ul li a {
+nav ul li a {
     padding-left: 5px;
 }
 
-menu ul li{
+nav ul li{
     float: left;
     margin-right: 5px;
 }
@@ -577,16 +577,16 @@ ul, ol {
     padding: 0;
 }
 a {
-    color: #4682B4;
+    color: #0040C0;
     text-decoration: none;
 }
 
 a:hover {
-    color: #4682B4;
+    color: #0040C0;
     text-decoration: underline
 }
 a:visited {
-    color: #4682B4;
+    color: #0040C0;
     text-decoration: none;
 }
 a.active {

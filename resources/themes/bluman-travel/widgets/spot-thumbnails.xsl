@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet exclude-result-prefixes="#all" version="2.0"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:util="enonic:utilities"
@@ -24,7 +23,8 @@
         </div>
         <xsl:call-template name="jquery-scripts" />
     </xsl:template>
-    <xsl:template match="content" mode="spot-thumbnails">
+
+    <xsl:template match="content" mode="spot-thumbnails" role="">
         <li class="spot-thumbnail">
             <figure>
                 <img id="{@key}" onclick="changeBkgPermanently('{portal:createImageUrl(current()/@key, 'scalewidth(1200)','','jpg','100')}')" class="image-spot-thumbnail" alt="{title}" src="{portal:createImageUrl(@key, 'scalesquare(36)')}" />
