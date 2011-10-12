@@ -2,14 +2,14 @@
 
     <xsl:template name="pc.body">
         <div id="page">
-            <nav id="accessibility-links">
+            <nav id="accessibility-links-container">
                 <xsl:call-template name="accessibility.links"/>
             </nav>
             <noscript><p><xsl:value-of select="portal:localize('javascript-required')"/></p></noscript>
             <xsl:call-template name="pc.header" />
             <div id="container">
-                <div id="background1" class="transparent"><p/></div>
-                <div id="background2" class="transparent"><p/></div>
+                <div id="background1" class="transparent"></div>
+                <div id="background2" class="transparent"></div>
                 <!-- Renders all regions defined in theme.xml -->
                 <xsl:call-template name="region.renderall">
                     <xsl:with-param name="layout" select="$layout" as="xs:string"/>

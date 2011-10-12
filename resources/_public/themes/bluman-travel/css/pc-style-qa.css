@@ -141,7 +141,8 @@ a:hover {
     left: 0;
     z-index: 10;
     overflow: hidden;
-    height: 35px;
+    height: auto;
+    max-height: 70px;
     width: 100%;
     font-size: 1.6em;
     background-color: #fff;
@@ -179,7 +180,7 @@ a:hover {
 }
 
 #header #page-navigation {
-    margin-left: 374px; /* Should be set to the same as the width of the left column */
+    margin-left: 30%; /* Should be set to the same as the width of the left column */
     background-color: #fff;
 }
 

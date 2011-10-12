@@ -22,6 +22,7 @@
     <!-- page type -->
     <!-- For multiple layouts on one site. Various layouts can be configured in theme.xml, each with a different 'name' attribute on the 'layout' element. -->
     <xsl:param name="layout" select="'default'" as="xs:string"/>
+    <xsl:param name="body-class" select="''" as="xs:string"/>
 
     <!-- regions -->
     <xsl:param name="north"><type>region</type></xsl:param>
@@ -60,10 +61,12 @@
                 <xsl:with-param name="layout" select="$layout"/>
             </xsl:call-template>
             <xsl:call-template name="head.script-common"/>
-            <!--<script type="text/javascript" src="{portal:createResourceUrl(concat($theme-public, '/js/mylibs/background-slideshow.js'))}" />-->
-
         </head>
+
         <body>
+            <xsl:if test="not($body-class='')">
+                <xsl:attribute name="class"><xsl:value-of select="$body-class"/></xsl:attribute>
+            </xsl:if>
             <xsl:call-template name="pc.body" />
         </body>
     </html>
@@ -82,14 +85,11 @@
 
                 <meta content="minimum-scale=1.0, width=device-width, user-scalable=yes" name="viewport" />
                 <meta name="apple-mobile-web-app-capable" content="yes" />
-                <!-- All JavaScript at the bottom, except for Modernizr / Respond.
-                Modernizr enables HTML5 elements & feature detects;
-                Respond is a polyfill for min/max-width CSS3 Media Queries.
-                -->
-                <script src="{portal:createResourceUrl(concat($theme-public, '/js/libs/modernizr-2.0.6.min.js'))}"></script>
-
             </head>
             <body>
+                <xsl:if test="not($body-class='')">
+                    <xsl:attribute name="class"><xsl:value-of select="$body-class"/></xsl:attribute>
+                </xsl:if>
                 <xsl:call-template name="mobile.body" />
             </body>
         </html>

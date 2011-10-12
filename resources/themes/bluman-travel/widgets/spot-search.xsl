@@ -56,7 +56,7 @@
                         <input type="hidden" id="country" name="country" />
                     </span>
                 </form>
-                <div><a id="find_bluman_button" class="large blue awesome">Find Bluman</a></div>
+                <a id="find_bluman_button" class="large blue awesome">Find Bluman</a>
                 <div id="no-such-spots-message">Message goes here</div>
                 <div id="appendRandomSpotHere" />
             </div>
