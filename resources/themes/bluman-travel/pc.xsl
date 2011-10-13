@@ -34,18 +34,18 @@
             <a class="screen" href="{portal:createUrl($front-page)}">
                 <img alt="{$site-name}-{portal:localize('logo')}" id="logo-screen" src="{portal:createResourceUrl(concat($theme-public, '/images/logo-screen.png'))}" title="{$site-name}"/>
             </a>
-            <xsl:if test="$user or $login-page or $user">
-                <nav accesskey="l" id="login-navigation" role="navigation">
-                    <xsl:call-template name="pc.userinfo" />
-                    <xsl:call-template name="pc.userimage" />
-                </nav>
-            </xsl:if>
             <nav accesskey="m" id="page-navigation" role="navigation">
                 <xsl:call-template name="menu.render">
                     <xsl:with-param name="menuitems" select="/result/menu/menuitems"/>
                     <xsl:with-param name="levels" select="1"/>
                 </xsl:call-template>
             </nav>
+            <xsl:if test="$user or $login-page or $user">
+                <nav accesskey="l" id="login-navigation" role="navigation">
+                    <xsl:call-template name="pc.userimage" />
+                    <xsl:call-template name="pc.userinfo" />
+                </nav>
+            </xsl:if>
         </header>
     </xsl:template>
 

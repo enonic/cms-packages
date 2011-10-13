@@ -135,16 +135,19 @@ a:hover {
  Framework
  */
 
+header, nav#login-navigation, nav#page-navigation {
+    display: inline-block;
+}
 #header {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
     overflow: hidden;
-    height: auto;
-    max-height: 70px;
+    height: 35px;
     width: 100%;
-    font-size: 1.6em;
+    min-width: 1100px;
+    font-size: 1.4em;
     background-color: #fff;
 }
 
@@ -155,33 +158,13 @@ a:hover {
     height: 35px;
 }
 
-#header #login-navigation {
-    float: right;
-    overflow: hidden;
-}
-
-#header #login-navigation ul {
-    float: right;
-}
-
-#header #login-navigation li {
-    display: inline;
-}
-
-#header #login-navigation li a {
-    display: inline-block;
-    padding: 0.45em;
-}
-
-#header #login-navigation .user-image {
-    display: block;
-    float: right;
-    padding: 5px 0;
-}
-
 #header #page-navigation {
-    margin-left: 30%; /* Should be set to the same as the width of the left column */
+    position: relative;
+    margin-left: 150px;
     background-color: #fff;
+    font-size: 1em;
+    line-height: 35px;
+    width: auto;
 }
 
 #header #page-navigation ul {
@@ -194,7 +177,7 @@ a:hover {
 
 #header #page-navigation li a {
     display: inline-block;
-    padding: 0.45em;
+    padding-right: 0.45em;
     font-variant: small-caps;
 }
 
@@ -202,7 +185,32 @@ a:hover {
     font-weight: 600;
 }
 
+#header #login-navigation {
+    font-size: 0.8em;
+    line-height: 35px;
+    width: auto;
+    float: right;
+    padding-right: 20px;
+}
 
+#header #login-navigation ul {
+    float: right;
+}
+
+#header #login-navigation li {
+    display: inline;
+}
+
+#header #login-navigation li a {
+    display: inline-block;
+    padding-right: 0.45em;
+}
+
+#header #login-navigation .user-image {
+    display: block;
+    float: right;
+    padding: 5px 0;
+}
 
 #container {
     /*position: relative;
@@ -255,15 +263,14 @@ a:hover {
 }
 
 #north ul.share-bar{
-    position: absolute;
-    display: inline;
+    position: relative;
+    display: block;
     list-style: none;
     z-index: 99;
-    margin: 0;
-    margin-left:10px;
+    margin-left: 344px;
     padding: 0;
     font-size:1.1em;
-    width:300px;
+    width:350px;
 }
 #north ul.share-bar li{
     display: inline;
@@ -409,7 +416,7 @@ article#west div#spot{
     left: 0;
     z-index: 2;
     overflow: visible;
-    /*height: 35px;*/
+    height: 35px;
     width: 100%;
     background-color: #000;
 }
@@ -537,7 +544,30 @@ article#west div#spot{
     display: none;
 }
 
-
+/*SPOT-THUMBNAILS WIDGET*/
+#spot-thumbnails{
+    position: fixed;
+    bottom: 64px;
+    display:inline-block;
+    width: auto;
+    height: auto;
+    overflow-x: visible;
+}
+div.spot-thumbnails {
+    height: auto;
+    display: block;
+}
+.spot-thumbnail{
+    display: inline;
+    list-style-type: none;
+    overflow: visible;
+    margin-right:42px;
+    margin-top:42px;
+}
+.spot-thumbnail img {
+    border: 1px solid #000;
+}
+/*WIDGET END*/
 
 #background, #background1, #background2 {
     position: fixed;

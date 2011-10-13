@@ -13,10 +13,10 @@
 
     <xsl:template match="/">
         <div id="spot-thumbnails">
-            <xsl:if test="/result/spot-images/contents/content[@contenttype='Image']">
+            <xsl:if test="/result/spot-thumbnails/contents/content[@contenttype='Image']">
                 <div class="spot-thumbnails">
                     <ul id="sdt_menu" class="sdt_menu">
-                        <xsl:apply-templates select="/result/spot-images/contents/content[@contenttype='Image']" mode="spot-thumbnails"/>
+                        <xsl:apply-templates select="/result/spot-thumbnails/contents/content[@contenttype='Image']" mode="spot-thumbnails"/>
                     </ul>
                 </div>
             </xsl:if>
@@ -24,10 +24,10 @@
         <xsl:call-template name="jquery-scripts" />
     </xsl:template>
 
-    <xsl:template match="content" mode="spot-thumbnails" role="">
+    <xsl:template match="content" mode="spot-thumbnails">
         <li class="spot-thumbnail">
             <figure>
-                <img id="{@key}" onclick="changeBkgPermanently('{portal:createImageUrl(current()/@key, 'scalewidth(1200)','','jpg','100')}')" class="image-spot-thumbnail" alt="{title}" src="{portal:createImageUrl(@key, 'scalesquare(36)')}" />
+                <img id="{@key}" onclick="changeBkgPermanently('{portal:createImageUrl(current()/@key, 'scalewidth(1200)','','jpg','100')}')" class="image-spot-thumbnail" alt="{title}" src="{portal:createImageUrl(@key, 'scalesquare(64)')}" />
             </figure>
         </li>
     </xsl:template>

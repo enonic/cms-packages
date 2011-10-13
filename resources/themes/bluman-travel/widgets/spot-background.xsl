@@ -20,7 +20,8 @@
                         while (s.length) this.push(s.pop());
                         return this;
                     }
-                    <xsl:if test="/result/travelinfo-background-images/contents/relatedcontents/content[@contenttype='Image']">
+
+                <xsl:if test="/result/travelinfo-background-images/contents/relatedcontents/content[@contenttype='Image']">
                         <xsl:for-each select="/result/travelinfo-background-images/contents/relatedcontents/content[@contenttype='Image'] ">
                             imageUrl = "<xsl:value-of select="portal:createImageUrl(current()/@key, 'scalewidth(1200)','','jpg','50')" />";
                             imageId = imageUrl.substring(imageUrl.lastIndexOf('=')+1);
@@ -31,11 +32,11 @@
                         runSlideshow(images.shuffle());
 
                     </xsl:if>
-                    <xsl:if test="/result/slideshow-images-spot/contents/relatedcontents/content[@contenttype='Image']">
+                    <xsl:if test="/result/background-images/contents/relatedcontents/content[@contenttype='Image']">
                         <xsl:choose>
                             <xsl:when test="/result/context/resource/type='Spot'">
                                 <xsl:variable name="resourceKey" select="/result/context/resource/@key" />
-                                <xsl:for-each select="/result/slideshow-images-spot/contents/content[@contenttype='Spot' and @key = $resourceKey]" >
+                                <xsl:for-each select="/result/background-images/contents/content[@contenttype='Spot' and @key = $resourceKey]" >
                                     <xsl:for-each select="relatedcontentkeys/relatedcontentkey[@contenttype='Image']">
                                          <xsl:choose>
                                             <xsl:when test="$device-class = 'mobile'">
@@ -46,7 +47,7 @@
                                             </xsl:otherwise>
                                         </xsl:choose>
                                         imageId = imageUrl.substring(imageUrl.lastIndexOf('=')+1);
-                                       <xsl:for-each select="/result/slideshow-images-spot/contents/relatedcontents/content[@contenttype='Image' and @key = current()/@key]">
+                                       <xsl:for-each select="/result/background-images/contents/relatedcontents/content[@contenttype='Image' and @key = current()/@key]">
                                             $('#footer').append('<figcaption class="photo-info transparent" rel="tempId">"<xsl:value-of select="display-name" />"<xsl:if test="not(contentdata/photographer/@name='')"> by <xsl:value-of select="contentdata/photographer/@name" /></xsl:if></figcaption>');
                                             $('figcaption[rel="tempId"]').attr("id",imageId);
                                         </xsl:for-each>
@@ -55,7 +56,7 @@
                                 </xsl:for-each>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:for-each select="/result/slideshow-images-spot/contents/relatedcontents/content[@contenttype='Image'] ">
+                                <xsl:for-each select="/result/background-images/contents/relatedcontents/content[@contenttype='Image'] ">
                                      <xsl:choose>
                                         <xsl:when test="$device-class = 'mobile'">
                                             imageUrl = "<xsl:value-of select="portal:createImageUrl(current()/@key, 'scaleblock(320, 800)','','jpg','50')" />";

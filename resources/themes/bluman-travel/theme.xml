@@ -141,7 +141,7 @@
                         <width>960</width>
                         <margin>
                             <right>0</right>
-                            <left>350</left>
+                            <left>400</left>
                             <top>0</top>
                             <bottom>0</bottom>
                         </margin>
@@ -421,9 +421,9 @@
                 <style>/_public/themes/bluman-travel/css/libs/jquery-tooltip-1.3.0/jquery.tooltip-1.3.0.css</style>
                 <style>/_public/themes/bluman-travel/css/libs/jquery-ui-1.8.16-custom/jquery-ui-1.8.16.custom.css</style>
                 <style>/_public/themes/bluman-travel/css/libs/jquery-alerts-1.1/jquery.alerts.css</style>
-                <style>/_public/themes/bluman-travel/css/pc-style-qa.css</style>
-                <style>/_public/themes/bluman-travel/css/all-style.css</style>
                 <style>/_public/themes/bluman-travel/css/all-html5-boilerplate.css</style>
+                <style>/_public/themes/bluman-travel/css/all-style.css</style>
+                <style>/_public/themes/bluman-travel/css/pc-style-qa.css</style>
             </styles>
             <scripts>
                 <script>/_public/themes/bluman-travel/js/libs/modernizr-2.0.6.min.js</script>
@@ -513,10 +513,10 @@
                 <style>/_public/themes/bluman-travel/css/libs/jquery-tooltip-1.3.0/jquery.tooltip-1.3.0.css</style>
                 <style>/_public/themes/bluman-travel/css/libs/jquery-ui-1.8.16-custom/jquery-ui-1.8.16.custom.css</style>
                 <style>/_public/themes/bluman-travel/css/libs/jquery-alerts-1.1/jquery.alerts.css</style>
-                <style>/_public/themes/bluman-travel/css/mobile-framework-modules.css</style>
-                <style>/_public/themes/bluman-travel/css/mobile-style.css</style>
                 <style>/_public/themes/bluman-travel/css/all-style.css</style>
                 <style>/_public/themes/bluman-travel/css/all-html5-boilerplate.css</style>
+                <style>/_public/themes/bluman-travel/css/mobile-framework-modules.css</style>
+                <style>/_public/themes/bluman-travel/css/mobile-style.css</style>
             </styles>
             <scripts>
                 <script>/_public/themes/bluman-travel/js/libs/modernizr-2.0.6.min.js</script>
