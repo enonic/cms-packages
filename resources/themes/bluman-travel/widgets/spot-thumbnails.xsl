@@ -26,9 +26,7 @@
 
     <xsl:template match="content" mode="spot-thumbnails">
         <li class="spot-thumbnail">
-            <figure>
-                <img id="{@key}" onclick="changeBkgPermanently('{portal:createImageUrl(current()/@key, 'scalewidth(1200)','','jpg','100')}')" class="image-spot-thumbnail" alt="{title}" src="{portal:createImageUrl(@key, 'scalesquare(64)')}" />
-            </figure>
+            <img id="{@key}" onclick="changeBkgPermanently('{portal:createImageUrl(current()/@key, 'scalewidth(1200)','','jpg','100')}')" class="image-spot-thumbnail" alt="{title}" src="{portal:createImageUrl(@key, 'scalesquare(72)')}" />
         </li>
     </xsl:template>
 

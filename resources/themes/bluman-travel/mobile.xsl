@@ -156,8 +156,7 @@
         <footer id="footer">
             <p id="photo-info"></p>
             <p>
-                <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'pc', 'lifetime', 'session'))}">
-                    <img src="{portal:createResourceUrl(concat($theme-public, '/images-mobile/icon-pc.png'))}" alt="{portal:localize('PC-version')}" class="icon text"/>
+                <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'pc', 'lifetime', 'session'))}" class="change-device-to-pc">
                     <xsl:value-of select="portal:localize('Change-to-pc-version')"/>
                 </a>
             </p>

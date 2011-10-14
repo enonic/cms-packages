@@ -36,7 +36,7 @@
                         </xsl:if>
                     </p>
                     <xsl:if test="(/result/context/resource/@type='menuitem' and count(/result/spots-nearby/contents/content)>0) or (/result/context/resource/@type='content' and count(/result/spots-nearby/contents/content)>1)">
-                        <p>spots nearby -></p>
+                        <p>Spots nearby :</p>
                     </xsl:if>
                 </div>
                 <nav class="spots-nearby">

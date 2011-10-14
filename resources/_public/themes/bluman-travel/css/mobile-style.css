@@ -140,3 +140,9 @@ figcaption.photoInfo{
 	-ms-transition: opacity 2s ease-in;
 	transition: opacity 2s ease-in;
 }
+
+.change-device-to-pc{
+    padding: 0.45em;
+    padding-left: 25px;
+    background: url("../images-mobile/icon-pc.png") no-repeat left;
+}

@@ -4,8 +4,7 @@ ul.sdt_menu{
 	margin:0;
 	padding:0;
 	list-style: none;
-	font-family:"Verdana", "Myriad Pro", "Trebuchet MS", sans-serif;
-	font-size:12px;
+	font-size:1em;
 }
 ul.sdt_menu a{
 	text-decoration:none;

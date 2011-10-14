@@ -55,17 +55,16 @@
     <!-- Put your static footer XSL/HTML here -->
     <xsl:template name="pc.footer">
         <footer id="footer" role="contentinfo">
+            <nav id="device-navigation" role="navigation">
+                <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'mobile', 'lifetime', 'session'))}" class="change-device-to-mobile" rel="nofollow">
+                    <xsl:value-of select="portal:localize('Change-to-mobile-version')"/>
+                </a>
+            </nav>
             <nav accesskey="s" id="spot-navigation" role="navigation">
                 <xsl:call-template name="menu.render">
                     <xsl:with-param name="menuitems" select="/result/spotmenu/menuitems/menuitem/menuitems"/>
                     <xsl:with-param name="levels" select="1"/>
                 </xsl:call-template>
-            </nav>
-            <nav id="device-navigation" role="navigation">
-                <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'mobile', 'lifetime', 'session'))}" class="device-class screen" rel="nofollow">
-                    <img src="{portal:createResourceUrl(concat($theme-public, '/images/icon-mobile.png'))}" alt="{portal:localize('Mobile-version')}" class="icon text"/>
-                    <xsl:value-of select="portal:localize('Change-to-mobile-version')"/>
-                </a>
             </nav>
         </footer>
     </xsl:template>

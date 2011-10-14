@@ -366,9 +366,15 @@ img.icon.text {float:left;margin:3px 5px 0 0;}
 /* framework */
 #logo {width:57px; position:absolute;left:11px;top:7px}
 
-#outer-container {
+#outer-container, #middle-container {
     /*opacity: 0.90;*/
+    height: 100%;
 }
+
+#middle-container article {
+    height: 100%;
+}
+
 
 header {
     background-color: #fff;

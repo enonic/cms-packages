@@ -11,7 +11,8 @@
      • North
      • West
        • Messy exceptions
-     • East       
+     • East
+       Center
    • Footer
    • Spot search
  
@@ -23,8 +24,33 @@
  Typography and colors
  */
 
+
+@font-face {
+    font-family: 'MgOpenCosmeticaBold';
+    src: url('fonts/mgopencosmetica/mgopencosmetica/mgopencosmeticabold-webfont.eot');
+    src: url('fonts/mgopencosmetica/mgopencosmetica/mgopencosmeticabold-webfont.eot') format('embedded-opentype'),
+         url('fonts/mgopencosmetica/mgopencosmeticabold-webfont.woff') format('woff'),
+         url('fonts/mgopencosmetica/mgopencosmeticabold-webfont.ttf') format('truetype'),
+         url('fonts/mgopencosmetica/mgopencosmeticabold-webfont.svg#MgOpenCosmeticaBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MgOpenCosmeticaRegular';
+    src: url('fonts/mgopencosmetica/mgopencosmeticaregular-webfont.eot');
+    src: url('fonts/mgopencosmetica/mgopencosmeticaregular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/mgopencosmetica/mgopencosmeticaregular-webfont.woff') format('woff'),
+         url('fonts/mgopencosmetica/mgopencosmeticaregular-webfont.ttf') format('truetype'),
+         url('fonts/mgopencosmetica/mgopencosmeticaregular-webfont.svg#MgOpenCosmeticaRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
-    font-family: "MgOpen Cosmetica", Optima, Candara, "Trebuchet MS", Verdana, sans-serif;
+    font-family: "MgOpenCosmeticaRegular", Optima, Candara, "Trebuchet MS", Verdana, sans-serif;
     color: #222;
     background-color: #000;
     font-size: 62.5%; /* Makes 1em = 10px */
@@ -116,10 +142,6 @@ a:hover {
         opacity: 0.60;
 }
 
-.transparent {
-    opacity: 0;
-}
-
 /*
  Accessibility
  */
@@ -146,21 +168,22 @@ header, nav#login-navigation, nav#page-navigation {
     overflow: hidden;
     height: 35px;
     width: 100%;
-    min-width: 1100px;
+    min-width: 800px;
     font-size: 1.4em;
     background-color: #fff;
 }
 
 #header #logo-screen {
     position: absolute;
-    left: 0;
-    width: 107px;
-    height: 35px;
+    left: 5px;
+    top: 5px;
+    /*width: 107px;*/
+    height: 25px;
 }
 
 #header #page-navigation {
     position: relative;
-    margin-left: 150px;
+    margin-left: 382px;
     background-color: #fff;
     font-size: 1em;
     line-height: 35px;
@@ -230,6 +253,10 @@ header, nav#login-navigation, nav#page-navigation {
     background-color: #0a59a5;
 }
 
+#spots-nearby{
+    min-width: 1200px;
+}
+
 #north .spots-nearby-container {
     position: relative;
     overflow: visible;
@@ -240,7 +267,7 @@ header, nav#login-navigation, nav#page-navigation {
 #north .spots-info {
     display: inline;
     padding: 0 15px;
-    width: 344px;
+    width: 435px;
     font-size: 1.4em;
     position: relative;
     float: left;
@@ -256,12 +283,39 @@ header, nav#login-navigation, nav#page-navigation {
 #north .spots-info p:first-child {
     text-align: left;
     margin-top:20px;
+    width:300px;
+    float: left;
+    padding-right: 30px;
+}
+#north .spots-info p:last-child {
+    font-size: 1.2em;
+    font-variant: small-caps;
+    float: left;
+    width: auto;
 }
 
 #north #spots-nearby {
     
 }
 
+#share-bar {
+    height: 15px;
+    position: relative;
+    display: block;
+    list-style: none;
+    z-index: 99;
+    margin: 0 0 0 0;
+    padding: 0 0 0 350px;
+    width: 100%;
+    background-color: #000;
+    font-size:1.3em;
+    color: white;
+}
+#share-bar li{
+    display: inline;
+    margin:2px 6px 0 0;
+}
+/*
 #north ul.share-bar{
     position: relative;
     display: block;
@@ -276,23 +330,21 @@ header, nav#login-navigation, nav#page-navigation {
     display: inline;
     float: left;
     margin:2px 6px 0 0;
-}
+} */
 
 #north ul.share-bar li a.tip{
     display:none;
 }
 
 #west {
-    /*margin-bottom: -2000px;
-    padding-bottom: 2000px;*/
     position: fixed;
     top: 34px;
     bottom: 0;
     left: 0;
     z-index: 1;
     margin: 0 !important; /* Ideally, these settings should go into the config */
-    padding: 15px !important;
-    width: 344px !important;
+    /*padding: 15px !important;*/
+    width: 300px !important;
     background-color: #000;
     opacity: 0.85;
 }
@@ -319,6 +371,38 @@ header, nav#login-navigation, nav#page-navigation {
     text-decoration: none;
 }
 
+#west #sub-menu > li > ul > li > a {
+    color: #3e89d2;
+    font-weight: 600;
+}
+#west #sub-menu > li > ul > li > a.active {
+    color: white;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* ARTICLE CSS */
+span.byline {
+    font-weight: bold;
+    padding-right: .5em;
+}
+#article .related,
+#event .related {
+    float: right;
+    margin-left: 15px;
+}
+#article .related img, #event .related img {
+    display: block;
+}
+p.preface {
+    font-size: 1.3em;
+    line-height: 1.3em;
+    margin-bottom: 10px;
+}
+div#article div.image {
+    margin-bottom: 5px;
+}
+
 article#west {
     color: #fff;
 }
@@ -326,6 +410,8 @@ article#west {
 article#west div#spot{
     margin-top: 85px;
 }
+
+
 
 
 #center {
@@ -409,6 +495,10 @@ article#west div#spot{
 }
 
 
+.formbuilder form fieldset img,
+.formbuilder form fieldset a{
+    display: block;
+}
 
 #footer {
     position: fixed;
@@ -435,7 +525,7 @@ article#west div#spot{
 }
 
 #footer #spot-navigation {
-    margin-left: 374px; /* Should be set to the same as the width of the left column */
+    margin-left: 350px; /* Should be set to the same as the width of the left column */
     font-size: 1.6em;
     font-weight: 600;
 }
@@ -448,19 +538,27 @@ article#west div#spot{
     padding: 0.45em;
     font-variant: small-caps;
 }
-
-#footer #device-navigation {
+.change-device-to-mobile{
     position: absolute;
-    left: 0;
+    left: 15px;
     bottom: 0;
-    font-size: 1.6em;
-}
-
-#footer #device-navigation a {
     padding: 0.45em;
+    padding-left: 20px;
+    font-size: 1.6em;
+    background: url("../images/icon-mobile.png") no-repeat left;
 }
 
-#footer .photoInfo {
+.change-device-to-pc{
+    position: absolute;
+    left: 15px;
+    bottom: 0;
+    padding: 0.45em;
+    padding-left: 20px;
+    font-size: 1.6em;
+    background: url("../images-mobile/icon-pc.png") no-repeat left;
+}
+
+#footer .photo-info {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -482,8 +580,12 @@ article#west div#spot{
  Spot search
  */
 
-#west #bluman-form-container {
+body.spot-browse-body #bluman-form-container {
     margin-top: 85px;
+}
+body.spot-show-body  div#spot-show{
+    margin-top: 105px;
+    font-size: 1.3em;
 }
 
 #bluman-form-container {
@@ -546,26 +648,41 @@ article#west div#spot{
 
 /*SPOT-THUMBNAILS WIDGET*/
 #spot-thumbnails{
+    padding: 0;
+    margin: 0;
     position: fixed;
-    bottom: 64px;
+    bottom: 50px;
     display:inline-block;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 72px;
     overflow-x: visible;
 }
 div.spot-thumbnails {
-    height: auto;
+    height: 100%;
     display: block;
 }
+div.spot-thumbnails ul{
+    height: 100%;
+    width:100%;
+    display: block;
+}
+.spot-thumbnail:first-of-type{
+    margin-left: 10px;
+}
+
 .spot-thumbnail{
     display: inline;
     list-style-type: none;
     overflow: visible;
     margin-right:42px;
     margin-top:42px;
+    height: 72px;
 }
 .spot-thumbnail img {
     border: 1px solid #000;
+    position: absolute;
+    left:0;
+    bottom:0;
 }
 /*WIDGET END*/
 
@@ -583,4 +700,5 @@ div.spot-thumbnails {
 	-ms-transition: opacity 2s ease-in;
 	transition: opacity 2s ease-in;
 }
+
 
