@@ -1,0 +1,17 @@
+aside#east{
+    position: relative;
+    height: auto;
+    color:black;
+    float: left;
+    font-size:0.8em;
+}
+
+/*aside#east h3 {
+    font-size: 1.2em;
+}*/
+
+/*Style for top element in portlets in east region*/
+aside#east>* {
+    margin-bottom: 20px;
+    background-color: #fff;
+}

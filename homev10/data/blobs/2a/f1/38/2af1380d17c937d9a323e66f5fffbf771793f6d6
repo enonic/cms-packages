@@ -1,0 +1,128 @@
+/*SPOT-SEARCH WIDGET*/
+section#west #bluman-form-container{
+    padding: 15px 15px 0px 15px;
+    background-color: #000;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+    filter: alpha(opacity=85);
+    -moz-opacity:0.85;
+    -khtml-opacity: 0.85;
+    opacity: 0.85;
+}
+aside#east #bluman-form-container .selectBox {
+    text-decoration: none;
+    width: 125px;
+}
+#bluman-form-container .selectBox-options,
+#bluman-form-container .selectBox-options LI,
+#bluman-form-container .selectBox-options LI A {
+    float: left;
+    clear: both;
+}
+#no-such-spots-message {
+    visibility: hidden;
+    color: #4682B4;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+#bluman-form input[type="checkbox"]{
+    margin-right: 5px;
+    float:left;
+    clear:left;
+}
+#bluman-form label{
+    float: left;
+    margin-bottom: 5px;
+}
+#find_bluman_button{
+    float: right;
+    clear: left;
+    margin-right: 20px;
+    margin-bottom:5px;
+}
+#bluman-form-container input,
+#bluman-form-container select,
+#bluman-form-container a {
+    float: left;
+    clear: left;
+}
+#bluman-form-container fieldset{
+    margin-bottom: 5px;
+    border: none;
+}
+#bluman-form-container fieldset legend{
+    margin-bottom: 5px;
+}
+#bluman-form-container .selectBox-dropdown{
+    text-decoration: none;
+}
+#bluman-form-container .checkbox-text-wrapper{
+    padding:  6px;
+}
+#bluman-form-container .checkbox-text-wrapper label {
+    padding-left:  3px;
+}
+
+.bluman{
+    font-size: 1.1em;
+    color: #4682B4;
+    text-transform: uppercase;
+}
+.blumancolor {
+    color:#4682B4
+}
+
+/*BACKGROUND-REGION
+div#background{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height:100%;
+    background-color: #000;
+    background-size: cover;
+    z-index: -1;
+} */
+/*div's which contains background images for slideshow*/
+div#background1,
+div#background2{
+    background-color: #000;
+    position:relative;
+    width: 320px;
+    height:100%;
+    background-size: cover;
+    z-index: -1;
+    -webkit-transition: opacity 2s ease-in;
+	-moz-transition: opacity 2s ease-in;
+	-o-transition: opacity 2s ease-in;
+	-ms-transition: opacity 2s ease-in;
+	transition: opacity 2s ease-in;
+}
+.transparent{
+    opacity: 0;
+}
+.photoInfo{
+    position: absolute;
+    top:0;
+    right: 20px;
+    color: black;
+    font-size: 1.2em;
+    line-height: 25px;
+    font-style: italic;
+    display: block;
+    margin-top:2px;
+    margin-right:10px;
+    background-color: black;
+    -webkit-transition: opacity 2s ease-in;
+	-moz-transition: opacity 2s ease-in;
+	-o-transition: opacity 2s ease-in;
+	-ms-transition: opacity 2s ease-in;
+	transition: opacity 2s ease-in;
+
+    /*-webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    writing-mode: tb-rl;
+    filter: flipV flipH;*/
+}

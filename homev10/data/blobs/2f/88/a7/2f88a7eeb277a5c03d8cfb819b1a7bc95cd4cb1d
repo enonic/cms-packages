@@ -1,0 +1,11 @@
+aside#east{
+    position: relative;
+    height: auto;
+    width: auto;
+    max-width:250px;
+    background-color: #fff;
+    color:black;
+    float: left;
+    font-size:0.8em;
+    clear: right;
+}

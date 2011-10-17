@@ -1,0 +1,16 @@
+#spot-thumbnails{
+    padding: 15px 30px 30px 10px;
+}
+
+.spot-thumbnails {
+    height: 36px;
+    overflow: visible;
+}
+.spot-thumbnail{
+    display: inline;
+    list-style-type: none;
+    overflow: visible;
+}
+.spot-thumbnail img {
+    border: 1px solid #4682B4;
+}

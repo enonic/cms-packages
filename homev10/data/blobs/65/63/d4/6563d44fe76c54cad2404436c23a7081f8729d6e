@@ -1,0 +1,24 @@
+/*General style for aside east region*/
+aside#east{
+    position: relative;
+    height: auto;
+    color:black;
+    float: left;
+    font-size:0.8em;
+}
+
+/*No space for large headings inside sidebar, override*/
+aside#east h1, h2, h3 {
+    font-size: 1.2em;
+}
+
+/*for text only portlet*/
+aside#east p {
+    padding: 10px;
+}
+
+/*Style for top element in portlets in east region*/
+aside#east>* {
+    margin-bottom: 20px;
+    background-color: #fff;
+}
