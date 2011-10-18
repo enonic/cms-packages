@@ -103,7 +103,7 @@
                             );
                         }
                         else{
-                            jAlert('No city selected!', 'Error');
+                            jAlert('No city selected!', 'Information');
                         }
                     });
                  });

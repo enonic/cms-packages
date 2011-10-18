@@ -1,0 +1,138 @@
+1           /**************/
+/* CUSTOM CSS */
+/**************/
+
+/* Blueprint override */
+h1 {font-size:1.8em;line-height:1;margin-bottom:0.5em;}
+h2 {font-size:1.6em;margin-bottom:0.75em;}
+h3 {font-size:1.4em;line-height:1;margin-bottom:0.5em;}
+label {padding:4px 0;display:block;clear:both;}
+input[type=text], input[type=password], input.text, input.title, textarea, select {margin-bottom:0 0 10px 0;}
+input.text, input.title {display:block;clear:both;width:94%;}
+textarea {height:200px;font-family:'Trebuchet MS',sans-serif;font-size:72%;width:94%;}
+input[type=checkbox], input[type=radio], input.checkbox, input.radio {margin:0 10px 10px 0;float:left;}
+
+/* general */
+.icon.text {float:left;margin:3px 5px 0 0;}
+
+/* framework */
+#logo {width:89px;height:40px;position:absolute;left:11px;top:7px}
+#center {background:#fff;}
+#footer {color:#999;font-size:.6em;}
+
+/* forms */
+label.error {
+    clear: both;
+    color: #8a1f11;
+    padding: 0;
+    border: none;
+    background: none;
+    margin: 0;
+}
+
+form img.clear {
+    display: block;
+}
+
+label.radio {
+    clear: none;
+    float: left;
+    padding-top: 0;
+}
+
+.button {
+    margin-left: 10px;
+}
+
+input.button.clear {
+    margin: 0;
+}
+
+/* Sitemap */
+#sitemap li {
+    border-top: 1px solid #cdc4c0;
+}
+
+#sitemap ul li {
+    border: 0;
+}
+
+/* Article */
+span.byline {
+    font-weight: bold;
+    font-size: 90%;
+    display: block;
+}
+
+/* comments */
+#comments h4.float-right {
+    float: none;
+    margin: 0;
+}
+
+/* file archive */
+#file-archive ul ul {
+    display: none;
+}
+
+#file-archive .column {
+    border-bottom: 1px solid #e0dcd8;
+}
+
+#file-archive li {
+    cursor: pointer;
+    float: left;
+    width: 100%;
+}
+
+#file-archive span {
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px;
+    display: block;
+}
+
+#file-archive a {
+    color: #332f2d;
+}
+
+#file-archive ul ul .name span {
+    padding-left: 26px;
+}
+
+#file-archive ul ul ul .name span {
+    padding-left: 47px;
+}
+
+#file-archive .kind span {
+    border: 0;
+}
+
+#file-archive .size, #file-archive .kind, #file-archive .date-modified {
+    display: none;
+}
+
+#file-archive .heading {
+    font-weight: bold;
+    background-color: #e0dcd8;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+}
+
+/* navigation menu */
+ul.menu.navigation li.end, ul.menu.navigation li.number {
+    display: none;
+}
+
+#navigation-header {
+    float: left;
+}
+
+ul.menu.navigation {
+    clear: none;
+    float: right;
+}
+
+ul.menu.navigation div, ul.menu.navigation a {
+    margin-left: 5px;
+}

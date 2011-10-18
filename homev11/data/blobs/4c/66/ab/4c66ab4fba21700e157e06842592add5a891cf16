@@ -1,0 +1,16 @@
+aside#east{
+    position: relative;
+    height: auto;
+    color:black;
+    float: left;
+    font-size:0.8em;
+}
+
+aside#east h3 {
+    font-size: 1.2em;
+}
+
+aside#east>div {
+    margin-bottom: 20px;
+    background-color: #fff;
+}

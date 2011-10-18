@@ -1,0 +1,20 @@
+menu#south {
+    float: left;
+    clear: left;
+    position: relative;
+}
+
+nav#south{
+    position: relative;
+    height: auto;
+    background-color: #fff;
+    color:black;
+    font-size:0.8em;
+    float: left;
+    clear: left;
+}
+nav#south .selectBox-dropdown{
+    width: 100px;
+    text-decoration: none;
+}
+

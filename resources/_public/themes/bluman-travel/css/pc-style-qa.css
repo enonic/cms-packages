@@ -270,7 +270,7 @@ header, nav#login-navigation, nav#page-navigation {
 }
 
 #north .spots-info p:first-child {
-    padding: 25px 0 0 25px;
+    padding-left: 25px;
     height: 85px;
     width:275px;
     float: left;
@@ -281,7 +281,7 @@ header, nav#login-navigation, nav#page-navigation {
     padding-right: 30px;*/
 }
 #north .spots-info p:last-child {
-    padding-top: 25px;
+    padding-top: 51px;
     font-size: 1.2em;
     font-variant: small-caps;
     float: left;
@@ -291,23 +291,47 @@ header, nav#login-navigation, nav#page-navigation {
     
 }
 
-#share-bar {
-    height: 15px;
+#spot-share {
+    height: 35px;
+    line-height: 35px;
     position: relative;
     display: block;
     list-style: none;
     z-index: 99;
     margin: 0 0 0 0;
-    padding: 0 0 0 300px;
+    padding: 0 0 0 25px;
     width: 100%;
+    min-width:960px;
     background-color: #000;
     font-size:1.3em;
     color: white;
 }
+#spot-share>*{
+    float: left;
+}
+#spot-share h1 {
+    width: 275px;
+}
+#share-bar a {
+    display: inline;
+}
+#share-bar img {
+    height: 24px;
+    margin-right: 14px;
+    margin-top: 5px;
+    vertical-align: top;
+}
+/*#share-bar ul {
+    vertical-align: middle;
+}
+
 #share-bar li{
     display: inline;
-    margin:2px 6px 0 0;
+    margin:0 6px 0 0;
 }
+#share-bar li img{
+    height:20px;
+} */
 /*
 #north ul.share-bar{
     position: relative;
@@ -324,10 +348,6 @@ header, nav#login-navigation, nav#page-navigation {
     float: left;
     margin:2px 6px 0 0;
 } */
-
-#north ul.share-bar li a.tip{
-    display:none;
-}
 
 #west {
     position: fixed;
@@ -350,7 +370,11 @@ body.spot-browse-body #west {
     top:120px;
 }
 body.spot-show-body #west {
-    top:135px;
+    top:155px;
+}
+
+body.spot-show-body #west h1 {
+    display: none;
 }
 
 #west #sub-menu {
@@ -409,6 +433,7 @@ div#article div.image {
 
 article#west {
     color: #fff;
+    text-align: justify;
 }
 
 #center {
@@ -416,9 +441,6 @@ article#west {
     top: 0px;
     left: 200px;
     z-index: 2;
-    padding:  15px;
-    /*margin: 70px 0 !important;
-    padding: 15px !important;*/
     font-size: 1.4em;
     color: #222; /* Only necessary due to a very general rule in jquery.easing.css */
     background-color: #fff;
@@ -494,7 +516,9 @@ article#west {
     width: 110px;
 }
 
-aside#east>div {
+aside#east>div,
+    aside#east>p
+{
     float: left;
     clear: left;
     margin-bottom: 25px;
@@ -674,7 +698,7 @@ body.spot-show-body  div#spot-show{
     padding: 0;
     margin: 0;
     position: fixed;
-    bottom: 50px;
+    bottom: 61px;
     display:inline-block;
     width: 100%;
     height: 72px;
@@ -690,7 +714,7 @@ div.spot-thumbnails ul{
     display: block;
 }
 .spot-thumbnail:first-of-type{
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .spot-thumbnail{

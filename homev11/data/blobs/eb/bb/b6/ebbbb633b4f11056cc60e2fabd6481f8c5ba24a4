@@ -1,0 +1,12 @@
+aside#east{
+    position: relative;
+    width: auto;
+    height: auto;
+    background-color: #fff;
+    color:black;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    float: left;
+    font-size:0.8em;
+    clear: right;
+}

@@ -1,0 +1,521 @@
+<theme>
+    <region-prefix/>
+    <accessibility>
+        <access-key key="m" text="accessibility-text-main-menu" anchor="menu-main" />
+        <access-key key="s" text="accessibility-text-sub-menu" anchor="menu-sub" />
+        <access-key key="c" text="accessibility-text-center" anchor="center" />
+        <access-key key="a" text="accessibility-menu" anchor="accessibility-menu" />
+    </accessibility>
+    <device-classes>
+        <device-class name="pc,unknown">
+            <layout name="spot-search">
+                <area width="960">
+                    <region name="west" element="section">
+                        <width>344</width>
+                        <margin>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </margin>
+                        <padding>
+                            <top>15</top>
+                            <right>15</right>
+                            <bottom>15</bottom>
+                            <left>15</left>
+                        </padding>
+                    </region>
+                    <region name="background">
+                        <width>960</width>
+                        <margin>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </margin>
+                        <padding>
+                            <top>0</top>
+                            <left>0</left>
+                            <bottom>0</bottom>
+                        </padding>
+                    </region>
+                </area>
+            </layout>
+            <layout name="spot-browse">
+                <area width="960">
+                    <region name="north" element="aside">
+                        <width>960</width>
+                        <padding>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </padding>
+                        <margin>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </margin>
+                    </region>
+                </area>
+                <area width="960">
+                    <region name="west" element="section">
+                        <width>344</width>
+                        <margin>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </margin>
+                        <padding>
+                            <top>0</top>
+                            <left>0</left>
+                            <bottom>0</bottom>
+                        </padding>
+                    </region>
+                    <region name="background">
+                        <width>960</width>
+                        <margin>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>85</top>
+                            <bottom>0</bottom>
+                        </margin>
+                        <padding>
+                            <top>0</top>
+                            <left>0</left>
+                            <bottom>0</bottom>
+                        </padding>
+                    </region>
+                </area>
+            </layout>
+            <layout name="spot-show">
+                <area width="960">
+                    <region name="north" element="aside">
+                        <width>960</width>
+                        <padding>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </padding>
+                        <margin>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </margin>
+                    </region>
+                </area>
+                <area width="960">
+                    <region name="west" element="article">
+                        <width>344</width>
+                        <margin>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </margin>
+                        <padding>
+                            <top>0</top>
+                            <left>0</left>
+                            <bottom>0</bottom>
+                        </padding>
+                    </region>
+                    <region name="background">
+                        <width>960</width>
+                        <margin>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>105</top>
+                            <bottom>0</bottom>
+                        </margin>
+                        <padding>
+                            <top>0</top>
+                            <left>0</left>
+                            <bottom>0</bottom>
+                        </padding>
+                    </region>
+                    <region name="south" element="aside">
+                        <width>960</width>
+                        <margin>
+                            <right>0</right>
+                            <left>350</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </margin>
+                        <padding>
+                            <top>0</top>
+                            <left>0</left>
+                            <bottom>0</bottom>
+                        </padding>
+                    </region>
+                </area>
+            </layout>
+            <layout name="aside">
+                <area width="950">
+                    <region name="north">
+                        <width>950</width>
+                        <margin>
+                            <bottom>50</bottom>
+                        </margin>
+                    </region>
+                    <region name="background">
+                        <width>960</width>
+                        <margin>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </margin>
+                        <padding>
+                            <top>0</top>
+                            <left>0</left>
+                            <bottom>0</bottom>
+                        </padding>
+                    </region>
+                </area>
+                <area width="950">
+                    <region name="west" element="nav">
+                        <width>120</width>
+                        <padding>
+                            <top>0</top>
+                            <right>0</right>
+                            <bottom>0</bottom>
+                            <left>0</left>
+                        </padding>
+                        <margin>
+                            <top>50</top>
+                            <left>20</left>
+                        </margin>
+                    </region>
+                    <region name="center" element="aside">
+                        <width>500</width>
+                        <padding>
+                            <top>25</top>
+                            <right>25</right>
+                            <bottom>25</bottom>
+                            <left>25</left>
+                        </padding>
+                        <margin>
+                            <top>50</top>
+                            <left>20</left>
+                            <right>20</right>
+                        </margin>
+                    </region>
+                    <region name="east" element="aside">
+                        <width>200</width>
+                        <padding>
+                            <top>0</top>
+                            <right>0</right>
+                            <bottom>0</bottom>
+                            <left>0</left>
+                        </padding>
+                        <margin>
+                            <top>50</top>
+                        </margin>
+                    </region>
+                    <region name="south" element="nav">
+                       <width>200</width>
+                        <padding>
+                            <top>15</top>
+                            <right>15</right>
+                            <bottom>15</bottom>
+                            <left>15</left>
+                        </padding>
+                        <margin>
+                            <top>50</top>
+                            <left>20</left>
+                            <right>0</right>
+                        </margin>
+                    </region>
+            </area>
+            </layout>
+            <layout name="long-article">
+                <area width="950">
+                    <region name="north">
+                        <width>950</width>
+                        <margin>
+                            <bottom>50</bottom>
+                        </margin>
+                    </region>
+                    <region name="background">
+                        <width>960</width>
+                        <margin>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </margin>
+                        <padding>
+                            <top>0</top>
+                            <left>0</left>
+                            <bottom>0</bottom>
+                        </padding>
+                    </region>
+                </area>
+                <area width="950">
+                    <region name="west" element="nav">
+                        <width>120</width>
+                        <padding>
+                            <top>0</top>
+                            <right>0</right>
+                            <bottom>0</bottom>
+                            <left>0</left>
+                        </padding>
+                        <margin>
+                            <top>50</top>
+                            <left>20</left>
+                        </margin>
+                    </region>
+                    <region name="center" element="article">
+                        <width>700</width>
+                        <padding>
+                            <right>25</right>
+                            <left>25</left>
+                            <top>25</top>
+                            <bottom>25</bottom>
+                        </padding>
+                        <margin>
+                            <top>50</top>
+                            <left>20</left>
+                            <right>20</right>
+                        </margin>
+                    </region>
+                </area>
+                <area width="950">
+                    <region name="south" element="nav">
+                       <width>950</width>
+                        <padding>
+                            <top>15</top>
+                            <right>15</right>
+                            <bottom>15</bottom>
+                            <left>15</left>
+                        </padding>
+                        <margin>
+                            <top>50</top>
+                            <left>20</left>
+                            <right>0</right>
+                        </margin>
+                    </region>
+                </area>
+            </layout>
+            <layout name="default">
+                <area width="950">
+                    <region name="north">
+                        <width>950</width>
+                        <margin>
+                            <bottom>50</bottom>
+                        </margin>
+                    </region>
+                    <region name="background">
+                        <width>960</width>
+                        <margin>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                        </margin>
+                        <padding>
+                            <top>0</top>
+                            <left>0</left>
+                            <bottom>0</bottom>
+                        </padding>
+                    </region>
+                </area>
+                <area width="950">
+                    <region name="west" element="nav">
+                        <width>120</width>
+                        <padding>
+                            <top>0</top>
+                            <right>0</right>
+                            <bottom>0</bottom>
+                            <left>0</left>
+                        </padding>
+                        <margin>
+                            <top>50</top>
+                            <left>20</left>
+                        </margin>
+                    </region>
+                    <region name="center" element="article">
+                        <width>500</width>
+                        <padding>
+                            <right>25</right>
+                            <left>25</left>
+                            <top>25</top>
+                            <bottom>25</bottom>
+                        </padding>
+                        <margin>
+                            <top>50</top>
+                            <left>20</left>
+                            <right>20</right>
+                        </margin>
+                    </region>
+                    <region name="east" element="aside">
+                        <width>200</width>
+                        <padding>
+                            <top>0</top>
+                            <right>0</right>
+                            <bottom>0</bottom>
+                            <left>0</left>
+                        </padding>
+                        <margin>
+                            <top>50</top>
+                            <left>0</left>
+                        </margin>
+                    </region>
+                </area>
+                <area width="950">
+                    <region name="south" element="nav">
+                       <width>950</width>
+                        <padding>
+                            <top>15</top>
+                            <right>15</right>
+                            <bottom>15</bottom>
+                            <left>15</left>
+                        </padding>
+                        <margin>
+                            <top>50</top>
+                            <left>20</left>
+                            <right>0</right>
+                        </margin>
+                    </region>
+                </area>
+            </layout>
+            <image>
+                <filters>
+                    <filter>rounded(4)</filter>
+                </filters>
+                <sizes>
+                    <size name="full">
+                        <filter>scalewidth</filter>
+                        <width>1</width>
+                    </size>
+                    <size name="wide">
+                        <filter>scalewide</filter>
+                        <width>1</width>
+                        <height>0.4</height>
+                    </size>
+                    <size name="regular">
+                        <filter>scalewidth</filter>
+                        <width>0.4</width>
+                    </size>
+                    <size name="list">
+                        <filter>scalewidth</filter>
+                        <width>0.3</width>
+                    </size>
+                    <size name="square">
+                        <filter>scalesquare</filter>
+                        <size>0.4</size>
+                    </size>
+                    <size name="thumbnail">
+                        <filter>scalesquare</filter>
+                        <size>0.1</size>
+                    </size>
+                </sizes>
+            </image>
+            <styles>
+                <style>/_public/themes/bluman-travel/css/all-html5-boilerplate.css</style>
+                <style>/_public/themes/bluman-travel/css/pc-style.css</style>
+                <style>/_public/themes/bluman-travel/css/libs/jquery-easing-1.3/jquery.easing.1.3.css</style>
+                <style>/_public/themes/bluman-travel/css/libs/jquery-selectBox/jquery.selectBox.css</style>
+                <style>/_public/themes/bluman-travel/css/libs/jquery-tooltip-1.3.0/jquery.tooltip-1.3.0.css</style>
+                <style>/_public/themes/bluman-travel/css/libs/jquery-ui-1.8.16-custom/jquery-ui-1.8.16.custom.css</style>
+                <style>/_public/themes/bluman-travel/css/libs/jquery-alerts-1.1/jquery.alerts.css</style>
+            </styles>
+            <scripts>
+                <script>/_public/themes/bluman-travel/js/libs/modernizr-2.0.6.min.js</script>
+                <script>/_public/themes/bluman-travel/js/libs/jquery-1.6.2.min.js</script>
+                <script>/_public/themes/bluman-travel/js/libs/jquery-ui-1.8.16.custom.min.js</script>
+                <script>/_public/themes/bluman-travel/js/libs/jquery.cookie.js</script>
+                <script>/_public/themes/bluman-travel/js/libs/jquery.dimensions.min.js</script>
+                <script>/_public/themes/bluman-travel/js/libs/jquery.easing.1.3.js</script>
+                <script>/_public/themes/bluman-travel/js/libs/jquery.selectBox.js</script>
+                <script>/_public/themes/bluman-travel/js/libs/jquery.tooltip.min.js</script>
+                <script>/_public/themes/bluman-travel/js/libs/jquery.validate.min.js</script>
+                <script>/_public/themes/bluman-travel/js/libs/jquery.alerts.js</script>
+                <script>/_public/themes/bluman-travel/js/mylibs/jquery.enonic.tree.js</script>
+                <script>/_public/themes/bluman-travel/js/mylibs/common-all.js</script>
+                <script>/_public/themes/bluman-travel/js/mylibs/common-pc.js</script>
+                <script>/_public/themes/bluman-travel/js/plugins.js</script>
+                <script>/_public/themes/bluman-travel/js/script.js</script>
+                <script>/_public/themes/bluman-travel/js/mylibs/background-slideshow.js</script>
+            </scripts>
+        </device-class>
+        <device-class name="mobile">
+            <layout name="default">
+                <area width="320">
+                    <regions>
+                        <region name="north">
+                            <width>296</width>
+                            <padding>
+                                <left>12</left>
+                                <right>12</right>
+                                <top>12</top>
+                                <bottom>12</bottom>
+                            </padding>
+                        </region>
+                        <region name="center">
+                            <width>320</width>
+                        </region>
+                        <region name="south">
+                            <width>296</width>
+                            <padding>
+                                <left>12</left>
+                                <right>12</right>
+                                <top>12</top>
+                                <bottom>12</bottom>
+                            </padding>
+                        </region>
+                    </regions>
+                </area>
+            </layout>
+            <image>
+                <filters>
+                    <filter>rounded(4)</filter>
+                </filters>
+                <sizes>
+                    <size name="full">
+                        <filter>scalewidth</filter>
+                        <width>1</width>
+                    </size>
+                    <size name="wide">
+                        <filter>scalewide</filter>
+                        <width>1</width>
+                        <height>0.4</height>
+                    </size>
+                    <size name="regular">
+                        <filter>scalewidth</filter>
+                        <width>0.4</width>
+                    </size>
+                    <size name="list">
+                        <filter>scalewidth</filter>
+                        <width>0.3</width>
+                    </size>
+                    <size name="square">
+                        <filter>scalesquare</filter>
+                        <size>0.4</size>
+                    </size>
+                    <size name="thumbnail">
+                        <filter>scalesquare</filter>
+                        <size>0.1</size>
+                    </size>
+                </sizes>
+            </image>
+            <styles>
+                <!--<style>/_public/themes/bluman-travel/css/mobile-framework-modules.css</style>-->
+                <!--<style>/_public/themes/bluman-travel/css/mobile-style.css</style>-->
+                <style>/_public/themes/bluman-travel/css/mobile-menu.css</style>
+                <style>/_public/themes/bluman-travel/css/mobile-style.css</style>
+            </styles>
+            <scripts>
+                <script>/_public/themes/bluman-travel/js/libs/jquery-1.6.2.min.js</script>
+                <script>/_public/themes/bluman-travel/js/libs/jquery.validate.min.js</script>
+                <script>/_public/themes/bluman-travel/js/libs/jquery-ui-1.8.16.custom.min.js</script>
+                <script>/_public/themes/bluman-travel/js/mylibs/jquery.enonic.tree.js</script>
+                <script>/_public/themes/bluman-travel/js/mylibs/common-mobile.js</script>
+            </scripts>
+        </device-class>
+    </device-classes>
+</theme>

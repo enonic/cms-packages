@@ -1,0 +1,88 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}
+body {line-height:1.5;}
+caption, th, td {text-align:left;font-weight:normal;}
+table, td, th {vertical-align:middle;}
+a img {border:none;}
+p {margin:0 0 1.3em;}
+h1, h2, h3, h4, h5, h6 {font-weight:bold;font-family:'Helvetica Neue',Helvetica, Arial, sans-serif;}
+h1 {font-size:18px;line-height:normal;margin-bottom:0.5em;}
+h2 {font-size:16px;line-height:normal;margin-bottom:10px;}
+h3 {font-size:14px;line-height:normal;margin-bottom:10px;}
+h4 {font-size:12px;line-height:normal;margin-bottom:10px;}
+h5 {font-size:10px;font-weight:bold;margin-bottom:0;font-family:times,serif;}
+h6 {font-size:10px;font-weight:bold;margin-bottom:0;font-family:times,serif;}
+li ul,
+li ol       { margin: 0; }
+ul, ol      { margin: 0 1.5em 1.2em 0; padding-left: 1.5em; }
+
+ul          { list-style-type: disc; }
+ol          { list-style-type: decimal; }
+
+dl          { margin: 0 0 1.5em 0; }
+dl dt       { font-weight: bold; }
+dd          { margin-left: 1.5em;}
+
+body {font-size:75%;background:#fff;font-family:'Helvetica Neue',Helvetica, Arial, sans-serif;}
+
+a:focus, a:hover {text-decoration:none;}
+a {text-decoration:none;}
+
+img {
+    max-width: 320px;
+}
+
+body {
+    width: 320px;
+}
+#sponsors {
+    margin: 15px 0;
+}
+.footer, #enonic {
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+.presenter-img p {
+    width: 100px;
+}
+
+/* Article List */
+#article-list {
+    padding: 0;
+}
+#article-list li img {
+    float: none;
+    margin: 0 0 15px 0;
+}
+
+#article-list li {
+    border-bottom: 1px solid #5A361E;
+    margin-bottom: 22px;
+    padding: 0 16px 0 16px;
+}
+#article-list p.preface {
+    width: auto;
+}
+
+.presenter a, .article-content a {
+    display: inline;
+}
+
+.sponsors-region {
+    clear:both;
+}
+
+/* Verv form */
+input {
+    float: right;
+    margin-bottom: 5px;
+    width: 40%;
+}
+label {
+    clear: both;
+    float: left;
+    width: 50%;
+}
+.separator {
+    clear: both;
+    margin-bottom: 5px;
+}

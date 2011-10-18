@@ -1,8 +1,0 @@
-header ul>li a:visited{
-    color: #4682B4;
-    text-decoration: none;
-}
-header ul>li a.active{
-    color: #000;
-    text-decoration: underline;
-}

@@ -1,0 +1,216 @@
+body {
+    background: no-repeat fixed center center #828389;
+    font-size: 0.8em;
+    width: 320px;
+}
+div#logos {
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+.logo-left {
+    padding: 0 0 0 10px;
+}
+#m-logo-right {
+    float: right;
+    padding: 0 10px 0 0;
+}
+div#mainColumn {
+    padding: 10px;
+}
+div#footer {
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 5px 10px;
+}
+div#footer a {
+    font-size: 13px;
+}
+#footer a.footer-fb {
+    background-image: none;
+    padding: 0;
+}
+img#logo-local-screen {
+    max-width: 231px;
+}
+
+#mainColumn {
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+
+div.item {
+    width: 300px;
+    float: none;
+    clear: both;
+    overflow: hidden;
+}
+
+.image-gallery .image-container {
+    height: 220px;
+}
+.image-gallery .image-container .image {
+    height: 220px;
+}
+div#horizontal-items div.horizontal-item {
+    width: 300px;
+}
+.horizontal-item .text {
+    float: left;
+}
+#mailForm .colgroup {
+    width: 300px;
+}
+#mailForm, #mailForm fieldset {
+    width: 280px;
+}
+#mailForm .textCol {
+    width: 280px;
+}
+
+div.position-intro, div.news-intro, div.deliver-intro {
+    float: none;
+    width: 300px;
+}
+div.read-more {
+    margin-bottom: 20px;
+}
+
+div.item-wrap {
+    width: 300px;
+}
+div.item-wrap div.item.with-related-items {
+    width: 300px;
+}
+div.related-content-wrap {
+    float: none;
+}
+
+div.item .image {
+    height: auto;
+}
+
+div.tbfrontpagedocument {
+    width: 300px;
+}
+
+div.persons, div #tbfooter, div.tbitem {
+    width: 300px;
+}
+div.tbitem {
+    margin-bottom: 15px;
+}
+.item .wrapper fieldset {
+    width: auto;
+}
+fieldset {
+    width: auto;
+}
+div.item td img {
+    float: none;
+    padding: 0;
+}
+.change-device-class {
+    background-color: #FFFFFF;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 15px 5px;
+}
+.change-device-class  a {
+    float: right;
+}
+
+/*TEST*/
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}
+body {line-height:1.5;}
+caption, th, td {text-align:left;font-weight:normal;}
+table, td, th {vertical-align:middle;}
+a img {border:none;}
+p {margin:0 0 1.3em;}
+h1, h2, h3, h4, h5, h6 {font-weight:bold;color:#4682B4;font-family:'Verdana';}
+h1 {font-size:18px;line-height:normal;margin-bottom:0.5em;}
+h2 {font-size:16px;line-height:normal;margin-bottom:10px;}
+h3 {font-size:14px;line-height:normal;margin-bottom:10px;}
+h4 {font-size:12px;line-height:normal;margin-bottom:10px;}
+h5 {font-size:10px;font-weight:bold;margin-bottom:0;font-family:times,serif;}
+h6 {font-size:10px;font-weight:bold;margin-bottom:0;font-family:times,serif;}
+li ul,
+li ol       { margin: 0; }
+ul, ol      { margin: 0 1.5em 1.2em 0; padding-left: 1.5em; }
+
+ul          { list-style-type: disc; }
+ol          { list-style-type: decimal; }
+
+dl          { margin: 0 0 1.5em 0; }
+dl dt       { font-weight: bold; }
+dd          { margin-left: 1.5em;}
+
+a:focus, a:hover {color:#3f9ab3;text-decoration:none;}
+a {color:#3f9ab3;text-decoration:none;}
+
+img {
+    max-width: 320px;
+}
+
+body {
+    width: 320px;
+}
+.footer, #enonic {
+    color: #4682B4;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+ul.menu.navigation li.end, ul.menu.navigation li.number {
+    display: none;
+}
+
+#navigation-header {
+    float: left;
+}
+
+ul.menu.navigation div, ul.menu.navigation a {
+    margin-left: 5px;
+}
+
+#top-menu {
+    padding:2px 0;
+    font-size: 72%;
+    float: right;
+}
+
+#top-menu * {
+    float: left;
+}
+
+#top-menu a {
+    color: #fff;
+    margin: 5px 0 6px 10px;
+}
+
+#top-menu img {
+    margin: 0 0 0 2px;
+}
+
+#top-menu select {
+    margin: 5px 0 5px 10px;
+    width: auto;
+}
+
+/* Article List */
+#article-list {
+    padding: 0;
+}
+#article-list li img {
+    float: none;
+    margin: 0 0 15px 0;
+}
+
+#article-list li {
+    border-bottom: 1px solid #5A361E;
+    margin-bottom: 22px;
+    padding: 0 16px 0 16px;
+}
+#article-list p.preface {
+    width: auto;
+}

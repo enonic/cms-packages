@@ -154,7 +154,10 @@
                     <region name="center" element="article" role="main">
                         <width>700</width>
                         <padding>
+                            <left>25</left>
+                            <right>25</right>
                             <top>25</top>
+                            <bottom>25</bottom>
                         </padding>
                         <margin>
                             <top>65</top>

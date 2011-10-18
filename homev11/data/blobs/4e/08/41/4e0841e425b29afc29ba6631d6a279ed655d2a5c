@@ -1,0 +1,23 @@
+.bg{
+    width:100%;
+}
+
+.bg-wide {
+    width: 100%;
+    height : auto;
+}
+.bg-tall {
+    height:100%;
+    width: auto;
+
+}
+
+div#background{
+    position: fixed;
+    top:55px;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index: -1;
+    background-size: cover;
+}

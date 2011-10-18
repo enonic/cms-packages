@@ -1,0 +1,79 @@
+#bluman-form-container{
+    padding: 20px 30px 0px 10px;
+}
+#no-such-spots-message {
+    visibility: hidden;
+    color: #4682B4;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+#bluman-form input[type="checkbox"]{
+    margin-right: 5px;
+}
+
+#find_bluman_button{
+    float: right;
+    clear: left;
+    margin-right: 20px;
+    margin-bottom:5px;
+}
+
+#bluman-form-container fieldset{
+    margin-bottom: 15px;
+    border: none;
+}
+#bluman-form-container fieldset legend{
+    margin-bottom: 5px;
+}
+
+.bluman{
+    font-size: 1.1em;
+    color: #4682B4;
+    text-transform: uppercase;
+}
+
+.blumancolor {
+    color:#4682B4
+}
+
+
+nav#south{
+    position: relative;
+    height: auto;
+    background-color: #fff;
+    color:black;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size:0.8em;
+    float: left;
+}
+nav#south, section#west .selectBox-dropdown{
+    width: 100px;
+    text-decoration: none;
+}
+
+nav#south #bluman-form-container{
+    padding: 0;
+}
+/*BLUMAN SEARCH CONTAINER south
+nav#south #bluman-form-container{
+    padding: 0;
+    color: #000;
+}
+nav#south #find_bluman_button{
+    float: left;
+    clear: none;
+    margin-right: 20px;
+    margin:0;
+}
+
+nav#south #bluman-form-container fieldset{
+    margin:0;
+    border: none;
+    float: left;
+}
+nav#south #bluman-form-container fieldset legend{
+    margin: 0;
+    float: left;
+}  */

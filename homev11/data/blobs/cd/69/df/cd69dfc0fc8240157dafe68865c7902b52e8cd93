@@ -1,0 +1,61 @@
+div.spots-nearby-container{
+    position: relative;
+    width: 100%;
+    height: 85px;
+    overflow: visible;
+}
+div.spots-info{
+    position: relative;
+    width: 344px;
+    float: left;
+    color: #fff;
+    height: 85px;
+    font-size: 0.8em;
+    background-color: #555;
+    font-style: italic;
+}
+div.spots-info p {
+    padding: 10px 30px 0px 10px;
+    font-size: 1.25em;
+}
+nav.spots-nearby{
+    position: relative;
+    display:block;
+    height:85px;
+    width:auto;
+    overflow: hidden;
+    background-color: #555;
+}
+nav.spots-nearby ul li a span span.spot-nearby-active {
+    color: #4682B4;
+}
+
+li.spot-nearby{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    margin: 0;
+}
+
+.default-transparency {
+        background-color:#000;
+        width: 100%;
+        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+        filter: alpha(opacity=75);
+        -moz-opacity:0.75;
+        -khtml-opacity: 0.75;
+        opacity: 0.75;
+}
+.low-transparency{
+        background-color:#000;
+        width: 100%;
+        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+        filter: alpha(opacity=60);
+        -moz-opacity:0.60;
+        -khtml-opacity: 0.60;
+        opacity: 0.60;
+}
+
+.youMightAlsoLike {
+    float: right;
+    vertical-align: top;
+}

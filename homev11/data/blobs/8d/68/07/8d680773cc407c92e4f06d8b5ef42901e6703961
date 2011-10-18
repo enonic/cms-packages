@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+body {
+    color: #000;
+}
+
+/*Find bluman button*/
+.awesome{
+background: #222;
+display: inline-block;
+padding: 5px 10px 6px;
+color: #fff;
+text-decoration: none;
+font-weight: bold;
+line-height: 1;
+-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+border-bottom: 1px solid rgba(0,0,0,0.25);
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+position: relative;
+cursor: pointer;
+}
+a#find_bluman_button:hover {
+    color: #000;
+    text-decoration: none;
+}
+/* Button Sizes ---------- */
+.small.awesome {
+font-size: 0.9em;
+}
+.medium.awesome {
+font-size: 1em;
+}
+.large.awesome {
+font-size: 1.1em;
+padding: 8px 14px 9px;
+}
+/* Button Colors ---------- */
+.blue.awesome {
+background-color: #4682B4;
+}
+.orange.awesome {
+background-color: #ff5c00;
+}
+
+#find_bluman_button{
+    float: right;
+    clear: left;
+    margin-right: 20px;
+    margin-bottom:5px;
+}
+
+#bluman-form-container input,
+#bluman-form-container select {
+    float: left;
+    clear: left;
+}
+
+.transparent{
+    opacity: 0;
+}
+
+.error {
+    color: red;
+}
+
+.change-device-to-mobile{
+    position: absolute;
+    left: 15px;
+    bottom: 0;
+    padding: 0.45em;
+    padding-left: 20px;
+    font-size: 1.6em;
+    background: url("../images/icon-mobile.png") no-repeat left;
+}
+
+.change-device-to-pc{
+    position: absolute;
+    left: 15px;
+    bottom: 0;
+    padding: 0.45em;
+    padding-left: 20px;
+    font-size: 1.6em;
+    background: url("../images-mobile/icon-pc.png") no-repeat left;
+}
+
+#footer .photo-info {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 0.45em 0.9em;
+    font-size: 1.6em;
+    font-weight: 600;
+    font-style: italic;
+    color: #fff;
+    -webkit-transition: opacity 2s ease-in;
+	-moz-transition: opacity 2s ease-in;
+	-o-transition: opacity 2s ease-in;
+	-ms-transition: opacity 2s ease-in;
+	transition: opacity 2s ease-in;
+}
