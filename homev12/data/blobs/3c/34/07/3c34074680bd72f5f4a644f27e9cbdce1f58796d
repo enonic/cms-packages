@@ -1,0 +1,8 @@
+#north {
+    position:relative;
+    z-index:10;
+    color: #000;
+    vertical-align: middle;
+    width:100%!important;
+    overflow: visible;
+}

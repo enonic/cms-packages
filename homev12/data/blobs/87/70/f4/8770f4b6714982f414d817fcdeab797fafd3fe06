@@ -1,0 +1,3 @@
+aside#north ul li {
+    float: left;
+}

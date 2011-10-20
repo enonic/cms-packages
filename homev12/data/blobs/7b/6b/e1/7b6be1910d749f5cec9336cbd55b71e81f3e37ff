@@ -1,0 +1,7 @@
+menu#south {
+    float: right;
+    clear: right;
+    position: relative;
+    width: auto;
+    height:auto;
+}

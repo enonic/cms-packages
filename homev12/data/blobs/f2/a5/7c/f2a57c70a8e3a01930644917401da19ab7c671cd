@@ -1,0 +1,17 @@
+article#west div#spot{
+    padding: 10px 30px 0px 10px;
+    max-height: 80%;
+    overflow-y: auto;
+}
+article#west{
+    padding-bottom:200px;
+}
+
+div#spot-show{
+    color: #fff;
+}
+
+div#spot h1{
+    color: #fff;
+    font-size: 1.1em;
+}

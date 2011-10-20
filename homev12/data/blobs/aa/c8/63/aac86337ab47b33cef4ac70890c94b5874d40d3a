@@ -1,0 +1,7 @@
+/*
+article#center{
+    background-color: #fff;
+    color:black;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+} */

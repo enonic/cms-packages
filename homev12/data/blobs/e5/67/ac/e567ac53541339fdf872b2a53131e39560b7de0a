@@ -1,0 +1,132 @@
+body{ color:#CCCCCC}
+
+ul.sdt_menu{
+	margin:0;
+	padding:0;
+	list-style: none;
+	font-size:1em;
+}
+ul.sdt_menu a{
+	text-decoration:none;
+	outline:none;
+}
+ul.sdt_menu li{
+	float:left;
+	position:relative;
+	cursor:pointer;
+}
+ul.sdt_menu li > a{
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:12;
+	background:transparent url(images/overlay.png) no-repeat bottom right;
+	-moz-box-shadow:0px 0px 2px #000 inset;
+	-webkit-box-shadow:0px 0px 2px #000 inset;
+	box-shadow:0px 0px 2px #000 inset;
+}
+.spots-nearby ul.sdt_menu li{
+	width:170px;
+	height:85px;
+}
+.spots-nearby ul.sdt_menu li > a{
+	width:170px;
+	height:85px;
+}
+.spot-thumbnails ul.sdt_menu li{
+	width:40px;
+	height:40px;
+}
+.spot-thumbnails ul.sdt_menu li > a{
+	width:40px;
+	height:40px;
+}
+
+ul.sdt_menu li a img{
+	border:none;
+	position:absolute;
+	z-index:100;
+	-moz-box-shadow:0px 0px 4px #000;
+	-webkit-box-shadow:0px 0px 4px #000;
+	box-shadow:0px 0px 4px #000;
+}
+.spots-nearby ul.sdt_menu li a img{
+	width:0px;
+	height:0px;
+	bottom:0px;
+	left:85px;
+}
+.spot-thumbnails ul.sdt_menu li a img{
+	bottom:5px;
+	left:10px;
+}
+ul.sdt_menu li span.sdt_wrap{
+	position:absolute;
+	top:50px;
+	left:0px;
+	width:170px;
+	height:25px;
+	z-index:15;
+    background-color: #000;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=65)";
+    filter: alpha(opacity=65);
+    opacity: 0.65;
+}
+ul.sdt_menu li span.sdt_active{
+	position:absolute;
+	background:#111;
+	top:85px;
+	width:170px;
+	height:0px;
+	left:0px;
+	z-index:14;
+	-moz-box-shadow:0px 0px 4px #000 inset;
+	-webkit-box-shadow:0px 0px 4px #000 inset;
+	box-shadow:0px 0px 4px #000 inset;
+}
+ul.sdt_menu li span span.sdt_link,
+ul.sdt_menu li span span.sdt_descr,
+ul.sdt_menu li div.sdt_box a{
+	/*margin-left:15px;*/
+	text-transform:uppercase;
+	text-shadow:1px 1px 1px #000;
+    padding-left: 8px;
+}
+ul.sdt_menu li span span.sdt_link{
+	color:#fff;
+	font-size:12px;
+	float:left;
+	clear:both;
+}
+ul.sdt_menu li span span.sdt_descr{
+	color:#fff;
+	float:left;
+	clear:both;
+	width:100%; /*For dumbass IE7*/
+	font-size:8px;
+	letter-spacing:1px;
+}
+ul.sdt_menu li div.sdt_box{
+	display:block;
+	position:absolute;
+	width:170px;
+	overflow:hidden;
+	height:170px;
+	top:85px;
+	left:0px;
+	display:none;
+	background:#000;
+    color: #ff0000;
+}
+ul.sdt_menu li div.sdt_box a{
+	float:left;
+	clear:both;
+	line-height:30px;
+	color:#0B75AF;
+}
+ul.sdt_menu li div.sdt_box a:first-child{
+	margin-top:15px;
+}
+ul.sdt_menu li div.sdt_box a:hover{
+	color:#fff;
+}

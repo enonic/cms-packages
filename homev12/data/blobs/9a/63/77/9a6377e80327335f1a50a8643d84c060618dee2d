@@ -1,0 +1,148 @@
+article#center {
+    background-color: #fff;
+}
+
+fieldset{
+    max-width: 100%;
+}
+
+/*SPOT-SEARCH WIDGET  */
+section#west #bluman-form-container{
+    /*padding: 15px 15px 0px 15px;*/
+    height:450px;
+}
+
+section#west #bluman-form-container #bluman-form fieldset>legend:first-child{
+    background-color: #000;
+    width: 100%;
+    color: #fff;
+    padding: 5px 0px 5px 0px;
+}
+
+section#west #bluman-form-container #bluman-form fieldset#select-tags{
+    width: 140px;
+    margin: 10px 15px 10px 15px;
+    padding-bottom: 15px;
+    background-color: #000;
+    color: #fff;
+    opacity: 0.8;
+}
+
+section#west #bluman-form-container #bluman-form fieldset#select-tags > *{
+    padding-left: 5px;
+}
+section#west #bluman-form-container #bluman-form fieldset#select-tags > input[type="checkbox"]{
+    float: left;
+    clear: left;
+    margin: 0 0 0 5px;
+    padding: 0;
+}
+section#west #bluman-form-container #bluman-form fieldset#select-tags > label{
+    float: left;
+    clear: none;
+    margin: 0 0 0 5px;
+    padding: 0;
+    line-height: 1em;
+}
+
+section#west #bluman-form-container .selectBox {
+    text-decoration: none;
+    width: 125px;
+    margin: 10px 15px 10px 15px;
+
+}
+#bluman-form-container .selectBox-options,
+#bluman-form-container .selectBox-options LI,
+#bluman-form-container .selectBox-options LI A {
+    float: left;
+    clear: both;
+}
+#no-such-spots-message {
+    visibility: hidden;
+    color: #4682B4;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+#bluman-form input[type="checkbox"]{
+    margin-right: 5px;
+    float:left;
+    clear:left;
+}
+#bluman-form label{
+    float: left;
+    margin-bottom: 5px;
+}
+#bluman-form-container fieldset{
+    margin-bottom: 5px;
+    border: none;
+}
+#bluman-form-container fieldset legend{
+    margin-bottom: 5px;
+}
+#bluman-form-container .selectBox-dropdown{
+    text-decoration: none;
+}
+#bluman-form-container .checkbox-text-wrapper{
+    padding:  6px;
+}
+#bluman-form-container .checkbox-text-wrapper label {
+    padding-left:  3px;
+}
+
+.bluman{
+    font-size: 1.1em;
+    color: #4682B4;
+    text-transform: uppercase;
+}
+.blumancolor {
+    color:#4682B4
+}
+
+nav, section, aside, menu {
+    z-index: 99;
+}
+/*div's which contains background images for slideshow*/
+div#background1,
+div#background2{
+    position:absolute;
+    left:0;
+    top:64px;
+    width: 320px;
+    height:480px;
+    background-size: cover;
+    z-index:-1;
+    -webkit-transition: opacity 2s ease-in;
+	-moz-transition: opacity 2s ease-in;
+	-o-transition: opacity 2s ease-in;
+	-ms-transition: opacity 2s ease-in;
+	transition: opacity 2s ease-in;
+}
+.transparent{
+    opacity: 0;
+}
+.photoInfo{
+    position: absolute;
+    top:0;
+    right: 20px;
+    color: black;
+    font-size: 1.2em;
+    line-height: 25px;
+    font-style: italic;
+    display: block;
+    margin-top:2px;
+    margin-right:10px;
+    background-color: black;
+    -webkit-transition: opacity 2s ease-in;
+	-moz-transition: opacity 2s ease-in;
+	-o-transition: opacity 2s ease-in;
+	-ms-transition: opacity 2s ease-in;
+	transition: opacity 2s ease-in;
+
+    /*-webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    writing-mode: tb-rl;
+    filter: flipV flipH;*/
+}
