@@ -281,12 +281,14 @@
         <xsl:param name="filter" as="xs:string?"/>
         <xsl:param name="source-image" as="element()?"/>
         <xsl:variable name="image-width" select="util:image-size($region-width, $imagesize, $size, $url-filter, $filter, $source-image, ())"/>
+        <xsl:variable name="image-height" select="util:image-size($region-width, $imagesize, $size, $url-filter, $filter, $source-image, 'height')"/>
+        <xsl:variable name="source-image-ratio" select="$source-image/contentdata/sourceimage/@height div $source-image/contentdata/sourceimage/@width"/>
         <xsl:variable name="attachment-key">
             <xsl:value-of select="$key"/>
             <xsl:choose>
-                <xsl:when test="$image-width &lt;= 256 and $source-image/binaries/binary/@label = 'small'">/label/small</xsl:when>
-                <xsl:when test="$image-width &lt;= 512 and $source-image/binaries/binary/@label = 'medium'">/label/medium</xsl:when>
-                <xsl:when test="$image-width &lt;= 1024 and $source-image/binaries/binary/@label = 'large'">/label/large</xsl:when>
+                <xsl:when test="$image-width le 256 and $image-height le $source-image-ratio * 256 and $source-image/binaries/binary/@label = 'small'">/label/small</xsl:when>
+                <xsl:when test="$image-width le 512 and $image-height le $source-image-ratio * 512 and $source-image/binaries/binary/@label = 'medium'">/label/medium</xsl:when>
+                <xsl:when test="$image-width le 1024 and $image-height le $source-image-ratio * 1024 and $source-image/binaries/binary/@label = 'large'">/label/large</xsl:when>
             </xsl:choose>
         </xsl:variable>
         <xsl:value-of select="$attachment-key"/>
