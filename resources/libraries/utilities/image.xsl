@@ -227,6 +227,10 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:when>
+                        <!-- Scaleblock -->
+                        <xsl:when test="$selected-imagesize/filter = 'scaleblock'">
+                            <xsl:sequence select="floor($region-width * $selected-imagesize/width), floor($region-width * $selected-imagesize/height)"/>
+                        </xsl:when>
                         <!-- Scalewidth -->
                         <xsl:when test="$selected-imagesize/filter = 'scalewidth'">
                             <xsl:sequence select="floor($region-width * $selected-imagesize/width), util:calculate-size($source-image-size, floor($region-width * $selected-imagesize/width), ())"/>
