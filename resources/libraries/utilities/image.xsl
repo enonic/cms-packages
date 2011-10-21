@@ -169,6 +169,7 @@
                         <xsl:when test="contains($last-scale-filter, 'scalewide')">
                             <xsl:sequence select="xs:integer(tokenize($last-scale-filter, '\(|,|\)')[2])"/>
                             <xsl:choose>
+                                <!-- When new height is less than specified in scalewide height -->
                                 <xsl:when test="util:calculate-size($source-image-size, xs:integer(tokenize($last-scale-filter, '\(|,|\)')[2]), ()) &lt;= xs:integer(normalize-space(tokenize($last-scale-filter, '\(|,|\)')[3]))">
                                     <xsl:sequence select="util:calculate-size($source-image-size, xs:integer(tokenize($last-scale-filter, '\(|,|\)')[2]), ())"/>
                                 </xsl:when>
@@ -176,6 +177,10 @@
                                     <xsl:sequence select="xs:integer(normalize-space(tokenize($last-scale-filter, '\(|,|\)')[3]))"/>
                                 </xsl:otherwise>
                             </xsl:choose>
+                        </xsl:when>
+                        <!-- Scaleblock -->
+                        <xsl:when test="contains($last-scale-filter, 'scaleblock')">
+                            <xsl:sequence select="xs:integer(tokenize($last-scale-filter, '\(|,|\)')[2]), xs:integer(normalize-space(tokenize($last-scale-filter, '\(|,|\)')[3]))"/>
                         </xsl:when>
                         <!-- Scalewidth -->
                         <xsl:when test="contains($last-scale-filter, 'scalewidth')">
