@@ -8,8 +8,9 @@
             <noscript><p><xsl:value-of select="portal:localize('javascript-required')"/></p></noscript>
             <xsl:call-template name="pc.header" />
             <div id="container">
-                <div id="background1" class="transparent"></div>
-                <div id="background2" class="transparent"></div>
+                <xsl:call-template name="spot-slideshow">
+                    <xsl:with-param name="slideshow-images" select="/result/slideshow-images" />
+                </xsl:call-template>
                 <!-- Renders all regions defined in theme.xml -->
                 <xsl:call-template name="region.renderall">
                     <xsl:with-param name="layout" select="$layout" as="xs:string"/>

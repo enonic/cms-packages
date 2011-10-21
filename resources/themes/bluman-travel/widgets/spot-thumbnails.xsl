@@ -34,8 +34,8 @@
         <script  type="text/javascript">
             function changeBkgPermanently(url){
                 clearTimeout(backgroundSlideshow);
-                $('#background1').css("background-image",'url('+url+')');
-                $('#background2').css("background-image",'url('+url+')');
+                $('.slideshow-image').addClass('hidden');
+                $('#slideshow-images').css("background-image",'url('+url+')');
             }
         </script>
     </xsl:template>

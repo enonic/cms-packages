@@ -16,6 +16,7 @@
     <xsl:import href="../../libraries/widgets/menu.xsl"/>
     <xsl:import href="mobile.xsl"/>
     <xsl:import href="pc.xsl"/>
+    <xsl:import href="widgets/spot-slideshow.xsl"/>
 
     <xsl:output method="html" omit-xml-declaration="no" doctype-system="about:legacy-compat"/>
 
