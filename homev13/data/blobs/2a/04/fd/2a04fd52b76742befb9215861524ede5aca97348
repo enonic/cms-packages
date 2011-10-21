@@ -273,7 +273,6 @@ header, nav#login-navigation, nav#page-navigation {
 }
 #north .spots-info p {
     padding-left: 25px;
-    padding-right: 25px;
     height: 85px;
     display: table-cell;
     vertical-align: middle;
@@ -730,20 +729,15 @@ div.spot-thumbnails ul{
 	transition: opacity 2s ease-in;
 }*/
 
-#slideshow-images {
+.spot-search-body #slideshow-images {
+    position: fixed;
+    top:35px;
+    left:0;
     width: 100%;
     height:100%;
     background-color: #000;
-    background-size: cover;
-    position: fixed;
-    left: 0;
-    top: 35px;
-
 }
-#slideshow-images .slideshow-image{
-    position: fixed;
-    left: 0;
-    top: 35px;
+.spot-search-body #slideshow-images .slideshow-image{
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -753,10 +747,10 @@ div.spot-thumbnails ul{
 	-ms-transition: opacity 2s ease-in;
 	transition: opacity 2s ease-in;
 }
-#slideshow-images .slideshow-image .slideshow-image-info{
-    position: absolute;
-    right:20px;
-    bottom:80px;
+
+.spot-search-body #slideshow-images .slideshow-image .slideshow-image-info{
+    position: relative;
+    bottom:100px;
     color: #fff;
     font-size: 1.5em;
     text-shadow: black 0.1em 0.1em 0.2em;
@@ -767,24 +761,38 @@ div.spot-thumbnails ul{
 	transition: opacity 2s ease-in;
 }
 
-.spot-browse-body #slideshow-images,
-.spot-browse-body #slideshow-images .slideshow-image{
-    top:120px;
-}
-.spot-show-body #slideshow-images,
-.spot-show-body #slideshow-images .slideshow-image{
-    top:155px;
-}
-.spot-browse-body #slideshow-images .slideshow-image .slideshow-image-info
-{
-    bottom:165px;
-}
-.spot-show-body #slideshow-images .slideshow-image .slideshow-image-info
-{
-    bottom:200px;
-}
-
-
-#slideshow-images .slideshow-image .slideshow-image-info ul li {
+.spot-search-body #slideshow-images .slideshow-image .slideshow-image-info ul li {
     list-style-type: none;
 }
+
+.slideshow-image-1 {
+    left:0;
+}
+.slideshow-image-info-1{
+    left: 88%;
+}
+.slideshow-image-2 {
+    left:100%;
+}
+.slideshow-image-info-2{
+    left: 188%;
+}
+.slideshow-image-3 {
+    left:200%;
+}
+.slideshow-image-info-3{
+    left: 288%;
+}
+.slideshow-image-4 {
+    left:300%;
+}
+.slideshow-image-info-4{
+    left: 388%;
+}
+.slideshow-image-5 {
+    left:400%;
+}
+.slideshow-image-info-5{
+    left: 488%;
+}
+

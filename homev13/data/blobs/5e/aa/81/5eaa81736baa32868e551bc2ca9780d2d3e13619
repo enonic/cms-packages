@@ -273,7 +273,6 @@ header, nav#login-navigation, nav#page-navigation {
 }
 #north .spots-info p {
     padding-left: 25px;
-    padding-right: 25px;
     height: 85px;
     display: table-cell;
     vertical-align: middle;

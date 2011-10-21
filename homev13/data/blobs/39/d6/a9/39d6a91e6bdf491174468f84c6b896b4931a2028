@@ -76,8 +76,8 @@
         <xsl:param name="location" />
         <xsl:param name="images" />
         <xsl:for-each select="$images">
-            <figure class="slideshow-image" style="background-image: url('{portal:createImageUrl(image/@key, 'scalewidth(1200)','','jpg','50')}')">
-                <figcaption class="slideshow-image-info">
+            <figure class="slideshow-image transparent" style="background-image: url('{portal:createImageUrl(image/@key, 'scalewidth(1200)','','jpg','50')}')">
+                <figcaption class="slideshow-image-info transparent">
                     <ul>
                         <xsl:if test="$location"><li><xsl:value-of select="$location" /></li></xsl:if>
                         <li><xsl:value-of select="image_text" /></li>

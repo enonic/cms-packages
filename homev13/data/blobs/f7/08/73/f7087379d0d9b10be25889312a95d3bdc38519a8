@@ -273,7 +273,6 @@ header, nav#login-navigation, nav#page-navigation {
 }
 #north .spots-info p {
     padding-left: 25px;
-    padding-right: 25px;
     height: 85px;
     display: table-cell;
     vertical-align: middle;
@@ -734,16 +733,10 @@ div.spot-thumbnails ul{
     width: 100%;
     height:100%;
     background-color: #000;
-    background-size: cover;
-    position: fixed;
-    left: 0;
-    top: 35px;
-
 }
 #slideshow-images .slideshow-image{
     position: fixed;
     left: 0;
-    top: 35px;
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -756,7 +749,6 @@ div.spot-thumbnails ul{
 #slideshow-images .slideshow-image .slideshow-image-info{
     position: absolute;
     right:20px;
-    bottom:80px;
     color: #fff;
     font-size: 1.5em;
     text-shadow: black 0.1em 0.1em 0.2em;
@@ -767,6 +759,11 @@ div.spot-thumbnails ul{
 	transition: opacity 2s ease-in;
 }
 
+.spot-search-body #slideshow-images,
+.spot-search-body #slideshow-images .slideshow-image
+{
+    top:35px;
+}
 .spot-browse-body #slideshow-images,
 .spot-browse-body #slideshow-images .slideshow-image{
     top:120px;
@@ -775,15 +772,13 @@ div.spot-thumbnails ul{
 .spot-show-body #slideshow-images .slideshow-image{
     top:155px;
 }
-.spot-browse-body #slideshow-images .slideshow-image .slideshow-image-info
-{
-    bottom:165px;
+.spot-search-body #slideshow-images .slideshow-image .slideshow-image-info{
+    bottom:80px;
 }
-.spot-show-body #slideshow-images .slideshow-image .slideshow-image-info
-{
+.spot-browse-body #slideshow-images .slideshow-image .slideshow-image-info,
+.spot-show-body #slideshow-images .slideshow-image .slideshow-image-info{
     bottom:200px;
 }
-
 
 #slideshow-images .slideshow-image .slideshow-image-info ul li {
     list-style-type: none;
