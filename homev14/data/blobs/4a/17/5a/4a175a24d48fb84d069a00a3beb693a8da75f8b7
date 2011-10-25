@@ -9,6 +9,7 @@
             $(document).ready(function() {
                 var currentSlide = 1;
                 var totalSlides =  $('.slideshow-image').size();
+                console.log("total slides " + totalSlides);
                 var backgroundslideshow = 0;
 
                 function runSlideshow(){
@@ -21,28 +22,30 @@
                 }
                 function slideshowTransitions(){
                     crossFadeCurrentAndNextSlide();
-                    backgroundSlideshow = setTimeout(slideshowTransitions, 8000);
+                    takeActionAccordingToImageCount();
                 }
                 function slideshowAnimation(){
                     console.log('slideshow animation with javascript not implemented');
                 }
                 function crossFadeCurrentAndNextSlide(){
                     toggleTransparency(currentSlide);
-                    increaseOrResetCurrentSlide();
+                    currentSlide++;
                     toggleTransparency(currentSlide);
                 }
                 function toggleTransparency(){
+                    <!--$("figure:not(:eq("+currentSlide+")),figcaption:not(:eq("+currentSlide+"))").addClass("transparent");-->
+                    <!--$("figure:eq("+currentSlide+"),figcaption:eq("+currentSlide+")").toggleClass("transparent");-->
                     $("#slideshow-image-"+currentSlide).toggleClass("transparent");
                 }
-                function increaseOrResetCurrentSlide(){
+                function takeActionAccordingToImageCount(){
+                    backgroundSlideshow = setTimeout(slideshowTransitions, 5000);
+                    console.log("currentslide " + currentSlide)
                     if (currentSlide==totalSlides){
                         currentSlide = 1;
-                    }else {
-                        currentSlide++;
                     }
                 }
                 if (totalSlides>1){
-                    backgroundSlideshow = setTimeout(runSlideshow, 8000);
+                    backgroundSlideshow = setTimeout(runSlideshow, 5000);
                 }
             });
         </script>

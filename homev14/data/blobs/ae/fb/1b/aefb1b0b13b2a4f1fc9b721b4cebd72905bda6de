@@ -148,6 +148,7 @@
                         <width>300</width>
                         <padding>
                             <top>25</top>
+
                         </padding>
                     </region>
                     <region name="center" element="article" role="main">
@@ -210,7 +211,7 @@
                     <region name="east" element="aside">
                         <width>180</width>
                         <margin>
-                            <top>50</top>
+                            <top>65</top>
                             <left>25</left>
                         </margin>
                     </region>

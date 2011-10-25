@@ -7,8 +7,8 @@
     <xsl:template name="spot-slideshow-jquery-scripts">
         <script  type="text/javascript">
             $(document).ready(function() {
-                var currentSlide = 1;
-                var totalSlides =  $('.slideshow-image').size();
+                var currentSlide = 0;
+                var totalSlides =  $('figure').size();
                 var backgroundslideshow = 0;
 
                 function runSlideshow(){
@@ -21,29 +21,28 @@
                 }
                 function slideshowTransitions(){
                     crossFadeCurrentAndNextSlide();
-                    backgroundSlideshow = setTimeout(slideshowTransitions, 8000);
+                    takeActionAccordingToImageCount();
                 }
                 function slideshowAnimation(){
                     console.log('slideshow animation with javascript not implemented');
                 }
                 function crossFadeCurrentAndNextSlide(){
                     toggleTransparency(currentSlide);
-                    increaseOrResetCurrentSlide();
-                    toggleTransparency(currentSlide);
+                    currentSlide++;
                 }
                 function toggleTransparency(){
-                    $("#slideshow-image-"+currentSlide).toggleClass("transparent");
+                    $("figure:not(:eq("+currentSlide+")),figcaption:not(:eq("+currentSlide+"))").addClass("transparent");
+                    $("figure:eq("+currentSlide+"),figcaption:eq("+currentSlide+")").toggleClass("transparent");
                 }
-                function increaseOrResetCurrentSlide(){
+                function takeActionAccordingToImageCount(){
+                    if (totalSlides>1){
+                        backgroundSlideshow = setTimeout(slideshowTransitions, 8000);
+                    }
                     if (currentSlide==totalSlides){
-                        currentSlide = 1;
-                    }else {
-                        currentSlide++;
+                        currentSlide = 0;
                     }
                 }
-                if (totalSlides>1){
-                    backgroundSlideshow = setTimeout(runSlideshow, 8000);
-                }
+                <!--runSlideshow();-->
             });
         </script>
     </xsl:template>
@@ -92,7 +91,7 @@
                     </xsl:choose>
                 </xsl:attribute>
                 <xsl:attribute name="class">
-                    <xsl:if test="($position and not($position=1)) or (not($position) and not(position()=1))">
+                    <xsl:if test="($position and not($position='1')) or (not($position) and not(position()=1))">
                         <xsl:text>transparent </xsl:text>
                     </xsl:if>
                     <xsl:text>slideshow-image</xsl:text>

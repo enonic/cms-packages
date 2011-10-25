@@ -21,28 +21,27 @@
                 }
                 function slideshowTransitions(){
                     crossFadeCurrentAndNextSlide();
-                    backgroundSlideshow = setTimeout(slideshowTransitions, 8000);
+                    takeActionAccordingToImageCount();
                 }
                 function slideshowAnimation(){
                     console.log('slideshow animation with javascript not implemented');
                 }
                 function crossFadeCurrentAndNextSlide(){
                     toggleTransparency(currentSlide);
-                    increaseOrResetCurrentSlide();
+                    currentSlide++;
                     toggleTransparency(currentSlide);
                 }
                 function toggleTransparency(){
                     $("#slideshow-image-"+currentSlide).toggleClass("transparent");
                 }
-                function increaseOrResetCurrentSlide(){
+                function takeActionAccordingToImageCount(){
+                    backgroundSlideshow = setTimeout(slideshowTransitions, 5000);
                     if (currentSlide==totalSlides){
                         currentSlide = 1;
-                    }else {
-                        currentSlide++;
                     }
                 }
                 if (totalSlides>1){
-                    backgroundSlideshow = setTimeout(runSlideshow, 8000);
+                    backgroundSlideshow = setTimeout(runSlideshow, 5000);
                 }
             });
         </script>

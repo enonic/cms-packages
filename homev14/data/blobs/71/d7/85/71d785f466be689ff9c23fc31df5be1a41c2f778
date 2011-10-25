@@ -6,14 +6,14 @@
                 <xsl:call-template name="accessibility.links"/>
             </nav>
             <noscript><p><xsl:value-of select="portal:localize('javascript-required')"/></p></noscript>
-            <xsl:call-template name="pc.header" />
+            <!--<xsl:call-template name="pc.header" />-->
             <div id="container">
-                <xsl:call-template name="spot-slideshow">
-                    <xsl:with-param name="slideshow-images" select="/result/slideshow-images" />
-                </xsl:call-template>
                 <!-- Renders all regions defined in theme.xml -->
                 <xsl:call-template name="region.renderall">
                     <xsl:with-param name="layout" select="$layout" as="xs:string"/>
+                </xsl:call-template>
+                <xsl:call-template name="spot-slideshow">
+                    <xsl:with-param name="slideshow-images" select="/result/slideshow-images" />
                 </xsl:call-template>
             </div>
             <xsl:call-template name="pc.footer"/>
@@ -55,7 +55,7 @@
     <!-- Footer template -->
     <!-- Put your static footer XSL/HTML here -->
     <xsl:template name="pc.footer">
-        <footer id="footer" class="default-transparency" role="contentinfo">
+        <footer id="footer" role="contentinfo">
             <nav id="device-navigation" role="navigation">
                 <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'mobile', 'lifetime', 'session'))}" class="change-device-to-mobile" rel="nofollow">
                     <xsl:value-of select="portal:localize('Change-to-mobile-version')"/>
@@ -69,6 +69,12 @@
                   </xsl:call-template>
                 </nav>
             </xsl:if>
+            <!--<nav accesskey="s" id="spot-navigation" role="navigation">
+                <xsl:call-template name="menu.render">
+                    <xsl:with-param name="menuitems" select="/result/menu/menuitems/menuitem[@path='true' and name='spots']/menuitems"/>
+                    <xsl:with-param name="levels" select="2"/>
+                </xsl:call-template>
+            </nav>-->
         </footer>
     </xsl:template>
 

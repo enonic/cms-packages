@@ -55,7 +55,7 @@
     <!-- Footer template -->
     <!-- Put your static footer XSL/HTML here -->
     <xsl:template name="pc.footer">
-        <footer id="footer" class="default-transparency" role="contentinfo">
+        <footer id="footer" role="contentinfo">
             <nav id="device-navigation" role="navigation">
                 <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'mobile', 'lifetime', 'session'))}" class="change-device-to-mobile" rel="nofollow">
                     <xsl:value-of select="portal:localize('Change-to-mobile-version')"/>

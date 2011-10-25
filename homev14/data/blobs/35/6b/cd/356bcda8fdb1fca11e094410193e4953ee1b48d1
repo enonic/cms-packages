@@ -715,8 +715,7 @@ div.spot-thumbnails ul{
 
 .spot-search-body #west,
 .spot-browse-body #west,
-.spot-show-body #west,
-.spot-show-body #spot-share {
+.spot-show-body #west {
     background-color: #000;
 }
 

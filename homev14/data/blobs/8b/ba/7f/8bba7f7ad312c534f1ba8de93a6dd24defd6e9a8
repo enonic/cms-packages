@@ -713,14 +713,6 @@ div.spot-thumbnails ul{
 	transition: opacity 2s ease-in;
 }
 
-.spot-search-body #west,
-.spot-browse-body #west,
-.spot-show-body #west,
-.spot-show-body #spot-share {
-    background-color: #000;
-}
-
-
 .spot-browse-body #slideshow-images,
 .spot-browse-body #slideshow-images .slideshow-image{
     top:120px;
