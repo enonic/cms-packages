@@ -65,8 +65,10 @@ background-color: #ff5c00;
 .hidden{
     display: none;
 }
+.hidden * {
+    display: none;
+}
 
 .error {
     color: red;
 }
-

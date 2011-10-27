@@ -21,7 +21,7 @@
                 }
                 function slideshowTransitions(){
                     crossFadeCurrentAndNextSlide();
-                    backgroundSlideshow = setTimeout(slideshowTransitions, 8000);
+                    backgroundSlideshow = setTimeout(slideshowTransitions, 2000);
                 }
                 function slideshowAnimation(){
                     console.log('slideshow animation with javascript not implemented');
@@ -44,8 +44,8 @@
                 }
                 $("figure:eq(0)").toggleClass("transparent");
                 $("figcaption:eq(0)").toggleClass("transparent");
-                if (totalSlides>0){
-                    backgroundSlideshow = setTimeout(runSlideshow, 8000);
+                if (totalSlides>1){
+                    backgroundSlideshow = setTimeout(runSlideshow, 2000);
                 }
             });
         </script>

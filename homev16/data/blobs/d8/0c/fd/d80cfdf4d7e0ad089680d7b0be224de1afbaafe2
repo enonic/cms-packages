@@ -48,7 +48,7 @@ background-color: #ff5c00;
 #find-bluman-button{
     float: left;
     clear: left;
-    margin-left:125px;
+    margin-left:95px;
     margin-bottom:5px;
 }
 
@@ -65,8 +65,10 @@ background-color: #ff5c00;
 .hidden{
     display: none;
 }
+.hidden * {
+    display: none;
+}
 
 .error {
     color: red;
 }
-

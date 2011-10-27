@@ -65,8 +65,24 @@ background-color: #ff5c00;
 .hidden{
     display: none;
 }
+.hidden * {
+    display: none;
+}
 
 .error {
     color: red;
 }
 
+#footer .photo-info {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-weight: 600;
+    font-style: italic;
+    color: #fff;
+    -webkit-transition: opacity 2s ease-in;
+	-moz-transition: opacity 2s ease-in;
+	-o-transition: opacity 2s ease-in;
+	-ms-transition: opacity 2s ease-in;
+	transition: opacity 2s ease-in;
+}

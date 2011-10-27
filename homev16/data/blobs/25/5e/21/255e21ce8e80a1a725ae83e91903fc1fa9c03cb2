@@ -723,7 +723,6 @@ div.spot-thumbnails ul{
 	-o-transition: opacity 2s ease-in;
 	-ms-transition: opacity 2s ease-in;
 	transition: opacity 2s ease-in;
-    z-index:999;
 }
 
 .spot-browse-body #slideshow-images,

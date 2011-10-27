@@ -7,8 +7,8 @@
     <xsl:template name="spot-slideshow-jquery-scripts">
         <script  type="text/javascript">
             $(document).ready(function() {
-                var currentSlide = 0;
-                var totalSlides =  $('.slideshow-image').size()-1;
+                var currentSlide = 1;
+                var totalSlides =  $('.slideshow-image').size();
                 var backgroundslideshow = 0;
 
                 function runSlideshow(){
@@ -21,7 +21,7 @@
                 }
                 function slideshowTransitions(){
                     crossFadeCurrentAndNextSlide();
-                    backgroundSlideshow = setTimeout(slideshowTransitions, 8000);
+                    backgroundSlideshow = setTimeout(slideshowTransitions, 2000);
                 }
                 function slideshowAnimation(){
                     console.log('slideshow animation with javascript not implemented');
@@ -37,15 +37,15 @@
                 }
                 function increaseOrResetCurrentSlide(){
                     if (currentSlide==totalSlides){
-                        currentSlide = 0;
+                        currentSlide = 1;
                     }else {
                         currentSlide++;
                     }
                 }
-                $("figure:eq(0)").toggleClass("transparent");
-                $("figcaption:eq(0)").toggleClass("transparent");
-                if (totalSlides>0){
-                    backgroundSlideshow = setTimeout(runSlideshow, 8000);
+                $("figure:eq(1)").toggleClass("transparent");
+                $("figcaption:eq(1)").toggleClass("transparent");
+                if (totalSlides>1){
+                    backgroundSlideshow = setTimeout(runSlideshow, 2000);
                 }
             });
         </script>

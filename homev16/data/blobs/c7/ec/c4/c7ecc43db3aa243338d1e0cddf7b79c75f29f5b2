@@ -7,8 +7,8 @@
     <xsl:template name="spot-slideshow-jquery-scripts">
         <script  type="text/javascript">
             $(document).ready(function() {
-                var currentSlide = 0;
-                var totalSlides =  $('.slideshow-image').size()-1;
+                var currentSlide = 1;
+                var totalSlides =  $('.slideshow-image').size();
                 var backgroundslideshow = 0;
 
                 function runSlideshow(){
@@ -32,19 +32,18 @@
                     toggleTransparency(currentSlide);
                 }
                 function toggleTransparency(){
-                    $("figure:eq("+currentSlide+")").toggleClass("transparent");
-                    $("figcaption:eq("+currentSlide+")").toggleClass("transparent");
+                    $("#slideshow-image-"+currentSlide).toggleClass("transparent");
+                    $("#slideshow-info-"+currentSlide).toggleClass("hidden");
+                    $("#slideshow-link-"+currentSlide).toggleClass("hidden");
                 }
                 function increaseOrResetCurrentSlide(){
                     if (currentSlide==totalSlides){
-                        currentSlide = 0;
+                        currentSlide = 1;
                     }else {
                         currentSlide++;
                     }
                 }
-                $("figure:eq(0)").toggleClass("transparent");
-                $("figcaption:eq(0)").toggleClass("transparent");
-                if (totalSlides>0){
+                if (totalSlides>1){
                     backgroundSlideshow = setTimeout(runSlideshow, 8000);
                 }
             });
@@ -82,11 +81,48 @@
         <xsl:param name="spot-key" />
         <xsl:param name="position" />
         <xsl:for-each select="/result/slideshow-images/contents/relatedcontents/content[@contenttype='Image' and @key = current()/image/@key]">
-            <figure class="transparent slideshow-image" style="background-image: url('{portal:createImageUrl(@key, 'scalewidth(1200)','','jpg','50')}')">
-                <figcaption class="transparent slideshow-image-info">
+            <xsl:variable name="pos">
+                <xsl:choose>
+                    <xsl:when test="$position">
+                        <xsl:value-of select="$position"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="position()" />
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:variable>
+            <figure style="background-image: url('{portal:createImageUrl(@key, 'scalewidth(1200)','','jpg','50')}')">
+                <xsl:attribute name="id">
+                    <xsl:text>slideshow-image-</xsl:text><xsl:value-of select="$pos" />
+                </xsl:attribute>
+                <xsl:attribute name="class">
+                    <xsl:if test="not($pos=1)">
+                        <xsl:text>transparent </xsl:text>
+                    </xsl:if>
+                    <xsl:text>slideshow-image</xsl:text>
+                </xsl:attribute>
+                <figcaption>
+                    <xsl:attribute name="id">
+                        <xsl:text>slideshow-info-</xsl:text><xsl:value-of select="$pos" />
+                    </xsl:attribute>
+                    <xsl:attribute name="class">
+                        <xsl:if test="not($pos=1)">
+                            <xsl:text>hidden </xsl:text>
+                        </xsl:if>
+                        <xsl:text>slideshow-image-info</xsl:text>
+                    </xsl:attribute>
                     "<xsl:value-of select="contentdata/name" />"<xsl:text>, </xsl:text>
                     <xsl:if test="$spot-name">
-                        <a href="{portal:createContentUrl($spot-key, ())}"><xsl:value-of select="$spot-name" /></a>
+                        <a href="{portal:createContentUrl($spot-key, ())}"><xsl:value-of select="$spot-name" />
+                           <xsl:attribute name="id">
+                                <xsl:text>slideshow-link-</xsl:text><xsl:value-of select="$pos" />
+                            </xsl:attribute>
+                            <xsl:attribute name="class">
+                                <xsl:if test="not($pos=1)">
+                                    <xsl:text>hidden</xsl:text>
+                                </xsl:if>
+                              </xsl:attribute>
+                        </a>
                     </xsl:if>
                     <xsl:if test="contentdata/photographer/@name and not(contentdata/photographer/@name='')">
                         <xsl:text> by </xsl:text>

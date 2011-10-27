@@ -692,7 +692,6 @@ div.spot-thumbnails ul{
     width: 100%;
     height:100%;
     background-size: cover;
-    background-color: #000;
     position: fixed;
     left: 0;
     top: 35px;
@@ -723,7 +722,6 @@ div.spot-thumbnails ul{
 	-o-transition: opacity 2s ease-in;
 	-ms-transition: opacity 2s ease-in;
 	transition: opacity 2s ease-in;
-    z-index:999;
 }
 
 .spot-browse-body #slideshow-images,
@@ -734,6 +732,15 @@ div.spot-thumbnails ul{
 .spot-show-body #slideshow-images .slideshow-image{
     top:155px;
 }
+.spot-browse-body #slideshow-images .slideshow-image .slideshow-image-info
+{
+    bottom:165px;
+}
+.spot-show-body #slideshow-images .slideshow-image .slideshow-image-info
+{
+    bottom:200px;
+}
+
 
 #slideshow-images .slideshow-image .slideshow-image-info ul li {
     list-style-type: none;
