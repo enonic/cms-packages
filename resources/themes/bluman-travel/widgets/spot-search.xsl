@@ -5,7 +5,7 @@
                 xmlns:util="enonic:utilities"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:import href="../../../libraries/utilities/standard-variables.xsl"/>
-    <xsl:import href="spot-show.xsl"/>
+    <xsl:output indent="yes" media-type="text/html" method="xhtml" omit-xml-declaration="yes"/>
 
     <xsl:template match="/">
         <xsl:choose>
@@ -17,7 +17,6 @@
              <xsl:call-template name="spot-search" />
             </xsl:otherwise>
         </xsl:choose>
-
     </xsl:template>
 
     <xsl:template name="spot-search">
@@ -55,9 +54,9 @@
                     <span>
                         <input type="hidden" id="spottags" name="spottags" />
                     </span>
-                    <input type="image" id="find-bluman-button" class="large blue awsome" value="Find Bluman"/>
+                    <!--<input type="image" id="find-bluman-button" class="large blue awsome" value="Find Bluman"/>-->
                 </form>
-                <!--<a id="find-bluman-button" class="large blue awesome">Find Bluman</a>-->
+                <a id="find-bluman-button" class="large blue awesome">Find Bluman</a>
                 <div id="no-such-spots-message">Message goes here</div>
                 <div id="appendRandomSpotHere" />
             </div>
@@ -96,10 +95,11 @@
                     });
 
                     /*Submit ajax query to find random spot (contentKey) in selected city, we need this to get correct http url for spot*/
-                    $("#bluman-form").submit(function() {
+                    $("#find-bluman-button").click(function() {
                          if ($("#bluman-form #locationKey ").find("option:selected").val()!=''){
                             $.get("<xsl:value-of select="$portletUrl" />", {locationKey: $('#bluman-form #locationKey').find("option:selected").val(), spottags: $('#bluman-form #spottags').val(), ajaxsearch: "true"},
                                function(data){
+                                    console.log(data);
                                     $('#appendRandomSpotHere').children('input').remove();
                                     $('#appendRandomSpotHere').append(data);
                                     if (!$('#contentKey').val()){
