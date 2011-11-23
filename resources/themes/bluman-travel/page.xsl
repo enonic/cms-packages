@@ -18,7 +18,12 @@
     <xsl:import href="pc.xsl"/>
     <xsl:import href="widgets/spot-slideshow.xsl"/>
 
-    <xsl:output method="html" omit-xml-declaration="no" doctype-system="about:legacy-compat"/>
+     <xsl:output
+        method="html"
+        doctype-public="XSLT-compat"
+        omit-xml-declaration="yes"
+        encoding="UTF-8"
+        indent="yes" />
 
     <!-- page type -->
     <!-- For multiple layouts on one site. Various layouts can be configured in theme.xml, each with a different 'name' attribute on the 'layout' element. -->

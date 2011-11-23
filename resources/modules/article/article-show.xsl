@@ -10,9 +10,9 @@
   <xsl:template match="/">
     <xsl:choose>
       <xsl:when test="/result/contents/content">
-        <div id="article" class="clear append-bottom">
+        <article itemscope="itemscope" itemtype="http://schema.org/Article" id="article" class="clear append-bottom">
           <xsl:apply-templates select="/result/contents/content"/>
-        </div>
+        </article>
       </xsl:when>
       <xsl:otherwise>
         <p class="clear">
@@ -23,7 +23,7 @@
   </xsl:template>
 
   <xsl:template match="content">
-    <h1>
+    <h1 itemprop="name">
       <xsl:value-of select="title"/>
     </h1>
     <xsl:choose>

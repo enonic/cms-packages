@@ -4,6 +4,7 @@
 
     <!-- Display image template -->
     <xsl:template name="image.display-image">
+        <xsl:param name="itemprop" as="xs:string?" />
         <xsl:param name="region-width" select="if ($config-region-width) then $config-region-width else 500" as="xs:integer"/>
         <xsl:param name="filter" as="xs:string?" select="$config-filter"/><!-- Custom image filters -->
         <xsl:param name="imagesize" as="element()*" select="$config-imagesize"/><!-- Rel image size config -->
@@ -57,6 +58,11 @@
             <xsl:if test="$id != ''">
                 <xsl:attribute name="id">
                     <xsl:value-of select="$id"/>
+                </xsl:attribute>
+            </xsl:if>
+            <xsl:if test="$itemprop != ''">
+                <xsl:attribute name="itemprop">
+                    <xsl:value-of select="$itemprop"/>
                 </xsl:attribute>
             </xsl:if>
         </img>

@@ -78,7 +78,7 @@
                             <top>35</top>
                         </padding>
                     </region>
-                    <region name="center" element="article" role="main">
+                    <region name="center" element="section" role="main">
                         <width>500</width>
                         <padding>
                             <left>15</left>

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:util="enonic:utilities" xmlns:portal="http://www.enonic.com/cms/xslt/portal" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <xsl:import href="/libraries/utilities/standard-variables.xsl"/>
@@ -6,7 +5,13 @@
   <xsl:include href="/libraries/utilities/utilities.xsl"/>
   <xsl:include href="/libraries/utilities/navigation-menu.xsl"/>
 
-  <xsl:output indent="yes" media-type="text/html" method="xhtml" omit-xml-declaration="yes"/>
+    <xsl:output
+        method="html"
+        doctype-public="XSLT-compat"
+        omit-xml-declaration="yes"
+        encoding="UTF-8"
+        indent="yes" />
+
 
   <xsl:variable name="url-parameters" select="/result/context/querystring/parameter[not(@name = 'index' or @name = 'id' or starts-with(@name, '_config-'))]"/>
   <xsl:variable name="index" select="xs:integer(/result/contents/@index)"/>
@@ -30,7 +35,8 @@
           <xsl:with-param name="total-count" tunnel="yes" select="$total-count"/>
           <xsl:with-param name="contents-per-page" tunnel="yes" select="$contents-per-page"/>
         </xsl:call-template>
-        <div class="list clear clearfix append-bottom">
+        <div itemscope="itemscope" itemtype="http://schema.org/ItemList" class="list clear clearfix append-bottom">
+            <meta itemprop="mainContentOfPage" content="true"/>
           <xsl:apply-templates select="/result/contents/content"/>
           <xsl:if test="$rss-page">
             <a href="{portal:createUrl($rss-page, ('articleSectionId', portal:getPageKey()))}" class="rss">
@@ -56,7 +62,7 @@
   </xsl:template>
 
   <xsl:template match="content">
-    <div class="item">
+    <div itemprop="itemListElement" class="item">
       <xsl:if test="position() = 1">
         <xsl:attribute name="class">item first</xsl:attribute>
       </xsl:if>
@@ -66,10 +72,11 @@
       <xsl:if test="$device-class != 'mobile'">
         <xsl:call-template name="image">
           <xsl:with-param name="size" select="'list'"/>
+          <!--<xsl:with-param name="itemprop" select="'thumbnailUrl'"/>-->
         </xsl:call-template>
       </xsl:if>
       <h2>
-        <a href="{portal:createContentUrl(@key,())}">
+        <a itemprop="headline" href="{portal:createContentUrl(@key,())}">
           <xsl:value-of select="contentdata/heading"/>
         </a>
       </h2>
@@ -92,11 +99,13 @@
 
   <xsl:template name="image">
     <xsl:param name="size"/>
+    <xsl:param name="itemprop"/>
     <xsl:if test="/result/contents/relatedcontents/content[@key = current()/contentdata/image[1]/image/@key]">
       <a href="{portal:createContentUrl(@key,())}" title="{title}">
         <xsl:call-template name="image.display-image">
           <xsl:with-param name="image" select="/result/contents/relatedcontents/content[@key = current()/contentdata/image[1]/image/@key]"/>
           <xsl:with-param name="size" select="$size"/>
+          <xsl:with-param name="itemprop" select="$itemprop"/>
         </xsl:call-template>
       </a>
     </xsl:if>

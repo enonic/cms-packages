@@ -5,7 +5,13 @@
                 xmlns:util="enonic:utilities"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:import href="../../../libraries/utilities/standard-variables.xsl"/>
-    <xsl:output indent="yes" media-type="text/html" method="xhtml" omit-xml-declaration="yes"/>
+
+    <xsl:output
+        method="html"
+        doctype-public="XSLT-compat"
+        omit-xml-declaration="yes"
+        encoding="UTF-8"
+        indent="yes" />
 
     <xsl:template match="/">
         <xsl:choose>
