@@ -15,10 +15,10 @@
     xmlns:fw="http://www.enonic.com/cms/xslt/framework"
     xmlns:util="http://www.enonic.com/cms/xslt/utilities">
     
-    <xsl:import href="/libraries/utilities/utilities.xsl"/>
+    <xsl:import href="/libraries/utilities/system.xsl"/>
     
     <xsl:template name="util:google.analytics">
-        <xsl:variable name="google-analytics-tracker" select="util:get-scoped-parameter('google-analytics-tracker', $fw:path, $fw:config-parameter)" as="xs:string?"/>
+        <xsl:variable name="google-analytics-tracker" select="util:system.get-config-param('google-analytics-tracker', $fw:path)" as="xs:string?"/>
         <xsl:if test="$google-analytics-tracker != ''">
             <script type="text/javascript">
                 var _gaq = _gaq || [];

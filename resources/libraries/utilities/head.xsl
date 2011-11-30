@@ -5,14 +5,12 @@
    xmlns:portal="http://www.enonic.com/cms/xslt/portal" 
    xmlns:util="http://www.enonic.com/cms/xslt/utilities">
   
-   <!-- Include standard-variables.xsl when using this utility -->
-
-   <!-- Includes -->
-   <xsl:include href="utilities.xsl"/>
+  
+   <xsl:import href="/libraries/utilities/system.xsl"/>
 
    <!-- Meta data -->
-   <xsl:variable name="meta-generator" select="util:get-scoped-parameter('meta-generator', $fw:path, $fw:config-parameter)" as="element()?"/>
-   <xsl:variable name="meta-author" select="util:get-scoped-parameter('meta-author', $fw:path, $fw:config-parameter)" as="element()?"/>
+   <xsl:variable name="meta-generator" select="util:system.get-config-param('meta-generator', $fw:path)" as="element()?"/>
+   <xsl:variable name="meta-author" select="util:system.get-config-param('meta-author', $fw:path)" as="element()?"/>
    <xsl:variable name="meta-description">
       <xsl:choose>
          <xsl:when test="/result/contents/content/contentdata/meta-description != ''">

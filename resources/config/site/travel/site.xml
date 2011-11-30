@@ -15,5 +15,10 @@
         <parameter path="/" name="meta-author">Enonic</parameter>
         <parameter path="/" name="site-admin-name"></parameter>
         <parameter path="/" name="site-admin-email"></parameter>
+        
+        <parameter path="/" name="tor-tester">DETTE ER EN TEST 1</parameter>
+        <parameter path="/en/special-events" name="tor-tester">DETTE ER EN TEST 2</parameter>
+        
+        <parameter path="/en/special-events/queens-day" name="tor-tester">DETTE ER EN TEST 3</parameter>
     </parameters>
 </config>

@@ -8,10 +8,10 @@
   xmlns:util="http://www.enonic.com/cms/xslt/utilities">
   
   <xsl:import href="/libraries/utilities/fw-variables.xsl"/>
-  <xsl:include href="/libraries/utilities/utilities.xsl"/>
   <xsl:include href="/libraries/utilities/html.xsl"/>
   <xsl:include href="/libraries/utilities/text.xsl"/>
   <xsl:include href="/libraries/utilities/time.xsl"/>
+  <xsl:include href="/libraries/utilities/file.xsl"/>
 
   <xsl:output indent="yes" media-type="text/html" method="xhtml" omit-xml-declaration="yes"/>
 
@@ -136,13 +136,13 @@
               <xsl:variable name="current-file" select="/result/contents/relatedcontents/content[@key = current()/@key]"/>
               <li>
                 <a href="{portal:createBinaryUrl($current-file/contentdata/binarydata/@key, ('download', 'true'))}">
-                  <xsl:call-template name="utilities.icon-image">
+                  <xsl:call-template name="util:file.icon-image">
                     <xsl:with-param name="file-name" select="$current-file/title"/>
                     <xsl:with-param name="icon-folder-path" select="concat($fw:theme-public, '/images')"/>
                   </xsl:call-template>
                   <xsl:value-of select="$current-file/title"/>
                 </a>
-                <xsl:value-of select="concat(' (', util:format-bytes($current-file/binaries/binary/@filesize), ')')"/>
+                <xsl:value-of select="concat(' (', util:file.format-bytes($current-file/binaries/binary/@filesize), ')')"/>
                 <xsl:if test="$current-file/contentdata/description != ''">
                   <br/>
                   <xsl:value-of select="util:text.crop($current-file/contentdata/description, 200)"/>

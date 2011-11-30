@@ -5,7 +5,7 @@
     xmlns:fw="http://www.enonic.com/cms/xslt/framework"
     xmlns:util="http://www.enonic.com/cms/xslt/utilities">
 
-    <xsl:import href="/libraries/utilities/utilities.xsl"/>
+    <xsl:import href="/libraries/utilities/system.xsl"/>
 
 
 
@@ -15,8 +15,12 @@
     
     <xsl:variable name="fw:site-name" as="xs:string" select="/result/context/site/name"/>
 
-    <xsl:variable name="fw:rendered-page" as="element()" select="/result/context/page"/>
-    <xsl:variable name="fw:path" as="xs:string" select="concat('/', string-join(/result/context/resource/path/resource/name, '/'))"/>
+    <xsl:variable name="fw:rendered-page" as="element()" select="/result/context/page"/><!--
+    <xsl:variable name="fw:path" as="xs:string" select="concat('/', string-join(/result/context/resource/path/resource/name, '/'))"/>-->
+    
+    <xsl:variable name="fw:path" as="xs:string" select="concat('/', string-join(tokenize(/result/context/querystring/@servletpath, '/')[position() gt 3], '/'))"/>
+    
+    
     <xsl:variable name="fw:user" as="element()?" select="/result/context/user"/>
     <xsl:variable name="fw:language" as="xs:string" select="/result/context/@languagecode"/>
     <xsl:variable name="fw:device-class" as="xs:string" select="/result/context/device-class"/>
@@ -38,11 +42,11 @@
     
     <xsl:variable name="fw:theme-public" select="concat('/_public/themes/', $fw:config-theme, '/')" as="xs:string"/>
     
-    <xsl:variable name="fw:front-page" as="element()?" select="util:get-scoped-parameter('front-page', $fw:path, $fw:config-parameter)"/>
+    <xsl:variable name="fw:front-page" as="element()?" select="util:system.get-config-param('front-page', $fw:path)"/>
     <xsl:variable name="fw:error-page" as="element()?" select="/result/context/site/error-page/resource"/>
     <xsl:variable name="fw:login-page" as="element()?" select="/result/context/site/login-page/resource"/>
-    <xsl:variable name="fw:sitemap-page" as="element()?" select="util:get-scoped-parameter('sitemap', $fw:path, $fw:config-parameter)"/>
-    <xsl:variable name="fw:search-result-page" as="element()?" select="util:get-scoped-parameter('search-result', $fw:path, $fw:config-parameter)"/>
+    <xsl:variable name="fw:sitemap-page" as="element()?" select="util:system.get-config-param('sitemap', $fw:path)"/>
+    <xsl:variable name="fw:search-result-page" as="element()?" select="util:system.get-config-param('search-result', $fw:path)"/>
     
     
     <!-- Standard window variables passed from page -->
@@ -61,8 +65,8 @@
     
     <xsl:variable name="fw:config-imagesize" select="$fw:theme-device-class/image/sizes/size"/>
     
-    <xsl:variable name="fw:site-admin-name" as="xs:string?" select="util:get-scoped-parameter('site-admin-name', $fw:path, $fw:config-parameter)"/>
-    <xsl:variable name="fw:site-admin-email" as="xs:string?" select="util:get-scoped-parameter('site-admin-email', $fw:path, $fw:config-parameter)"/>
+    <xsl:variable name="fw:site-admin-name" as="xs:string?" select="util:system.get-config-param('site-admin-name', $fw:path)"/>
+    <xsl:variable name="fw:site-admin-email" as="xs:string?" select="util:system.get-config-param('site-admin-email', $fw:path)"/>
     
 
 

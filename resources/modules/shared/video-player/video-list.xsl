@@ -8,7 +8,6 @@
     xmlns:util="http://www.enonic.com/cms/xslt/utilities"> 
     
     <xsl:import href="/libraries/utilities/fw-variables.xsl"/>
-    <xsl:import href="/libraries/utilities/utilities.xsl"/>
     <xsl:import href="/libraries/utilities/pagination.xsl"/>    
     <xsl:import href="/libraries/utilities/image.xsl"/>
     <xsl:import href="/libraries/utilities/time.xsl"/>  
