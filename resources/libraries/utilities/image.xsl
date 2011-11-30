@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:util="enonic:utilities" xmlns:portal="http://www.enonic.com/cms/xslt/portal" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <!-- Include standard-variables.xsl in order to use this template -->
+<xsl:stylesheet exclude-result-prefixes="#all"
+    xmlns="http://www.w3.org/1999/xhtml" version="2.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:fw="http://www.enonic.com/cms/xslt/framework"
+    xmlns:portal="http://www.enonic.com/cms/xslt/portal"
+    xmlns:util="http://www.enonic.com/cms/xslt/utilities">
 
     <!-- Display image template -->
-    <xsl:template name="image.display-image">
-        <xsl:param name="region-width" select="if ($config-region-width) then $config-region-width else 500" as="xs:integer"/>
-        <xsl:param name="filter" as="xs:string?" select="$config-filter"/><!-- Custom image filters -->
-        <xsl:param name="imagesize" as="element()*" select="$config-imagesize"/><!-- Rel image size config -->
+    <xsl:template name="util:image.display">
+        <xsl:param name="region-width" as="xs:integer" select="$fw:region-width"/>
+        <xsl:param name="filter" as="xs:string?" select="$fw:config-filter"/><!-- Custom image filters -->
+        <xsl:param name="imagesize" as="element()*" select="$fw:config-imagesize"/><!-- Rel image size config -->
         <xsl:param name="image" as="element()"/><!-- Image content node -->
         <xsl:param name="size" as="xs:string?"/>
         <xsl:param name="background" as="xs:string?"/>
         <xsl:param name="format" as="xs:string?"/>
         <xsl:param name="quality" as="xs:string?"/>
-        <xsl:param name="title" select="$image/title" as="xs:string?"/>
+        <xsl:param name="title" as="xs:string?" select="$image/title"/>
         <xsl:param name="alt" as="xs:string">
             <xsl:choose>
                 <xsl:when test="$image/contentdata/description != ''">

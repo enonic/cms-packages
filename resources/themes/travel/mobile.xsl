@@ -1,4 +1,9 @@
-<xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:util="enonic:utilities" xmlns:portal="http://www.enonic.com/cms/xslt/portal" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:fw="http://www.enonic.com/cms/xslt/framework"
+  xmlns:portal="http://www.enonic.com/cms/xslt/portal" 
+  xmlns:util="http://www.enonic.com/cms/xslt/utilities">
    
    
   <xsl:template name="mobile.scripts">
@@ -41,7 +46,7 @@
       });
       
       <!-- Adds and localizes datepicker for all date inputs -->
-      <xsl:value-of select="concat('$(&quot;.datepicker&quot;).datepicker($.extend({dateFormat: &quot;', portal:localize('jquery-datepicker-date-format'), '&quot;}, $.datepicker.regional[&quot;', $language, '&quot;]));')"/>
+      <xsl:value-of select="concat('$(&quot;.datepicker&quot;).datepicker($.extend({dateFormat: &quot;', portal:localize('jquery-datepicker-date-format'), '&quot;}, $.datepicker.regional[&quot;', $fw:language, '&quot;]));')"/>
       $.validator.addMethod('datepicker', function(value, element) {
       var isValid = true;
       try {
@@ -89,19 +94,19 @@
     
     
     <div id="header" class="clearfix">
-      <a href="{portal:createUrl($front-page)}">
-        <img alt="{$site-name}-{portal:localize('logo')}" id="logo" src="{portal:createResourceUrl(concat($theme-public, '/images-mobile/logo.png'))}" title="{$site-name}"/>
+      <a href="{portal:createUrl($fw:front-page)}">
+        <img alt="{$fw:site-name}-{portal:localize('logo')}" id="logo" src="{portal:createResourceUrl(concat($fw:theme-public, '/images-mobile/logo.png'))}" title="{$fw:site-name}"/>
       </a>
-      <xsl:if test="$user or $login-page">
+      <xsl:if test="$fw:user or $fw:login-page">
         <div id="top-menu" class="screen">
           <xsl:choose>
             <!-- User logged in -->
-            <xsl:when test="$user">
-              <img src="{if ($user/photo/@exists = 'true') then portal:createImageUrl(concat('user/', $user/@key), 'scalesquare(28);rounded(2)') else portal:createResourceUrl(concat($theme-public, '/images/dummy-user-smallest.png'))}" title="{$user/display-name}" alt="{concat(portal:localize('Image-of'), ' ', $user/display-name)}">
-                <xsl:if test="$login-page">
+            <xsl:when test="$fw:user">
+              <img src="{if ($fw:user/photo/@exists = 'true') then portal:createImageUrl(concat('user/', $fw:user/@key), 'scalesquare(28);rounded(2)') else portal:createResourceUrl(concat($fw:theme-public, '/images/dummy-user-smallest.png'))}" title="{$fw:user/display-name}" alt="{concat(portal:localize('Image-of'), ' ', $fw:user/display-name)}">
+                <xsl:if test="$fw:login-page">
                   <xsl:attribute name="class">user-image clickable</xsl:attribute>
                   <xsl:attribute name="onclick">
-                    <xsl:value-of select="concat('location.href = &quot;', portal:createPageUrl($login-page/@key, ()), '&quot;;')"/>
+                    <xsl:value-of select="concat('location.href = &quot;', portal:createPageUrl($fw:login-page/@key, ()), '&quot;;')"/>
                   </xsl:attribute>
                 </xsl:if>
               </img>
@@ -112,8 +117,8 @@
               <xsl:comment>googleon: anchor</xsl:comment>
             </xsl:when>
             <!-- User not logged in -->
-            <xsl:when test="$login-page">
-              <a href="{portal:createPageUrl($login-page/@key, ())}">
+            <xsl:when test="$fw:login-page">
+              <a href="{portal:createPageUrl($fw:login-page/@key, ())}">
                 <xsl:value-of select="portal:localize('Login')"/>
               </a>
             </xsl:when>
@@ -126,16 +131,16 @@
   <xsl:template name="mobile.footer">
     <div id="footer">
       <p>
-        <xsl:if test="$rss-page">
+        <!--<xsl:if test="$rss-page">
           <a href="{portal:createUrl($rss-page)}">
-            <img src="{portal:createResourceUrl(concat($theme-public, '/images/icon-rss-large.png'))}" alt="RSS {portal:localize('icon')}"/>
+            <img src="{portal:createResourceUrl(concat($fw:theme-public, '/images/icon-rss-large.png'))}" alt="RSS {portal:localize('icon')}"/>
           </a>
-        </xsl:if>
+        </xsl:if>-->
         <xsl:value-of select="portal:localize('footer-text', (year-from-date(current-date())))"/>
       </p>
       <p>
         <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'pc', 'lifetime', 'session'))}">
-          <img src="{portal:createResourceUrl(concat($theme-public, '/images-mobile/icon-pc.png'))}" alt="{portal:localize('PC-version')}" class="icon text"/>
+          <img src="{portal:createResourceUrl(concat($fw:theme-public, '/images-mobile/icon-pc.png'))}" alt="{portal:localize('PC-version')}" class="icon text"/>
           <xsl:value-of select="portal:localize('Change-to-pc-version')"/>
         </a>
       </p>

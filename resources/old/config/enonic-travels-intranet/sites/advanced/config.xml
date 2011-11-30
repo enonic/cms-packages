@@ -1,0 +1,27 @@
+<config>
+    <multilingual>false</multilingual>
+    <accessibility-text-size>false</accessibility-text-size>
+    <accessibility-contrast>false</accessibility-contrast>
+    <passport>
+        <email-login>false</email-login>
+        <edit-display-name>false</edit-display-name>
+        <set-password>false</set-password>
+        <admin-name>Enonic Travels webmaster</admin-name>
+        <admin-email>sales@enonic.com</admin-email>
+        <join-group-keys/>
+        <groups>
+            <group key="group-1-key">Group 1 name</group>
+            <group key="group-2-key">Group 2 name</group>
+        </groups>
+    </passport>
+    <parameters>
+        <parameter path="/" name="front-page" key="121">/home</parameter>
+        <parameter path="/" name="sitemap">/home/sitemap</parameter>
+        <parameter path="/" name="rss">/rss</parameter>
+        <parameter path="/" name="meta-generator">Enonic CMS</parameter>
+        <parameter path="/" name="meta-author">Enonic</parameter>
+    </parameters>
+    <skins>
+        <skin name="intranet"/>
+    </skins>
+</config>

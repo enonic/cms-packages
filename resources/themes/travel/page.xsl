@@ -1,9 +1,14 @@
-<xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:util="enonic:utilities" xmlns:portal="http://www.enonic.com/cms/xslt/portal" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:fw="http://www.enonic.com/cms/xslt/framework"
+  xmlns:util="http://www.enonic.com/cms/xslt/utilities"
+  xmlns:portal="http://www.enonic.com/cms/xslt/portal">
  
-  <xsl:import href="/libraries/utilities/standard-variables.xsl"/>
+  <xsl:import href="/libraries/utilities/fw-variables.xsl"/>
   <xsl:import href="/libraries/utilities/region.xsl"/>
   <xsl:import href="/libraries/utilities/head.xsl"/>
-  <xsl:import href="/libraries/utilities/error-handler.xsl"/> 
+  <xsl:import href="/libraries/utilities/error.xsl"/> 
   <xsl:import href="/libraries/utilities/accessibility.xsl"/>
   <xsl:import href="/libraries/utilities/google.xsl"/>
   <xsl:import href="/libraries/widgets/breadcrumbs.xsl"/>
@@ -38,7 +43,7 @@
   <!-- Here you can choose different templates based on device -->
   <xsl:template match="/">
     <xsl:choose>
-      <xsl:when test="$device-class = 'mobile'">
+      <xsl:when test="$fw:device-class = 'mobile'">
         <xsl:call-template name="mobile"/>
       </xsl:when>
       <xsl:otherwise>
@@ -51,17 +56,17 @@
   <!-- PC template -->
   <!-- Basic template for a page, outputs standard HTML-tags, metadata and all scripts, css and regions defined in the config.xml -->
   <xsl:template name="pc">
-    <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="{$language}" xml:lang="{$language}">
+    <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="{$fw:language}" xml:lang="{$fw:language}">
       <head>
         <title>
-          <xsl:value-of select="util:menuitem-name($current-resource)"/>
-          <xsl:value-of select="concat(' - ', $site-name)"/>
+          <xsl:value-of select="util:menuitem-name($fw:current-resource)"/>
+          <xsl:value-of select="concat(' - ', $fw:site-name)"/>
         </title>
-        <link rel="shortcut icon" type="image/x-icon" href="{portal:createResourceUrl(concat($theme-public, '/images/favicon.ico'))}"/>
+        <link rel="shortcut icon" type="image/x-icon" href="{portal:createResourceUrl(concat($fw:theme-public, '/images/favicon.ico'))}"/>
         <xsl:call-template name="head.meta-common"/>
         <xsl:call-template name="head.script-common"/>
         <xsl:call-template name="head.css-common"/>
-        <xsl:call-template name="region.css">
+        <xsl:call-template name="fw:region.css">
           <xsl:with-param name="layout" select="$layout"/>
         </xsl:call-template>
       </head>
@@ -73,7 +78,7 @@
             </p>
           </noscript>
           
-          <xsl:call-template name="accessibility.links"/>
+          <xsl:call-template name="util:accessibility.links"/>
           <xsl:call-template name="pc.header"/>
 
           <div id="outer-container">
@@ -82,11 +87,11 @@
 
               <!-- Calls the breadcrumb widgets print-crumbs -->
               <xsl:call-template name="breadcrumbs.print-crumbs">
-                <xsl:with-param name="path" select="$current-resource/path/resource[position() &gt; 1]" />
+                <xsl:with-param name="path" select="$fw:current-resource/path/resource[position() &gt; 1]" />
               </xsl:call-template>
               
               <!-- Renders all regions defined in config.xml -->
-              <xsl:call-template name="region.renderall">
+              <xsl:call-template name="fw:region.render">
                 <xsl:with-param name="layout" select="$layout" as="xs:string"/>
               </xsl:call-template>
               
@@ -94,12 +99,7 @@
           </div>
           <xsl:call-template name="pc.footer" />
         </div>
-        <!-- If google tracker is set in config.xml, renders analytics code -->
-        <xsl:if test="$google-tracker/text()">
-          <xsl:call-template name="google.analytics">
-            <xsl:with-param name="google-tracker" select="$google-tracker"/>
-          </xsl:call-template>
-        </xsl:if>
+        <xsl:call-template name="util:google.analytics"/>
       </body>
     </html>
   </xsl:template>
@@ -108,12 +108,12 @@
   <!-- MOBILE template -->
   <!-- Basic template for a page, outputs standard HTML-tags, metadata and all scripts, css and regions defined in the theme.xml -->
   <xsl:template name="mobile">
-    <html xmlns="http://www.w3.org/1999/xhtml" lang="{$language}" xml:lang="{$language}">
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="{$fw:language}" xml:lang="{$fw:language}">
       <head>
         <title>
-          <xsl:value-of select="util:menuitem-name($current-resource)"/>
+          <xsl:value-of select="util:menuitem-name($fw:current-resource)"/>
         </title>
-        <link rel="apple-touch-icon" href="{portal:createResourceUrl(concat($theme-public, '/images-mobile/apple-touch-icon.png'))}"/>
+        <link rel="apple-touch-icon" href="{portal:createResourceUrl(concat($fw:theme-public, '/images-mobile/apple-touch-icon.png'))}"/>
         <xsl:call-template name="head.script-common" />
         <xsl:call-template name="mobile.scripts" />
         <xsl:call-template name="head.css-common"/>
@@ -146,8 +146,8 @@
           </div>
 
           <!-- Search box -->
-          <xsl:if test="$search-result-page != ''">
-            <form action="{portal:createUrl($search-result-page)}" method="get" id="page-search-form">
+          <xsl:if test="$fw:search-result-page != ''">
+            <form action="{portal:createUrl($fw:search-result-page)}" method="get" id="page-search-form">
               <fieldset>
                 <label for="page-search-box">
                   <xsl:value-of select="portal:localize('Search')"/>
@@ -157,16 +157,13 @@
             </form>
           </xsl:if>
           <div id="middle-container" class="clear clearfix">
-            <xsl:call-template name="region.renderall"/>
+            <xsl:call-template name="fw:region.render"/>
           </div>
         </div>
         <!-- Footer -->
         <xsl:call-template name="mobile.footer" />
-        <xsl:if test="$google-tracker != ''">
-          <xsl:call-template name="google.analytics">
-            <xsl:with-param name="google-tracker" select="$google-tracker"/>
-          </xsl:call-template>
-        </xsl:if>
+        
+        <xsl:call-template name="util:google.analytics"/>
       </body>
     </html>
   </xsl:template>
