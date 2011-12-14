@@ -1,8 +1,0 @@
-<datasources>
-    <datasource>
-        <methodname>getURLAsXML</methodname>
-        <parameters>
-            <parameter name="url" type="string">${select(param.url, '')}</parameter>
-        </parameters>
-    </datasource>
-</datasources>

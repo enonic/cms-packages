@@ -1,8 +1,0 @@
-<config>
-    <theme>bluman-travels</theme>
-    <parameters>
-        <parameter path="/" name="front-page" >/</parameter>
-        <parameter path="/" name="meta-generator">Enonic CMS</parameter>
-        <parameter path="/" name="meta-author">Enonic</parameter>
-    </parameters>
-</config>
