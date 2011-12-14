@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+  <datasource>
+    <methodname>getURLAsXML</methodname>
+    <parameters>
+      <parameter name="id" override="false" type="string">${select(pref("PORTLET", "weatherForecast.city"), "http://www.yr.no/sted/Norge/Oslo/Oslo/Oslo/forecast.xml")}</parameter>
+    </parameters>
+  </datasource>
+  <datasource>
+    <methodname>getPreferences</methodname>
+    <parameters>
+      <parameter name="scope" type="string">PORTLET</parameter>
+      <parameter name="wildCardkey" type="string">weatherForecast.*</parameter>
+    </parameters>
+  </datasource>
+</datasources>

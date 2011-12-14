@@ -1,0 +1,28 @@
+<contenttype>
+  <config>
+    <form>
+      <title name="heading"/>
+      <block name="Document">
+        <input name="heading" required="true" type="text">
+          <display>Heading</display>
+          <xpath>contentdata/heading</xpath>
+        </input>
+        <input config="document" mode="xhtml" name="text" type="htmlarea">
+          <display>Text</display>
+          <xpath>contentdata/text</xpath>
+        </input>
+      </block>
+      <block name="Meta information">
+        <input name="meta-keywords" type="text">
+          <display>Meta keywords</display>
+          <xpath>contentdata/meta-keywords</xpath>
+          <help>Comma separated</help>
+        </input>
+        <input name="meta-description" type="textarea">
+          <display>Meta description</display>
+          <xpath>contentdata/meta-description</xpath>
+        </input>
+      </block>
+    </form>
+  </config>
+</contenttype>

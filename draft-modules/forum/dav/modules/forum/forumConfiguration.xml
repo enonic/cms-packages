@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<properties>
+  <property key="mainPage" value="65"/>
+  <property key="categoriesPage" value="66"/>
+  <property key="threadPage" value="67"/>
+  <property key="replyPage" value="68"/>
+  <property key="reportPage" value="72"/>
+  <property key="reportSuccessPage" value="72"/>
+  <property key="reportErrorPage" value="61"/>
+  <property key="publishPage" value="69"/>
+  <property key="searchResultPage" value="70"/>
+</properties>

@@ -1,0 +1,10 @@
+<datasources sessioncontext="true">
+  <datasource>
+    <methodname>getMenuItem</methodname>
+    <parameters>
+      <parameter name="menuItemKey" type="int">${portal.pageKey}</parameter>
+      <parameter name="withParents" type="boolean">false</parameter>
+      <parameter name="details" type="boolean">true</parameter>
+    </parameters>
+  </datasource>
+</datasources>

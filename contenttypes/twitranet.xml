@@ -1,0 +1,13 @@
+<contenttype>
+    <config>
+        <form>
+            <title name="message"/>
+            <block name="Twitranet">
+                <input name="message" required="true" type="text">
+                    <display>Message</display>
+                    <xpath>contentdata/message</xpath>
+                </input>
+            </block>
+        </form>
+    </config>
+</contenttype>

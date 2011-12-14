@@ -1,0 +1,16 @@
+<contenttype>
+    <browse>
+        <column>
+            <title/>
+        </column>
+        <column>
+            <contenttype/>
+        </column>
+        <column>
+            <timestamp/>
+        </column>
+    </browse>
+    <indexparameters>
+        <index type="text" xpath="contentdata/form/item/data"/>
+    </indexparameters>
+</contenttype>

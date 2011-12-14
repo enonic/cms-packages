@@ -1,0 +1,126 @@
+<contenttype>
+    <config>
+        <form>
+            <title name="heading"/>
+            <block name="Event">
+                <input name="heading" required="true" type="text">
+                    <display>Heading</display>
+                    <xpath>contentdata/heading</xpath>
+                </input>
+                <input name="start-date" required="true" type="date">
+                    <display>Start date</display>
+                    <xpath>contentdata/start-date</xpath>
+                </input>
+                <input name="start-time" type="text">
+                    <display>Start time</display>
+                    <xpath>contentdata/start-time</xpath>
+                    <help>hh:mm (24 hours format)</help>
+                    <regexp>^([0-1]\d|2[0-3]):([0-5]\d)$</regexp>
+                    <size value="5"/>
+                    <maxlength value="5"/>
+                </input>
+                <input name="end-date" required="true" type="date">
+                    <display>End date</display>
+                    <xpath>contentdata/end-date</xpath>
+                </input>
+                <input name="end-time" type="text">
+                    <display>End time</display>
+                    <xpath>contentdata/end-time</xpath>
+                    <help>hh:mm (24 hours format)</help>
+                    <regexp>^([0-1]\d|2[0-3]):([0-5]\d)$</regexp>
+                    <size value="5"/>
+                    <maxlength value="5"/>
+                </input>
+                <input name="location" type="text">
+                    <display>Location</display>
+                    <xpath>contentdata/location</xpath>
+                </input>
+                <input name="preface" type="textarea">
+                    <display>Preface</display>
+                    <xpath>contentdata/preface</xpath>
+                </input>
+                <input config="lightwithtable" mode="xhtml" name="text" required="true" type="htmlarea">
+                    <display>Text</display>
+                    <xpath>contentdata/text</xpath>
+                </input>
+            </block>
+            <block group="contentdata/image" name="Image">
+                <input type="image" name="image">
+                    <display>Image</display>
+                    <xpath>image</xpath>
+                </input>
+                <input name="image_text" type="textarea">
+                    <display>Image text</display>
+                    <xpath>image_text</xpath>
+                </input>
+            </block>
+            <block group="contentdata/link" name="Related link">
+                <input name="url" type="url">
+                    <display>URL</display>
+                    <xpath>url</xpath>
+                </input>
+                <input name="description" type="text">
+                    <display>Description</display>
+                    <xpath>description</xpath>
+                </input>
+                <input name="destination" type="dropdown">
+                    <display>Open in</display>
+                    <xpath>target</xpath>
+                    <options>
+                        <option value="new">New window</option>
+                        <option value="current">Current window</option>
+                    </options>
+                </input>
+            </block>
+            <block group="contentdata/file" name="Related file">
+                <input name="file" type="file">
+                    <display>File</display>
+                    <xpath>file</xpath>
+                </input>
+            </block>
+            <block name="Related articles">
+                <input name="articles" type="relatedcontent">
+                    <display>Articles</display>
+                    <xpath>contentdata/articles</xpath>
+                    <contenttype name="article"/>
+                </input>
+            </block>
+            <block name="Related events">
+                <input name="events" type="relatedcontent">
+                    <display>Events</display>
+                    <xpath>contentdata/events</xpath>
+                    <contenttype name="event"/>
+                </input>
+            </block>
+            <block name="Meta information">
+                <input name="meta-keywords" type="text">
+                    <display>Meta keywords</display>
+                    <xpath>contentdata/meta-keywords</xpath>
+                    <help>Comma separated</help>
+                </input>
+                <input name="meta-description" type="textarea">
+                    <display>Meta description</display>
+                    <xpath>contentdata/meta-description</xpath>
+                </input>
+            </block>
+        </form>
+    </config>
+    <browse>
+        <column>
+            <title/>
+        </column>
+        <column title="Start date">
+            <date xpath="contentdata/start-date"/>
+        </column>
+        <column title="Location">
+            <xpath>contentdata/location</xpath>
+        </column>
+        <column>
+            <created/>
+        </column>
+    </browse>
+    <indexparameters>
+        <index name="start-date" xpath="contentdata/start-date"/>
+        <index name="end-date" xpath="contentdata/end-date"/>
+    </indexparameters>
+</contenttype>

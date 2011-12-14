@@ -1,0 +1,26 @@
+<datasources querystringcontext="true" sitecontext="true" usercontext="true">
+  <datasource>
+    <methodname>getContent</methodname>
+    <parameters>
+      <parameter name="key" override="url" type="int">-1</parameter>
+      <parameter name="parentLevel" type="int">0</parameter>
+      <parameter name="childrenLevel" type="int">0</parameter>
+      <parameter name="parentChildrenLevel" type="int">0</parameter>
+      <parameter name="updateStatistics" type="boolean">true</parameter>
+      <parameter name="relatedTitlesOnly" type="boolean">true</parameter>
+      <parameter name="userRights" type="boolean">false</parameter>
+      <parameter name="categoryFilter" type="int[]"/>
+      <parameter name="categoryRecursive" type="boolean"/>
+      <parameter name="ctyFilter" type="int[]"/>
+    </parameters>
+  </datasource>
+  <datasource>
+    <methodname>getCategories</methodname>
+    <parameters>
+      <parameter name="cat" override="url" type="int">-1</parameter>
+      <parameter name="levels" type="int">1</parameter>
+      <parameter name="contentCount" type="boolean">false</parameter>
+      <parameter name="includeCurrent" type="boolean">true</parameter>
+    </parameters>
+  </datasource>
+</datasources>

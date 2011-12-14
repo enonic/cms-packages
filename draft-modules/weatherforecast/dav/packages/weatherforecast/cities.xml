@@ -1,0 +1,22 @@
+<cities>
+  <city default="true">
+    <name>Oslo</name>
+    <url>http://www.yr.no/sted/Norge/Oslo/Oslo/Oslo/forecast.xml</url>
+  </city>
+  <city>
+    <name>Stockholm</name>
+    <url>http://www.yr.no/place/Sweden/Stockholm/Stockholm/forecast.xml</url>
+  </city>
+  <city>
+    <name>Copenhagen</name>
+    <url>http://www.yr.no/place/Denmark/Capital/Copenhagen/forecast.xml</url>
+  </city>
+  <city>
+    <name>Helsinki</name>
+    <url>http://www.yr.no/place/Finland/Southern_Finland/Helsinki/forecast.xml</url>
+  </city>
+  <city>
+    <name>Reykjavik</name>
+    <url>http://www.yr.no/place/Iceland/Gullbringusysla/Reykjav%C3%ADk/forecast.xml</url>
+  </city>
+</cities>

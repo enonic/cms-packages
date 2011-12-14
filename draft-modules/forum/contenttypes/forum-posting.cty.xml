@@ -1,0 +1,51 @@
+<contenttype>
+  <config>
+    <form>
+      <title name="title"/>
+      <block name="Forum posting">
+        <input name="top" type="checkbox">
+          <display>Top</display>
+          <xpath>contentdata/top</xpath>
+        </input>
+        <input multiple="false" name="category-key" type="relatedcontent">
+          <display>Category key</display>
+          <xpath>contentdata/category-key</xpath>
+          <contenttype name="forum-category"/>
+        </input>
+        <input name="category-title" required="true" type="text">
+          <display>Category title</display>
+          <xpath>contentdata/category-title</xpath>
+        </input>
+        <input multiple="false" name="top-key" type="relatedcontent">
+          <display>Top key</display>
+          <xpath>contentdata/top-key</xpath>
+          <contenttype name="forum-posting"/>
+        </input>
+        <input multiple="false" name="parent-key" type="relatedcontent">
+          <display>Parent key</display>
+          <xpath>contentdata/parent-key</xpath>
+          <contenttype name="forum-posting"/>
+        </input>
+        <input name="title" required="true" type="text">
+          <display>Title</display>
+          <xpath>contentdata/title</xpath>
+        </input>
+        <input name="author" required="true" type="text">
+          <display>Author</display>
+          <xpath>contentdata/author</xpath>
+        </input>
+        <input name="email" type="text">
+          <display>E-mail</display>
+          <xpath>contentdata/email</xpath>
+        </input>
+        <input name="text" required="true" type="textarea">
+          <display>Text</display>
+          <xpath>contentdata/text</xpath>
+        </input>
+      </block>
+    </form>
+  </config>
+  <indexparameters>
+    <index name="top" xpath="contentdata/top"/>
+  </indexparameters>
+</contenttype>
