@@ -15,11 +15,13 @@
    xmlns:fw="http://www.enonic.com/cms/xslt/framework"
    xmlns:portal="http://www.enonic.com/cms/xslt/portal"
    xmlns:util="http://www.enonic.com/cms/xslt/utilities">
+   
+   <xsl:import href="/libraries/utilities/fw-variables.xsl"/>
 
    <xsl:template name="util:error.handle">
-      <xsl:variable name="error" as="element()?" select="/result/context/querystring/parameter[@name = 'http_status_code']"/>
+      <xsl:variable name="error" as="element()?" select="$fw:querystring-parameter[@name = 'http_status_code']"/>
       <xsl:variable name="url" as="xs:string?" select="/result/context/querystring/@url"/>
-      <xsl:variable name="exception-message" as="xs:string?" select="/result/context/querystring/parameter[@name = 'exception_message']"/>
+      <xsl:variable name="exception-message" as="xs:string?" select="$fw:querystring-parameter[@name = 'exception_message']"/>
       <div class="error">
          <h2>
             <xsl:value-of select="portal:localize(concat('fatal-error-heading-', $error))"/>

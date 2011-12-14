@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml"
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -5,10 +6,10 @@
    xmlns:portal="http://www.enonic.com/cms/xslt/portal" 
    xmlns:util="http://www.enonic.com/cms/xslt/utilities">
   
-  
+   <xsl:import href="/libraries/utilities/fw-variables.xsl"/>
    <xsl:import href="/libraries/utilities/system.xsl"/>
 
-   <!-- Meta data -->
+   <!-- Metawdata -->
    <xsl:variable name="meta-generator" select="util:system.get-config-param('meta-generator', $fw:path)" as="element()?"/>
    <xsl:variable name="meta-author" select="util:system.get-config-param('meta-author', $fw:path)" as="element()?"/>
    <xsl:variable name="meta-description">
@@ -46,7 +47,7 @@
       <xsl:if test="$meta-generator != ''">
          <meta name="generator" content="{$meta-generator}"/>
       </xsl:if>
-      <meta http-equiv="content-language" content="{$fw:language}"/>
+      
       <xsl:if test="$meta-author != ''">
          <meta name="author" content="{$meta-author}"/>
       </xsl:if>

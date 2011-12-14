@@ -15,6 +15,7 @@
     xmlns:fw="http://www.enonic.com/cms/xslt/framework"
     xmlns:util="http://www.enonic.com/cms/xslt/utilities">
     
+    <xsl:import href="/libraries/utilities/fw-variables.xsl"/>
     <xsl:import href="/libraries/utilities/system.xsl"/>
     
     <xsl:template name="util:google.analytics">

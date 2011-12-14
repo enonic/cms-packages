@@ -1,7 +1,7 @@
 <config>
     <theme>travel</theme>
     <parameters>
-        <parameter path="/" name="front-page">/</parameter>
+        <parameter path="/" name="front-page">0</parameter>
         <parameter path="/" name="search-result">/search-result</parameter>
         <parameter path="/" name="sitemap">/sitemap</parameter>
         <parameter path="/en" name="rss">/en/rss</parameter>

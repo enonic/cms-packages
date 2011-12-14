@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -18,11 +19,11 @@
   <xsl:import href="mobile.xsl"/>
   <xsl:import href="pc.xsl"/>
   
-  <xsl:output doctype-public="-//W3C//DTD XHTML 1.1//EN" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="utf-8" indent="yes" method="xhtml" omit-xml-declaration="yes"/>
+  <xsl:output doctype-system="about:legacy-compat" method="xhtml" encoding="utf-8" indent="yes" omit-xml-declaration="yes" />
   
   <!-- page type -->
   <!-- For multiple layouts on one site. Various layouts can be configured in theme.xml, each with a different 'name' attribute on the 'layout' element. -->
-  <xsl:param name="layout" select="'default'" as="xs:string"/>
+  <xsl:param name="layout" as="xs:string" select="'default'"/>
   
   <!-- regions -->
   <xsl:param name="north">
@@ -41,8 +42,7 @@
     <type>region</type>
   </xsl:param>
 
-  <!-- Start template -->
-  <!-- Here you can choose different templates based on device -->
+  <!-- Select template based on current device -->
   <xsl:template match="/">
     <xsl:choose>
       <xsl:when test="$fw:device-class = 'mobile'">
@@ -57,9 +57,11 @@
 
   <!-- PC template -->
   <!-- Basic template for a page, outputs standard HTML-tags, metadata and all scripts, css and regions defined in the config.xml -->
-  <xsl:template name="pc">
-    <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="{$fw:language}" xml:lang="{$fw:language}">
+  <xsl:template name="pc"><!--
+  <html dir="ltr" lang="{$fw:language}" xml:lang="{$fw:language}">-->
+    <html>
       <head>
+        <meta charset="UTF-8"/>
         <title>
           <xsl:value-of select="util:menuitem-name($fw:current-resource)"/>
           <xsl:value-of select="concat(' - ', $fw:site-name)"/>
@@ -73,15 +75,13 @@
         </xsl:call-template>
       </head>
       <body>
-        
-        <div id="page">
+        <div id="container">
+          <xsl:call-template name="util:accessibility.links"/>
           <noscript>
             <p>
               <xsl:value-of select="portal:localize('javascript-required')"/>
             </p>
           </noscript>
-          
-          <xsl:call-template name="util:accessibility.links"/>
           <xsl:call-template name="pc.header"/>
 
           <div id="outer-container">
@@ -90,7 +90,7 @@
 
               <!-- Calls the breadcrumb widgets print-crumbs -->
               <xsl:call-template name="breadcrumbs.print-crumbs">
-                <xsl:with-param name="path" select="$fw:current-resource/path/resource[position() &gt; 1]" />
+                <xsl:with-param name="path" select="$fw:current-resource/path/resource[position() gt 1]" />
               </xsl:call-template>
               
               <!-- Renders all regions defined in config.xml -->
@@ -111,7 +111,7 @@
   <!-- MOBILE template -->
   <!-- Basic template for a page, outputs standard HTML-tags, metadata and all scripts, css and regions defined in the theme.xml -->
   <xsl:template name="mobile">
-    <html xmlns="http://www.w3.org/1999/xhtml" lang="{$fw:language}" xml:lang="{$fw:language}">
+    <html lang="{$fw:language}" xml:lang="{$fw:language}">
       <head>
         <title>
           <xsl:value-of select="util:menuitem-name($fw:current-resource)"/>
