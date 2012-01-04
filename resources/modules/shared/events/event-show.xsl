@@ -130,6 +130,9 @@
                             </xsl:call-template>
                             <xsl:value-of select="image_text"/>
                         </div>
+                        <xsl:call-template name="util:image.generate-url">
+                            <xsl:with-param name="image" select="/result/contents/relatedcontents/content[@key = current()/image/@key]"/>
+                        </xsl:call-template> 
                     </xsl:for-each>
                 </xsl:if>
                 <xsl:if test="contentdata/link/url != ''">

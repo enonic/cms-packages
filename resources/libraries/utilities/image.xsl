@@ -9,31 +9,35 @@
 
     <!-- Display image template -->
     <xsl:template name="util:image.display">
-        <xsl:param name="region-width" as="xs:integer" select="$fw:region-width"/>
-        <xsl:param name="filter" as="xs:string?" select="$fw:config-filter"/><!-- Custom image filters -->
-        <xsl:param name="imagesize" as="element()*" select="$fw:config-imagesize"/><!-- Rel image size config -->
         <xsl:param name="image" as="element()"/><!-- Image content node -->
         <xsl:param name="size" as="xs:string?"/>
         <xsl:param name="background" as="xs:string?"/>
-        <xsl:param name="format" as="xs:string?"/>
-        <xsl:param name="quality" as="xs:string?"/>
         <xsl:param name="title" as="xs:string?" select="$image/title"/>
-        <xsl:param name="alt" as="xs:string">
-            <xsl:choose>
-                <xsl:when test="$image/contentdata/description != ''">
-                    <xsl:value-of select="$image/contentdata/description"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="$image/title"/>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:param>
+        <xsl:param name="alt" as="xs:string" select="if ($image/contentdata/description != '') then $image/contentdata/description else $image/title"/>
         <xsl:param name="class" as="xs:string?"/>
         <xsl:param name="style" as="xs:string?"/>
         <xsl:param name="id" as="xs:string?"/>
+        <xsl:param name="format" as="xs:string?" select="$fw:default-image-format"/>
+        <xsl:param name="quality" as="xs:integer?" select="$fw:default-image-quality"/>
+        <xsl:param name="region-width" as="xs:integer" select="$fw:region-width"/>
+        <xsl:param name="filter" as="xs:string?" select="$fw:config-filter"/><!-- Custom image filters -->
+        <xsl:param name="imagesize" as="element()*" select="$fw:config-imagesize"/><!-- Rel image size config -->
         <xsl:variable name="width" select="util:image-size($region-width, $imagesize, $size, (), $filter, $image, ())"/>
         <xsl:variable name="height" select="util:image-size($region-width, $imagesize, $size, (), $filter, $image, 'height')"/>
-        <img src="{portal:createImageUrl(util:image-attachment-key($image/@key, $region-width, $imagesize, $size, (), $filter, $image), util:image-filter($region-width, $imagesize, $size, (), $filter), $background, $format, $quality)}" alt="{$alt}">
+        
+        <img alt="{$alt}">
+            <xsl:attribute name="src">
+                <xsl:call-template name="util:image.generate-url">
+                    <xsl:with-param name="image" select="$image"/>
+                    <xsl:with-param name="size" select="$size"/>
+                    <xsl:with-param name="background" select="$background"/>
+                    <xsl:with-param name="format" select="$format"/>
+                    <xsl:with-param name="quality" select="$quality"/>
+                    <xsl:with-param name="region-width" select="$region-width"/>
+                    <xsl:with-param name="filter" select="$filter"/>
+                    <xsl:with-param name="imagesize" select="$imagesize"/>
+                </xsl:call-template>
+            </xsl:attribute>
             <xsl:if test="$title">
                 <xsl:attribute name="title">
                     <xsl:value-of select="$title"/>
@@ -65,6 +69,22 @@
                 </xsl:attribute>
             </xsl:if>
         </img>
+    </xsl:template>
+    
+    <!-- Display image template -->
+    <xsl:template name="util:image.generate-url">
+        <xsl:param name="image" as="element()"/><!-- Image content node -->
+        <xsl:param name="size" as="xs:string?"/>
+        <xsl:param name="background" as="xs:string?"/>
+        <xsl:param name="format" as="xs:string?" select="$fw:default-image-format"/>
+        <xsl:param name="quality" as="xs:integer?" select="$fw:default-image-quality"/>
+        <xsl:param name="region-width" as="xs:integer" select="$fw:region-width"/>
+        <xsl:param name="filter" as="xs:string?" select="$fw:config-filter"/><!-- Custom image filters -->
+        <xsl:param name="imagesize" as="element()*" select="$fw:config-imagesize"/><!-- Rel image size config -->
+        
+        <xsl:variable name="width" select="util:image-size($region-width, $imagesize, $size, (), $filter, $image, ())"/>
+        <xsl:variable name="height" select="util:image-size($region-width, $imagesize, $size, (), $filter, $image, 'height')"/>
+        <xsl:value-of select="portal:createImageUrl(util:image-attachment-key($image/@key, $region-width, $imagesize, $size, (), $filter, $image), util:image-filter($region-width, $imagesize, $size, (), $filter), $background, $format, $quality)"/>
     </xsl:template>
 
 

@@ -86,6 +86,8 @@
                 </area>
             </layout>
             <image>
+                <format>jpeg</format>
+                <quality>80</quality>
                 <filters>
                     <filter>rounded(4)</filter>
                 </filters>
@@ -171,6 +173,8 @@
                 </area>                    
             </layout>
             <image>
+                <format>jpeg</format>
+                <quality>70</quality>
                 <filters>
                     <filter>rounded(4)</filter>
                 </filters>
