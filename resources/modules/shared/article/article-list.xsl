@@ -27,17 +27,10 @@
     <xsl:choose>
       <xsl:when test="/result/contents/content">
         <xsl:call-template name="util:pagination.header">
-          <xsl:with-param name="index" select="$index"/>
-          <xsl:with-param name="content-count" select="$content-count"/>
-          <xsl:with-param name="total-count" select="$total-count"/>
-          <xsl:with-param name="contents-per-page" select="$contents-per-page"/>
+          <xsl:with-param name="contents" select="/result/contents"/>
         </xsl:call-template>
         <xsl:call-template name="util:pagination.menu">
-          <xsl:with-param name="parameters" tunnel="yes" select="$url-parameters"/>
-          <xsl:with-param name="index" tunnel="yes" select="$index"/>
-          <xsl:with-param name="content-count" select="$content-count"/>
-          <xsl:with-param name="total-count" tunnel="yes" select="$total-count"/>
-          <xsl:with-param name="contents-per-page" tunnel="yes" select="$contents-per-page"/>
+          <xsl:with-param name="contents" select="/result/contents"/>
         </xsl:call-template>
         <div class="list clear clearfix append-bottom">
           <xsl:apply-templates select="/result/contents/content"/>
@@ -49,11 +42,7 @@
           </xsl:if>
         </div>
         <xsl:call-template name="util:pagination.menu">
-          <xsl:with-param name="parameters" tunnel="yes" select="$url-parameters"/>
-          <xsl:with-param name="index" tunnel="yes" select="$index"/>
-          <xsl:with-param name="content-count" select="$content-count"/>
-          <xsl:with-param name="total-count" tunnel="yes" select="$total-count"/>
-          <xsl:with-param name="contents-per-page" tunnel="yes" select="$contents-per-page"/>
+          <xsl:with-param name="contents" select="/result/contents"/>
         </xsl:call-template>
       </xsl:when>
       <xsl:otherwise>

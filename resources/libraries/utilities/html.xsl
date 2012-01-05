@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    **************************************************
+    
+    html.xsl
+    version: ###VERSION-NUMBER-IS-INSERTED-HERE###
+    
+    **************************************************
+-->
+
 <xsl:stylesheet exclude-result-prefixes="#all"
     xmlns="http://www.w3.org/1999/xhtml" version="2.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
