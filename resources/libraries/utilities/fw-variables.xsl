@@ -51,7 +51,7 @@
     <xsl:variable name="fw:config-imagesize" select="$fw:theme-device-class/image/sizes/size"/>
     
     <xsl:variable name="fw:default-image-format" as="xs:string" select="if ($fw:theme-device-class/image/format/text()) then $fw:theme-device-class/image/format else 'jpeg'"/>
-    <xsl:variable name="fw:default-image-quality" as="xs:integer" select="if ($fw:theme-device-class/image/quality castable as xs:integer) then $fw:theme-device-class/image/quality else 75"/>
+    <xsl:variable name="fw:default-image-quality" as="xs:string" select="if ($fw:theme-device-class/image/quality castable as xs:integer) then $fw:theme-device-class/image/quality else 75"/>
     
     
     <xsl:variable name="fw:site-admin-name" as="xs:string?" select="util:system.get-config-param('site-admin-name', $fw:path)"/>
