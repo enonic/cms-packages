@@ -72,7 +72,7 @@
             <xsl:if test="not(starts-with($icon-image-file-extension, '.'))">.</xsl:if>
             <xsl:value-of select="$icon-image-file-extension"/>
         </xsl:variable>
-        <img src="{portal:createResourceUrl($image-url)}" alt="{concat(util:file.type($file-name), ' ', portal:localize('icon'))}">
+        <img src="{portal:createResourceUrl($image-url)}" alt="{concat(util:file.type($file-name), ' ', portal:localize('util.file.icon'))}">
             <xsl:if test="$icon-class != ''">
                 <xsl:attribute name="class">
                     <xsl:value-of select="$icon-class"/>
@@ -87,37 +87,37 @@
         <xsl:variable name="file-extension" select="lower-case(tokenize($file-name, '\.')[last()])"/>
         <xsl:choose>
             <xsl:when test="contains('htm', $file-extension)">
-                <xsl:value-of select="portal:localize('HTML')"/>
+                <xsl:value-of select="portal:localize('util.file.html')"/>
             </xsl:when>
             <xsl:when test="contains('ppt|pps', $file-extension)">
-                <xsl:value-of select="portal:localize('Powerpoint')"/>
+                <xsl:value-of select="portal:localize('util.file.powerpoint')"/>
             </xsl:when>
             <xsl:when test="contains('gif|jpg|tif|psd', $file-extension)">
-                <xsl:value-of select="portal:localize('Image')"/>
+                <xsl:value-of select="portal:localize('util.file.image')"/>
             </xsl:when>
             <xsl:when test="contains('doc|dot', $file-extension)">
-                <xsl:value-of select="portal:localize('Document')"/>
+                <xsl:value-of select="portal:localize('util.file.document')"/>
             </xsl:when>
             <xsl:when test="contains('pdf', $file-extension)">
-                <xsl:value-of select="portal:localize('PDF')"/>
+                <xsl:value-of select="portal:localize('util.file.pdf')"/>
             </xsl:when>
             <xsl:when test="contains('avi|mpg|wmv', $file-extension)">
-                <xsl:value-of select="portal:localize('Video')"/>
+                <xsl:value-of select="portal:localize('util.file.video')"/>
             </xsl:when>
             <xsl:when test="contains('xls|xlt|csv', $file-extension)">
-                <xsl:value-of select="portal:localize('Excel')"/>
+                <xsl:value-of select="portal:localize('util.file.excel')"/>
             </xsl:when>
             <xsl:when test="contains('xml', $file-extension)">
-                <xsl:value-of select="portal:localize('XML')"/>
+                <xsl:value-of select="portal:localize('util.file.xml')"/>
             </xsl:when>
             <xsl:when test="contains('txt|dat|text', $file-extension)">
-                <xsl:value-of select="portal:localize('Text')"/>
+                <xsl:value-of select="portal:localize('util.file.text')"/>
             </xsl:when>
             <xsl:when test="contains('zip|tar|gz|qz|arj', $file-extension)">
-                <xsl:value-of select="portal:localize('ZIP')"/>
+                <xsl:value-of select="portal:localize('util.file.zip')"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="portal:localize('File')"/>
+                <xsl:value-of select="portal:localize('util.file.file')"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>

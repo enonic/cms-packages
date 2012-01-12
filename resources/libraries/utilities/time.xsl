@@ -54,22 +54,22 @@
             <xsl:when test="$date-time-final &lt;= current-dateTime() - xs:dayTimeDuration('PT23H')">
                 <xsl:choose>
                     <xsl:when test="xs:date($date-time-final) = current-date() - xs:dayTimeDuration('P1D')">
-                        <xsl:value-of select="portal:localize('Yesterday')"/>
+                        <xsl:value-of select="portal:localize('util.time.yesterday')"/>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:value-of select="format-dateTime($date-time-final, '[FNn]', $language, (), ())"/>
                     </xsl:otherwise>
                 </xsl:choose>
-                <xsl:value-of select="concat(' ', portal:localize('at'), ' ', util:time.format-time(substring-before(tokenize($date-time-complete, 'T')[2], '+'), $language))"/>
+                <xsl:value-of select="concat(' ', portal:localize('util.time.at'), ' ', util:time.format-time(substring-before(tokenize($date-time-complete, 'T')[2], '+'), $language))"/>
             </xsl:when>
             <xsl:when test="$date-time-final &lt;= current-dateTime() - xs:dayTimeDuration('PT45M')">
                 <xsl:choose>
                     <xsl:when test="$date-time-final &lt;= current-dateTime() - xs:dayTimeDuration('PT1H30M')">
                         <xsl:variable name="hours" select="if (minutes-from-duration($difference) lt 30) then hours-from-duration($difference) else hours-from-duration($difference) + 1"/>
-                        <xsl:value-of select="portal:localize('hours-ago', ($hours))"/>
+                        <xsl:value-of select="portal:localize('util.time.hours-ago', ($hours))"/>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:value-of select="portal:localize('About-an-hour-ago')"/>
+                        <xsl:value-of select="portal:localize('util.time.about-an-hour-ago')"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
@@ -77,16 +77,16 @@
                 <xsl:choose>
                     <xsl:when test="$date-time-final &lt;= current-dateTime() - xs:dayTimeDuration('PT1M30S')">
                         <xsl:variable name="minutes" select="if (seconds-from-duration($difference) lt 30) then minutes-from-duration($difference) else minutes-from-duration($difference) + 1"/>
-                        <xsl:value-of select="portal:localize('minutes-ago', ($minutes))"/>
+                        <xsl:value-of select="portal:localize('util.time.minutes-ago', ($minutes))"/>
                     </xsl:when>
                     <xsl:when test="$date-time-final &lt;= current-dateTime() - xs:dayTimeDuration('PT50S')">
-                        <xsl:value-of select="portal:localize('About-a-minute-ago')"/>
+                        <xsl:value-of select="portal:localize('util.time.about-a-minute-ago')"/>
                     </xsl:when>
                     <xsl:when test="$date-time-final &lt;= current-dateTime() - xs:dayTimeDuration('PT25S')">
-                        <xsl:value-of select="portal:localize('Less-than-a-minute-ago')"/>
+                        <xsl:value-of select="portal:localize('util.time.less-than-a-minute-ago')"/>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:value-of select="portal:localize('Just-now')"/>
+                        <xsl:value-of select="portal:localize('util.time.just-now')"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:otherwise>

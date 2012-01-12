@@ -24,10 +24,10 @@
       <xsl:variable name="exception-message" as="xs:string?" select="$fw:querystring-parameter[@name = 'exception_message']"/>
       <div class="error">
          <h2>
-            <xsl:value-of select="portal:localize(concat('fatal-error-heading-', $error))"/>
+            <xsl:value-of select="portal:localize(concat('util.error.', $error, '-heading'))"/>
          </h2>
          <p>
-            <xsl:value-of select="portal:localize(concat('fatal-error-', $error))"/>
+            <xsl:value-of select="portal:localize(concat('util.error.', $error, '-description'))"/>
             <xsl:if test="$exception-message != ''">
                <br/>
                <strong>Exeption message: </strong>
@@ -42,7 +42,7 @@
       </div>
       <xsl:if test="string($fw:site-admin-name) and string($fw:site-admin-email)">
          <p>
-            <xsl:value-of select="concat(portal:localize('fatal-error-general-text'), ' ')"/>
+            <xsl:value-of select="concat(portal:localize('util.error.general-text'), ' ')"/>
             <a href="mailto:{$fw:site-admin-email}">
                <xsl:value-of select="$fw:site-admin-name"/>
             </a>
