@@ -42,16 +42,16 @@
         <xsl:param name="language" as="xs:string?"/>
         <xsl:variable name="date-time-complete">
             <xsl:value-of select="replace($date-time, '\s+|\+', 'T')"/>
-            <xsl:if test="count(tokenize(tokenize($date-time, ' ')[2], ':')) &lt; 3">:00</xsl:if>
+            <xsl:if test="count(tokenize(tokenize($date-time, ' ')[2], ':')) lt 3">:00</xsl:if>
             <xsl:value-of select="util:time.get-timezone()"/>
         </xsl:variable>
         <xsl:variable name="date-time-final" select="xs:dateTime($date-time-complete)"/>
         <xsl:variable name="difference" select="current-dateTime() - $date-time-final"/>
         <xsl:choose>
-            <xsl:when test="$date-time-final &lt;= current-dateTime() - xs:dayTimeDuration('P7D')">
+            <xsl:when test="$date-time-final le current-dateTime() - xs:dayTimeDuration('P7D')">
                 <xsl:value-of select="util:time.format-date($date-time, $language, (), true())"/>
             </xsl:when>
-            <xsl:when test="$date-time-final &lt;= current-dateTime() - xs:dayTimeDuration('PT23H')">
+            <xsl:when test="$date-time-final le current-dateTime() - xs:dayTimeDuration('PT23H')">
                 <xsl:choose>
                     <xsl:when test="xs:date($date-time-final) = current-date() - xs:dayTimeDuration('P1D')">
                         <xsl:value-of select="portal:localize('util.time.yesterday')"/>
@@ -62,9 +62,9 @@
                 </xsl:choose>
                 <xsl:value-of select="concat(' ', portal:localize('util.time.at'), ' ', util:time.format-time(substring-before(tokenize($date-time-complete, 'T')[2], '+'), $language))"/>
             </xsl:when>
-            <xsl:when test="$date-time-final &lt;= current-dateTime() - xs:dayTimeDuration('PT45M')">
+            <xsl:when test="$date-time-final le current-dateTime() - xs:dayTimeDuration('PT45M')">
                 <xsl:choose>
-                    <xsl:when test="$date-time-final &lt;= current-dateTime() - xs:dayTimeDuration('PT1H30M')">
+                    <xsl:when test="$date-time-final le current-dateTime() - xs:dayTimeDuration('PT1H30M')">
                         <xsl:variable name="hours" select="if (minutes-from-duration($difference) lt 30) then hours-from-duration($difference) else hours-from-duration($difference) + 1"/>
                         <xsl:value-of select="portal:localize('util.time.hours-ago', ($hours))"/>
                     </xsl:when>
@@ -75,14 +75,14 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:choose>
-                    <xsl:when test="$date-time-final &lt;= current-dateTime() - xs:dayTimeDuration('PT1M30S')">
+                    <xsl:when test="$date-time-final le current-dateTime() - xs:dayTimeDuration('PT1M30S')">
                         <xsl:variable name="minutes" select="if (seconds-from-duration($difference) lt 30) then minutes-from-duration($difference) else minutes-from-duration($difference) + 1"/>
                         <xsl:value-of select="portal:localize('util.time.minutes-ago', ($minutes))"/>
                     </xsl:when>
-                    <xsl:when test="$date-time-final &lt;= current-dateTime() - xs:dayTimeDuration('PT50S')">
+                    <xsl:when test="$date-time-final le current-dateTime() - xs:dayTimeDuration('PT50S')">
                         <xsl:value-of select="portal:localize('util.time.about-a-minute-ago')"/>
                     </xsl:when>
-                    <xsl:when test="$date-time-final &lt;= current-dateTime() - xs:dayTimeDuration('PT25S')">
+                    <xsl:when test="$date-time-final le current-dateTime() - xs:dayTimeDuration('PT25S')">
                         <xsl:value-of select="portal:localize('util.time.less-than-a-minute-ago')"/>
                     </xsl:when>
                     <xsl:otherwise>
@@ -105,7 +105,7 @@
         <xsl:param name="language" as="xs:string?"/>
         <xsl:variable name="time-final">
             <xsl:value-of select="$time"/>
-            <xsl:if test="count(tokenize($time, ':')) &lt; 3">:00</xsl:if>
+            <xsl:if test="count(tokenize($time, ':')) lt 3">:00</xsl:if>
             <xsl:value-of select="util:time.get-timezone()"/>
         </xsl:variable>
         <xsl:variable name="format-string">

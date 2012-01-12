@@ -9,7 +9,7 @@
    <xsl:import href="/libraries/utilities/fw-variables.xsl"/>
    <xsl:import href="/libraries/utilities/system.xsl"/>
 
-   <!-- Metawdata -->
+   <!-- Metadata -->
    <xsl:variable name="meta-generator" select="util:system.get-config-param('meta-generator', $fw:path)" as="element()?"/>
    <xsl:variable name="meta-author" select="util:system.get-config-param('meta-author', $fw:path)" as="element()?"/>
    <xsl:variable name="meta-description">

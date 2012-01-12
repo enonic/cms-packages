@@ -102,11 +102,6 @@
 			</xsl:choose>
 		</a>
     </xsl:template>
-    
-    <!--<xsl:template match="img" mode="html.process">
-        <xsl:param name="image" tunnel="yes" as="element()*"/>
-        <xsl:copy-of select="$image"/>
-    </xsl:template>-->
 	
     <!-- Matches img/@src, a/@href, object/@data and param/@src, sorts out native urls -->
     <xsl:template match="@src[parent::img]|@href[parent::a]|@data[parent::object]|@src[parent::param]|@src[parent::video]|@src[parent::audio]|@src[parent::source]|@src[parent::track]" mode="html.process">

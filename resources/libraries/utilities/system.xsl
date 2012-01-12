@@ -14,37 +14,6 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:fw="http://www.enonic.com/cms/xslt/framework"
     xmlns:util="http://www.enonic.com/cms/xslt/utilities">
-
-   <!-- <!-\- Returns scoped parameter from config as element()?  -\->
-    <xsl:function name="util:system.get-scoped-parameter" as="element()?">
-        <xsl:param name="name" as="xs:string"/>
-        <xsl:param name="path" as="xs:string"/>
-        <xsl:param name="parameter" as="element()*"/>
-        <xsl:call-template name="util:system.get-parameter">
-            <xsl:with-param name="name" select="$name" tunnel="yes"/>
-            <xsl:with-param name="path" select="$path"/>
-            <xsl:with-param name="parameter" select="$parameter" tunnel="yes"/>
-        </xsl:call-template>
-    </xsl:function>
-
-    <xsl:template name="util:system.get-parameter">
-        <xsl:param name="name" tunnel="yes" as="xs:string"/>
-        <xsl:param name="path" as="xs:string"/>
-        <xsl:param name="parameter" tunnel="yes" as="element()*"/>
-        <xsl:choose>
-            <xsl:when test="$parameter[@name = $name and @path = $path]">
-                <xsl:sequence select="$parameter[@name = $name and @path = $path][1]"/>
-            </xsl:when>
-            <xsl:when test="$path != ''">
-                <xsl:call-template name="util:system.get-parameter">
-                    <xsl:with-param name="path" select="substring-before($path, concat('/', tokenize($path, '/')[last()]))"/>
-                </xsl:call-template>
-            </xsl:when>
-            <xsl:when test="$parameter[@name = $name and @path = '/']">
-                <xsl:sequence select="$parameter[@name = $name and @path = '/'][1]"/>
-            </xsl:when>
-        </xsl:choose>
-    </xsl:template>-->
     
     <xsl:function name="util:system.get-config-param" as="element()?">
         <xsl:param name="name" as="xs:string"/>

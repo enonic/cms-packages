@@ -67,7 +67,7 @@
 					</xsl:if>
 					<!-- Middle pagination part -->
 					<xsl:variable name="tmp" select="floor(($total-count - ($index + 1)) div $contents-per-page) - floor(($pages-in-pagination - 1) div 2)"/>
-					<xsl:variable name="tmp2" select="if ($tmp > 0) then 0 else $tmp"/>
+					<xsl:variable name="tmp2" select="if ($tmp gt 0) then 0 else $tmp"/>
 					<xsl:variable name="tmp3" select="$index - (floor($pages-in-pagination div 2) * $contents-per-page) + ($tmp2 * $contents-per-page)"/>
 					<xsl:call-template name="util:pagination.menu-middle">
 						<xsl:with-param name="start" tunnel="yes" select="if ($tmp3 lt 0) then 0 else $tmp3"/>

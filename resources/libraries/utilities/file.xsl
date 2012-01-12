@@ -26,9 +26,9 @@
     <xsl:template name="util:file.icon-image">
         <xsl:param name="file-name" as="xs:string"/>
         <xsl:param name="icon-folder-path" as="xs:string"/>
-        <xsl:param name="icon-image-prefix" select="'icon-'" as="xs:string"/>
-        <xsl:param name="icon-image-file-extension" select="'png'" as="xs:string"/>
-        <xsl:param name="icon-class" select="'icon text'" as="xs:string?"/>
+        <xsl:param name="icon-image-prefix" as="xs:string" select="'icon-'"/>
+        <xsl:param name="icon-image-file-extension" as="xs:string" select="'png'"/>
+        <xsl:param name="icon-class" as="xs:string?" select="'icon text'"/>
         <xsl:variable name="file-extension" select="lower-case(tokenize($file-name, '\.')[last()])"/>
         <xsl:variable name="image-url">
             <xsl:value-of select="$icon-folder-path"/>
