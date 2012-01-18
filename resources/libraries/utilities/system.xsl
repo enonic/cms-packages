@@ -36,5 +36,36 @@
         <xsl:param name="menuitem" as="item()?"/>
         <xsl:value-of select="if ($menuitem/display-name != '') then $menuitem/display-name else if ($menuitem/alternative-name != '') then $menuitem/alternative-name else $menuitem/name"/>
     </xsl:function>
+    
+    <xsl:function name="util:system.check-config" as="element()?">
+        <xsl:variable name="check-config-result">
+            <xsl:if test="not($fw:config)">
+                <li>Config file not set / found</li>
+            </xsl:if>
+            <xsl:if test="$fw:device-class = 'not-set'">
+                <li>Device resolver not set</li>
+            </xsl:if>
+            <xsl:if test="not($fw:theme-config)">
+                <li>Theme config file not set / found</li>
+            </xsl:if>
+            <xsl:if test="not($fw:theme-device-class)">
+                <li>Theme device class not defined</li>
+            </xsl:if>
+        </xsl:variable>
+        
+        <xsl:if test="$check-config-result/node()">
+            <html>
+                <body>
+                    <h1>Configuration error</h1>
+                    <ul>
+                        <xsl:copy-of select="$check-config-result"/>
+                    </ul>
+                </body>                
+            </html>
+            
+        </xsl:if>
+        
+        
+    </xsl:function>
 
 </xsl:stylesheet>

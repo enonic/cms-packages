@@ -44,9 +44,7 @@
     
     <!-- Select template based on current device -->
     <xsl:template match="/">
-        <xsl:variable name="config-status">
-            <xsl:call-template name="check-config"/>
-        </xsl:variable>
+        <xsl:variable name="config-status" select="util:system.check-config()"/>
         <xsl:choose>
             <xsl:when test="$config-status/node()">
                 <xsl:copy-of select="$config-status"/>
@@ -60,36 +58,7 @@
         </xsl:choose>
     </xsl:template>
     
-    <xsl:template name="check-config">
-        <xsl:variable name="check-config-result">
-            <xsl:if test="not($fw:config)">
-                <li>Config file not set / found</li>
-            </xsl:if>
-            <xsl:if test="$fw:device-class = 'not-set'">
-                <li>Device resolver not set</li>
-            </xsl:if>
-            <xsl:if test="not($fw:theme-config)">
-                <li>Theme config file not set / found</li>
-            </xsl:if>
-            <xsl:if test="not($fw:theme-device-class)">
-                <li>Theme device class not defined</li>
-            </xsl:if>
-        </xsl:variable>
-        
-        <xsl:if test="$check-config-result/node()">
-            <html>
-                <body>
-                    <h1>Configuration error</h1>
-                    <ul>
-                        <xsl:copy-of select="$check-config-result"/>
-                    </ul>
-                </body>                
-            </html>
-            
-        </xsl:if>
-        
-        
-    </xsl:template>
+    
     
     
     <!-- PC template -->
@@ -112,9 +81,6 @@
                 </xsl:call-template>
             </head>
             <body>
-                <xsl:if test="$fw:device-class = 'not-set'">
-                    LASSE
-                </xsl:if>
                 <div id="container">
                     <xsl:call-template name="util:accessibility.links"/>
                     <xsl:call-template name="pc.header"/>
