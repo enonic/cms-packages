@@ -34,11 +34,7 @@
         </xsl:apply-templates>
     </xsl:template>
 
-    <xsl:template match="element()" mode="html.process"><!--
-       <xsl:param name="region-width" tunnel="yes" as="xs:integer"/>
-        <xsl:param name="filter" tunnel="yes" as="xs:string?"/>
-        <xsl:param name="imagesize" tunnel="yes" as="element()*"/>
-        <xsl:param name="image" tunnel="yes" as="element()*"/>-->
+    <xsl:template match="element()" mode="html.process">
         <xsl:element name="{local-name()}">
             <xsl:apply-templates select="*|text()|@*" mode="html.process"/>
         </xsl:element>
@@ -58,21 +54,21 @@
     <!-- Replaces td, th @align with @style -->
     <xsl:template match="td/@align|th/@align" mode="html.process">
         <xsl:attribute name="style">
-            <xsl:value-of select="concat('text-align: ', .)"/>
+            <xsl:value-of select="concat('text-align: ', ., ';')"/>
         </xsl:attribute>
     </xsl:template>
 
     <!-- Replaces @align with @style -->
-    <xsl:template match="@align" mode="html.process">
+    <xsl:template match="@align" mode="html.process">        
         <xsl:attribute name="style">
-            <xsl:value-of select="concat('float: ', .)"/>
+            <xsl:value-of select="concat('float: ', ., ';')"/>
         </xsl:attribute>
-    </xsl:template>
+    </xsl:template>    
 
     <!-- Replaces @valign with @style -->
     <xsl:template match="@valign" mode="html.process">
         <xsl:attribute name="style">
-            <xsl:value-of select="concat('vertical-align: ', .)"/>
+            <xsl:value-of select="concat('vertical-align: ', ., ';')"/>
         </xsl:attribute>
     </xsl:template>
 

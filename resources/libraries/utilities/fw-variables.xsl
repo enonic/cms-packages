@@ -15,7 +15,7 @@
     <xsl:variable name="fw:path" as="xs:string" select="concat('/', string-join(tokenize(/result/context/querystring/@servletpath, '/')[position() gt 3], '/'))"/>
     
     <xsl:variable name="fw:language" as="xs:string" select="/result/context/@languagecode"/>
-    <xsl:variable name="fw:device-class" as="xs:string" select="/result/context/device-class"/>
+    <xsl:variable name="fw:device-class" as="xs:string" select="if (/result/context/device-class) then /result/context/device-class else 'not-set'"/>
     <xsl:variable name="fw:user" as="element()?" select="/result/context/user"/>
     <xsl:variable name="fw:public-resources" as="xs:string" select="/result/context/site/path-to-public-home-resources"/>
     
@@ -26,14 +26,14 @@
     
     <!-- ########## Configuration variables ########## -->
     
-    <xsl:variable name="fw:config" as="element()" select="document(concat(/result/context/site/path-to-home-resources, '/site.xml'))/config"/>
+    <xsl:variable name="fw:config" as="element()?" select="if (doc-available(concat(/result/context/site/path-to-home-resources, '/site.xml'))) then document(concat(/result/context/site/path-to-home-resources, '/site.xml'))/config else null"/>
     <xsl:variable name="fw:config-parameter" as="element()*" select="$fw:config/parameters/parameter"/>
-    <xsl:variable name="fw:config-theme" as="xs:string" select="$fw:config/theme" />
+    <xsl:variable name="fw:config-theme" as="xs:string?" select="$fw:config/theme"/>
     
     <xsl:variable name="fw:theme-location" as="xs:string" select="concat('/themes/', $fw:config-theme)" />
-    <xsl:variable name="fw:theme-config" as="element()" select="document(concat($fw:theme-location, '/theme.xml'))/theme"/>
-    <xsl:variable name="fw:theme-device-class" as="element()" select="if ($fw:theme-config/device-classes/device-class[tokenize(@name, ',')[. = $fw:device-class]]) then $fw:theme-config/device-classes/device-class[tokenize(@name, ',')[. = $fw:device-class]] else $fw:theme-config/device-classes/device-class[1]"/>
-    <xsl:variable name="fw:theme-region-prefix" as="xs:string" select="$fw:theme-config/region-prefix"/>
+    <xsl:variable name="fw:theme-config" as="element()?" select="if (doc-available(concat($fw:theme-location, '/theme.xml'))) then document(concat($fw:theme-location, '/theme.xml'))/theme else null"/>
+    <xsl:variable name="fw:theme-device-class" as="element()?" select="if ($fw:theme-config/device-classes/device-class[tokenize(@name, ',')[. = $fw:device-class]]) then $fw:theme-config/device-classes/device-class[tokenize(@name, ',')[. = $fw:device-class]] else $fw:theme-config/device-classes/device-class[1]"/>
+    <xsl:variable name="fw:theme-region-prefix" as="xs:string?" select="$fw:theme-config/region-prefix"/>
     
     <xsl:variable name="fw:theme-public" select="concat('/_public/themes/', $fw:config-theme, '/')" as="xs:string"/>
     
