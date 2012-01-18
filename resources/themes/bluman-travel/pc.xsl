@@ -2,78 +2,77 @@
 
     <xsl:template name="pc.body">
         <div id="page">
-            <nav id="accessibility-links-container">
+            <nav id="accessibility-links">
                 <xsl:call-template name="accessibility.links"/>
             </nav>
             <noscript><p><xsl:value-of select="portal:localize('javascript-required')"/></p></noscript>
             <xsl:call-template name="pc.header" />
-            <div id="container">
-                <xsl:apply-templates select="/result/slideshow-images" />
-                <!-- Renders all regions defined in theme.xml -->
-                <xsl:call-template name="region.renderall">
-                    <xsl:with-param name="layout" select="$layout" as="xs:string"/>
+            <div id="west" class="transparent">
+                <xsl:call-template name="region.render">
+                    <xsl:with-param name="region" select="'west'" />
                 </xsl:call-template>
             </div>
-            <xsl:call-template name="pc.footer"/>
+            <div class="center-container">
+                    <div id="center">
+                        <xsl:call-template name="region.render">
+                            <xsl:with-param name="region" select="'center'" />
+                            <xsl:with-param name="parameters" as="xs:anyAtomicType*">
+                                <xsl:sequence select="'_config-region-width', xs:integer(500)"/>
+                            </xsl:with-param>
+                        </xsl:call-template>
+                        <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'mobile', 'lifetime', 'session'))}" class="change-device">
+                            <img src="{portal:createResourceUrl('/_public/themes/bluman-travel/images/icon-mobile.png')}" alt="{portal:localize('Change-to-mobile-version')}"/>
+                            <xsl:value-of select="portal:localize('Change-to-mobile-version')"/>
+                        </a>
+                    </div>
+                <xsl:if test="portal:isWindowEmpty( /result/context/page/regions/region[ name = 'east' ]/windows/window/@key, ('_config-region-width', 180) ) = false()">
+                    <div id="east">
+                        <xsl:call-template name="region.render">
+                            <xsl:with-param name="region" select="'east'" />
+                            <xsl:with-param name="parameters" as="xs:anyAtomicType*">
+                                <xsl:sequence select="'_config-region-width', xs:integer(180)"/>
+                            </xsl:with-param>
+                        </xsl:call-template>
+                    </div>
+                </xsl:if>
+            </div>
         </div>
-
-
-        <!-- If google tracker is set in config.xml, renders analytics code -->
-        <xsl:if test="$google-tracker/text()">
-            <xsl:call-template name="google.analytics">
-                <xsl:with-param name="google-tracker" select="$google-tracker"/>
-            </xsl:call-template>
-        </xsl:if>
+        
     </xsl:template>
 
     <!-- Header template -->
     <!-- Put your static header XSL/HTML here -->
     <xsl:template name="pc.header">
         <header id="header" role="banner">
-            <a class="screen" href="{portal:createUrl($front-page)}">
-                <img alt="{$site-name}-{portal:localize('logo')}" id="logo-screen" src="{portal:createResourceUrl(concat($theme-public, '/images/logo-screen.png'))}" title="{$site-name}"/>
+            <a class="logo" href="{portal:createUrl($front-page)}">
+                <img alt="{$site-name}-{portal:localize('logo')}" src="{portal:createResourceUrl(concat($theme-public, '/images/logo-small.png'))}" title="{$site-name}"/>
             </a>
-            <nav accesskey="m" id="page-navigation" role="navigation">
-                <xsl:call-template name="menu.render">
-                    <xsl:with-param name="menuitems" select="/result/menu/menuitems"/>
-                    <xsl:with-param name="levels" select="1"/>
-                </xsl:call-template>
-            </nav>
-            <xsl:if test="$user or $login-page or $user">
-                <nav accesskey="l" id="login-navigation" role="navigation">
-                    <xsl:call-template name="pc.userimage" />
-                    <xsl:call-template name="pc.userinfo" />
+            <div id="nav-wrapper" class="transparent">
+                <nav accesskey="m" class="page" role="navigation">
+                    <xsl:call-template name="menu.render">
+                        <xsl:with-param name="menuitems" select="/result/menu/menus/menu/menuitems"/>
+                        <xsl:with-param name="levels" select="3"/>
+                        <xsl:with-param name="list-class" select="'mainmenu'" />
+                    </xsl:call-template>
                 </nav>
-            </xsl:if>
+                <xsl:if test="$user or $login-page or $user">
+                    <nav accesskey="l" class="login" role="navigation">
+                        <xsl:call-template name="pc.userimage" />
+                        <xsl:call-template name="pc.userinfo" />
+                    </nav>
+                </xsl:if>
+            </div>
+            <nav class="breadcrumbs transparent">
+                <xsl:call-template name="breadcrumbs.print-crumbs">
+                    <xsl:with-param name="path" select="/result/menu/menus/menu/menuitems/menuitem[@path = 'true']" />
+                </xsl:call-template>
+            </nav>    
         </header>
     </xsl:template>
 
-
-
-    <!-- Footer template -->
-    <!-- Put your static footer XSL/HTML here -->
-    <xsl:template name="pc.footer">
-        <footer id="footer" class="default-transparency" role="contentinfo">
-            <nav id="device-navigation" role="navigation">
-                <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'mobile', 'lifetime', 'session'))}" class="change-device-to-mobile" rel="nofollow">
-                    <xsl:value-of select="portal:localize('Change-to-mobile-version')"/>
-                </a>
-            </nav>
-            <xsl:if test="$current-resource/path/resource[position() &gt; 1]">
-                <nav id="breadcrumb-navigation" role="navigation">
-                  <!-- Calls the breadcrumb widgets print-crumbs -->
-                    <xsl:call-template name="breadcrumbs.print-crumbs">
-                    <xsl:with-param name="path" select="$current-resource/path/resource[position() &gt; 1]" />
-                  </xsl:call-template>
-                </nav>
-            </xsl:if>
-        </footer>
-    </xsl:template>
-
-
     <xsl:template name="pc.userinfo">
         <xsl:if test="$user or $login-page or $sitemap-page != ''">
-            <ul class="menu horizontal" role="navigation">
+            <ul>
                 <xsl:choose>
                     <!-- User logged in -->
                     <xsl:when test="$user">
@@ -91,15 +90,15 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                         </li>
-                        <li>
-                            <a href="{portal:createServicesUrl('user', 'logout')}">
+                        <li class="last">
+                            <a href="{portal:createServicesUrl('user', 'logout')}" >
                                 <xsl:value-of select="portal:localize('Logout')"/>
                             </a>
                         </li>
                     </xsl:when>
                     <!-- User not logged in -->
                     <xsl:when test="$login-page">
-                        <li>
+                        <li class="last">
                             <a href="{portal:createPageUrl($login-page/@key, ())}">
                                 <xsl:value-of select="portal:localize('Login')"/>
                             </a>
@@ -107,7 +106,7 @@
                     </xsl:when>
                 </xsl:choose>
                 <xsl:if test="$sitemap-page != ''">
-                    <li>
+                    <li class="last">
                         <a href="{portal:createUrl($sitemap-page)}">
                             <xsl:value-of select="portal:localize('Sitemap')"/>
                         </a>
@@ -127,9 +126,4 @@
             </xsl:if>
         </img>
     </xsl:template>
-
-
-
-
-
 </xsl:stylesheet>

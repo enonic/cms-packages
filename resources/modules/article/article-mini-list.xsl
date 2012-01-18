@@ -13,9 +13,9 @@
     <xsl:template match="/">
         <xsl:if test="/result/contents/content">
             <xsl:variable name="content">
-                <div class="list clear clearfix">
+                <ul class="spot list">
                     <xsl:apply-templates select="/result/contents/content"/>
-                </div>
+                </ul>
             </xsl:variable>
             <xsl:choose>
                 <xsl:when test="$include-frame">
@@ -32,21 +32,16 @@
     </xsl:template>
 
     <xsl:template match="content">
-        <div class="item">
-            <xsl:if test="position() = 1">
-                <xsl:attribute name="class">item first</xsl:attribute>
-            </xsl:if>
-            <p>
-                <span class="byline">
-                    <xsl:value-of select="util:format-date(@publishfrom, /result/context/@languagecode, 'short', true())"/>
-                </span>
-            </p>
-            <h3>
+        <li class="spot">
+            <a href="{portal:createContentUrl(@key,())}">
+                <img src="{portal:createImageUrl(contentdata/image[1]/image/@key, ('scaleblock(155, 90)'), '', 'jpg', 40)}" />
+            </a>
+            <h5>
                 <a href="{portal:createContentUrl(@key,())}">
                     <xsl:value-of select="title"/>
                 </a>
-            </h3>
-        </div>
+            </h5>
+        </li>
     </xsl:template>
 
 </xsl:stylesheet>

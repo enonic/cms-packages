@@ -30,13 +30,10 @@
           <xsl:with-param name="total-count" tunnel="yes" select="$total-count"/>
           <xsl:with-param name="contents-per-page" tunnel="yes" select="$contents-per-page"/>
         </xsl:call-template>
-        <div class="list clear clearfix append-bottom">
+        <div class="article list">
           <xsl:apply-templates select="/result/contents/content"/>
           <xsl:if test="$rss-page">
-            <a href="{portal:createUrl($rss-page, ('articleSectionId', portal:getPageKey()))}" class="rss">
-              <img src="{portal:createResourceUrl(concat($theme-public, '/images/icon-rss.png'))}" class="icon text" alt="RSS {portal:localize('icon')}"/>
-              <xsl:value-of select="portal:localize('Articles-as-rss-feed')"/>
-            </a>
+            <xsl:call-template name="rss-icon"/>
           </xsl:if>
         </div>
         <xsl:call-template name="navigation-menu.navigation-menu">
@@ -48,7 +45,7 @@
         </xsl:call-template>
       </xsl:when>
       <xsl:otherwise>
-        <p class="clear">
+        <p>
           <xsl:value-of select="portal:localize('No-articles')"/>
         </p>
       </xsl:otherwise>
@@ -64,30 +61,34 @@
         <xsl:attribute name="class">item last</xsl:attribute>
       </xsl:if>
       <xsl:if test="$device-class != 'mobile'">
-        <xsl:call-template name="image">
-          <xsl:with-param name="size" select="'list'"/>
-        </xsl:call-template>
+        <div class="image">
+          <xsl:call-template name="image">
+            <xsl:with-param name="size" select="'list'"/>
+          </xsl:call-template>
+        </div>
       </xsl:if>
-      <h2>
-        <a href="{portal:createContentUrl(@key,())}">
-          <xsl:value-of select="contentdata/heading"/>
+      <div class="content">
+        <h2>
+          <a href="{portal:createContentUrl(@key,())}">
+            <xsl:value-of select="contentdata/heading"/>
+          </a>
+        </h2>
+        <xsl:if test="$device-class = 'mobile'">
+          <xsl:call-template name="image">
+            <xsl:with-param name="size" select="'wide'"/>
+          </xsl:call-template>
+        </xsl:if>
+        <p>
+          <span class="byline">
+            <xsl:value-of select="util:format-date(@publishfrom, /result/context/@languagecode, 'short', true())"/>
+          </span>
+          <xsl:value-of select="util:crop-text(contentdata/preface, xs:integer(floor($config-region-width * 0.5)))"/>
+        </p>
+        <a href="{portal:createContentUrl(@key,())}" title="{title}" class="read-more">
+          <xsl:value-of select="concat(portal:localize('Read-more'), ' »')"/>
         </a>
-      </h2>
-      <xsl:if test="$device-class = 'mobile'">
-        <xsl:call-template name="image">
-          <xsl:with-param name="size" select="'wide'"/>
-        </xsl:call-template>
-      </xsl:if>
-      <p>
-        <span class="byline">
-          <xsl:value-of select="util:format-date(@publishfrom, /result/context/@languagecode, 'short', true())"/>
-        </span>
-        <xsl:value-of select="util:crop-text(contentdata/preface, xs:integer(floor($config-region-width * 0.5)))"/>
-      </p>
-      <a href="{portal:createContentUrl(@key,())}" title="{title}">
-        <xsl:value-of select="concat(portal:localize('Read-more'), ' »')"/>
-      </a>
-    </div>
+        </div>
+      </div>
   </xsl:template>
 
   <xsl:template name="image">
@@ -100,6 +101,13 @@
         </xsl:call-template>
       </a>
     </xsl:if>
+  </xsl:template>
+  
+  <xsl:template name="rss-icon">
+    <a href="{portal:createUrl($rss-page, ('articleSectionId', portal:getPageKey()))}" class="rss">
+      <img src="{portal:createResourceUrl(concat($theme-public, '/images/icon-rss.png'))}" class="icon text" alt="RSS {portal:localize('icon')}"/>
+      <xsl:value-of select="portal:localize('Articles-as-rss-feed')"/>
+    </a>
   </xsl:template>
 
 </xsl:stylesheet>

@@ -6,8 +6,14 @@
    <!-- Accessibility links -->
    <!-- Renders hotkeys to access different anchors as defined in the config.xml -->
    <xsl:template name="accessibility.links">
+      <xsl:param name="list-id" select="''" />
       <xsl:if test="exists($theme-config/accessibility/access-key)">
-         <ul id="accessibility-links">
+         <ul>
+            <xsl:if test="$list-id != ''">
+               <xsl:attribute name="id">
+                  <xsl:value-of select="$list-id" />
+               </xsl:attribute>
+            </xsl:if>
             <xsl:for-each select="$theme-config/accessibility/access-key">
                <li>
                   <a href="#{@anchor}" accesskey="{@key}">

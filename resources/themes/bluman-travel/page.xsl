@@ -57,7 +57,9 @@
             </title>
             <link rel="shortcut icon" type="image/x-icon" href="{portal:createResourceUrl(concat($theme-public, '/images/favicon.ico'))}"/>
             <xsl:call-template name="head.meta-common"/>
+            <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" />
             <xsl:call-template name="head.css-common"/>
+            
             <xsl:call-template name="region.css">
                 <xsl:with-param name="layout" select="$layout"/>
             </xsl:call-template>
@@ -69,9 +71,76 @@
                 <xsl:attribute name="class"><xsl:value-of select="$body-class"/></xsl:attribute>
             </xsl:if>
             <xsl:call-template name="pc.body" />
+            <xsl:call-template name="background-images" />
         </body>
     </html>
     </xsl:template>
+        
+        <xsl:template name="background-images">
+            <script type="text/javascript">
+                $(function() {                    
+                    $('.slideshow img').each(function() {
+                   	    $(this).fullBg();
+                   	});
+                   	
+                    $('.slideshow').cycle({
+                        fx: 'fade',
+                   		pager: '.slideshow-pager',
+                   		timeout: 8000,
+                   		pagerAnchorBuilder: function(idx, slide) {  
+                            return '.slideshow-pager li:eq(' + idx + ') a'; 
+                        },
+                        after: function(curr, next, opt) {
+                            showDescription(next.getAttribute('data-imagekey'));
+                        }
+                        
+                   	});
+                   	
+                   	function showDescription(imgKey) {
+                   	    $('.slideshow-description li').hide();
+                        $('.slideshow-description li[data-imagekey='+imgKey+']').show();
+                   	}
+                   	
+                });
+            </script>
+            <div class="slideshow">
+                <xsl:for-each select="/result/slideshow-images/contents/content/contentdata/image/image">
+                    <img src="{portal:createImageUrl(@key, (''), '' , 'jpg' , 40 )}" data-imagekey="{@key}" />
+                </xsl:for-each>
+            </div>
+            <ul class="slideshow-pager">
+                <xsl:for-each select="/result/slideshow-images/contents/content/contentdata/image/image">
+                    <li>
+                        
+                        <a href="#">
+                            <img src="{portal:createImageUrl(@key, ('scaleblock(45, 45)'))}" heigh="45" width="45" style="display:block;" />
+                        </a>
+                    </li>
+                </xsl:for-each>
+            </ul>
+            <div class="slideshow-description">
+                <img src="{portal:createResourceUrl('/_public/themes/bluman-travel/images/arrow-right-icon-blue.png')}" class="collapse-ss-description" />
+                <ul>
+                    <xsl:for-each select="/result/slideshow-images/contents/content">
+
+                            <xsl:for-each select="contentdata/image">
+                                <li data-imagekey="{image/@key}">
+                                    <xsl:if test="position() != 1">
+                                        <xsl:attribute name="style">
+                                            display:none;
+                                        </xsl:attribute>    
+                                    </xsl:if>
+                                    
+                                    "<xsl:value-of select="image_text" />",
+                                    <xsl:text> </xsl:text>
+                                    <a href="{portal:createContentUrl(../../@key)}"><xsl:value-of select="../../display-name" /></a> 
+                                </li>                                    
+                            </xsl:for-each>
+                        
+                    </xsl:for-each>
+                </ul>
+            </div>
+        </xsl:template>
 
     <xsl:template name="mobile">
         <html lang="{$language}" xml:lang="{$language}">
@@ -79,9 +148,8 @@
                 <title>
                     <xsl:value-of select="util:menuitem-name($current-resource)"/>
                 </title>
+                <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" />
                 <link rel="apple-touch-icon" href="{portal:createResourceUrl(concat($theme-public, '/images-mobile/apple-touch-icon.png'))}"/>
-                <xsl:call-template name="head.script-common" />
-                <xsl:call-template name="mobile.scripts" />
                 <xsl:call-template name="head.css-common"/>
 
                 <meta content="minimum-scale=1.0, width=device-width, user-scalable=yes" name="viewport" />

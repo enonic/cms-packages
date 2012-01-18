@@ -9,6 +9,7 @@
       <xsl:param name="currentLevel" select="1" as="xs:integer"/>
       <xsl:param name="list-class" />
       <xsl:param name="list-id" />
+      <xsl:param name="expand" select="false()" as="xs:boolean" />
       <xsl:variable name="activeMenuKey" select="/result/context/resource[@type='menuitem']/@key" />
       <xsl:variable name="activeMenuName" select="/result/context/resource[@type='menuitem']/name" />
       <xsl:choose>
@@ -38,6 +39,8 @@
                            <xsl:if test="current()/menuitems/menuitem">
                               <xsl:text> parent</xsl:text>   
                            </xsl:if>
+                           <xsl:if test="position()=1"><xsl:text> first</xsl:text></xsl:if>
+                           <xsl:if test="position()=last()"><xsl:text> last</xsl:text></xsl:if>
                         </xsl:attribute>
                         <a href="{portal:createPageUrl(@key, ())}">
                         <xsl:attribute name="class">
@@ -53,14 +56,18 @@
                               <xsl:otherwise>
                                  <xsl:value-of select="display-name"/>
                               </xsl:otherwise>
-                           </xsl:choose>
+                           </xsl:choose>   
                         </a>
                         <xsl:if test="current()/menuitems">
-                           <xsl:if test="$levels = 0 or $levels > $currentLevel">
+                           <xsl:if test="($levels = 0 or $levels > $currentLevel) and current()/menuitems/@child-count > 0">
+                              <xsl:if test="$expand = true()">
+                                 <a href="#" class="expand">Expand</a>
+                              </xsl:if>
                               <xsl:call-template name="menu.render">
                                  <xsl:with-param name="menuitems" select="current()/menuitems"/>
                                  <xsl:with-param name="currentLevel" select="$currentLevel + 1"/>
                                  <xsl:with-param name="levels" select="$levels"/>
+                                 <xsl:with-param name="expand" select="$expand" />
                               </xsl:call-template>
                            </xsl:if>
                         </xsl:if>

@@ -33,20 +33,21 @@
          </xsl:choose>
       </xsl:variable>
       <script type="text/javascript">
-         <xsl:comment>
+         <!--<xsl:comment>
             $(function() {
-               <!-- Selects correct tab -->
+               <!-\- Selects correct tab -\->
                <xsl:value-of select="concat('$(&quot;.tabs&quot;).tabs(&quot;select&quot;, &quot;#passport-tabs-', $operation, '&quot;);')"/>
             });
-         //</xsl:comment>
+            //</xsl:comment>-->
+         //$('.tabs').tabs();
       </script>
-      <div id="passport" class="tabs">
+      <div id="passport">
          <!-- Tabs -->
-         <ul>
+         <ul class="tabs" data-tabs="tabs">
             <xsl:choose>
                <!-- User logged in -->
                <xsl:when test="$user">
-                  <li>
+                  <li class="active">
                      <a href="#passport-tabs-update">
                         <xsl:value-of select="portal:localize('Update-account')"/>
                      </a>
@@ -66,7 +67,7 @@
                </xsl:when>
                <!-- User not logged in -->
                <xsl:otherwise>
-                  <li>
+                  <li class="active">
                      <a href="#passport-tabs-login">
                         <xsl:value-of select="portal:localize('Login')"/>
                      </a>
@@ -85,11 +86,12 @@
             </xsl:choose>
          </ul>
          <!-- Tabs content -->
+         <div class="tab-content">
          <xsl:choose>
             <!-- User logged in -->
             <xsl:when test="$user">
                <!-- Update account -->
-               <div id="passport-tabs-update">
+               <div id="passport-tabs-update" class="active">
                   <xsl:call-template name="passport.user-feedback">
                      <xsl:with-param name="error-operation" select="'update'"/>
                   </xsl:call-template>
@@ -123,15 +125,15 @@
                               </label>
                            </xsl:for-each>
                         </fieldset>
-                        <p class="clearfix">
-                           <input type="submit" class="button" value="{portal:localize('Change')}"/>
-                        </p>
+                        <div class="actions">
+                           <input type="submit" class="btn" value="{portal:localize('Change')}"/>
+                        </div>                           
                      </form>
                   </div>
                </xsl:if>
                <!-- Change password -->
                <div id="passport-tabs-changepwd">
-                  <script type="text/javascript">
+                  <!--<script type="text/javascript">
                      <xsl:comment>
                         $(function() {
                            $('#passport-changepwd-newpassword2').rules('add', {
@@ -139,7 +141,7 @@
                            });
                         });
                      //</xsl:comment>
-                  </script>
+                  </script>-->
                   <xsl:call-template name="passport.user-feedback">
                      <xsl:with-param name="error-operation" select="'changepwd'"/>
                   </xsl:call-template>
@@ -148,29 +150,45 @@
                         <legend>
                            <xsl:value-of select="portal:localize('Change-password')"/>
                         </legend>
-                        <label for="passport-changepwd-password">
-                           <xsl:value-of select="portal:localize('Old-password')"/>
-                        </label>
-                        <input type="password" id="passport-changepwd-password" name="password" class="text required"/>
-                        <label for="passport-changepwd-newpassword1">
-                           <xsl:value-of select="portal:localize('New-password')"/>
-                        </label>
-                        <input type="password" id="passport-changepwd-newpassword1" name="newpassword1" class="text required"/>
-                        <label for="passport-changepwd-newpassword2">
-                           <xsl:value-of select="portal:localize('Repeat-new-password')"/>
-                        </label>
-                        <input type="password" id="passport-changepwd-newpassword2" name="newpassword2" class="text required"/>
+                        
+                        <div class="clearfix">
+                           <label for="passport-changepwd-password">
+                              <xsl:value-of select="portal:localize('Old-password')"/>
+                           </label>
+                           <div class="input">
+                              <input type="password" id="passport-changepwd-password" name="password" class="text required"/>
+                           </div>
+                        </div>
+                        
+                        <div class="clearfix">
+                           <label for="passport-changepwd-newpassword1">
+                              <xsl:value-of select="portal:localize('New-password')"/>
+                           </label>
+                           <div class="input">
+                              <input type="password" id="passport-changepwd-newpassword1" name="newpassword1" class="text required"/>
+                           </div>
+                        </div>
+                        
+                        <div class="clearfix">
+                           <label for="passport-changepwd-newpassword2">
+                              <xsl:value-of select="portal:localize('Repeat-new-password')"/>
+                           </label>
+                           <div class="input">
+                              <input type="password" id="passport-changepwd-newpassword2" name="newpassword2" class="text required"/>
+                           </div>
+                        </div>
+                        
                      </fieldset>
-                     <p class="clearfix">
-                        <input type="submit" class="button" value="{portal:localize('Change')}"/>
-                     </p>
+                     <div class="actions">
+                        <input type="submit" class="btn" value="{portal:localize('Change')}"/>
+                     </div>
                   </form>
                </div>
             </xsl:when>
             <!-- User not logged in -->
             <xsl:otherwise>
                <!-- Login -->
-               <div id="passport-tabs-login">
+               <div id="passport-tabs-login" class="active">
                   <xsl:call-template name="passport.user-feedback">
                      <xsl:with-param name="error-operation" select="'login'"/>
                      <xsl:with-param name="success-operation" select="'create', 'resetpwd'"/>
@@ -182,34 +200,51 @@
                         </legend>
                         <xsl:choose>
                            <xsl:when test="$email-login = 'true'">
-                              <label for="passport-login-email">
-                                 <xsl:value-of select="portal:localize('E-mail')"/>
-                              </label>
-                              <input type="text" id="passport-login-email" name="email" class="text required email"/>
+                              <div class="clearfix">
+                                 <label for="passport-login-email">
+                                    <xsl:value-of select="portal:localize('E-mail')"/>
+                                 </label>
+                                 <div class="input">
+                                    <input type="text" id="passport-login-email" name="email" class="text required email"/>
+                                 </div>
+                              </div>
                            </xsl:when>
                            <xsl:otherwise>
-                              <label for="passport-login-uid">
-                                 <xsl:value-of select="portal:localize('Username')"/>
-                              </label>
-                              <input type="text" id="passport-login-uid" name="uid" class="text required"/>
+                              <div class="clearfix">
+                                 <label for="passport-login-uid">
+                                    <xsl:value-of select="portal:localize('Username')"/>
+                                 </label>
+                                 <div class="input">
+                                    <input type="text" id="passport-login-uid" name="uid" class="text required"/>
+                                 </div>
+                              </div>
                            </xsl:otherwise>
                         </xsl:choose>
-                        <label for="passport-login-password">
-                           <xsl:value-of select="portal:localize('Password')"/>
-                        </label>
-                        <input type="password" id="passport-login-password" name="password" class="text required"/>
-                        <label for="passport-login-rememberme" class="checkbox">
-                           <span>
-                             <span class="tooltip" title="{concat(portal:localize('Remember-me'), ' - ', portal:localize('helptext-remember-me'))}">
-                                <xsl:value-of select="portal:localize('Remember-me')"/>
-                             </span>
-                           </span>
-                           <input name="rememberme" id="passport-login-rememberme" type="checkbox" class="checkbox tooltip" value="true" title="{concat(portal:localize('Remember-me'), ' - ', portal:localize('helptext-remember-me'))}"/>
-                        </label>
+                        <div class="clearfix">
+                           <label for="passport-login-password">
+                              <xsl:value-of select="portal:localize('Password')"/>
+                           </label>
+                           <div class="input">
+                              <input type="password" id="passport-login-password" name="password" class="text required"/>
+                           </div>
+                        </div>
+                        
+                        <div class="clearfix">
+                           <label for="passport-login-rememberme" class="checkbox">
+                              <span>
+                                <span class="tooltip" title="{concat(portal:localize('Remember-me'), ' - ', portal:localize('helptext-remember-me'))}">
+                                   <xsl:value-of select="portal:localize('Remember-me')"/>
+                                </span>
+                              </span>
+                           </label>
+                           <div class="input">
+                              <input name="rememberme" id="passport-login-rememberme" type="checkbox" class="checkbox tooltip" value="true" title="{concat(portal:localize('Remember-me'), ' - ', portal:localize('helptext-remember-me'))}"/>
+                           </div>
+                        </div>
                      </fieldset>
-                     <p class="clearfix">
-                        <input type="submit" class="button" value="{portal:localize('Login')}"/>
-                     </p>
+                     <div class="actions">
+                        <input type="submit" class="btn" value="{portal:localize('Login')}"/>
+                     </div>
                   </form>
                </div>
                <!-- Register -->
@@ -245,6 +280,7 @@
                         <legend>
                            <xsl:value-of select="portal:localize('Forgot-your-password')"/>
                         </legend>
+                        
                         <input type="hidden" name="from_name" value="{$admin-name}"/>
                         <input type="hidden" name="from_email" value="{$admin-email}"/>
                         <input name="mail_subject" type="hidden" value="{portal:localize('Your-password')}"/>
@@ -255,20 +291,27 @@
                            </xsl:choose>
                         </xsl:variable>
                         <input name="mail_body" id="passport-resetpwd-mail-body" type="hidden" value="{portal:localize('resetpwd-mailbody', ($site-name, $username))}"/>
-                        <label for="passport-resetpwd-id">
-                           <span class="tooltip" title="{concat(portal:localize('E-mail'), ' - ', portal:localize('user-notice-resetpwd'))}">
-                              <xsl:value-of select="portal:localize('E-mail')"/>
-                           </span>
-                        </label>
-                        <input type="text" id="passport-resetpwd-id" name="id" class="text email required tooltip" title="{concat(portal:localize('E-mail'), ' - ', portal:localize('user-notice-resetpwd'))}"/>
+                        
+                        <div class="clearfix">
+                           <label for="passport-resetpwd-id">
+                              <span class="tooltip" title="{concat(portal:localize('E-mail'), ' - ', portal:localize('user-notice-resetpwd'))}">
+                                 <xsl:value-of select="portal:localize('E-mail')"/>
+                              </span>
+                           </label>
+                           <div class="input">
+                              <input type="text" id="passport-resetpwd-id" name="id" class="text email required tooltip" title="{concat(portal:localize('E-mail'), ' - ', portal:localize('user-notice-resetpwd'))}"/>
+                           </div>
+                        </div>
+                        
                      </fieldset>
-                     <p class="clearfix">
-                        <input type="submit" class="button" value="{portal:localize('Reset-password')}"/>
-                     </p>
+                     <div class="actions">
+                        <input type="submit" class="btn" value="{portal:localize('Reset-password')}"/>
+                     </div>
                   </form>
                </div>
             </xsl:otherwise>
          </xsl:choose>
+         </div>
       </div>
    </xsl:template>
 
@@ -368,52 +411,64 @@
             </xsl:if>
             <!-- Display name -->
             <xsl:if test="$edit-display-name = 'true'">
-               <label for="passport-create-display-name">
-                  <xsl:value-of select="portal:localize('Display-name')"/>
-               </label>
-               <input type="text" id="passport-create-display-name" name="display_name" class="text required">
-                  <xsl:attribute name="value">
-                     <xsl:choose>
-                        <xsl:when test="$error = 405">
-                           <xsl:value-of select="$session-parameter[@name = 'display_name']"/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                           <xsl:value-of select="$user/display-name"/>
-                        </xsl:otherwise>
-                     </xsl:choose>
-                  </xsl:attribute>
-               </input>
+               <div class="clearfix">
+                  <label for="passport-create-display-name">
+                     <xsl:value-of select="portal:localize('Display-name')"/>
+                  </label>
+                  <div class="input">
+                     <input type="text" id="passport-create-display-name" name="display_name" class="text required">
+                        <xsl:attribute name="value">
+                           <xsl:choose>
+                              <xsl:when test="$error = 405">
+                                 <xsl:value-of select="$session-parameter[@name = 'display_name']"/>
+                              </xsl:when>
+                              <xsl:otherwise>
+                                 <xsl:value-of select="$user/display-name"/>
+                              </xsl:otherwise>
+                           </xsl:choose>
+                        </xsl:attribute>
+                     </input>
+                  </div>
+               </div>
             </xsl:if>
             <!-- E-mail -->
-            <label for="passport-create-email">
-               <xsl:value-of select="portal:localize('E-mail')"/>
-            </label>
-            <input type="text" id="passport-create-email" name="email" class="text required email">
-               <xsl:attribute name="value">
-                  <xsl:choose>
-                     <xsl:when test="$error = 405">
-                        <xsl:value-of select="$session-parameter[@name = 'email']"/>
-                     </xsl:when>
-                     <xsl:otherwise>
-                        <xsl:value-of select="$user/email"/>
-                     </xsl:otherwise>
-                  </xsl:choose>
-               </xsl:attribute>
-            </input>
+            <div class="clearfix">
+               <label for="passport-create-email">
+                  <xsl:value-of select="portal:localize('E-mail')"/>
+               </label>
+               <div class="input">
+                  <input type="text" id="passport-create-email" name="email" class="text required email">
+                     <xsl:attribute name="value">
+                        <xsl:choose>
+                           <xsl:when test="$error = 405">
+                              <xsl:value-of select="$session-parameter[@name = 'email']"/>
+                           </xsl:when>
+                           <xsl:otherwise>
+                              <xsl:value-of select="$user/email"/>
+                           </xsl:otherwise>
+                        </xsl:choose>
+                     </xsl:attribute>
+                  </input>
+               </div>
+            </div>
             <!-- Password -->
             <xsl:if test="$operation = 'create' and $set-password = 'true'">
-               <label for="passport-create-password">
-                  <span class="tooltip" title="{concat(portal:localize('Password'), ' - ', portal:localize('helptext-password'))}">
-                     <xsl:value-of select="portal:localize('Password')"/>
-                  </span>
-               </label>
-               <input type="password" id="passport-create-password" name="password" class="text tooltip" title="{concat(portal:localize('Password'), ' - ', portal:localize('helptext-password'))}">
-                  <xsl:if test="$error = 405">
-                    <xsl:attribute name="value">
-                       <xsl:value-of select="$session-parameter[@name = 'password']"/>
-                    </xsl:attribute>
-                  </xsl:if>
-               </input>
+               <div class="clearfix">
+                  <label for="passport-create-password">
+                     <span class="tooltip" title="{concat(portal:localize('Password'), ' - ', portal:localize('helptext-password'))}">
+                        <xsl:value-of select="portal:localize('Password')"/>
+                     </span>
+                  </label>
+                  <div class="input">
+                     <input type="password" id="passport-create-password" name="password" class="text tooltip" title="{concat(portal:localize('Password'), ' - ', portal:localize('helptext-password'))}">
+                        <xsl:if test="$error = 405">
+                          <xsl:attribute name="value">
+                             <xsl:value-of select="$session-parameter[@name = 'password']"/>
+                          </xsl:attribute>
+                        </xsl:if>
+                     </input>
+                  </div>
+               </div>
             </xsl:if>
          </fieldset>
          <xsl:if test="$userstore/config/user-fields/prefix or $userstore/config/user-fields/first-name or $userstore/config/user-fields/middle-name or $userstore/config/user-fields/last-name or $userstore/config/user-fields/suffix or $userstore/config/user-fields/initials or $userstore/config/user-fields/nick-name">
@@ -423,6 +478,7 @@
                </legend>
                <!-- Prefix -->
                <xsl:if test="$userstore/config/user-fields/prefix">
+                  <div class="clearfix">
                   <label for="passport-create-prefix">
                      <xsl:value-of select="portal:localize('Prefix')"/>
                   </label>
@@ -444,9 +500,11 @@
                         </xsl:choose>
                      </xsl:attribute>
                   </input>
+                  </div>
                </xsl:if>
                <!-- First name -->
                <xsl:if test="$userstore/config/user-fields/first-name">
+                  <div class="clearfix">
                   <label for="passport-create-first-name">
                      <xsl:value-of select="portal:localize('First-name')"/>
                   </label>
@@ -468,9 +526,11 @@
                         </xsl:choose>
                      </xsl:attribute>
                   </input>
+                     </div>
                </xsl:if>
                <!-- Middle name -->
                <xsl:if test="$userstore/config/user-fields/middle-name">
+                  <div class="clearfix">
                   <label for="passport-create-middle-name">
                      <xsl:value-of select="portal:localize('Middle-name')"/>
                   </label>
@@ -492,9 +552,11 @@
                         </xsl:choose>
                      </xsl:attribute>
                   </input>
+                  </div>
                </xsl:if>
                <!-- Last name -->
                <xsl:if test="$userstore/config/user-fields/last-name">
+                  <div class="clearfix">
                   <label for="passport-create-last-name">
                      <xsl:value-of select="portal:localize('Last-name')"/>
                   </label>
@@ -516,9 +578,11 @@
                         </xsl:choose>
                      </xsl:attribute>
                   </input>
+                  </div>
                </xsl:if>
                <!-- Suffix -->
                <xsl:if test="$userstore/config/user-fields/suffix">
+                  <div class="clearfix">
                   <label for="passport-create-suffix">
                      <xsl:value-of select="portal:localize('Suffix')"/>
                   </label>
@@ -540,9 +604,11 @@
                         </xsl:choose>
                      </xsl:attribute>
                   </input>
+                  </div>
                </xsl:if>
                <!-- Initials -->
                <xsl:if test="$userstore/config/user-fields/initials">
+                  <div class="clearfix">
                   <label for="passport-create-initials">
                      <xsl:value-of select="portal:localize('Initials')"/>
                   </label>
@@ -564,9 +630,11 @@
                         </xsl:choose>
                      </xsl:attribute>
                   </input>
+                  </div>
                </xsl:if>
                <!-- Nick name -->
                <xsl:if test="$userstore/config/user-fields/nick-name">
+                  <div class="clearfix">
                   <label for="passport-create-nick-name">
                      <xsl:value-of select="portal:localize('Nick-name')"/>
                   </label>
@@ -588,6 +656,7 @@
                         </xsl:choose>
                      </xsl:attribute>
                   </input>
+                  </div>
                </xsl:if>
             </fieldset>
          </xsl:if>
@@ -599,11 +668,14 @@
                <!-- Photo -->
                <xsl:if test="$userstore/config/user-fields/photo">
                   <xsl:if test="$operation = 'update' and ($user-image-src != '' or $dummy-user-image-src != '')">
+                     <div class="clearfix">
                      <label>
                         <xsl:value-of select="portal:localize('Photo')"/>
                      </label>
                      <img alt="{concat(portal:localize('Image-of'), ' ', $user/display-name)}" src="{if ($user-image-src != '') then $user-image-src else $dummy-user-image-src}"/>
+                     </div>
                   </xsl:if>
+                  <div class="clearfix">
                   <label for="passport-create-photo">
                      <xsl:value-of select="if ($operation = 'update' and ($user-image-src != '' or $dummy-user-image-src != '')) then portal:localize('Replace-photo') else portal:localize('Photo')"/>
                   </label>
@@ -615,6 +687,7 @@
                         </xsl:if>
                      </xsl:attribute>
                   </input>
+                  </div>
                </xsl:if>
             </fieldset>
          </xsl:if>
@@ -625,6 +698,7 @@
                </legend>
                <!-- Personal ID -->
                <xsl:if test="$userstore/config/user-fields/personal-id">
+                  <div class="clearfix">
                   <label for="passport-create-personal-id">
                      <xsl:value-of select="portal:localize('Personal-id')"/>
                   </label>
@@ -646,9 +720,11 @@
                         </xsl:choose>
                      </xsl:attribute>
                   </input>
+                  </div>
                </xsl:if>
                <!-- Member ID -->
                <xsl:if test="$userstore/config/user-fields/member-id">
+                  <div class="clearfix">
                   <label for="passport-create-member-id">
                      <xsl:value-of select="portal:localize('Member-id')"/>
                   </label>
@@ -670,9 +746,11 @@
                         </xsl:choose>
                      </xsl:attribute>
                   </input>
+                  </div>
                </xsl:if>
                <!-- Organization -->
                <xsl:if test="$userstore/config/user-fields/organization">
+                  <div class="clearfix">
                   <label for="passport-create-organization">
                      <xsl:value-of select="portal:localize('Organization')"/>
                   </label>
@@ -694,6 +772,7 @@
                         </xsl:choose>
                      </xsl:attribute>
                   </input>
+                  </div>
                </xsl:if>
                <!-- Birthday -->
                <xsl:if test="$userstore/config/user-fields/birthday">
@@ -718,6 +797,7 @@
                         <xsl:value-of select="string-join(reverse(tokenize($birthday, '-')), $separator)"/>
                      </xsl:if>
                   </xsl:variable>
+                  <div class="clearfix">
                   <label for="passport-create-gui-birthday">
                      <xsl:value-of select="portal:localize('Birthday')"/>
                   </label>
@@ -729,10 +809,12 @@
                         </xsl:if>
                      </xsl:attribute>
                   </input>
+                  </div>
                   <input type="hidden" name="birthday" id="passport-create-birthday" disabled="disabled"/>
                </xsl:if>
                <!-- Gender -->
                <xsl:if test="$userstore/config/user-fields/gender">
+                  <div class="clearfix">
                   <label for="passport-create-gender-female">
                      <xsl:value-of select="portal:localize('Gender')"/>
                   </label>
@@ -758,9 +840,11 @@
                      </input>
                      <xsl:value-of select="portal:localize('Male')"/>
                   </label>
+                  </div>
                </xsl:if>
                <!-- Title -->
                <xsl:if test="$userstore/config/user-fields/title">
+                  <div class="clearfix">
                   <label for="passport-create-title">
                      <xsl:value-of select="portal:localize('Title')"/>
                   </label>
@@ -782,9 +866,11 @@
                         </xsl:choose>
                      </xsl:attribute>
                   </input>
+                  </div>
                </xsl:if>
                <!-- Description -->
                <xsl:if test="$userstore/config/user-fields/description">
+                  <div class="clearfix">
                   <label for="passport-create-description">
                      <xsl:value-of select="portal:localize('Description')"/>
                   </label>
@@ -801,9 +887,11 @@
                         </xsl:otherwise>
                      </xsl:choose>
                   </textarea>
+                  </div>
                </xsl:if>
                <!-- HTML e-mail -->
                <xsl:if test="$userstore/config/user-fields/html-email">
+                  <div class="clearfix">
                   <label for="passport-create-html-email" class="checkbox">
                      <span>
                         <xsl:value-of select="portal:localize('Html-email')"/>
@@ -817,9 +905,11 @@
                         </xsl:if>
                      </input>
                   </label>
+                  </div>
                </xsl:if>
                <!-- Home page -->
                <xsl:if test="$userstore/config/user-fields/home-page">
+                  <div class="clearfix">
                   <label for="passport-create-home-page">
                      <xsl:value-of select="portal:localize('Home-page')"/>
                   </label>
@@ -841,6 +931,7 @@
                         </xsl:choose>
                      </xsl:attribute>
                   </input>
+                  </div>
                </xsl:if>
             </fieldset>
          </xsl:if>
@@ -851,6 +942,7 @@
                </legend>
                <!-- Time zone -->
                <xsl:if test="$userstore/config/user-fields/time-zone and $time-zone">
+                  <div class="clearfix">
                   <label for="passport-create-time-zone">
                      <xsl:value-of select="portal:localize('Time-zone')"/>
                   </label>
@@ -874,9 +966,11 @@
                         </option>
                      </xsl:for-each>
                   </select>
+                  </div>
                </xsl:if>
                <!-- Locale -->
                <xsl:if test="$userstore/config/user-fields/locale and $locale">
+                  <div class="clearfix">
                   <label for="passport-create-locale">
                      <xsl:value-of select="portal:localize('Language')"/>
                   </label>
@@ -900,9 +994,11 @@
                         </option>
                      </xsl:for-each>
                   </select>
+                  </div>
                </xsl:if>
                <!-- Country -->
                <xsl:if test="$userstore/config/user-fields/country and $country">
+                  <div class="clearfix">
                   <label for="passport-create-country">
                      <xsl:value-of select="portal:localize('Country')"/>
                   </label>
@@ -929,9 +1025,11 @@
                         </option>
                      </xsl:for-each>
                   </select>
+                  </div>
                </xsl:if>
                <!-- Global position -->
                <xsl:if test="$userstore/config/user-fields/global-position">
+                  <div class="clearfix">
                   <label for="passport-create-global-position">
                      <xsl:value-of select="portal:localize('Global-position')"/>
                   </label>
@@ -953,6 +1051,7 @@
                         </xsl:choose>
                      </xsl:attribute>
                   </input>
+                  </div>
                </xsl:if>
             </fieldset>
          </xsl:if>
@@ -963,6 +1062,7 @@
                </legend>
                <!-- Phone -->
                <xsl:if test="$userstore/config/user-fields/phone">
+                  <div class="clearfix">
                   <label for="passport-create-phone">
                      <xsl:value-of select="portal:localize('Phone')"/>
                   </label>
@@ -984,9 +1084,11 @@
                         </xsl:choose>
                      </xsl:attribute>
                   </input>
+                  </div>
                </xsl:if>
                <!-- Mobile -->
                <xsl:if test="$userstore/config/user-fields/mobile">
+                  <div class="clearfix">
                   <label for="passport-create-mobile">
                      <xsl:value-of select="portal:localize('Mobile')"/>
                   </label>
@@ -1008,9 +1110,11 @@
                         </xsl:choose>
                      </xsl:attribute>
                   </input>
+                  </div>
                </xsl:if>
                <!-- Fax -->
                <xsl:if test="$userstore/config/user-fields/fax">
+                  <div class="clearfix">
                   <label for="passport-create-fax">
                      <xsl:value-of select="portal:localize('Fax')"/>
                   </label>
@@ -1032,6 +1136,7 @@
                         </xsl:choose>
                      </xsl:attribute>
                   </input>
+                  </div>
                </xsl:if>
             </fieldset>
          </xsl:if>
@@ -1041,6 +1146,7 @@
                <legend>
                   <xsl:value-of select="portal:localize('Address')"/>
                </legend>
+               <div class="clearfix">
                <label for="passport-create-address-name">
                   <xsl:value-of select="portal:localize('Label')"/>
                </label>
@@ -1062,6 +1168,9 @@
                      </xsl:choose>
                   </xsl:attribute>
                </input>
+               </div>
+               
+               <div class="clearfix">
                <label for="passport-create-address-street">
                   <xsl:value-of select="portal:localize('Street')"/>
                </label>
@@ -1083,6 +1192,9 @@
                      </xsl:choose>
                   </xsl:attribute>
                </input>
+               </div>
+               
+               <div class="clearfix">
                <label for="passport-create-address-postal-code">
                   <xsl:value-of select="portal:localize('Postal-code')"/>
                </label>
@@ -1104,6 +1216,9 @@
                      </xsl:choose>
                   </xsl:attribute>
                </input>
+               </div>
+               
+               <div class="clearfix">
                <label for="passport-create-address-postal-address">
                   <xsl:value-of select="portal:localize('Postal-address')"/>
                </label>
@@ -1125,7 +1240,9 @@
                      </xsl:choose>
                   </xsl:attribute>
                </input>
+               </div>
                <xsl:if test="$country">
+                  <div class="clearfix">
                   <label for="passport-create-address-country">
                      <xsl:value-of select="portal:localize('Country')"/>
                   </label>
@@ -1176,9 +1293,12 @@
                         </input>
                      </xsl:otherwise>
                   </xsl:choose>
+                  </div>
+                  
                   <xsl:choose>
                      <xsl:when test="$userstore/config/user-fields/address/@iso = 'true'">
                         <xsl:for-each select="$country[regions/region]">
+                           <div class="clearfix">
                            <label for="passport-create-address-region-{@code}" class="create-address-region">
                               <xsl:if test="not($user/addresses/address[1]/iso-country = @code or ($error = 405 and $session-parameter[@name = 'address[0].iso_country'] = @code))">
                                  <xsl:attribute name="style">display: none;</xsl:attribute>
@@ -1209,9 +1329,11 @@
                                  </option>
                               </xsl:for-each>
                            </select>
+                           </div>
                         </xsl:for-each>
                      </xsl:when>
                      <xsl:otherwise>
+                        <div class="clearfix">
                         <label for="passport-create-address-region">
                            <xsl:value-of select="portal:localize('Region')"/>
                         </label>
@@ -1233,6 +1355,7 @@
                               </xsl:choose>
                            </xsl:attribute>
                         </input>
+                        </div>
                      </xsl:otherwise>
                   </xsl:choose>
                </xsl:if>
@@ -1243,20 +1366,28 @@
                <legend>
                   <xsl:value-of select="portal:localize('Validation')"/>
                </legend>
-               <img src="{portal:createCaptchaImageUrl()}" alt="{portal:localize('Captcha-image')}" class="clear" id="passport-create-captcha-image"/>
-               <a href="#" onclick="reloadCaptcha('passport-create-captcha-image');return false;" class="clear">
-                  <xsl:value-of select="portal:localize('New-image')"/>
-               </a>
-               <label for="passport-create-captcha">
-                  <span class="tooltip" title="{concat(portal:localize('Repeat-text'), ' - ', portal:localize('helptext-captcha'))}">
-                     <xsl:value-of select="portal:localize('Validation')"/>
-                  </span>
-               </label>
-               <input type="text" id="passport-create-captcha" name="{portal:createCaptchaFormInputName()}" class="text required tooltip" title="{concat(portal:localize('Repeat-text'), ' - ', portal:localize('helptext-captcha'))}"/>
+               <div class="input clearfix">
+                  <img src="{portal:createCaptchaImageUrl()}" alt="{portal:localize('Captcha-image')}" class="clear" id="passport-create-captcha-image" />
+                  <br />
+                  <a href="#" onclick="reloadCaptcha('passport-create-captcha-image');return false;" class="clear">
+                     <xsl:value-of select="portal:localize('New-image')"/>
+                  </a>
+               </div>
+               
+               <div class="clearfix">
+                  <label for="passport-create-captcha">
+                     <span class="tooltip" title="{concat(portal:localize('Repeat-text'), ' - ', portal:localize('helptext-captcha'))}">
+                        <xsl:value-of select="portal:localize('Validation')"/>
+                     </span>
+                  </label>
+                  <div class="input">
+                     <input type="text" id="passport-create-captcha" name="{portal:createCaptchaFormInputName()}" class="text required tooltip" title="{concat(portal:localize('Repeat-text'), ' - ', portal:localize('helptext-captcha'))}"/>
+                  </div>
+               </div>
             </fieldset>
          </xsl:if>
-         <p class="clearfix">
-            <input type="submit" class="button">
+         <div class="actions">
+            <input type="submit" class="btn">
                <xsl:attribute name="value">
                   <xsl:choose>
                      <xsl:when test="$operation = 'create'">
@@ -1268,7 +1399,7 @@
                   </xsl:choose>
                </xsl:attribute>
             </input>
-         </p>
+         </div>
       </form>
    </xsl:template>
 
