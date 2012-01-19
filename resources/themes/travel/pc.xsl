@@ -3,6 +3,7 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:fw="http://www.enonic.com/cms/xslt/framework"
+  xmlns:util="http://www.enonic.com/cms/xslt/utilities"
   xmlns:portal="http://www.enonic.com/cms/xslt/portal">
  
   <!-- Support templates for PC version -->
