@@ -26,6 +26,8 @@
     <xsl:template name="fw:region.render">
         <xsl:param name="region-name" as="xs:string?"/>
         <xsl:param name="layout" as="xs:string" select="'default'"/>
+        <xsl:param name="content-prepend" as="document-node()*"/>
+        <xsl:param name="content-append" as="document-node()*"/>
 
         <xsl:for-each select="$fw:theme-device-class/layout[@name = $layout]//region[if ($region-name) then @name = $region-name else *]">
             <!-- Creates region if it contains portlets or this is system region and error page-->
@@ -34,8 +36,18 @@
                 
                 <xsl:element name="{if (current()/@element) then current()/@element else 'div'}">
                     <xsl:attribute name="id" select="concat($fw:theme-region-prefix, current()/@name)"/>
-                    <xsl:attribute name="class" select="'region'"/><!--
+                    <xsl:attribute name="class">
+                        <xsl:text>region</xsl:text>
+                        <xsl:if test="current()/@class/text()">
+                            <xsl:value-of select="concat(' ', current()/@class)"/>
+                        </xsl:if>
+                    </xsl:attribute><!--
                     <div id="{concat($fw:theme-region-prefix, current()/@name)}" class="region">-->
+                    
+                    <xsl:if test="$content-prepend/node()">
+                        <xsl:copy-of select="$content-prepend"/>
+                    </xsl:if>
+                    
                         <xsl:variable name="width">
                             <xsl:choose>
                                 <xsl:when test="scalable = 'true'">
@@ -62,6 +74,10 @@
                             <xsl:value-of select="portal:createWindowPlaceholder(@key, $parameters)"/>
                         </xsl:for-each>
                     <!--</div>-->
+                    
+                    <xsl:if test="$content-append/node()">
+                        <xsl:copy-of select="$content-append"/>
+                    </xsl:if>
                 </xsl:element>
                 
             </xsl:if>
