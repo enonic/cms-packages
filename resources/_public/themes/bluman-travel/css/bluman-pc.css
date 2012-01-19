@@ -4,6 +4,7 @@ html {
 body {
     height:100%;
     font-family:arial, helvetica, sans-serif;
+    background-color:#000;
 }
 p {
     color:#404040;
@@ -216,7 +217,7 @@ nav.breadcrumbs {
     z-index:11;
 }
 
-.center-container {
+.container {
     margin:175px 0 0 400px !important;
     width:725px;
     position:relative;
@@ -398,6 +399,13 @@ nav.breadcrumbs {
     width:100%;
     z-index:-1;
 }
+
+/*.slideshow img {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all  0.3s ease;
+}*/
 
 .slideshow-pager {
     clear:both;

@@ -1,4 +1,9 @@
-<xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:util="enonic:utilities" xmlns:portal="http://www.enonic.com/cms/xslt/portal" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:fw="http://www.enonic.com/cms/xslt/framework"
+    xmlns:portal="http://www.enonic.com/cms/xslt/portal" 
+    xmlns:util="http://www.enonic.com/cms/xslt/utilities">
 
     <xsl:template name="mobile.body">
         <div id="outer-container">
@@ -16,28 +21,28 @@
             </xsl:call-template>
         </nav>
         <div id="west">
-            <xsl:call-template name="region.render">
-                <xsl:with-param name="region" select="'west'" />
+            <xsl:call-template name="fw:region.render">
+                <xsl:with-param name="region-name" select="'west'" />
             </xsl:call-template>
         </div>
             <div id="container">
                 <!--<xsl:if test="portal:isWindowEmpty( /result/context/page/regions/region[ name = 'center' ]/windows/window/@key, ('_config-region-width', 500) ) = false()">-->
                 <div id="center">
-                    <xsl:call-template name="region.render">
-                        <xsl:with-param name="region" select="'center'" />
-                        <xsl:with-param name="parameters" as="xs:anyAtomicType*">
+                    <xsl:call-template name="fw:region.render">
+                        <xsl:with-param name="region-name" select="'center'" />
+                        <!--<xsl:with-param name="parameters" as="xs:anyAtomicType*">
                             <xsl:sequence select="'_config-region-width', xs:integer(500)"/>
-                        </xsl:with-param>
+                        </xsl:with-param>-->
                     </xsl:call-template>
                 </div>
                 <!--</xsl:if>-->
                 <xsl:if test="portal:isWindowEmpty( /result/context/page/regions/region[ name = 'east' ]/windows/window/@key, ('_config-region-width', 180) ) = false()">
                     <div id="east">
-                        <xsl:call-template name="region.render">
-                            <xsl:with-param name="region" select="'east'" />
-                            <xsl:with-param name="parameters" as="xs:anyAtomicType*">
+                        <xsl:call-template name="fw:region.render">
+                            <xsl:with-param name="region-name" select="'east'" />
+                            <!--<xsl:with-param name="parameters" as="xs:anyAtomicType*">
                                 <xsl:sequence select="'_config-region-width', xs:integer(180)"/>
-                            </xsl:with-param>
+                            </xsl:with-param>-->
                         </xsl:call-template>
                     </div>
                 </xsl:if>
@@ -49,8 +54,8 @@
 
     <xsl:template name="mobile.header">
         <header id="header">
-            <a href="{portal:createUrl($front-page)}">
-                <img alt="{$site-name}-{portal:localize('logo')}" id="logo" src="{portal:createResourceUrl('/_public/themes/bluman-travel/images/logo-small.png')}" title="{$site-name}"/>
+            <a href="{portal:createUrl($fw:front-page)}">
+                <img alt="{$fw:site-name}-{portal:localize('logo')}" id="logo" src="{portal:createResourceUrl('/_public/themes/bluman-travel/images/logo-small.png')}" title="{$fw:site-name}"/>
             </a>
             <a href="#" class="toggle search">
                 Toggle search

@@ -61,6 +61,8 @@
                 </area>
             </layout>
             <image>
+                <format>jpeg</format>
+                <quality>70</quality>
                 <sizes>
                     <size name="full">
                         <filter>scalewidth</filter>
@@ -90,6 +92,7 @@
                 </sizes>
             </image>
             <styles>
+                <style>/_public/libraries/css/bootstrap-1.4.min.css</style>
                 <style>/_public/themes/bluman-travel/css/bluman-pc.css</style>
             </styles>
             <scripts>
@@ -100,6 +103,7 @@
                 <script>/_public/libraries/js/jquery.fullbg-1.0.js</script>
                 <script>/_public/libraries/js/jquery.hoverIntent.js</script>
                 <script>/_public/themes/bluman-travel/js/bluman-pc.js</script>
+                <script>/_public/libraries/js/jquery.animate-enhanced.min.js</script>
             </scripts>
         </device-class>
         <device-class name="mobile">
@@ -137,6 +141,8 @@
                 </area>
             </layout>
             <image>
+                <format>jpeg</format>
+                <quality>70</quality>
                 <sizes>
                     <size name="full">
                         <filter>scalewidth</filter>
@@ -166,6 +172,7 @@
                 </sizes>
             </image>
             <styles>
+                <style>/_public/libraries/css/bootstrap-1.4.min.css</style>
                 <style>/_public/themes/bluman-travel/css/bluman-mobile.css</style>
             </styles>
             <scripts>

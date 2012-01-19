@@ -1,6 +1,13 @@
- <xsl:stylesheet version="2.0" exclude-result-prefixes="#all" xmlns="http://www.w3.org/1999/xhtml" xmlns:portal="http://www.enonic.com/cms/xslt/portal" xmlns:util="enonic:utilities" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:import href="../../../libraries/utilities/standard-variables.xsl"/>
-     <xsl:output method="html" omit-xml-declaration="no" doctype-system="about:legacy-compat"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:fw="http://www.enonic.com/cms/xslt/framework"
+    xmlns:util="http://www.enonic.com/cms/xslt/utilities"
+    xmlns:portal="http://www.enonic.com/cms/xslt/portal">
+ 
+    <xsl:import href="/libraries/utilities/fw-variables.xsl"/>
+    <xsl:output method="html" omit-xml-declaration="no" doctype-system="about:legacy-compat"/>
      
     <xsl:template match="/">
         <xsl:choose>
@@ -21,7 +28,7 @@
         <xsl:variable name="portletUrl" select="portal:createWindowUrl($windowKey,(''))"/>
         <div id="bluman-form" role="search">
             <form id="myForm" method="post" action="#">
-                <xsl:if test="$device-class = 'mobile'">
+                <xsl:if test="$fw:device-class = 'mobile'">
                     <xsl:attribute name="class">form-stacked</xsl:attribute>
                 </xsl:if>
                 <fieldset>
@@ -72,7 +79,7 @@
             <!--<a id="find-bluman-button" class="large blue awesome">Find Bluman</a>-->
             <div id="appendRandomSpotHere"></div>
         </div>
-        <xsl:if test="$device-class != 'mobile'">
+        <xsl:if test="$fw:device-class != 'mobile'">
             <div class="collapse-search">
                 <a href="#" id="hide-form" style="color:white;">Collapse</a>
             </div>

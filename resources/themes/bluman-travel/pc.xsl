@@ -1,40 +1,44 @@
-<xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:portal="http://www.enonic.com/cms/xslt/portal" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:fw="http://www.enonic.com/cms/xslt/framework"
+    xmlns:util="http://www.enonic.com/cms/xslt/utilities"
+    xmlns:portal="http://www.enonic.com/cms/xslt/portal">
 
     <xsl:template name="pc.body">
         <div id="page">
             <nav id="accessibility-links">
-                <xsl:call-template name="accessibility.links"/>
+                <xsl:call-template name="util:accessibility.links"/>
             </nav>
             <noscript><p><xsl:value-of select="portal:localize('javascript-required')"/></p></noscript>
             <xsl:call-template name="pc.header" />
             <div id="west" class="transparent">
-                <xsl:call-template name="region.render">
-                    <xsl:with-param name="region" select="'west'" />
+                <xsl:call-template name="fw:region.render">
+                    <xsl:with-param name="region-name" select="'west'" />
                 </xsl:call-template>
             </div>
-            <div class="center-container">
-                    <div id="center">
-                        <xsl:call-template name="region.render">
-                            <xsl:with-param name="region" select="'center'" />
-                            <xsl:with-param name="parameters" as="xs:anyAtomicType*">
-                                <xsl:sequence select="'_config-region-width', xs:integer(500)"/>
-                            </xsl:with-param>
-                        </xsl:call-template>
+            <div class="container">
+                    <div class="center-wrapper">
+                        <article id="center">
+                            <xsl:call-template name="fw:region.render">
+                                <xsl:with-param name="region-name" select="'center'" />
+                            </xsl:call-template>
+                        </article>
                         <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'mobile', 'lifetime', 'session'))}" class="change-device">
                             <img src="{portal:createResourceUrl('/_public/themes/bluman-travel/images/icon-mobile.png')}" alt="{portal:localize('Change-to-mobile-version')}"/>
                             <xsl:value-of select="portal:localize('Change-to-mobile-version')"/>
                         </a>
                     </div>
-                <xsl:if test="portal:isWindowEmpty( /result/context/page/regions/region[ name = 'east' ]/windows/window/@key, ('_config-region-width', 180) ) = false()">
+                <!--<xsl:if test="portal:isWindowEmpty( /result/context/page/regions/region[ name = 'east' ]/windows/window/@key, ('_config-region-width', 180) ) = false()">-->
                     <div id="east">
-                        <xsl:call-template name="region.render">
-                            <xsl:with-param name="region" select="'east'" />
-                            <xsl:with-param name="parameters" as="xs:anyAtomicType*">
+                        <xsl:call-template name="fw:region.render">
+                            <xsl:with-param name="region-name" select="'east'" />
+                            <!--<xsl:with-param name="parameters" as="xs:anyAtomicType*">
                                 <xsl:sequence select="'_config-region-width', xs:integer(180)"/>
-                            </xsl:with-param>
+                            </xsl:with-param>-->
                         </xsl:call-template>
                     </div>
-                </xsl:if>
+                <!--</xsl:if>-->
             </div>
         </div>
         
@@ -44,8 +48,8 @@
     <!-- Put your static header XSL/HTML here -->
     <xsl:template name="pc.header">
         <header id="header" role="banner">
-            <a class="logo" href="{portal:createUrl($front-page)}">
-                <img alt="{$site-name}-{portal:localize('logo')}" src="{portal:createResourceUrl(concat($theme-public, '/images/logo-small.png'))}" title="{$site-name}"/>
+            <a class="logo" href="{portal:createUrl($fw:front-page)}">
+                <img alt="{$fw:site-name}-{portal:localize('logo')}" src="{portal:createResourceUrl(concat($fw:theme-public, '/images/logo-small.png'))}" title="{$fw:site-name}"/>
             </a>
             <div id="nav-wrapper" class="transparent">
                 <nav accesskey="m" class="page" role="navigation">
@@ -55,7 +59,7 @@
                         <xsl:with-param name="list-class" select="'mainmenu'" />
                     </xsl:call-template>
                 </nav>
-                <xsl:if test="$user or $login-page or $user">
+                <xsl:if test="$fw:user or $fw:login-page">
                     <nav accesskey="l" class="login" role="navigation">
                         <xsl:call-template name="pc.userimage" />
                         <xsl:call-template name="pc.userinfo" />
@@ -66,26 +70,26 @@
                 <xsl:call-template name="breadcrumbs.print-crumbs">
                     <xsl:with-param name="path" select="/result/menu/menus/menu/menuitems/menuitem[@path = 'true']" />
                 </xsl:call-template>
-            </nav>    
+            </nav>
         </header>
     </xsl:template>
 
     <xsl:template name="pc.userinfo">
-        <xsl:if test="$user or $login-page or $sitemap-page != ''">
+        <xsl:if test="$fw:user or $fw:login-page or $fw:sitemap-page != ''">
             <ul>
                 <xsl:choose>
                     <!-- User logged in -->
-                    <xsl:when test="$user">
+                    <xsl:when test="$fw:user">
                         <li>
                             <xsl:choose>
-                                <xsl:when test="$login-page">
-                                    <a href="{portal:createPageUrl($login-page/@key, ())}">
-                                        <xsl:value-of select="$user/display-name"/>
+                                <xsl:when test="$fw:login-page">
+                                    <a href="{portal:createPageUrl($fw:login-page/@key, ())}">
+                                        <xsl:value-of select="$fw:user/display-name"/>
                                     </a>
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <div>
-                                        <xsl:value-of select="$user/display-name"/>
+                                        <xsl:value-of select="$fw:user/display-name"/>
                                     </div>
                                 </xsl:otherwise>
                             </xsl:choose>
@@ -97,17 +101,17 @@
                         </li>
                     </xsl:when>
                     <!-- User not logged in -->
-                    <xsl:when test="$login-page">
+                    <xsl:when test="$fw:login-page">
                         <li class="last">
-                            <a href="{portal:createPageUrl($login-page/@key, ())}">
+                            <a href="{portal:createPageUrl($fw:login-page/@key, ())}">
                                 <xsl:value-of select="portal:localize('Login')"/>
                             </a>
                         </li>
                     </xsl:when>
                 </xsl:choose>
-                <xsl:if test="$sitemap-page != ''">
+                <xsl:if test="$fw:sitemap-page != ''">
                     <li class="last">
-                        <a href="{portal:createUrl($sitemap-page)}">
+                        <a href="{portal:createUrl($fw:sitemap-page)}">
                             <xsl:value-of select="portal:localize('Sitemap')"/>
                         </a>
                     </li>
@@ -117,11 +121,11 @@
     </xsl:template>
 
     <xsl:template name="pc.userimage">
-        <img src="{if ($user/photo/@exists = 'true') then portal:createImageUrl(concat('user/', $user/@key), 'scalesquare(24);rounded(2)') else portal:createResourceUrl(concat($theme-public, '/images/dummy-user-smallest.png'))}" title="{$user/display-name}" alt="{concat(portal:localize('Image-of'), ' ', $user/display-name)}" class="user-image">
-            <xsl:if test="$login-page">
+        <img src="{if ($fw:user/photo/@exists = 'true') then portal:createImageUrl(concat('user/', $fw:user/@key), 'scalesquare(24);rounded(2)') else portal:createResourceUrl(concat($fw:theme-public, '/images/dummy-user-smallest.png'))}" title="{$fw:user/display-name}" alt="{concat(portal:localize('Image-of'), ' ', $fw:user/display-name)}" class="user-image">
+            <xsl:if test="$fw:login-page">
                 <xsl:attribute name="class">user-image clickable</xsl:attribute>
                 <xsl:attribute name="onclick">
-                    <xsl:value-of select="concat('location.href = &quot;', portal:createPageUrl($login-page/@key, ()), '&quot;;')"/>
+                    <xsl:value-of select="concat('location.href = &quot;', portal:createPageUrl($fw:login-page/@key, ()), '&quot;;')"/>
                 </xsl:attribute>
             </xsl:if>
         </img>
