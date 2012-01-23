@@ -93,22 +93,22 @@
                                 <xsl:with-param name="path" select="$fw:current-resource/path/resource[position() gt 1]" />
                             </xsl:call-template>
                             
-                            <xsl:variable name="prepend">
+                            <!--<xsl:variable name="prepend">
                                 <h1>PREPEND LASSE</h1>
                                 <h2>Fuzz</h2>
                             </xsl:variable>
                             
                             <xsl:variable name="append">
                                 <h1>APPEND LASSE</h1>
-                            </xsl:variable>
+                            </xsl:variable>-->
                             
                             <!-- Renders all regions defined in config.xml -->
                             <xsl:call-template name="fw:region.render">
-                                <xsl:with-param name="layout" select="$layout" as="xs:string"/>
+                                <xsl:with-param name="layout" select="$layout" as="xs:string"/><!--
                                 <xsl:with-param name="region-name" select="'center'"/>
                                 <xsl:with-param name="content-prepend" select="$prepend"/>
                                 
-                                <xsl:with-param name="content-append" select="$append"/>
+                                <xsl:with-param name="content-append" select="$append"/>-->
                             </xsl:call-template>
                             
                         </div>

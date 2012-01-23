@@ -38,7 +38,7 @@
                     <xsl:attribute name="id" select="concat($fw:theme-region-prefix, current()/@name)"/>
                     <xsl:attribute name="class">
                         <xsl:text>region</xsl:text>
-                        <xsl:if test="current()/@class/text()">
+                        <xsl:if test="normalize-space(current()/@class)">
                             <xsl:value-of select="concat(' ', current()/@class)"/>
                         </xsl:if>
                     </xsl:attribute><!--
