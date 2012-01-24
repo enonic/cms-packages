@@ -20,7 +20,7 @@
                     <xsl:choose>
                         <xsl:when
                             test="$path[(show-in-menu = 'true' or (position() = last() and @type = 'menuitem')) and not(@key = $fw:front-page)]">
-                            <a href="{portal:createPageUrl(/result/context/site/front-page/resource/@key, ())}">
+                            <a href="{$fw:front-page}">
                                 <xsl:value-of select="$fw:site-name"/>
                             </a>
                         </xsl:when>

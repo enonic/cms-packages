@@ -170,15 +170,20 @@ header nav ul li.menu-level-3 {
 nav.login {
     float:right;
     width:150px;
-    overflow:hidden;
     height:54px;
+}
+
+nav.login:hover img {
+    background-color:#315781;
+    padding-bottom:11px;
+    border:none;
 }
 
 nav.login img {
     float:left;
     display:block;
-    margin-top:15px;
-    border:1px solid #aaa;
+    margin-top:10px;
+    padding:10px;
 }
 
 nav.login ul {
