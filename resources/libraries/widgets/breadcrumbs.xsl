@@ -20,11 +20,12 @@
                     <xsl:choose>
                         <xsl:when
                             test="$path[(show-in-menu = 'true' or (position() = last() and @type = 'menuitem')) and not(@key = $fw:front-page)]">
-                            <a href="{portal:createPageUrl($fw:front-page, ())}">
+                            <a href="{portal:createPageUrl(/result/context/site/front-page/resource/@key, ())}">
                                 <xsl:value-of select="$fw:site-name"/>
                             </a>
                         </xsl:when>
                         <xsl:otherwise>
+                            <xsl:attribute name="class">current</xsl:attribute>
                             <xsl:value-of select="$fw:site-name"/>
                         </xsl:otherwise>
                     </xsl:choose>
@@ -46,7 +47,7 @@
                         </xsl:choose>
                     </li>
                     <xsl:if test="position() = last() and @key != $fw:current-resource/@key">
-                        <li>
+                        <li class="current">
                             <xsl:value-of select="util:menuitem-name($fw:current-resource)"/>
                         </li>
                     </xsl:if>

@@ -10,6 +10,7 @@ $(function() {
         $('.collapse-ss-description').addClass('show');
     }
     
+    /* Hide/show search form */
     $('#hide-form').click(function() {
         if ($('#bluman-form').is(':visible')) {
             $.cookie('bluman-form', 'hidden');
@@ -20,6 +21,7 @@ $(function() {
         $(this).parent().toggleClass('collapse');
     });
     
+    /* Hide/show background-description */
     $('.collapse-ss-description').click(function() {
         var offset;
         if ($(this).parent().css('right') == '0px') {
@@ -54,8 +56,8 @@ $(function() {
        });
        
        function showDescription(imgKey) {
-           $('.slideshow-description li').hide();
-        $('.slideshow-description li[data-imagekey='+imgKey+']').show();
+            $('.slideshow-description li').hide();
+            $('.slideshow-description li[data-imagekey='+imgKey+']:first').show();
        }
        
 });

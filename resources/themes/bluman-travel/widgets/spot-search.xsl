@@ -7,8 +7,7 @@
     xmlns:portal="http://www.enonic.com/cms/xslt/portal">
  
     <xsl:import href="/libraries/utilities/fw-variables.xsl"/>
-    <xsl:output method="html" omit-xml-declaration="no" doctype-system="about:legacy-compat"/>
-     
+
     <xsl:template match="/">
         <xsl:choose>
             <xsl:when test="/result/context/querystring/parameter[@name = 'ajaxsearch']">
@@ -76,8 +75,9 @@
                     <input id="find-bluman-button" type="submit" class="btn primary" value="Find Bluman"/>
                 </fieldset>
             </form>
-            <!--<a id="find-bluman-button" class="large blue awesome">Find Bluman</a>-->
-            <div id="appendRandomSpotHere"></div>
+            <div id="appendRandomSpotHere">
+                <xsl:comment> // </xsl:comment>
+            </div>
         </div>
         <xsl:if test="$fw:device-class != 'mobile'">
             <div class="collapse-search">

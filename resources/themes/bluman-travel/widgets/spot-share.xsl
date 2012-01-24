@@ -1,7 +1,7 @@
 <xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:portal="http://www.enonic.com/cms/xslt/portal" xmlns:util="enonic:utilities" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-    <xsl:import href="../../../libraries/utilities/standard-variables.xsl"/>
-    <xsl:include href="../../../libraries/utilities/utilities.xsl"/>
+    <xsl:import href="/libraries/utilities/fw-variables.xsl"/>
+    <!--<xsl:include href="/libraries/utilities/utilities.xsl"/>-->
 
     <xsl:output indent="yes" media-type="text/html" method="xhtml" omit-xml-declaration="yes"/>
 
@@ -34,7 +34,7 @@
                 </li>
                 <li class="fblike">
                     <div>
-                        <div class="fb-like" data-href="{$url}" data-send="false" data-layout="button_count" data-width="25" data-show-faces="false"></div>
+                        <div class="fb-like" data-href="{$current-url}" data-send="false" data-layout="button_count" data-width="25" data-show-faces="false"></div>
                         <div id="fb-root"></div>
                         <script>(function(d, s, id) {
                           var js, fjs = d.getElementsByTagName(s)[0];

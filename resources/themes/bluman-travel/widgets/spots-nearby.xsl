@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:util="enonic:utilities" xmlns:portal="http://www.enonic.com/cms/xslt/portal" xmlns:math="http://exslt.org/math" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:fw="http://www.enonic.com/cms/xslt/framework"
+    xmlns:util="http://www.enonic.com/cms/xslt/utilities"
+    xmlns:portal="http://www.enonic.com/cms/xslt/portal">
 
-    <xsl:import href="../../../libraries/utilities/standard-variables.xsl"/>
-    <xsl:include href="../../../libraries/utilities/utilities.xsl"/>
-    <xsl:include href="../../../libraries/utilities/frame.xsl"/>
+    <xsl:import href="/libraries/utilities/fw-variables.xsl"/>
 
     <xsl:output indent="yes" media-type="text/html" method="xhtml" omit-xml-declaration="yes"/>
     
-    <xsl:variable name="context" select="/result/context" />
-    <xsl:variable name="querystring" select="$context/querystring" />
-    <xsl:variable name="resource" select="$context/resource" />
-
     <xsl:template match="/">
         <xsl:choose>
             <!-- Search result -->
-            <xsl:when test="$querystring/parameter[@name='locationKey']">
-                <xsl:variable name="locationKey" select="$querystring/parameter[@name='locationKey']"/>
+            <xsl:when test="$fw:querystring-parameter[@name='locationKey']">
+                <xsl:variable name="locationKey" select="$fw:querystring-parameter[@name='locationKey']"/>
                 <p> You searched for spots in    
                     <xsl:choose>
-                        <xsl:when test="$locationKey and not($resource/path/resource[@key=$locationKey]/display-name='')">
+                        <xsl:when test="$locationKey and not($fw:current-resource/path/resource[@key=$locationKey]/display-name='')">
                             <span class="capitalize">
-                                <xsl:value-of select="$resource/path/resource[@key=$locationKey]/display-name"/>
+                                <xsl:value-of select="$fw:current-resource/path/resource[@key=$locationKey]/display-name"/>
                             </span>
                         </xsl:when>
                         <xsl:otherwise>
-                            <span class="capitalize"><xsl:value-of select="$resource/display-name"/></span>
+                            <span class="capitalize"><xsl:value-of select="$fw:current-resource/display-name"/></span>
                         </xsl:otherwise>
                     </xsl:choose>
-                    <xsl:if test="$querystring/parameter[@name='spottags']">
-                        <xsl:variable name="spottags" select="$querystring/parameter[@name='spottags']"/>
+                    <xsl:if test="$fw:querystring-parameter[@name='spottags']">
+                        <xsl:variable name="spottags" select="$fw:querystring-parameter[@name='spottags']"/>
                         <xsl:text> related to </xsl:text>
                         <xsl:for-each select="/result/tags/contents/content">
                             <xsl:if test="contains($spottags, @key)">
@@ -39,11 +38,11 @@
                 </p>
             </xsl:when>
             <!-- At a country or area -->
-            <xsl:when test="$resource/@type = 'menuitem'">
+            <xsl:when test="$fw:current-resource/@type = 'menuitem'">
                 <h1>
-                    <xsl:value-of select="$resource/display-name" />
+                    <xsl:value-of select="$fw:current-resource/display-name" />
                 </h1>
-                <p>Showing spots near <xsl:value-of select="$resource/display-name" /></p>
+                <p>Showing spots near <xsl:value-of select="$fw:current-resource/display-name" /></p>
                 <ul class="spot nearby list">    
                     <xsl:apply-templates select="/result/spots-nearby/contents/content" mode="spots-nearby"/>
                 </ul>
@@ -56,9 +55,9 @@
     </xsl:template>
     
     <xsl:template match="content" mode="spots-nearby">
-        <xsl:if test="not(current()/@key = /result/context/resource/@key)">
+        <xsl:if test="not(current()/@key = $fw:current-resource/@key)">
             <li class="spot">
-                <xsl:if test="/result/context/resource/@key=current()/@key">
+                <xsl:if test="$fw:current-resource/@key=current()/@key">
                     <xsl:attribute name="class">spot active</xsl:attribute>
                 </xsl:if>
 
@@ -73,7 +72,7 @@
                 </xsl:variable>
                 <a href="{$spotUrl}">
                     <xsl:choose>
-                        <xsl:when test="$device-class = 'mobile'">
+                        <xsl:when test="$fw:device-class = 'mobile'">
                             <img src="{portal:createImageUrl(contentdata/image[1]/image/@key, 'scaleblock(320, 120)')}" height="120" width="320"/>
                         </xsl:when>
                         <xsl:otherwise>

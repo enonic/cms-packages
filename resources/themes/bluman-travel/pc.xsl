@@ -2,9 +2,7 @@
 
     <xsl:template name="pc.body">
         <div id="page">
-            <nav id="accessibility-links">
-                <xsl:call-template name="util:accessibility.links"/>
-            </nav>
+            <xsl:call-template name="util:accessibility.links"/>
             <noscript>
                 <p>
                     <xsl:value-of select="portal:localize('javascript-required')"/>
@@ -125,5 +123,47 @@
                 </xsl:attribute>
             </xsl:if>
         </img>
+    </xsl:template>
+    
+    <xsl:template name="pc.background-images">
+        <xsl:variable name="slideshow-images" select="/result/slideshow-images/contents" />
+        <div class="slideshow">
+            <xsl:for-each select="$slideshow-images/content/contentdata/image/image">
+                <xsl:variable name="image-data" select="$slideshow-images/relatedcontents/content[current()/@key = @key]/contentdata/images/image" />
+                <img src="{portal:createImageUrl(@key, (''), '' , 'jpg' , 40 )}" data-imagekey="{@key}" width="{$image-data/width}" height="{$image-data/height}" />
+            </xsl:for-each>
+        </div>
+        <ul class="slideshow-pager">
+            <xsl:for-each select="$slideshow-images/content/contentdata/image/image">
+                <li>
+                    
+                    <a href="#">
+                        <img src="{portal:createImageUrl(@key, ('scaleblock(45, 45)'))}" height="45" width="45" style="display:block;" />
+                    </a>
+                </li>
+            </xsl:for-each>
+        </ul>
+        <div class="slideshow-description">
+            <img src="{portal:createResourceUrl('/_public/themes/bluman-travel/images/arrow-right-icon-blue.png')}" class="collapse-ss-description" />
+            <ul>
+                <xsl:for-each select="$slideshow-images/content">
+                    
+                    <xsl:for-each select="contentdata/image">
+                        <li data-imagekey="{image/@key}">
+                            <xsl:if test="position() != 1">
+                                <xsl:attribute name="style">
+                                    display:none;
+                                </xsl:attribute>    
+                            </xsl:if>
+                            
+                            "<xsl:value-of select="image_text" />",
+                            <xsl:text> </xsl:text>
+                            <a href="{portal:createContentUrl(../../@key)}"><xsl:value-of select="../../display-name" /></a> 
+                        </li>                                    
+                    </xsl:for-each>
+                    
+                </xsl:for-each>
+            </ul>
+        </div>
     </xsl:template>
 </xsl:stylesheet>

@@ -8,7 +8,6 @@
 ;(function($) {
   $.fn.fullBg = function(){
     var bgImg = $(this);
-    console.log(bgImg.attr('data-imagekey'));
  
     function resizeImg() {
       var imgwidth = bgImg.width();
@@ -24,13 +23,11 @@
       var heightdiff = widthratio * imgheight;
  
       if(heightdiff>winheight) {
-        console.log('Setting heightdiff:' + heightdiff + ' winwidth:' + winwidth);
         bgImg.css({
           width: winwidth+'px',
           height: heightdiff+'px'
         });
       } else {
-        console.log('Setting winheight:' + winheight + ' widthdiff:' + widthdiff);
         bgImg.css({
           width: widthdiff+'px',
           height: winheight+'px'

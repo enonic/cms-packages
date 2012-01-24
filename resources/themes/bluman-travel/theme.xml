@@ -96,7 +96,7 @@
                 <style>/_public/themes/bluman-travel/css/bluman-pc.css</style>
             </styles>
             <scripts>
-                <script>/_public/libraries/js/jquery-1.6.2.min.js</script>
+                <script>/_public/libraries/js/jquery-1.7.1.min.js</script>
                 <script>/_public/libraries/js/jquery.cycle.js</script>
                 <script>/_public/libraries/js/jquery.cookie.js</script>
                 <script>/_public/libraries/js/bootstrap.tabs-1.4.js</script>

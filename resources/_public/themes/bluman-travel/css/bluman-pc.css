@@ -73,7 +73,7 @@ header .logo {
 
 #nav-wrapper {
     height:54px;
-    /*overflow:hidden;*/
+    margin-left:171px;
 }
 
 #nav-wrapper a {
