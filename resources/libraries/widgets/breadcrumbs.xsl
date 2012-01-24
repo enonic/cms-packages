@@ -10,7 +10,7 @@
     
     <xsl:template name="breadcrumbs.print-crumbs">
         <xsl:param name="path" as="element()*"/>
-
+        
         <!-- Breadcrumb trail -->
         <nav id="breadcrumb-trail">
             <xsl:value-of select="concat(portal:localize('You-are-here'), ': ')"/>
@@ -25,6 +25,7 @@
                             </a>
                         </xsl:when>
                         <xsl:otherwise>
+                            <xsl:attribute name="class">current</xsl:attribute>
                             <xsl:value-of select="$fw:site-name"/>
                         </xsl:otherwise>
                     </xsl:choose>
@@ -46,7 +47,7 @@
                         </xsl:choose>
                     </li>
                     <xsl:if test="position() = last() and @key != $fw:current-resource/@key">
-                        <li>
+                        <li class="current">
                             <xsl:value-of select="util:menuitem-name($fw:current-resource)"/>
                         </li>
                     </xsl:if>
@@ -54,5 +55,5 @@
             </ol>
         </nav>
     </xsl:template>
-
+    
 </xsl:stylesheet>
