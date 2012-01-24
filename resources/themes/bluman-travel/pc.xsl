@@ -1,47 +1,43 @@
-<xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:fw="http://www.enonic.com/cms/xslt/framework"
-    xmlns:util="http://www.enonic.com/cms/xslt/utilities"
-    xmlns:portal="http://www.enonic.com/cms/xslt/portal">
+<xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fw="http://www.enonic.com/cms/xslt/framework" xmlns:util="http://www.enonic.com/cms/xslt/utilities" xmlns:portal="http://www.enonic.com/cms/xslt/portal">
 
     <xsl:template name="pc.body">
         <div id="page">
             <nav id="accessibility-links">
                 <xsl:call-template name="util:accessibility.links"/>
             </nav>
-            <noscript><p><xsl:value-of select="portal:localize('javascript-required')"/></p></noscript>
-            <xsl:call-template name="pc.header" />
-            <div id="west" class="transparent">
-                <xsl:call-template name="fw:region.render">
-                    <xsl:with-param name="region-name" select="'west'" />
-                </xsl:call-template>
-            </div>
+            <noscript>
+                <p>
+                    <xsl:value-of select="portal:localize('javascript-required')"/>
+                </p>
+            </noscript>
+            <xsl:call-template name="pc.header"/>
+            <xsl:call-template name="fw:region.render">
+                <xsl:with-param name="region-name" select="'west'"/>
+            </xsl:call-template>
             <div class="container">
-                    <div class="center-wrapper">
-                        <article id="center">
-                            <xsl:call-template name="fw:region.render">
-                                <xsl:with-param name="region-name" select="'center'" />
-                            </xsl:call-template>
-                        </article>
+                <div class="center-wrapper">
+                    <xsl:variable name="mobile-version">
                         <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'mobile', 'lifetime', 'session'))}" class="change-device">
                             <img src="{portal:createResourceUrl('/_public/themes/bluman-travel/images/icon-mobile.png')}" alt="{portal:localize('Change-to-mobile-version')}"/>
                             <xsl:value-of select="portal:localize('Change-to-mobile-version')"/>
                         </a>
-                    </div>
-                <!--<xsl:if test="portal:isWindowEmpty( /result/context/page/regions/region[ name = 'east' ]/windows/window/@key, ('_config-region-width', 180) ) = false()">-->
+                    </xsl:variable>
+                    <xsl:call-template name="fw:region.render">
+                        <xsl:with-param name="region-name" select="'center'"/>
+                        <xsl:with-param name="content-append" select="$mobile-version" />
+                    </xsl:call-template>
+                    
+                </div>
+                <xsl:if test="portal:isWindowEmpty( /result/context/page/regions/region[ name = 'east' ]/windows/window/@key )">
                     <div id="east">
                         <xsl:call-template name="fw:region.render">
-                            <xsl:with-param name="region-name" select="'east'" />
-                            <!--<xsl:with-param name="parameters" as="xs:anyAtomicType*">
-                                <xsl:sequence select="'_config-region-width', xs:integer(180)"/>
-                            </xsl:with-param>-->
+                            <xsl:with-param name="region-name" select="'east'"/>
                         </xsl:call-template>
                     </div>
-                <!--</xsl:if>-->
+                </xsl:if>
             </div>
         </div>
-        
+
     </xsl:template>
 
     <!-- Header template -->
@@ -56,19 +52,19 @@
                     <xsl:call-template name="menu.render">
                         <xsl:with-param name="menuitems" select="/result/menu/menus/menu/menuitems"/>
                         <xsl:with-param name="levels" select="3"/>
-                        <xsl:with-param name="list-class" select="'mainmenu'" />
+                        <xsl:with-param name="list-class" select="'mainmenu'"/>
                     </xsl:call-template>
                 </nav>
                 <xsl:if test="$fw:user or $fw:login-page">
                     <nav accesskey="l" class="login" role="navigation">
-                        <xsl:call-template name="pc.userimage" />
-                        <xsl:call-template name="pc.userinfo" />
+                        <xsl:call-template name="pc.userimage"/>
+                        <xsl:call-template name="pc.userinfo"/>
                     </nav>
                 </xsl:if>
             </div>
             <nav class="breadcrumbs transparent">
                 <xsl:call-template name="breadcrumbs.print-crumbs">
-                    <xsl:with-param name="path" select="/result/menu/menus/menu/menuitems/menuitem[@path = 'true']" />
+                    <xsl:with-param name="path" select="/result/menu/menus/menu/menuitems/menuitem[@path = 'true']"/>
                 </xsl:call-template>
             </nav>
         </header>
@@ -95,7 +91,7 @@
                             </xsl:choose>
                         </li>
                         <li class="last">
-                            <a href="{portal:createServicesUrl('user', 'logout')}" >
+                            <a href="{portal:createServicesUrl('user', 'logout')}">
                                 <xsl:value-of select="portal:localize('Logout')"/>
                             </a>
                         </li>

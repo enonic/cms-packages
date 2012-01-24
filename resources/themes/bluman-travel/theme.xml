@@ -18,7 +18,7 @@
                     </region>
                 </area>
                 <area width="950">
-                    <region name="west" element="nav" role="navigation">
+                    <region name="west" element="nav" role="navigation" class="transparent">
                         <width>150</width>
                         <padding>
                             <top>10</top>

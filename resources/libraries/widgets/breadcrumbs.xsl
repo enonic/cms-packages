@@ -35,6 +35,7 @@
                         <xsl:choose>
                             <xsl:when
                                 test="type = 'label' or type = 'section' or (position() = last() and @key = $fw:current-resource/@key)">
+                                <xsl:attribute name="class">current</xsl:attribute>
                                 <xsl:value-of select="util:menuitem-name(.)"/>
                             </xsl:when>
                             <xsl:otherwise>

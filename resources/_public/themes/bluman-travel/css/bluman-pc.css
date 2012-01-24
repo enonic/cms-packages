@@ -106,8 +106,6 @@ header nav ul li {
 
 header nav ul li:hover {
     background-color:#315781;
-    /*border-right:1px solid #fff;
-    border-left:1px solid #fff;*/
 }
 
 header nav > ul > li.parent:hover {
@@ -201,11 +199,31 @@ nav.login ul li {
     float:none;
 }
 
-nav.breadcrumbs {
+.breadcrumbs {
     margin-left:171px;
     margin-top:1px;
     padding:8px 0 0 30px;
     height:23px;
+}
+
+.breadcrumbs ol {
+    list-style:none;
+    display:inline;
+    padding:0;
+    margin:0;
+}
+
+.breadcrumbs li {
+    display:inline;
+    color:#fff;
+}
+
+.breadcrumbs li:not(.current):after {
+    content: '/';
+}
+
+.breadcrumbs li a {
+    padding-right:8px;
 }
 
 
@@ -218,7 +236,7 @@ nav.breadcrumbs {
 }
 
 .container {
-    margin:175px 0 0 400px !important;
+    margin:175px 0 40px 400px !important;
     width:725px;
     position:relative;
 }

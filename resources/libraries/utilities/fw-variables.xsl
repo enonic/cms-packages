@@ -26,7 +26,8 @@
     
     <!-- ########## Configuration variables ########## -->
     
-    <xsl:variable name="fw:config" as="element()?" select="if (doc-available(concat(/result/context/site/path-to-home-resources, '/site.xml'))) then document(concat(/result/context/site/path-to-home-resources, '/site.xml'))/config else null"/>
+    <xsl:variable name="fw:config-home" as="xs:string" select="/result/context/site/path-to-home-resources" />
+    <xsl:variable name="fw:config" as="element()?" select="if (doc-available(concat($fw:config-home, '/site.xml'))) then document(concat($fw:config-home, '/site.xml'))/config else null"/>
     <xsl:variable name="fw:config-parameter" as="element()*" select="$fw:config/parameters/parameter"/>
     <xsl:variable name="fw:config-theme" as="xs:string?" select="$fw:config/theme"/>
     
