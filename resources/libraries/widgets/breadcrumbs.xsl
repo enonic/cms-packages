@@ -10,9 +10,15 @@
     
     <xsl:template name="breadcrumbs.print-crumbs">
         <xsl:param name="path" as="element()*"/>
+        <xsl:param name="class" as="xs:string" />
         
         <!-- Breadcrumb trail -->
-        <nav id="breadcrumb-trail">
+        <nav class="breadcrumbs">
+            <xsl:if test="normalize-space($class)">
+                <xsl:attribute name="class">
+                    <xsl:value-of select="concat('breadcrumbs ', normalize-space($class))" />
+                </xsl:attribute>
+            </xsl:if>
             <xsl:value-of select="concat(portal:localize('You-are-here'), ': ')"/>
             <!-- Always start with front page -->
             <ol>
@@ -20,7 +26,7 @@
                     <xsl:choose>
                         <xsl:when
                             test="$path[(show-in-menu = 'true' or (position() = last() and @type = 'menuitem')) and not(@key = $fw:front-page)]">
-                            <a href="{portal:createPageUrl($fw:front-page, ())}">
+                            <a href="{$fw:front-page}">
                                 <xsl:value-of select="$fw:site-name"/>
                             </a>
                         </xsl:when>
