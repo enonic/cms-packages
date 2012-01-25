@@ -112,6 +112,9 @@
                         <xsl:with-param name="error-operation" select="'setgroups'"/>
                      </xsl:call-template>
                      <form action="{portal:createServicesUrl('user', 'setgroups', portal:createPageUrl(portal:getPageKey(), ('success', 'setgroups')), ())}" method="post">
+                        <xsl:if test="$fw:device-class = 'mobile'">
+                           <xsl:attribute name="class">form-stacked</xsl:attribute>
+                        </xsl:if>
                         <fieldset>
                            <legend>
                               <xsl:value-of select="portal:localize('Groups')"/>
@@ -139,19 +142,13 @@
                </xsl:if>
                <!-- Change password -->
                <div id="passport-tabs-changepwd">
-                  <!--<script type="text/javascript">
-                     <xsl:comment>
-                        $(function() {
-                           $('#passport-changepwd-newpassword2').rules('add', {
-                              equalTo: '#passport-changepwd-newpassword1'
-                           });
-                        });
-                     //</xsl:comment>
-                  </script>-->
                   <xsl:call-template name="passport.user-feedback">
                      <xsl:with-param name="error-operation" select="'changepwd'"/>
                   </xsl:call-template>
                   <form action="{portal:createServicesUrl('user', 'changepwd', portal:createPageUrl(portal:getPageKey(), ('success', 'changepwd')), ())}" method="post">
+                     <xsl:if test="$fw:device-class = 'mobile'">
+                        <xsl:attribute name="class">form-stacked</xsl:attribute>
+                     </xsl:if>
                      <fieldset>
                         <legend>
                            <xsl:value-of select="portal:localize('Change-password')"/>
@@ -200,6 +197,9 @@
                      <xsl:with-param name="success-operation" select="'create', 'resetpwd'"/>
                   </xsl:call-template>
                   <form action="{portal:createServicesUrl('user', 'login')}" method="post">
+                     <xsl:if test="$fw:device-class = 'mobile'">
+                        <xsl:attribute name="class">form-stacked</xsl:attribute>
+                     </xsl:if>
                      <fieldset>
                         <legend>
                            <xsl:value-of select="portal:localize('Login')"/>
@@ -282,6 +282,9 @@
                      <xsl:with-param name="success-operation" select="''"/>
                   </xsl:call-template>
                   <form action="{portal:createServicesUrl('user', 'resetpwd', portal:createPageUrl(portal:getPageKey(), ('success', 'resetpwd')), ())}" method="post" id="passport-resetpwd-form">
+                     <xsl:if test="$fw:device-class = 'mobile'">
+                        <xsl:attribute name="class">form-stacked</xsl:attribute>
+                     </xsl:if>
                      <fieldset>
                         <legend>
                            <xsl:value-of select="portal:localize('Forgot-your-password')"/>
@@ -380,6 +383,9 @@
          //</xsl:comment>
       </script>
       <form action="{portal:createServicesUrl('user', $operation, portal:createPageUrl(portal:getPageKey(), ('success', $operation)), ())}" id="passport-user-form" method="post" enctype="multipart/form-data">
+         <xsl:if test="$fw:device-class = 'mobile'">
+            <xsl:attribute name="class">form-stacked</xsl:attribute>
+         </xsl:if>
          <fieldset>
             <legend>
                <xsl:value-of select="portal:localize('User')"/>
@@ -1372,12 +1378,14 @@
                <legend>
                   <xsl:value-of select="portal:localize('Validation')"/>
                </legend>
-               <div class="input clearfix">
-                  <img src="{portal:createCaptchaImageUrl()}" alt="{portal:localize('Captcha-image')}" class="clear" id="passport-create-captcha-image" />
-                  <br />
-                  <a href="#" onclick="reloadCaptcha('passport-create-captcha-image');return false;" class="clear">
-                     <xsl:value-of select="portal:localize('New-image')"/>
-                  </a>
+               <div class="clearfix">
+                  <div class="input">
+                     <img src="{portal:createCaptchaImageUrl()}" alt="{portal:localize('Captcha-image')}" class="clear" id="passport-create-captcha-image" />
+                     <br />
+                     <a href="#" onclick="reloadCaptcha('passport-create-captcha-image');return false;" class="clear">
+                        <xsl:value-of select="portal:localize('New-image')"/>
+                     </a>
+                  </div>
                </div>
                
                <div class="clearfix">

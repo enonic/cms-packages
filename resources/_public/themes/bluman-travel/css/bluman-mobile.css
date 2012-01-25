@@ -34,6 +34,11 @@ h1, p, h3, h4 {
     margin-right: 5px;
 }
 
+.change-device {
+    padding:10px;
+    display:block;
+}
+
 /* header */
 
 header {

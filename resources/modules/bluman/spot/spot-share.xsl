@@ -46,17 +46,6 @@
                     </div>
                 </li>
             </ul>
-        
-        <script type="text/javascript">
-            $('.share-bar.vertical li').hoverIntent(function() {
-                $(this).animate({width:"110px", marginLeft:"-110px"}, 500, function() {
-                    $(this).css('overflow', 'visible');
-                });
-            }, function() {
-                $(this).css('overflow', 'hidden');
-                $(this).animate({width:0, marginLeft:0}, 500);
-            });
-        </script>
     </xsl:template>
 
 </xsl:stylesheet>

@@ -22,21 +22,20 @@
                     </xsl:variable>
                     <xsl:call-template name="fw:region.render">
                         <xsl:with-param name="region-name" select="'center'"/>
-                        <xsl:with-param name="content-append" select="$mobile-version" />
+                        <xsl:with-param name="content-append" select="$mobile-version"/>
                     </xsl:call-template>
-                    
+
                 </div>
-                <xsl:if test="portal:isWindowEmpty( /result/context/page/regions/region[ name = 'east' ]/windows/window/@key )">
-                    <div id="east">
-                        <xsl:call-template name="fw:region.render">
-                            <xsl:with-param name="region-name" select="'east'"/>
-                        </xsl:call-template>
-                    </div>
-                </xsl:if>
+            <xsl:if test="portal:isWindowEmpty( /result/context/page/regions/region[ name = 'east' ]/windows/window/@key ) = false()">
+                <xsl:call-template name="fw:region.render">
+                    <xsl:with-param name="region-name" select="'east'"/>
+                </xsl:call-template>
+            </xsl:if>
             </div>
         </div>
 
     </xsl:template>
+
 
     <!-- Header template -->
     <!-- Put your static header XSL/HTML here -->
@@ -60,13 +59,13 @@
                     </nav>
                 </xsl:if>
             </div>
-            <nav class="breadcrumbs transparent">
-                <xsl:call-template name="breadcrumbs.print-crumbs">
-                    <xsl:with-param name="path" select="/result/menu/menus/menu/menuitems/menuitem[@path = 'true']"/>
-                </xsl:call-template>
-            </nav>
+            <xsl:call-template name="breadcrumbs.print-crumbs">
+                <xsl:with-param name="path" select="/result/menu/menus/menu/menuitems/menuitem[@path = 'true']"/>
+                <xsl:with-param name="class" select="'transparent'" />
+            </xsl:call-template>            
         </header>
     </xsl:template>
+
 
     <xsl:template name="pc.userinfo">
         <xsl:if test="$fw:user or $fw:login-page or $fw:sitemap-page != ''">
@@ -114,6 +113,7 @@
         </xsl:if>
     </xsl:template>
 
+
     <xsl:template name="pc.userimage">
         <img src="{if ($fw:user/photo/@exists = 'true') then portal:createImageUrl(concat('user/', $fw:user/@key), 'scalesquare(24);rounded(2)') else portal:createResourceUrl(concat($fw:theme-public, '/images/dummy-user-smallest.png'))}" title="{$fw:user/display-name}" alt="{concat(portal:localize('Image-of'), ' ', $fw:user/display-name)}" class="user-image">
             <xsl:if test="$fw:login-page">
@@ -124,44 +124,44 @@
             </xsl:if>
         </img>
     </xsl:template>
-    
+
+
     <xsl:template name="pc.background-images">
-        <xsl:variable name="slideshow-images" select="/result/slideshow-images/contents" />
+        <xsl:variable name="slideshow-images" select="/result/slideshow-images/contents"/>
         <div class="slideshow">
             <xsl:for-each select="$slideshow-images/content/contentdata/image/image">
-                <xsl:variable name="image-data" select="$slideshow-images/relatedcontents/content[current()/@key = @key]/contentdata/images/image" />
-                <img src="{portal:createImageUrl(@key, (''), '' , 'jpg' , 40 )}" data-imagekey="{@key}" width="{$image-data/width}" height="{$image-data/height}" />
+                <xsl:variable name="image-data" select="$slideshow-images/relatedcontents/content[current()/@key = @key]/contentdata/images/image"/>
+                <img src="{portal:createImageUrl(@key, (''), '' , 'jpg' , 40 )}" data-imagekey="{@key}" width="{$image-data/width}" height="{$image-data/height}"/>
             </xsl:for-each>
         </div>
         <ul class="slideshow-pager">
             <xsl:for-each select="$slideshow-images/content/contentdata/image/image">
                 <li>
-                    
+
                     <a href="#">
-                        <img src="{portal:createImageUrl(@key, ('scaleblock(45, 45)'))}" height="45" width="45" style="display:block;" />
+                        <img src="{portal:createImageUrl(@key, ('scaleblock(45, 45)'))}" height="45" width="45" style="display:block;"/>
                     </a>
                 </li>
             </xsl:for-each>
         </ul>
         <div class="slideshow-description">
-            <img src="{portal:createResourceUrl('/_public/themes/bluman-travel/images/arrow-right-icon-blue.png')}" class="collapse-ss-description" />
+            <img src="{portal:createResourceUrl('/_public/themes/bluman-travel/images/arrow-right-icon-blue.png')}" class="collapse-ss-description"/>
             <ul>
                 <xsl:for-each select="$slideshow-images/content">
-                    
+
                     <xsl:for-each select="contentdata/image">
+                        <xsl:variable name="spot-name" select="../../display-name"/>
+                        <xsl:variable name="joint-string" select="concat(image_text, ../../display-name)"/>
                         <li data-imagekey="{image/@key}">
                             <xsl:if test="position() != 1">
-                                <xsl:attribute name="style">
-                                    display:none;
-                                </xsl:attribute>    
-                            </xsl:if>
-                            
-                            "<xsl:value-of select="image_text" />",
-                            <xsl:text> </xsl:text>
-                            <a href="{portal:createContentUrl(../../@key)}"><xsl:value-of select="../../display-name" /></a> 
-                        </li>                                    
+                                <xsl:attribute name="style"> display:none; </xsl:attribute>
+                            </xsl:if> "<xsl:value-of select="image_text"/>", <xsl:text> </xsl:text>
+                            <a href="{portal:createContentUrl(../../@key)}">
+                                <xsl:value-of select="if (string-length($joint-string) > 40) then concat(substring(../../display-name, 0, 15), '...') else ../../display-name"/>
+                            </a>
+                        </li>
                     </xsl:for-each>
-                    
+
                 </xsl:for-each>
             </ul>
         </div>

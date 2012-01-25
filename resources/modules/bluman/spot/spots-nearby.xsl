@@ -49,7 +49,10 @@
             </xsl:when>
             <!-- At a spot -->
             <xsl:when test="count(/result/spots-nearby/contents/content) gt 1">
-                    <h4>Spots nearby</h4>
+                <h4>Spots nearby</h4>
+                <ul class="spot nearby list">    
+                    <xsl:apply-templates select="/result/spots-nearby/contents/content" mode="spots-nearby"/>
+                </ul>
             </xsl:when>
         </xsl:choose>
     </xsl:template>

@@ -178,6 +178,7 @@
             <scripts>
                 <script>/_public/libraries/js/jquery-1.6.2.min.js</script>
                 <script>/_public/libraries/js/swipe.js</script>
+                <script>/_public/libraries/js/bootstrap.tabs-1.4.js</script>
                 <script>/_public/themes/bluman-travel/js/bluman-mobile.js</script>
             </scripts>
         </device-class>

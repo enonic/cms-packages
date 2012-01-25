@@ -13,6 +13,10 @@ a {
     color:#315781;
 }
 
+a img {
+    cursor:pointer;
+}
+
 h1,h2,h3,h4,h5,h6 {
     font-weight:normal;
 }
@@ -23,6 +27,10 @@ h1,h2,h3,h4,h5,h6 {
 
 .no-show {
     display:none;
+}
+
+.capitalize {
+    text-transform:capitalize;
 }
 
 .change-device img {
@@ -175,14 +183,14 @@ nav.login {
 
 nav.login:hover img {
     background-color:#315781;
-    padding-bottom:11px;
+    padding-bottom:16px;
     border:none;
 }
 
 nav.login img {
     float:left;
     display:block;
-    margin-top:10px;
+    margin-top:5px;
     padding:10px;
 }
 
