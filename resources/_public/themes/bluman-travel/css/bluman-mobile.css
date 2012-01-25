@@ -28,15 +28,10 @@ h1, p, h3, h4 {
     text-transform:capitalize;
 }
 
-.change-device img {
-    display: block;
-    float: left;
-    margin-right: 5px;
-}
-
 .change-device {
-    padding:10px;
+    padding:10px 0 10px 20px;
     display:block;
+    background:url('../images/icon-pc.png') left center no-repeat;
 }
 
 /* header */
@@ -181,9 +176,10 @@ nav ul li > ul {
     background-color:rgba(0, 0, 0, 0.5);
     color:#fff;
     display:block;
-    width:320px;
+    width:310px;
     position:absolute;
     bottom:0;
+    padding:5px;
 }
 
 
@@ -220,6 +216,7 @@ nav ul li > ul {
 /* */ 
 #slider {
     margin-top:-10px;
+    width:320px;
 }
 
 #slider .position {

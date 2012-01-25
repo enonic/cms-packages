@@ -16,7 +16,6 @@
                 <div class="center-wrapper">
                     <xsl:variable name="mobile-version">
                         <a href="{portal:createServicesUrl('portal','forceDeviceClass', ('deviceclass', 'mobile', 'lifetime', 'session'))}" class="change-device">
-                            <img src="{portal:createResourceUrl('/_public/themes/bluman-travel/images/icon-mobile.png')}" alt="{portal:localize('Change-to-mobile-version')}"/>
                             <xsl:value-of select="portal:localize('Change-to-mobile-version')"/>
                         </a>
                     </xsl:variable>

@@ -33,10 +33,10 @@ h1,h2,h3,h4,h5,h6 {
     text-transform:capitalize;
 }
 
-.change-device img {
-    display: block;
-    float: left;
-    margin-right: 5px;
+.change-device {
+    padding:10px 0 10px 20px;
+    display:block;
+    background:url('../images/icon-mobile.png') left center no-repeat;
 }
 
 #page {
@@ -146,11 +146,11 @@ header nav ul li:hover ul {
 
 header nav ul ul li {
     float:left;
-    width:25%;
+    width:20%;
     padding:0;
 }
 
-header nav ul ul li:nth-child(5n) {
+header nav ul ul li:nth-child(6n) {
     clear:left;
 }
 
@@ -179,6 +179,7 @@ nav.login {
     float:right;
     width:150px;
     height:54px;
+    margin-right:10px;
 }
 
 nav.login:hover img {
@@ -188,7 +189,7 @@ nav.login:hover img {
 }
 
 nav.login img {
-    float:left;
+    float:right;
     display:block;
     margin-top:5px;
     padding:10px;
@@ -201,6 +202,7 @@ nav.login ul {
     background-color:#315781;
     top:85px;
     display:none;
+    margin-right:10px;
 }
 
 

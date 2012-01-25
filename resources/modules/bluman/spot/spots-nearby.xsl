@@ -59,20 +59,21 @@
     
     <xsl:template match="content" mode="spots-nearby">
         <xsl:if test="not(current()/@key = $fw:current-resource/@key)">
+            <xsl:variable name="spottags" select="$fw:querystring-parameter[@name='spottags']"/>
+            <xsl:variable name="locationKey" select="$fw:querystring-parameter[@name='locationKey']"/>
+            <xsl:variable name="spotUrl">
+                <xsl:value-of select="portal:createContentUrl(@key,('locationKey', $locationKey))"/>
+                <xsl:if test="$locationKey and string-length($spottags)>0">
+                    <xsl:text>&amp;spottags=</xsl:text>
+                    <xsl:value-of select="$spottags"/>
+                </xsl:if>
+            </xsl:variable>
+            
             <li class="spot">
                 <xsl:if test="$fw:current-resource/@key=current()/@key">
                     <xsl:attribute name="class">spot active</xsl:attribute>
                 </xsl:if>
 
-                <xsl:variable name="spottags" select="/result/context/querystring/parameter[@name='spottags']"/>
-                <xsl:variable name="locationKey" select="/result/context/querystring/parameter[@name='locationKey']"/>
-                <xsl:variable name="spotUrl">
-                    <xsl:value-of select="portal:createContentUrl(@key,('locationKey', $locationKey))"/>
-                    <xsl:if test="$locationKey and string-length($spottags)>0">
-                        <xsl:text>&amp;spottags=</xsl:text>
-                        <xsl:value-of select="$spottags"/>
-                    </xsl:if>
-                </xsl:variable>
                 <a href="{$spotUrl}">
                     <xsl:choose>
                         <xsl:when test="$fw:device-class = 'mobile'">
