@@ -63,8 +63,7 @@
     
     <!-- PC template -->
     <!-- Basic template for a page, outputs standard HTML-tags, metadata and all scripts, css and regions defined in the config.xml -->
-    <xsl:template name="pc"><!--
-        <html dir="ltr" lang="{$fw:language}" xml:lang="{$fw:language}">-->
+    <xsl:template name="pc">
         <html>
             <head>
                 <meta charset="UTF-8"/>
@@ -112,7 +111,7 @@
     <!-- MOBILE template -->
     <!-- Basic template for a page, outputs standard HTML-tags, metadata and all scripts, css and regions defined in the theme.xml -->
     <xsl:template name="mobile">
-        <html lang="{$fw:language}" xml:lang="{$fw:language}">
+        <html>
             <head>
                 <title>
                     <xsl:value-of select="util:menuitem-name($fw:current-resource)"/>
@@ -160,7 +159,7 @@
                             </fieldset>
                         </form>
                     </xsl:if>
-                    <div id="middle-container" class="clear clearfix">
+                    <div id="middle-container">
                         <xsl:call-template name="fw:region.render"/>
                     </div>
                 </div>

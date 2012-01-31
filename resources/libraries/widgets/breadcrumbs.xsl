@@ -10,7 +10,7 @@
     
     <xsl:template name="breadcrumbs.print-crumbs">
         <xsl:param name="path" as="element()*"/>
-        <xsl:param name="class" as="xs:string" />
+        <xsl:param name="class" as="xs:string" select="''" />
 
         <!-- Breadcrumb trail -->
         <nav class="breadcrumbs">

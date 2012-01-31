@@ -212,8 +212,19 @@ nav ul li > ul {
     font-weight:normal;
     display:block;
 }
+/* share bar */
+.share-bar {
+    margin:0;
+    padding:0;
+}
 
-/* */ 
+.share-bar li {
+    list-style:none;
+    padding:5px;
+    float:left;
+}
+
+/* image slider */ 
 #slider {
     margin-top:-10px;
     width:320px;

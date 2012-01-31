@@ -1,3 +1,4 @@
+/* Display/hide stuff */
 $(function () {
     /* Remember blueman-form state */
     if ($.cookie('bluman-form') != 'hidden') {
@@ -80,4 +81,9 @@ $(function () {
         },
         500);
     });
+});
+
+/* Improved selectboxes */
+$(function() {
+    $('#bluman-form select').chosen();
 });

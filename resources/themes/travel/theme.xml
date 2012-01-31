@@ -23,7 +23,7 @@
                             <right>10</right>
                         </margin>
                     </region>
-                    <region name="center">
+                    <region name="center" element="section" class="">
                         <padding>
                             <right>30</right>
                             <left>30</left>
