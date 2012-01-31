@@ -1,0 +1,41 @@
+<contenttype>
+    <config name="Spot" version="1.0">
+        <form>
+            <title name="spot" />
+            <block name="Spot">
+                <input name="spot" required="true" type="text">
+                    <display>Spot</display>
+                    <xpath>contentdata/spot</xpath>
+                </input>
+                <input name="intro" required="true" type="text">
+                    <display>Intro</display>
+                    <xpath>contentdata/intro</xpath>
+                </input>
+                <input config="lightwithtable" mode="xhtml|cdata" name="description" required="true" type="htmlarea">
+                    <display>Description</display>
+                    <xpath>contentdata/description</xpath>
+                </input>
+            </block>
+            <block group="contentdata/image" name="Images">
+                <input multiple="true" name="image" required="true" type="image">
+                    <display>Image</display>
+                    <xpath>image</xpath>
+                </input>
+                <input name="image_text" required="true" type="text">
+                    <display>Image text</display>
+                    <xpath>image_text</xpath>
+                </input>
+            </block>
+            <block name="Tags">
+                <input name="tags" type="text">
+                    <display>Tags</display>
+                    <xpath>contentdata/tags</xpath>
+                    <help>Comma separated list of tags</help>
+                </input>
+            </block>
+        </form>
+    </config>
+    <indexparameters>
+        <index name="tags" xpath="contentdata/tags/content/@key" />
+    </indexparameters>
+</contenttype>
