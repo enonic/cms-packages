@@ -1,5 +1,5 @@
 <config>
-    <theme>theme-bluman</theme>
+    <theme>theme-enonic-travels</theme>
     <parameters>
         <parameter path="/" name="front-page" >/</parameter>
         <parameter path="/" name="search-result">/search-result</parameter>

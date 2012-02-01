@@ -1,0 +1,188 @@
+<theme>
+    <region-prefix/>
+    <accessibility>
+        <access-key key="m" text="accessibility-text-main-menu" anchor="menu-main" />
+        <access-key key="s" text="accessibility-text-sub-menu" anchor="menu-sub" />
+        <access-key key="c" text="accessibility-text-center" anchor="center" />
+        <access-key key="a" text="accessibility-menu" anchor="accessibility-menu" />
+    </accessibility>
+    <device-classes>
+        <device-class name="pc,unknown">
+            <layout name="default">
+                <area width="950">
+                    <region name="north">
+                        <width>950</width>
+                        <margin>
+                            <bottom>50</bottom>
+                        </margin>
+                    </region>
+                </area>
+                <area width="950">
+                    <region name="west" element="nav" role="navigation" class="transparent">
+                        <width>150</width>
+                        <padding>
+                            <top>10</top>
+                            <right>10</right>
+                            <bottom>0</bottom>
+                            <left>10</left>
+                        </padding>
+                    </region>
+                    <region name="center" element="article" role="main">
+                        <width>500</width>
+                        <padding>
+                            <left>20</left>
+                            <right>20</right>
+                            <top>20</top>
+                            <bottom>20</bottom>
+                        </padding>
+                    </region>
+                    <region name="east" element="aside">
+                        <width>155</width>
+                        <left>10</left>
+                        <right>10</right>
+                        <top>10</top>
+                        <bottom>10</bottom>
+                    </region>
+                </area>
+                <area width="950">
+                    <region name="south" element="nav">
+                       <width>950</width>
+                        <padding>
+                            <top>15</top>
+                            <right>15</right>
+                            <bottom>15</bottom>
+                            <left>15</left>
+                        </padding>
+                        <margin>
+                            <top>50</top>
+                            <left>20</left>
+                        </margin>
+                    </region>
+                </area>
+            </layout>
+            <image>
+                <format>jpeg</format>
+                <quality>70</quality>
+                <sizes>
+                    <size name="full">
+                        <filter>scalewidth</filter>
+                        <width>1</width>
+                    </size>
+                    <size name="wide">
+                        <filter>scalewide</filter>
+                        <width>1</width>
+                        <height>0.4</height>
+                    </size>
+                    <size name="regular">
+                        <filter>scalewidth</filter>
+                        <width>0.4</width>
+                    </size>
+                    <size name="list">
+                        <filter>scalewidth</filter>
+                        <width>0.3</width>
+                    </size>
+                    <size name="square">
+                        <filter>scalesquare</filter>
+                        <size>0.4</size>
+                    </size>
+                    <size name="thumbnail">
+                        <filter>scalesquare</filter>
+                        <size>0.1</size>
+                    </size>
+                </sizes>
+            </image>
+            <styles>
+                <style>/_public/theme-bluman/css/bootstrap-1.4.min.css</style>
+                <style>/_public/theme-bluman/css/chosen.css</style>
+                <style>/_public/theme-bluman/css/bluman-pc.css</style>
+            </styles>
+            <scripts>
+                <script>/_public/theme-bluman/js/jquery-1.7.1.min.js</script>
+                <script>/_public/theme-bluman/js/jquery.cycle.js</script>
+                <script>/_public/theme-bluman/js/jquery.cookie.js</script>
+                <script>/_public/theme-bluman/js/bootstrap.tabs-1.4.js</script>
+                <script>/_public/theme-bluman/js/jquery.fullbg-1.0.js</script>
+                <script>/_public/theme-bluman/js/jquery.hoverIntent.js</script>
+                <script>/_public/theme-bluman/js/chosen.jquery.min.js</script>
+                <script>/_public/theme-bluman/js/bluman-pc.js</script>
+                <script>/_public/theme-bluman/js/jquery.animate-enhanced.min.js</script>
+            </scripts>
+        </device-class>
+        <device-class name="mobile">
+            <layout name="default">
+                <area width="320">
+                    <regions>
+                        <region name="north" element="nav">
+                            <width>296</width>
+                            <padding>
+                                <left>12</left>
+                                <right>12</right>
+                                <top>12</top>
+                                <bottom>12</bottom>
+                            </padding>
+                        </region>
+                       <region name="west" element="section">
+                            <width>320</width>
+                        </region>
+                        <region name="center" element="article">
+                            <width>320</width>
+                        </region>
+                        <region name="east" element="section">
+                            <width>320</width>
+                        </region>
+                        <region name="south">
+                            <width>310</width>
+                            <padding>
+                                <left>12</left>
+                                <right>12</right>
+                                <top>12</top>
+                                <bottom>12</bottom>
+                            </padding>
+                        </region>
+                    </regions>
+                </area>
+            </layout>
+            <image>
+                <format>jpeg</format>
+                <quality>70</quality>
+                <sizes>
+                    <size name="full">
+                        <filter>scalewidth</filter>
+                        <width>1</width>
+                    </size>
+                    <size name="wide">
+                        <filter>scalewide</filter>
+                        <width>1</width>
+                        <height>0.4</height>
+                    </size>
+                    <size name="regular">
+                        <filter>scalewidth</filter>
+                        <width>0.4</width>
+                    </size>
+                    <size name="list">
+                        <filter>scalewidth</filter>
+                        <width>0.3</width>
+                    </size>
+                    <size name="square">
+                        <filter>scalesquare</filter>
+                        <size>0.4</size>
+                    </size>
+                    <size name="thumbnail">
+                        <filter>scalesquare</filter>
+                        <size>0.1</size>
+                    </size>
+                </sizes>
+            </image>
+            <styles>
+                <style>/_public/theme-bluman/css/bootstrap-1.4.min.css</style>
+                <style>/_public/theme-bluman/css/bluman-mobile.css</style>
+            </styles>
+            <scripts>
+                <script>/_public/theme-bluman/js/jquery-1.6.2.min.js</script>
+                <script>/_public/theme-bluman/js/swipe.js</script>
+                <script>/_public/theme-bluman/js/bootstrap.tabs-1.4.js</script>
+                <script>/_public/theme-bluman/js/bluman-mobile.js</script>
+            </scripts>
+        </device-class>
+    </device-classes>
+</theme>

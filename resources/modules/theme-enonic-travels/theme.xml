@@ -1,0 +1,228 @@
+<theme>
+    <region-prefix/>
+    <accessibility>
+        <access-key key="m" text="util.accessibility.main-menu" anchor="menu-main" />
+        <access-key key="s" text="util.accessibility.sub-menu" anchor="menu-sub" />
+        <access-key key="c" text="util.accessibility.center" anchor="center" />
+    </accessibility>
+    <device-classes>
+        <device-class name="pc,unknown">
+            <layout name="default">
+                <area width="950">
+                    <region name="north">
+                        <width>950</width>
+                        <margin>
+                            <bottom>10</bottom>
+                        </margin>
+                    </region>
+                </area>
+                <area width="950">
+                    <region name="west">
+                        <width>180</width>
+                        <margin>
+                            <right>10</right>
+                        </margin>
+                    </region>
+                    <region name="center" element="section" class="">
+                        <padding>
+                            <right>30</right>
+                            <left>30</left>
+                            <top>30</top>
+                            <bottom>30</bottom>
+                        </padding>
+                        <scalable>true</scalable>
+                        <system>true</system>
+                    </region>
+                    <region name="east">
+                        <width>180</width>
+                        <margin>
+                            <left>10</left>
+                        </margin>
+                    </region>
+                </area>
+                <area width="950">
+                    <region name="south">
+                        <width>950</width>
+                    </region>
+                </area>
+            </layout>
+            <layout name="another-layout">
+                <area width="958">
+                    <region name="north">
+                        <width>958</width>
+                        <margin>
+                            <bottom>10</bottom>
+                        </margin>
+                    </region>
+                </area>
+                <area width="958">
+                    <region name="west">
+                        <width>182</width>
+                        <margin>
+                            <right>15</right>
+                        </margin>
+                    </region>
+                    <region name="center">
+                        <padding>
+                            <right>0</right>
+                            <left>0</left>
+                            <top>0</top>
+                            <bottom>30</bottom>
+                        </padding>
+                        <scalable>true</scalable>
+                        <system>true</system>
+                    </region>
+                    <region name="east">
+                        <width>182</width>
+                        <margin>
+                            <left>15</left>
+                        </margin>
+                    </region>
+                </area>
+                <area width="958">
+                    <region name="south">
+                        <width>958</width>
+                    </region>
+                </area>
+            </layout>
+            <image>
+                <format>jpeg</format>
+                <quality>80</quality>
+                <filters>
+                    <filter>rounded(4)</filter>
+                </filters>
+                <sizes>
+                    <size name="full">
+                        <filter>scalewidth</filter>
+                        <width>1</width>
+                    </size>
+                    <size name="wide">
+                        <filter>scalewide</filter>
+                        <width>1</width>
+                        <height>0.4</height>
+                    </size>
+                    <size name="regular">
+                        <filter>scalewidth</filter>
+                        <width>0.4</width>
+                    </size>
+                    <size name="list">
+                        <filter>scalewidth</filter>
+                        <width>0.3</width>
+                    </size>
+                    <size name="square">
+                        <filter>scalesquare</filter>
+                        <size>0.4</size>
+                    </size>
+                    <size name="thumbnail">
+                        <filter>scalesquare</filter>
+                        <size>0.1</size>
+                    </size>
+                </sizes>
+            </image>
+            <styles>
+                <style>/_public/theme-enonic-travels/ui-custom-theme/jquery-ui-1.7.2.custom.css</style>
+                <style>/_public/theme-enonic-travels/all.css</style>
+                <style>/_public/theme-enonic-travels/all-beach.css</style>
+                <style>/_public/theme-enonic-travels/pc.css</style>
+                <style>/_public/theme-enonic-travels/pc-beach.css</style>
+                <style condition="lt IE 8">/_public/theme-enonic-travels/ie.css</style>
+                <style>/_public/theme-enonic-travels/beach.css</style>
+            </styles>
+            <scripts>
+                <script>/_public/libraries/jquery/scripts/jquery-1.4.2.min.js</script>
+                <script>/_public/libraries/jquery/scripts/jquery.validate.min.js</script>
+                <script>/_public/libraries/jquery/scripts/jquery-ui-1.7.2.custom.min.js</script>
+                <script>/_public/libraries/jquery/scripts/jquery.tooltip.min.js</script>
+                <script>/_public/libraries/jquery/scripts/jquery.cookie.js</script>
+                <script>/_public/theme-enonic-travels/scripts/common-all.js</script>
+                <script>/_public/theme-enonic-travels/scripts/common-pc.js</script>
+            </scripts>
+        </device-class>
+        <device-class name="mobile">
+            <layout name="default">
+                <area width="320">
+                    <regions>
+                        <region name="north">
+                            <width>296</width>
+                            <padding>
+                                <left>12</left>
+                                <right>12</right>
+                                <top>12</top>
+                                <bottom>12</bottom>
+                            </padding>
+                        </region>
+                        <region name="center">
+                            <width>296</width>
+                            <padding>
+                                <left>12</left>
+                                <right>12</right>
+                                <top>12</top>
+                                <bottom>12</bottom>
+                            </padding>
+                        </region>
+                        <region name="south">
+                            <width>296</width>
+                            <padding>
+                                <left>12</left>
+                                <right>12</right>
+                                <top>12</top>
+                                <bottom>12</bottom>
+                            </padding>
+                        </region>
+                    </regions>
+                </area>                    
+            </layout>
+            <image>
+                <format>jpeg</format>
+                <quality>70</quality>
+                <filters>
+                    <filter>rounded(4)</filter>
+                </filters>
+                <sizes>
+                    <size name="full">
+                        <filter>scalewidth</filter>
+                        <width>1</width>
+                    </size>
+                    <size name="wide">
+                        <filter>scalewide</filter>
+                        <width>1</width>
+                        <height>0.4</height>
+                    </size>
+                    <size name="regular">
+                        <filter>scalewidth</filter>
+                        <width>0.4</width>
+                    </size>
+                    <size name="list">
+                        <filter>scalewidth</filter>
+                        <width>0.3</width>
+                    </size>
+                    <size name="square">
+                        <filter>scalesquare</filter>
+                        <size>0.4</size>
+                    </size>
+                    <size name="thumbnail">
+                        <filter>scalesquare</filter>
+                        <size>0.1</size>
+                    </size>
+                </sizes>
+            </image>
+            <styles>
+                <style>/_public/themes/travel/all.css</style>
+                <style>/_public/themes/travel/all-beach.css</style>
+                <style>/_public/themes/travel/mobile.css</style>
+                <style>/_public/themes/travel/ui-custom-theme/jquery-ui-1.7.2.custom.css</style>
+                <style>/_public/themes/travel/mobile/beach.css</style>
+                <style>/_public/themes/travel/mobile/default/style.css</style>
+            </styles>
+            <scripts>
+                <script>/_public/libraries/jquery/scripts/jquery-1.4.2.min.js</script>
+                <script>/_public/libraries/jquery/scripts/jquery.enonic.tree.js</script>
+                <script>/_public/libraries/jquery/scripts/jquery.cookie.js</script>                
+                <script>/_public/libraries/jquery/scripts/jquery-ui-1.7.2.custom.min.js</script>
+                <script>/_public/libraries/jquery/scripts/jquery.validate.min.js</script>
+                <script>/_public/themes/travel/scripts/common-all.js</script>                
+            </scripts>
+        </device-class>
+    </device-classes>
+
+</theme>
