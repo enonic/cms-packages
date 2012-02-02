@@ -6,7 +6,7 @@
     xmlns:util="http://www.enonic.com/cms/xslt/utilities"
     xmlns:fw="http://www.enonic.com/cms/xslt/framework">
     
-    <xsl:import href="/modules/library-stk/utilities/fw-variables.xsl"/>
+    <xsl:import href="/modules/library-utilities/fw-variables.xsl"/>
     
     <xsl:template name="breadcrumbs.print-crumbs">
         <xsl:param name="path" as="element()*"/>

@@ -3,7 +3,7 @@
     
     <xsl:output indent="yes" media-type="text/html" method="xhtml" omit-xml-declaration="yes"/>
     
-    <xsl:include href="/modules/library-stk/utilities/frame.xsl"/>
+    <xsl:include href="/modules/library-utilities/frame.xsl"/>
     
     <xsl:param name="include-frame" select="false()"/>
     <xsl:param name="heading"/>

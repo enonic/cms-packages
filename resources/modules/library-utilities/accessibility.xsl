@@ -16,7 +16,7 @@
    xmlns:portal="http://www.enonic.com/cms/xslt/portal"
    xmlns:util="http://www.enonic.com/cms/xslt/utilities">
    
-   <xsl:import href="/modules/library-stk/utilities/fw-variables.xsl"/>
+   <xsl:import href="/modules/library-utilities/fw-variables.xsl"/>
         
    <!-- Accessibility links -->
    <!-- Renders hotkeys to access different anchors as defined in the config.xml -->

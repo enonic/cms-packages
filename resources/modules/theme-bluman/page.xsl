@@ -6,16 +6,16 @@
     xmlns:util="http://www.enonic.com/cms/xslt/utilities"
     xmlns:portal="http://www.enonic.com/cms/xslt/portal">
     
-    <xsl:import href="/modules/library-stk/utilities/fw-variables.xsl"/>
-    <xsl:import href="/modules/library-stk/utilities/region.xsl"/>
-    <xsl:import href="/modules/library-stk/utilities/head.xsl"/>
-    <xsl:import href="/modules/library-stk/utilities/error.xsl"/> 
-    <xsl:import href="/modules/library-stk/utilities/accessibility.xsl"/>
-    <xsl:import href="/modules/library-stk/utilities/google.xsl"/>
+    <xsl:import href="/modules/library-utilities/fw-variables.xsl"/>
+    <xsl:import href="/modules/library-utilities/region.xsl"/>
+    <xsl:import href="/modules/library-utilities/head.xsl"/>
+    <xsl:import href="/modules/library-utilities/error.xsl"/> 
+    <xsl:import href="/modules/library-utilities/accessibility.xsl"/>
+    <xsl:import href="/modules/library-utilities/google.xsl"/>
     
-    <xsl:import href="/modules/library-stk/utilities/system.xsl"/>
-    <xsl:import href="/modules/library-stk/widgets/breadcrumbs.xsl"/>
-    <xsl:import href="/modules/library-stk/widgets/menu.xsl"/>
+    <xsl:import href="/modules/library-utilities/system.xsl"/>
+    <xsl:import href="/modules/sample-navigation/breadcrumbs.xsl"/>
+    <xsl:import href="/modules/sample-navigation/menu.xsl"/>
     <xsl:import href="mobile.xsl"/>
     <xsl:import href="pc.xsl"/>
     

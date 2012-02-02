@@ -5,7 +5,7 @@
       doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="utf-8" indent="yes"
       method="xhtml" omit-xml-declaration="yes"/>
 
-   <xsl:include href="/modules/library-stk/widgets/menu.xsl"/>
+   <xsl:include href="/modules/sample-navigation/menu.xsl"/>
 
    <xsl:template match="/">
       <!-- Render sub menu -->

@@ -7,11 +7,11 @@
     xmlns:portal="http://www.enonic.com/cms/xslt/portal"
     xmlns:util="http://www.enonic.com/cms/xslt/utilities">
     
-    <xsl:import href="/modules/library-stk/utilities/fw-variables.xsl"/>
-    <xsl:include href="/modules/library-stk/utilities/frame.xsl"/>
-    <xsl:include href="/modules/library-stk/utilities/html.xsl"/>
-    <xsl:include href="/modules/library-stk/utilities/system.xsl"/>
-    <xsl:include href="/modules/library-stk/utilities/error.xsl"/>
+    <xsl:import href="/modules/library-utilities/fw-variables.xsl"/>
+    <xsl:include href="/modules/library-utilities/frame.xsl"/>
+    <xsl:include href="/modules/library-utilities/html.xsl"/>
+    <xsl:include href="/modules/library-utilities/system.xsl"/>
+    <xsl:include href="/modules/library-utilities/error.xsl"/>
     <xsl:include href="passport-lib.xsl"/>
     
     <xsl:output indent="yes" media-type="text/html" method="xhtml" omit-xml-declaration="yes"/>

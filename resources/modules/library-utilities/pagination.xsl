@@ -16,7 +16,7 @@
 	xmlns:portal="http://www.enonic.com/cms/xslt/portal"
 	xmlns:util="http://www.enonic.com/cms/xslt/utilities">
 	
-	<xsl:import href="/modules/library-stk/utilities/fw-variables.xsl"/>
+	<xsl:import href="/modules/library-utilities/fw-variables.xsl"/>
 	
 	<xsl:template name="util:pagination.header">
 		<xsl:param name="contents" as="element()"/>

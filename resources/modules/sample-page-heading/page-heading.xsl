@@ -6,8 +6,8 @@
 
    <xsl:output indent="yes" media-type="text/html" method="xhtml" omit-xml-declaration="yes"/>
 
-   <xsl:include href="/modules/library-stk/utilities/fw-variables.xsl"/>
-   <xsl:include href="/modules/library-stk/utilities/system.xsl"/>
+   <xsl:include href="/modules/library-utilities/fw-variables.xsl"/>
+   <xsl:include href="/modules/library-utilities/system.xsl"/>
 
    <xsl:template match="/">
       <h1>

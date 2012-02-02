@@ -5,7 +5,7 @@
     xmlns:fw="http://www.enonic.com/cms/xslt/framework"
     xmlns:util="http://www.enonic.com/cms/xslt/utilities">
 
-    <xsl:import href="/modules/library-stk/utilities/system.xsl"/>
+    <xsl:import href="/modules/library-utilities/system.xsl"/>
     
     <!-- ########## Context variables ########## -->
 

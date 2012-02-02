@@ -25,11 +25,11 @@
                     </xsl:call-template>
 
                 </div>
-            <xsl:if test="portal:isWindowEmpty( /result/context/page/regions/region[ name = 'east' ]/windows/window/@key ) = false()">
+            <!--<xsl:if test="portal:isWindowEmpty( /result/context/page/regions/region[ name = 'east' ]/windows/window/@key ) = false()">-->
                 <xsl:call-template name="fw:region.render">
                     <xsl:with-param name="region-name" select="'east'"/>
                 </xsl:call-template>
-            </xsl:if>
+            <!--</xsl:if>-->
             </div>
         </div>
 

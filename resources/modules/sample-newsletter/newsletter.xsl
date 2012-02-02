@@ -3,8 +3,8 @@
 
   <xsl:output encoding="utf-8" indent="yes" method="xhtml" omit-xml-declaration="yes"/>
 
-  <xsl:include href="/modules/library-stk/utilities/utilities.xsl"/>
-  <xsl:include href="/modules/library-stk/utilities/xhtml.xsl"/>
+  <xsl:include href="/modules/library-utilities/utilities.xsl"/>
+  <xsl:include href="/modules/library-utilities/xhtml.xsl"/>
 
   <xsl:param as="xs:integer" name="region-width" select="325"/>
   <xsl:param as="xs:integer" name="region-width-right" select="163"/>

@@ -5,8 +5,8 @@
   xmlns:fw="http://www.enonic.com/cms/xslt/framework"
   xmlns:util="http://www.enonic.com/cms/xslt/utilities">
   
-  <xsl:import href="/modules/library-stk/utilities/fw-variables.xsl"/>
-  <xsl:import href="/modules/library-stk/utilities/html.xsl"/>
+  <xsl:import href="/modules/library-utilities/fw-variables.xsl"/>
+  <xsl:import href="/modules/library-utilities/html.xsl"/>
   
   <xsl:output indent="yes" media-type="text/html" method="xhtml" omit-xml-declaration="yes"/>
 

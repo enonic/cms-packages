@@ -6,47 +6,33 @@
     xmlns:util="http://www.enonic.com/cms/xslt/utilities"
     xmlns:portal="http://www.enonic.com/cms/xslt/portal">
 
-    <xsl:import href="/modules/library-stk/utilities/fw-variables.xsl"/>
+    <xsl:import href="/modules/library-utilities/fw-variables.xsl"/>
 
     <xsl:output indent="yes" media-type="text/html" method="xhtml" omit-xml-declaration="yes"/>
     
     <xsl:template match="/">
         <xsl:choose>
-            <!-- Search result -->
-            <xsl:when test="$fw:querystring-parameter[@name='locationKey']">
-                <xsl:variable name="locationKey" select="$fw:querystring-parameter[@name='locationKey']"/>
-                <p> You searched for spots in    
-                    <xsl:choose>
-                        <xsl:when test="$locationKey and not($fw:current-resource/path/resource[@key=$locationKey]/display-name='')">
-                            <span class="capitalize">
-                                <xsl:value-of select="$fw:current-resource/path/resource[@key=$locationKey]/display-name"/>
-                            </span>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <span class="capitalize"><xsl:value-of select="$fw:current-resource/display-name"/></span>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                    <xsl:if test="$fw:querystring-parameter[@name='spottags']">
-                        <xsl:variable name="spottags" select="$fw:querystring-parameter[@name='spottags']"/>
-                        <xsl:text> related to </xsl:text>
-                        <xsl:for-each select="/result/tags/contents/content">
-                            <xsl:if test="contains($spottags, @key)">
-                                <span><xsl:value-of select="display-name"/><xsl:text> </xsl:text></span>
-                            </xsl:if>
-                        </xsl:for-each>
-                    </xsl:if>
-                </p>
-            </xsl:when>
+            
             <!-- At a country or area -->
-            <xsl:when test="$fw:current-resource/@type = 'menuitem'">
+            <xsl:when test="$fw:current-resource/@type = 'menuitem' and count(/result/related-spots/contents/content) lt 1">
                 <h1>
                     <xsl:value-of select="$fw:current-resource/display-name" />
                 </h1>
                 <p>Showing spots near <xsl:value-of select="$fw:current-resource/display-name" /></p>
+            </xsl:when>
+            
+            <!-- No search results -->
+            <xsl:when test="$fw:current-resource/@type = 'menuitem' and count(/result/related-spots/contents/content) gt 1">
+                <h1>
+                    No result
+                </h1>
+                <p>We couldn't find any spots related to your search for: <strong><xsl:value-of select="$fw:querystring-parameter[@name = 'tags']"/></strong></p>
+                <h4>Have a look at one of theese instead:</h4>
                 <ul class="spot nearby list">    
-                    <xsl:apply-templates select="/result/spots-nearby/contents/content" mode="spots-nearby"/>
+                    <xsl:apply-templates select="/result/related-spots/contents/content" mode="spots-nearby"/>
                 </ul>
             </xsl:when>
+            
             <!-- At a spot -->
             <xsl:when test="count(/result/spots-nearby/contents/content) gt 1">
                 <h4>Spots nearby</h4>
@@ -54,6 +40,15 @@
                     <xsl:apply-templates select="/result/spots-nearby/contents/content" mode="spots-nearby"/>
                 </ul>
             </xsl:when>
+            
+            <!-- Spots related to search -->
+            <xsl:when test="$fw:querystring-parameter[@name = 'tags'] != '' and count(/result/related-spots/contents/content) gt 0">
+                <h4>You might also like</h4>
+                <ul class="spot nearby list">    
+                    <xsl:apply-templates select="/result/related-spots/contents/content" mode="spots-nearby"/>
+                </ul>
+            </xsl:when>
+            
         </xsl:choose>
     </xsl:template>
     

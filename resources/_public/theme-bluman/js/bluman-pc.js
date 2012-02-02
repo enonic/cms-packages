@@ -12,7 +12,7 @@ $(function () {
     }
     
     /* Hide/show search form */
-    $('#hide-form').click(function () {
+    $('#hide-form').live('click', function () {
         if ($('#bluman-form').is(':visible')) {
             $.cookie('bluman-form', 'hidden');
         } else {
@@ -87,3 +87,19 @@ $(function () {
 $(function() {
     $('#bluman-form select').chosen();
 });
+
+/* rebinds the search form after an ajax call*/
+function rebindForm() {
+    $('#bluman-form select').chosen();
+    if ($.cookie('bluman-form') != 'hidden') {
+        $('#bluman-form').show();
+        $('.collapse-search').addClass('collapse');
+    }
+}
+
+function getParamsAsCSV(str, name, delimiter) {
+    var regex = new RegExp(name+'=', 'g');
+    var str2 = str.replace(regex, '');
+    
+    return str2.split('&').join(delimiter);
+}

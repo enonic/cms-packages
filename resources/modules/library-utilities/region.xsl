@@ -7,7 +7,7 @@
     **************************************************
 -->
 <xsl:stylesheet exclude-result-prefixes="#all" version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fw="http://www.enonic.com/cms/xslt/framework" xmlns:portal="http://www.enonic.com/cms/xslt/portal">
-    <xsl:import href="/modules/library-stk/utilities/fw-variables.xsl"/>
+    <xsl:import href="/modules/library-utilities/fw-variables.xsl"/>
     <xsl:variable name="fw:region.active-regions" as="element()*">
         <xsl:copy-of select="/result/context/page/regions/region[count(windows/window) gt 0]"/>
     </xsl:variable>

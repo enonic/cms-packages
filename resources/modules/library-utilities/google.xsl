@@ -15,8 +15,8 @@
     xmlns:fw="http://www.enonic.com/cms/xslt/framework"
     xmlns:util="http://www.enonic.com/cms/xslt/utilities">
     
-    <xsl:import href="/modules/library-stk/utilities/fw-variables.xsl"/>
-    <xsl:import href="/modules/library-stk/utilities/system.xsl"/>
+    <xsl:import href="/modules/library-utilities/fw-variables.xsl"/>
+    <xsl:import href="/modules/library-utilities/system.xsl"/>
     
     <xsl:template name="util:google.analytics">
         <xsl:variable name="google-analytics-tracker" select="util:system.get-config-param('google-analytics-tracker', $fw:path)" as="xs:string?"/>

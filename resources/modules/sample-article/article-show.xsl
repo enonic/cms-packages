@@ -7,11 +7,11 @@
   xmlns:portal="http://www.enonic.com/cms/xslt/portal"
   xmlns:util="http://www.enonic.com/cms/xslt/utilities">
   
-  <xsl:import href="/modules/library-stk/utilities/fw-variables.xsl"/>
-  <xsl:include href="/modules/library-stk/utilities/html.xsl"/>
-  <xsl:include href="/modules/library-stk/utilities/text.xsl"/>
-  <xsl:include href="/modules/library-stk/utilities/time.xsl"/>
-  <xsl:include href="/modules/library-stk/utilities/file.xsl"/>
+  <xsl:import href="/modules/library-utilities/fw-variables.xsl"/>
+  <xsl:include href="/modules/library-utilities/html.xsl"/>
+  <xsl:include href="/modules/library-utilities/text.xsl"/>
+  <xsl:include href="/modules/library-utilities/time.xsl"/>
+  <xsl:include href="/modules/library-utilities/file.xsl"/>
 
   <xsl:output indent="yes" media-type="text/html" method="xhtml" omit-xml-declaration="yes"/>
 

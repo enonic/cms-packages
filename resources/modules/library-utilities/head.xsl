@@ -6,8 +6,8 @@
    xmlns:portal="http://www.enonic.com/cms/xslt/portal" 
    xmlns:util="http://www.enonic.com/cms/xslt/utilities">
   
-   <xsl:import href="/modules/library-stk/utilities/fw-variables.xsl"/>
-   <xsl:import href="/modules/library-stk/utilities/system.xsl"/>
+   <xsl:import href="/modules/library-utilities/fw-variables.xsl"/>
+   <xsl:import href="/modules/library-utilities/system.xsl"/>
 
    <!-- Metadata -->
    <xsl:variable name="meta-generator" select="util:system.get-config-param('meta-generator', $fw:path)" as="element()?"/>
