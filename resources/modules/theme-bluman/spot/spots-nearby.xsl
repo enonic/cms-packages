@@ -14,11 +14,14 @@
         <xsl:choose>
             
             <!-- At a country or area -->
-            <xsl:when test="$fw:current-resource/@type = 'menuitem' and count(/result/related-spots/contents/content) lt 1">
+            <xsl:when test="$fw:current-resource/@type = 'menuitem' and count(/result/spots-nearby/contents/content) gt 1">
                 <h1>
                     <xsl:value-of select="$fw:current-resource/display-name" />
                 </h1>
                 <p>Showing spots near <xsl:value-of select="$fw:current-resource/display-name" /></p>
+                <ul class="spot nearby list">    
+                    <xsl:apply-templates select="/result/spots-nearby/contents/content" mode="spots-nearby"/>
+                </ul>
             </xsl:when>
             
             <!-- No search results -->
@@ -27,7 +30,7 @@
                     No result
                 </h1>
                 <p>We couldn't find any spots related to your search for: <strong><xsl:value-of select="$fw:querystring-parameter[@name = 'tags']"/></strong></p>
-                <h4>Have a look at one of theese instead:</h4>
+                <p>Have a look at one of theese instead:</p>
                 <ul class="spot nearby list">    
                     <xsl:apply-templates select="/result/related-spots/contents/content" mode="spots-nearby"/>
                 </ul>
@@ -42,7 +45,7 @@
             </xsl:when>
             
             <!-- Spots related to search -->
-            <xsl:when test="$fw:querystring-parameter[@name = 'tags'] != '' and count(/result/related-spots/contents/content) gt 0">
+            <xsl:when test="$fw:querystring-parameter[@name = 'tags'] != '' and count(/result/related-spots/contents/content) gt 1">
                 <h4>You might also like</h4>
                 <ul class="spot nearby list">    
                     <xsl:apply-templates select="/result/related-spots/contents/content" mode="spots-nearby"/>
