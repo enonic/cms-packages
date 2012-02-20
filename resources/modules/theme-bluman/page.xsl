@@ -79,7 +79,7 @@
             </head>
             <body>
                 <xsl:call-template name="pc.body" />
-                <!--<xsl:call-template name="pc.background-images" />-->
+                <xsl:call-template name="pc.background-images" />
                 <xsl:call-template name="util:google.analytics"/>
             </body>
         </html>
