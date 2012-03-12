@@ -14,17 +14,17 @@
                     <xsl:with-param name="expand" select="true()"/>
                 </xsl:call-template>
             </nav>
-            <xsl:call-template name="fw:region.render">
+            <xsl:call-template name="util:region.render">
                 <xsl:with-param name="region-name" select="'west'"/>
             </xsl:call-template>
             <div id="container">
                 
-                <xsl:call-template name="fw:region.render">
+                <xsl:call-template name="util:region.render">
                     <xsl:with-param name="region-name" select="'center'"/>
                 </xsl:call-template>
                 <xsl:call-template name="mobile.front-page-images"/>
                 <xsl:if test="portal:isWindowEmpty( /result/context/page/regions/region[ name = 'east' ]/windows/window/@key )">
-                    <xsl:call-template name="fw:region.render">
+                    <xsl:call-template name="util:region.render">
                         <xsl:with-param name="region-name" select="'east'"/>
                     </xsl:call-template>
                 </xsl:if>

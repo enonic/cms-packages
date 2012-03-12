@@ -9,7 +9,7 @@
                 </p>
             </noscript>
             <xsl:call-template name="pc.header"/>
-            <xsl:call-template name="fw:region.render">
+            <xsl:call-template name="util:region.render">
                 <xsl:with-param name="region-name" select="'west'"/>
             </xsl:call-template>
             <div class="container">
@@ -19,14 +19,14 @@
                             <xsl:value-of select="portal:localize('Change-to-mobile-version')"/>
                         </a>
                     </xsl:variable>
-                    <xsl:call-template name="fw:region.render">
+                    <xsl:call-template name="util:region.render">
                         <xsl:with-param name="region-name" select="'center'"/>
                         <xsl:with-param name="content-append" select="$mobile-version"/>
                     </xsl:call-template>
 
                 </div>
             <!--<xsl:if test="portal:isWindowEmpty( /result/context/page/regions/region[ name = 'east' ]/windows/window/@key ) = false()">-->
-                <xsl:call-template name="fw:region.render">
+                <xsl:call-template name="util:region.render">
                     <xsl:with-param name="region-name" select="'east'"/>
                 </xsl:call-template>
             <!--</xsl:if>-->
@@ -67,7 +67,9 @@
 
 
     <xsl:template name="pc.userinfo">
-        <xsl:if test="$fw:user or $fw:login-page or $fw:sitemap-page != ''">
+    <xsl:variable name="sitemap-page" as="element()?" select="util:system.get-config-param('sitemap', $fw:path)"/>
+    
+        <xsl:if test="$fw:user or $fw:login-page or $sitemap-page != ''">
             <ul>
                 <xsl:choose>
                     <!-- User logged in -->
@@ -101,9 +103,9 @@
                         </li>
                     </xsl:when>
                 </xsl:choose>
-                <xsl:if test="$fw:sitemap-page != ''">
+                <xsl:if test="$sitemap-page != ''">
                     <li class="last">
-                        <a href="{portal:createUrl($fw:sitemap-page)}">
+                        <a href="{portal:createUrl($sitemap-page)}">
                             <xsl:value-of select="portal:localize('Sitemap')"/>
                         </a>
                     </li>
