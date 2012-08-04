@@ -116,7 +116,7 @@
                                     <xsl:value-of select="."/>
                                  </span>
                                  <input name="joingroupkey" id="passport-setgroups-group{@key}" type="checkbox" class="checkbox" value="{@key}">
-                                    <xsl:if test="$user/groups/group[@key = current()/@key]">
+                                    <xsl:if test="$user/memberships/group[@key = current()/@key]">
                                        <xsl:attribute name="checked">checked</xsl:attribute>
                                     </xsl:if>
                                  </input>
