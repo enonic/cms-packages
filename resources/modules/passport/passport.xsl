@@ -46,7 +46,7 @@
                         <xsl:with-param name="error" tunnel="yes" select="$error-user"/>
                         <xsl:with-param name="success" tunnel="yes" select="$success"/>
                         <xsl:with-param name="session-parameter" tunnel="yes" select="/result/context/session/attribute[@name = 'error_user_create']/form/parameter"/>
-                        <xsl:with-param name="group" select="passport-group"/>
+                        <xsl:with-param name="group" select="$passport-groups"/>
                         <xsl:with-param name="join-group-key" tunnel="yes" select="$passport-config/join-group-keys/join-group-key"/>
                         <xsl:with-param name="admin-name" tunnel="yes" select="$passport-config/admin-name"/>
                         <xsl:with-param name="admin-email" tunnel="yes" select="$passport-config/admin-email"/>
