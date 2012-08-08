@@ -251,7 +251,7 @@
                         <xsl:variable name="username">
                            <xsl:choose>
                               <xsl:when test="$email-login = 'true'">%email%</xsl:when>
-                              <xsl:otherwise>%username%</xsl:otherwise>
+                              <xsl:otherwise>%uid%</xsl:otherwise>
                            </xsl:choose>
                         </xsl:variable>
                         <input name="mail_body" id="passport-resetpwd-mail-body" type="hidden" value="{portal:localize('resetpwd-mailbody', ($site-name, $username))}"/>
