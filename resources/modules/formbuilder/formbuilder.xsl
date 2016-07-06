@@ -62,9 +62,6 @@
         </xsl:if>
         <input name="_form_id" type="hidden" value="{$form-id}"/>
         <input name="categorykey" type="hidden" value="{$form/@categorykey}"/>
-        <xsl:for-each select="$form/recipients/e-mail">
-          <input name="{concat($form-id, '_form_recipient')}" type="hidden" value="{.}"/>
-        </xsl:for-each>
         <xsl:apply-templates select="$form/item"/>
         <xsl:if test="not($user)">
           <img src="{portal:createCaptchaImageUrl()}" alt="{portal:localize('Captcha-image')}" class="clear" id="formbuilder-captcha-image"/>
